@@ -26,7 +26,7 @@ public class Rook extends Piece {
         }
 
         for (int direction = -1; direction <= 1; direction += 2) {
-            for (int y = yPos + direction; (direction > 0 ? y < xSize : y > 0); y += direction) {
+            for (int y = yPos + direction; (direction > 0 ? y < ySize : y > 0); y += direction) {
                 Square currentSquare = this.getBoard().getSquareByPos(xPos, y);
                 if (currentSquare.getPiece() != null) {
                     // TODO: & is not king
