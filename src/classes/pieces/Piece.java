@@ -57,7 +57,7 @@ public abstract class Piece {
     }
 
     public List<Square> getMovableSquares() {
-        return moveableSquares;
+        return movableSquares;
     }
 
     public abstract void setMovableSquares();
