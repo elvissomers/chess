@@ -48,15 +48,13 @@ public class Board {
                 squares[xPos][yPos] = square;
             }
         }
-
-        this.squares = squares;
     }
 
     public void setPiece(Square square, Piece piece){
         square.setPiece(piece);
     }
 
-    public Square getSquareByPos(int horizontalPosition, int verticalPosition){
-
+    public Square getSquareByPos(int xPos, int yPos){
+        return this.squares[xPos][yPos];
     }
 }
