@@ -12,9 +12,11 @@ public abstract class Piece {
 
     private Board board;
 
-    private enum team {
+    private enum Team {
         WHITE, BLACK
     }
+
+    private Team team;
 
     private List<Square> moveableSquares = new ArrayList<>();
 
@@ -34,9 +36,21 @@ public abstract class Piece {
         this.board = board;
     }
 
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
     public List<Square> getMoveableSquares() {
         return moveableSquares;
     }
 
     public abstract void setMoveableSquares();
+
+    public void addMovableSquare(Square square){
+        this.moveableSquares.add(square);
+    }
 }
