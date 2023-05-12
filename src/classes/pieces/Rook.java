@@ -31,7 +31,6 @@ public class Rook extends Piece {
             for (int x = xPos + direction; (direction > 0 ? x < xSize : x > 0); x += direction) {
                 Square currentSquare = this.getBoard().getSquareByPos(x, yPos);
                 if (currentSquare.getPiece() != null) {
-                    // TODO: & is not king
                     if (currentSquare.getPiece().getTeam() != this.getTeam()) {
                         this.addMovableSquare(currentSquare);
                     }
@@ -45,7 +44,6 @@ public class Rook extends Piece {
             for (int y = yPos + direction; (direction > 0 ? y < ySize : y > 0); y += direction) {
                 Square currentSquare = this.getBoard().getSquareByPos(xPos, y);
                 if (currentSquare.getPiece() != null) {
-                    // TODO: & is not king
                     if (currentSquare.getPiece().getTeam() != this.getTeam()) {
                         this.addMovableSquare(currentSquare);
                     }

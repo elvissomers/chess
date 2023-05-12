@@ -23,7 +23,6 @@ public class Bishop extends Piece {
                          (xDirection > 0 ? y < ySize : y > 0); y += yRelativeDirection * xDirection) {
                         Square currentSquare = this.getBoard().getSquareByPos(x, yPos);
                         if (currentSquare.getPiece() != null) {
-                            // TODO: & is not king
                             if (currentSquare.getPiece().getTeam() != this.getTeam()) {
                                 this.addMovableSquare(currentSquare);
                             }
