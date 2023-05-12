@@ -36,7 +36,8 @@ public class Pawn extends Piece{
         if (xPos + 1 < xSize) {
             Square squareInFrontRight = this.getBoard().getSquareByPos(xPos + 1,
                     yPos + yDirection);
-            if (squareInFrontRight.getPiece().getTeam() != this.getTeam()) {
+            if (squareInFrontRight.getPiece() != null &&
+                    squareInFrontRight.getPiece().getTeam() != this.getTeam()) {
                 this.addMovableSquare(squareInFrontRight);
             }
         }
@@ -44,7 +45,8 @@ public class Pawn extends Piece{
         if (xPos > 0) {
             Square squareInFrontLeft = this.getBoard().getSquareByPos(xPos - 1,
                     yPos + yDirection);
-            if (squareInFrontLeft.getPiece().getTeam() != this.getTeam()) {
+            if (squareInFrontLeft.getPiece() != null &&
+                    squareInFrontLeft.getPiece().getTeam() != this.getTeam()) {
                 this.addMovableSquare(squareInFrontLeft);
             }
         }
