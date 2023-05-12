@@ -12,7 +12,8 @@ public class Board {
     private int horizontalSize;
 
     // TODO: find out what data structure best to use (for now, ArrayList)
-    private List<Square> squares = new ArrayList<>();
+    // Perhaps I should use another data structure to implement getSquareByPos more easily
+    private Square[][] squares = new Square[horizontalSize][verticalSize];
 
     public Board(int verticalSize, int horizontalSize) {
         this.verticalSize = verticalSize;
@@ -36,16 +37,15 @@ public class Board {
         this.horizontalSize = horizontalSize;
     }
 
-    public List<Square> getSquares() {
+    public Square[][] getSquares() {
         return squares;
     }
 
     public void setSquares() {
-        List<Square> squares = new ArrayList<>();
-        for(int xPos = 1; xPos < horizontalSize + 1; xPos++){
-            for(int yPos = 1; yPos < verticalSize + 1; xPos++){
+        for(int xPos = 0; xPos < horizontalSize; xPos++){
+            for(int yPos = 0; yPos < verticalSize; xPos++){
                 Square square = new Square(xPos, yPos);
-                squares.add(square);
+                squares[xPos][yPos] = square;
             }
         }
 
@@ -54,5 +54,9 @@ public class Board {
 
     public void setPiece(Square square, Piece piece){
         square.setPiece(piece);
+    }
+
+    public Square getSquareByPos(int horizontalPosition, int verticalPosition){
+
     }
 }
