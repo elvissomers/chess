@@ -7,6 +7,11 @@ public class King extends Piece {
     public King(Team team) {
         super(team);
     }
+
+    // King keeps track of whether it has moved during this game
+    // - needed for castling rule
+    private boolean hasMoved;
+
     private boolean inCheck;
 
     public boolean isInCheck() {
@@ -15,6 +20,14 @@ public class King extends Piece {
 
     public void setInCheck(boolean inCheck) {
         this.inCheck = inCheck;
+    }
+
+    public boolean isHasMoved() {
+        return hasMoved;
+    }
+
+    public void setHasMoved(boolean hasMoved) {
+        this.hasMoved = hasMoved;
     }
 
     @Override

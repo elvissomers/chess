@@ -4,8 +4,20 @@ import classes.board.Square;
 
 public class Rook extends Piece {
 
+    // Rook keeps track of whether it has moved during this game
+    // - needed for castling rule
+    private boolean hasMoved;
+
     public Rook(Team team) {
         super(team);
+    }
+
+    public boolean isHasMoved() {
+        return hasMoved;
+    }
+
+    public void setHasMoved(boolean hasMoved) {
+        this.hasMoved = hasMoved;
     }
 
     @Override
