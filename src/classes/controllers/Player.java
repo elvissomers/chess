@@ -16,6 +16,9 @@ public class Player {
     // TODO: create specific pieceList class
     private List<Piece> pieces;
 
+    // TODO: create specific class here too (instead of list)
+    private List<Square> coveredSquares;
+
     public Player(Team team) {
         this.team = team;
     }
