@@ -3,20 +3,8 @@ package classes.pieces;
 import classes.board.Square;
 
 public class Pawn extends Piece{
-
-    // Pawn keeps track of the previous square it was on
-    // - needed for the en passant rule.
-    private Square previousSquare;
     public Pawn(Team team) {
         super(team);
-    }
-
-    public Square getPreviousSquare() {
-        return previousSquare;
-    }
-
-    public void setPreviousSquare(Square previousSquare) {
-        this.previousSquare = previousSquare;
     }
 
     @Override
