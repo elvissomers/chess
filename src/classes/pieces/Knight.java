@@ -24,13 +24,15 @@ public class Knight extends Piece {
 
                 if (0 <= x1 && x1 <= xSize && 0 <= y1 && y1 <= ySize){
                     Square currentSquare = this.getBoard().getSquareByPos(x1, y1);
-                    if (currentSquare.getPiece().getTeam() != this.getTeam()) {
+                    if (currentSquare.getPiece() == null ||
+                            currentSquare.getPiece().getTeam() != this.getTeam()) {
                         this.addMovableSquare(currentSquare);
                     }
                 }
                 if (0 <= x2 && x2 <= xSize && 0 <= y2 && y2 <= ySize){
                     Square currentSquare = this.getBoard().getSquareByPos(x2, y2);
-                    if (currentSquare.getPiece().getTeam() != this.getTeam()) {
+                    if (currentSquare.getPiece() == null ||
+                            currentSquare.getPiece().getTeam() != this.getTeam()) {
                         this.addMovableSquare(currentSquare);
                     }
                 }
