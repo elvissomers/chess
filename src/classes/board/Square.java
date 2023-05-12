@@ -9,6 +9,11 @@ public class Square {
 
     private Piece piece;
 
+    public Square(int horizontalPosition, int verticalPosition) {
+        this.horizontalPosition = horizontalPosition;
+        this.verticalPosition = verticalPosition;
+    }
+
     public int getHorizontalPosition() {
         return horizontalPosition;
     }
