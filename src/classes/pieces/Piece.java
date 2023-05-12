@@ -28,8 +28,16 @@ public abstract class Piece {
         return square;
     }
 
+    /*
+     * set square method also updates the square from which the
+     * piece was moved, and the square the pieces was moved to
+     */
     public void setSquare(Square square) {
+        if (this.square.getPiece() != null) {
+            this.square.setPiece(null);
+        }
         this.square = square;
+        this.square.setPiece(this);
     }
 
     public Board getBoard() {
