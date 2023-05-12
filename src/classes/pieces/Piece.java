@@ -18,7 +18,7 @@ public abstract class Piece {
 
     private Team team;
 
-    private List<Square> moveableSquares = new ArrayList<>();
+    private List<Square> movableSquares = new ArrayList<>();
 
     public Piece(Team team) {
         this.team = team;
@@ -56,13 +56,13 @@ public abstract class Piece {
         this.team = team;
     }
 
-    public List<Square> getMoveableSquares() {
+    public List<Square> getMovableSquares() {
         return moveableSquares;
     }
 
-    public abstract void setMoveableSquares();
+    public abstract void setMovableSquares();
 
     public void addMovableSquare(Square square){
-        this.moveableSquares.add(square);
+        this.movableSquares.add(square);
     }
 }

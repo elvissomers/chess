@@ -21,7 +21,7 @@ public class Rook extends Piece {
     }
 
     @Override
-    public void setMoveableSquares() {
+    public void setMovableSquares() {
         int xPos = this.getSquare().getHorizontalPosition();
         int yPos = this.getSquare().getVerticalPosition();
         int xSize = this.getBoard().getHorizontalSize();
