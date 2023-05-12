@@ -1,5 +1,7 @@
 package classes.board;
 
+import classes.pieces.Piece;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +13,12 @@ public class Board {
 
     // TODO: find out what data structure best to use (for now, ArrayList)
     private List<Square> squares = new ArrayList<>();
+
+    public Board(int verticalSize, int horizontalSize) {
+        this.verticalSize = verticalSize;
+        this.horizontalSize = horizontalSize;
+        this.setSquares();
+    }
 
     public int getVerticalSize() {
         return verticalSize;
@@ -40,5 +48,11 @@ public class Board {
                 squares.add(square);
             }
         }
+
+        this.squares = squares;
+    }
+
+    public void setPiece(Square square, Piece piece){
+        square.setPiece(piece);
     }
 }
