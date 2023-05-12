@@ -12,13 +12,17 @@ public abstract class Piece {
 
     private Board board;
 
-    private enum Team {
+    public enum Team {
         WHITE, BLACK
     }
 
     private Team team;
 
     private List<Square> moveableSquares = new ArrayList<>();
+
+    public Piece(Team team) {
+        this.team = team;
+    }
 
     public Square getSquare() {
         return square;

@@ -4,6 +4,9 @@ import classes.board.Square;
 
 public class King extends Piece {
 
+    public King(Team team) {
+        super(team);
+    }
     private boolean inCheck;
 
     public boolean isInCheck() {

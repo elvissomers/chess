@@ -3,6 +3,10 @@ package classes.pieces;
 import classes.board.Square;
 
 public class Pawn extends Piece{
+    public Pawn(Team team) {
+        super(team);
+    }
+
     @Override
     public void setMoveableSquares() {
         int xPos = this.getSquare().getHorizontalPosition();

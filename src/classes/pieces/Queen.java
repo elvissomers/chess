@@ -4,6 +4,10 @@ import classes.board.Square;
 
 public class Queen extends Piece{
 
+    public Queen(Team team) {
+        super(team);
+    }
+
     @Override
     public void setMoveableSquares() {
         int xPos = this.getSquare().getHorizontalPosition();

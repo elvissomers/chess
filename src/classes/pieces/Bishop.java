@@ -4,6 +4,10 @@ import classes.board.Square;
 
 public class Bishop extends Piece {
 
+    public Bishop(Team team) {
+        super(team);
+    }
+
     @Override
     public void setMoveableSquares() {
         int xPos = this.getSquare().getHorizontalPosition();
