@@ -1,7 +1,7 @@
-package classes.controllers;
+package main.classes.controllers;
 
-import classes.board.Board;
-import classes.pieces.*;
+import main.classes.board.Board;
+import main.classes.pieces.*;
 
 public class Game {
 
@@ -18,12 +18,37 @@ public class Game {
         this.setStartBoard();
     }
 
+    public Board getBoard() {
+        return board;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
+    public Player getWhitePlayer() {
+        return whitePlayer;
+    }
+
+    public void setWhitePlayer(Player whitePlayer) {
+        this.whitePlayer = whitePlayer;
+    }
+
+    public Player getBlackPlayer() {
+        return blackPlayer;
+    }
+
+    public void setBlackPlayer(Player blackPlayer) {
+        this.blackPlayer = blackPlayer;
+    }
+
     public void setStartBoard(){
-        Piece[] piecesInOrder = new Piece[] {
-                new Rook(null), new Knight(null), new Bishop(null), new Queen(null), new King(null),
-                new Bishop(null), new Knight(null), new Rook(null)
-        };
         for (Piece.Team team : new Piece.Team[] {Piece.Team.WHITE, Piece.Team.BLACK}) {
+            Piece[] piecesInOrder = new Piece[] {
+                    new Rook(null), new Knight(null), new Bishop(null),
+                    new Queen(null), new King(null), new Bishop(null),
+                    new Knight(null), new Rook(null)
+            };
             int yForMajorPieces = (team == Piece.Team.WHITE) ? 0 : 7;
             int yForPawns = (team == Piece.Team.WHITE) ? 1 : 6;
 
