@@ -11,7 +11,7 @@ public class Player {
         WHITE, BLACK
     }
 
-    private Team team;
+    private final Player.Team team;
 
     // TODO: create specific pieceList class
     private List<Piece> pieces;
@@ -21,6 +21,26 @@ public class Player {
 
     public Player(Team team) {
         this.team = team;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public List<Piece> getPieces() {
+        return pieces;
+    }
+
+    public void setPieces(List<Piece> pieces) {
+        this.pieces = pieces;
+    }
+
+    public List<Square> getCoveredSquares() {
+        return coveredSquares;
+    }
+
+    public void setCoveredSquares(List<Square> coveredSquares) {
+        this.coveredSquares = coveredSquares;
     }
 
     public void movePiece(Piece piece, Square destSquare) {
