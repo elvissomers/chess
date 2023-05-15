@@ -1,6 +1,6 @@
-package classes.pieces;
+package main.classes.pieces;
 
-import classes.board.Square;
+import main.classes.board.Square;
 
 public class King extends Piece {
 

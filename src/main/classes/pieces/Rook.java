@@ -1,11 +1,23 @@
-package classes.pieces;
+package main.classes.pieces;
 
-import classes.board.Square;
+import main.classes.board.Square;
 
-public class Queen extends Piece{
+public class Rook extends Piece {
 
-    public Queen(Team team) {
+    // Rook keeps track of whether it has moved during this game
+    // - needed for castling rule
+    private boolean hasMoved;
+
+    public Rook(Team team) {
         super(team);
+    }
+
+    public boolean isHasMoved() {
+        return hasMoved;
+    }
+
+    public void setHasMoved(boolean hasMoved) {
+        this.hasMoved = hasMoved;
     }
 
     @Override
@@ -41,23 +53,5 @@ public class Queen extends Piece{
             }
         }
 
-        for (int xDirection = -1; xDirection <= 1; xDirection += 2) {
-            for (int yRelativeDirection = -1; yRelativeDirection <= 1; yRelativeDirection += 2) {
-                for (int x = xPos + xDirection; (xDirection > 0 ? x < xSize : x > 0);
-                     x += xDirection) {
-                    for (int y = yPos + yRelativeDirection * xDirection;
-                         (xDirection > 0 ? y < ySize : y > 0); y += yRelativeDirection * xDirection) {
-                        Square currentSquare = this.getBoard().getSquareByPos(x, yPos);
-                        if (currentSquare.getPiece() != null) {
-                            if (currentSquare.getPiece().getTeam() != this.getTeam()) {
-                                this.addMovableSquare(currentSquare);
-                            }
-                            break;
-                        }
-                        this.addMovableSquare(currentSquare);
-                    }
-                }
-            }
-        }
     }
 }

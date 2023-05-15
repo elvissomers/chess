@@ -1,7 +1,7 @@
-package classes.pieces;
+package main.classes.pieces;
 
-import classes.board.Board;
-import classes.board.Square;
+import main.classes.board.Board;
+import main.classes.board.Square;
 
 import java.util.ArrayList;
 import java.util.List;

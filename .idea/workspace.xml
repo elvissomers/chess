@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Initial setup" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="add getters &amp; setters to player">
+      <change afterPath="$PROJECT_DIR$/src/test/controllers/GameTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/pieces/QueenTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chess.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chess.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/board/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/board/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/board/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/controllers/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/controllers/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/controllers/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/controllers/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/pieces/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/pieces/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/pieces/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/pieces/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/pieces/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/pieces/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/pieces/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/pieces/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/pieces/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/pieces/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/pieces/Rook.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,8 +30,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2PgVWpDQL98i350SrB0oNYIuhxN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -24,11 +47,53 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "onboarding.tips.debug.path": "C:/Users/eso13215/IdeaProjects/chess/src/Main.java"
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "git-widget-placeholder": "main",
+    "onboarding.tips.debug.path": "C:/Users/eso13215/IdeaProjects/chess/src/Main.java",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="test.controllers" />
+      <recent name="test.pieces" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="GameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.controllers" />
+      <option name="MAIN_CLASS_NAME" value="test.controllers.GameTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.GameTest" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -45,7 +110,266 @@
       <option name="project" value="LOCAL" />
       <updated>1683878866197</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Initial setup">
+      <created>1683879540352</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683879540352</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Create square class">
+      <created>1683880987989</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683880987989</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add .idea folder to gitignore">
+      <created>1683881038926</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683881038926</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Created board class">
+      <created>1683881451385</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683881451385</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added constructor">
+      <created>1683881468049</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683881468049</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Abstract piece class">
+      <created>1683882333476</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683882333476</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added constructor, set piece method. Updated setsquares method">
+      <created>1683882361540</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683882361540</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Rook class. Work in progress">
+      <created>1683882377469</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683882377469</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Update board to use 2D array instead of arraylist">
+      <created>1683885224588</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683885224588</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added getsquarebypos function">
+      <created>1683886054923</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683886054923</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added team attribute">
+      <created>1683886073019</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1683886073019</updated>
+    </task>
+    <task id="LOCAL-00013" summary="setmovablesquares implementation (work in progress)">
+      <created>1683886093069</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1683886093069</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add todo comments">
+      <created>1683886200944</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683886200944</updated>
+    </task>
+    <task id="LOCAL-00015" summary="bugfix: update xsize to ysize in vertical movement">
+      <created>1683886238919</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1683886238919</updated>
+    </task>
+    <task id="LOCAL-00016" summary="setup bishop class">
+      <created>1683886641351</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1683886641351</updated>
+    </task>
+    <task id="LOCAL-00017" summary="ydirection refactor">
+      <created>1683886792808</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1683886792808</updated>
+    </task>
+    <task id="LOCAL-00018" summary="setup queen class">
+      <created>1683886868531</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1683886868531</updated>
+    </task>
+    <task id="LOCAL-00019" summary="setup knight class">
+      <created>1683887554013</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1683887554013</updated>
+    </task>
+    <task id="LOCAL-00020" summary="setup pawn class">
+      <created>1683888068700</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1683888068700</updated>
+    </task>
+    <task id="LOCAL-00021" summary="create empty controller classes">
+      <created>1683888177417</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1683888177417</updated>
+    </task>
+    <task id="LOCAL-00022" summary="setup controller attributes">
+      <created>1683888411724</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1683888411724</updated>
+    </task>
+    <task id="LOCAL-00023" summary="setup king class">
+      <created>1683888780177</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1683888780177</updated>
+    </task>
+    <task id="LOCAL-00024" summary="formatting">
+      <created>1683888862372</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1683888862372</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added team to piece constructors">
+      <created>1683894560840</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1683894560840</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Update setsquare method to change square object as well">
+      <created>1683894587123</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1683894587123</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Update player controller constructor and movepiece function">
+      <created>1683894617245</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1683894617245</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added setstartboard to game controller">
+      <created>1683894639799</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1683894639799</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added extra piece attributes for en passant en castling special moves">
+      <created>1683894888402</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1683894888402</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Pawn class bugfixes">
+      <created>1683895398230</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1683895398230</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Update knight piece check (don't take your own piece)">
+      <created>1683896136919</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1683896136919</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Update pawn piece check (don't take your own piece)">
+      <created>1683896168918</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1683896168918</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Remove &quot;previous square&quot; from pawn (will be implemented in controller instead)">
+      <created>1683896214074</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1683896214074</updated>
+    </task>
+    <task id="LOCAL-00034" summary="added covered squares attribute in player">
+      <created>1683896397115</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1683896397115</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Removed &quot;&amp; is not king&quot; TODO's, will not be implemented">
+      <created>1683896510707</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1683896510707</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Spelling correction moveable -&gt; movable">
+      <created>1683896656008</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1683896656008</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Spelling correction moveable -&gt; movable">
+      <created>1683896676041</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1683896676041</updated>
+    </task>
+    <task id="LOCAL-00038" summary="add getters &amp; setters to player">
+      <created>1684138449389</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1684138449389</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -60,8 +384,34 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial setup" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="setmovablesquares implementation (work in progress)" />
+    <MESSAGE value="add todo comments" />
+    <MESSAGE value="bugfix: update xsize to ysize in vertical movement" />
+    <MESSAGE value="setup bishop class" />
+    <MESSAGE value="ydirection refactor" />
+    <MESSAGE value="setup queen class" />
+    <MESSAGE value="setup knight class" />
+    <MESSAGE value="setup pawn class" />
+    <MESSAGE value="create empty controller classes" />
+    <MESSAGE value="setup controller attributes" />
+    <MESSAGE value="setup king class" />
+    <MESSAGE value="formatting" />
+    <MESSAGE value="Added team to piece constructors" />
+    <MESSAGE value="Update setsquare method to change square object as well" />
+    <MESSAGE value="Update player controller constructor and movepiece function" />
+    <MESSAGE value="Added setstartboard to game controller" />
+    <MESSAGE value="Added extra piece attributes for en passant en castling special moves" />
+    <MESSAGE value="Pawn class bugfixes" />
+    <MESSAGE value="Update knight piece check (don't take your own piece)" />
+    <MESSAGE value="Update pawn piece check (don't take your own piece)" />
+    <MESSAGE value="Remove &quot;previous square&quot; from pawn (will be implemented in controller instead)" />
+    <MESSAGE value="added covered squares attribute in player" />
+    <MESSAGE value="Removed &quot;&amp; is not king&quot; TODO's, will not be implemented" />
+    <MESSAGE value="Spelling correction moveable -&gt; movable" />
+    <MESSAGE value="add getters &amp; setters to player" />
+    <option name="LAST_COMMIT_MESSAGE" value="add getters &amp; setters to player" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -70,6 +420,21 @@
           <url>file://$PROJECT_DIR$/src/Main.java</url>
           <line>13</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/controllers/Game.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/controllers/Game.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/controllers/Game.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

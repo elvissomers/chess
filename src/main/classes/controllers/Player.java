@@ -1,7 +1,7 @@
-package classes.controllers;
+package main.classes.controllers;
 
-import classes.board.Square;
-import classes.pieces.Piece;
+import main.classes.board.Square;
+import main.classes.pieces.Piece;
 
 import java.util.List;
 

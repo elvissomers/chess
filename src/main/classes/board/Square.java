@@ -1,6 +1,6 @@
-package classes.board;
+package main.classes.board;
 
-import classes.pieces.Piece;
+import main.classes.pieces.Piece;
 
 public class Square {
     private int horizontalPosition;

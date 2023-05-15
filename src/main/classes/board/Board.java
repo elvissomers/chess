@@ -1,9 +1,6 @@
-package classes.board;
+package main.classes.board;
 
-import classes.pieces.Piece;
-
-import java.util.ArrayList;
-import java.util.List;
+import main.classes.pieces.Piece;
 
 public class Board {
 
@@ -13,11 +10,12 @@ public class Board {
 
     // TODO: find out what data structure best to use (for now, ArrayList)
     // Perhaps I should use another data structure to implement getSquareByPos more easily
-    private Square[][] squares = new Square[horizontalSize][verticalSize];
+    private Square[][] squares;
 
     public Board(int verticalSize, int horizontalSize) {
         this.verticalSize = verticalSize;
         this.horizontalSize = horizontalSize;
+        this.squares = new Square[horizontalSize][verticalSize];
         this.setSquares();
     }
 
@@ -43,7 +41,7 @@ public class Board {
 
     public void setSquares() {
         for(int xPos = 0; xPos < horizontalSize; xPos++){
-            for(int yPos = 0; yPos < verticalSize; xPos++){
+            for(int yPos = 0; yPos < verticalSize; yPos++){
                 Square square = new Square(xPos, yPos);
                 squares[xPos][yPos] = square;
             }
