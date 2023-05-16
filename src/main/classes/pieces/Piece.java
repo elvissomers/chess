@@ -33,7 +33,7 @@ public abstract class Piece {
      * piece was moved, and the square the pieces was moved to
      */
     public void setSquare(Square square) {
-        if (this.square.getPiece() != null) {
+        if (this.square != null && this.square.getPiece() != null) {
             this.square.setPiece(null);
         }
         this.square = square;
