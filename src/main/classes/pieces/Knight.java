@@ -1,11 +1,12 @@
 package main.classes.pieces;
 
 import main.classes.board.Square;
+import main.classes.controllers.Game;
 
 public class Knight extends Piece {
 
-    public Knight(Team team) {
-        super(team);
+    public Knight(Game game, Team team) {
+        super(game, team);
     }
 
     @Override

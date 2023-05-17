@@ -1,6 +1,7 @@
 package main.classes.pieces;
 
 import main.classes.board.Square;
+import main.classes.controllers.Game;
 
 public class Rook extends Piece {
 
@@ -8,8 +9,8 @@ public class Rook extends Piece {
     // - needed for castling rule
     private boolean hasMoved;
 
-    public Rook(Team team) {
-        super(team);
+    public Rook(Game game, Team team) {
+        super(game, team);
     }
 
     public boolean isHasMoved() {

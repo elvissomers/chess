@@ -1,11 +1,13 @@
 package main.classes.pieces;
 
 import main.classes.board.Square;
+import main.classes.controllers.Game;
+import main.classes.controllers.Player;
 
 public class King extends Piece {
 
-    public King(Team team) {
-        super(team);
+    public King(Game game, Team team) {
+        super(game, team);
     }
 
     // King keeps track of whether it has moved during this game

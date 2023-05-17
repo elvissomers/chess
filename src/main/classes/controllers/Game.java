@@ -47,9 +47,9 @@ public class Game {
     public void setStartBoard(){
         for (Piece.Team team : new Piece.Team[] {Piece.Team.WHITE, Piece.Team.BLACK}) {
             Piece[] piecesInOrder = new Piece[] {
-                    new Rook(null), new Knight(null), new Bishop(null),
-                    new Queen(null), new King(null), new Bishop(null),
-                    new Knight(null), new Rook(null)
+                    new Rook(this, null), new Knight(this, null), new Bishop(this, null),
+                    new Queen(this, null), new King(this, null), new Bishop(this, null),
+                    new Knight(this, null), new Rook(this, null)
             };
             int yForMajorPieces = (team == Piece.Team.WHITE) ? 0 : 7;
             int yForPawns = (team == Piece.Team.WHITE) ? 1 : 6;
