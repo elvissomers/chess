@@ -22,9 +22,6 @@ public class Player {
     // TODO: create specific pieceList class
     private List<Piece> pieces;
 
-    // TODO: create specific class here too (instead of list)
-    private List<Square> coveredSquares;
-
     public Player(Game game, Team team) {
         this.game = game;
         this.team = team;
@@ -44,14 +41,6 @@ public class Player {
 
     public void setPieces(List<Piece> pieces) {
         this.pieces = pieces;
-    }
-
-    public List<Square> getCoveredSquares() {
-        return coveredSquares;
-    }
-
-    public void setCoveredSquares(List<Square> coveredSquares) {
-        this.coveredSquares = coveredSquares;
     }
 
     public void movePiece(Piece piece, Square destSquare) {
