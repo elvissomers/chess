@@ -4,11 +4,14 @@ import main.classes.board.Square;
 import main.classes.game.Move;
 import main.classes.pieces.Piece;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
 
     private Game game;
+
+    private List<Move> moveHistory = new ArrayList<>();
 
     public enum Team {
         WHITE, BLACK
@@ -55,6 +58,7 @@ public class Player {
         Square fromSquare = piece.getSquare();
         Move move = new Move(piece, fromSquare, destSquare);
         piece.setSquare(destSquare);
+        moveHistory.add(move);
         this.game.getMoveHistory().add(move);
     }
 }
