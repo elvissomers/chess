@@ -8,8 +8,6 @@ public class Board {
 
     private int horizontalSize;
 
-    // TODO: find out what data structure best to use (for now, ArrayList)
-    // Perhaps I should use another data structure to implement getSquareByPos more easily
     private Square[][] squares;
 
     public Board(int verticalSize, int horizontalSize) {
