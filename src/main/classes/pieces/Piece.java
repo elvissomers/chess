@@ -31,7 +31,8 @@ public abstract class Piece {
         return game;
     }
 
-    public Piece(Team team) {
+    public Piece(Game game, Team team) {
+        this.game = game;
         this.team = team;
     }
 
