@@ -56,14 +56,12 @@ public class Game {
             for (int xPos = 0; xPos < piecesInOrder.length; xPos++) {
                 Piece piece = piecesInOrder[xPos];
                 piece.setTeam(team);
-//                this.board.getSquareByPos(xPos, yForMajorPieces).setPiece(piece);
                 piece.setSquare(this.board.getSquareByPos(xPos, yForMajorPieces));
                 piece.setBoard(this.board);
             }
 
             // Set pawns
             for (int xPos = 0; xPos < this.board.getHorizontalSize(); xPos++){
-//                this.board.getSquareByPos(xPos, yForPawns).setPiece(new Pawn(team));
                 Pawn pawn = new Pawn(team);
                 pawn.setSquare(this.board.getSquareByPos(xPos, yForPawns));
                 pawn.setBoard(this.board);
