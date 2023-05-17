@@ -47,6 +47,9 @@ class QueenTest {
         }
 
 
-        assertTrue(queen.getMovableSquares().containsAll(expectedSquares), "Queen should move to all squares on its line and diagonal when pawns removed");
+        assertTrue(queen.getMovableSquares().containsAll(expectedSquares),
+                "Queen should move to all squares on its line and diagonal when pawns removed");
+        assertTrue(expectedSquares.containsAll(queen.getMovableSquares()),
+                "Queen should move to all squares on its line and diagonal when pawns removed");
     }
 }

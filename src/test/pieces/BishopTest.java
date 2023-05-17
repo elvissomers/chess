@@ -8,7 +8,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -43,6 +42,9 @@ class BishopTest {
         for (int i = 1; i < 6; i++){
              expectedSquares.add(startBoard.getSquareByPos(i+2, i));
         }
-        assertTrue(bishop.getMovableSquares().containsAll(expectedSquares), "Bishop should move to squares (3,1) and (4,2) when pawns removed");
+        assertTrue(bishop.getMovableSquares().containsAll(expectedSquares),
+                "Bishop should move to squares on its diagonal when pawns removed");
+        assertTrue(expectedSquares.containsAll(bishop.getMovableSquares()),
+                "Bishop should not move to squares off its diagonal when pawns removed");
     }
 }

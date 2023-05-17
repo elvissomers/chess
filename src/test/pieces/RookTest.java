@@ -42,6 +42,10 @@ class RookTest {
             expectedSquares.add(startBoard.getSquareByPos(0, i));
         }
 
-        assertTrue(rook.getMovableSquares().containsAll(expectedSquares), "Rook should move to all squares on its line on empty board");
+        assertTrue(rook.getMovableSquares().containsAll(expectedSquares),
+                "Rook should move to all squares on its line on empty board");
+        assertTrue(expectedSquares.containsAll(rook.getMovableSquares()),
+                "Rook should move to no squares off its line on empty board");
+
     }
 }
