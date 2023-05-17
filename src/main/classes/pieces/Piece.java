@@ -2,6 +2,7 @@ package main.classes.pieces;
 
 import main.classes.board.Board;
 import main.classes.board.Square;
+import main.classes.controllers.Game;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,8 @@ public abstract class Piece {
 
     private Board board;
 
+    private Game game;
+
     public enum Team {
         WHITE, BLACK
     }
@@ -19,6 +22,14 @@ public abstract class Piece {
     private Team team;
 
     private List<Square> movableSquares = new ArrayList<>();
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public Game getGame() {
+        return game;
+    }
 
     public Piece(Team team) {
         this.team = team;
