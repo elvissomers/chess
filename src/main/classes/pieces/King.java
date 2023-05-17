@@ -14,6 +14,7 @@ public class King extends Piece {
 
     // King keeps track of whether it has moved during this game
     // - needed for castling rule
+    // TODO: will remove this, obtain it from the move history instead
     private boolean hasMoved;
 
     private boolean inCheck;
