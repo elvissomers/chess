@@ -64,7 +64,7 @@ public class Game {
 
             // Set pawns
             for (int xPos = 0; xPos < this.board.getHorizontalSize(); xPos++){
-                Pawn pawn = new Pawn(team);
+                Pawn pawn = new Pawn(this, team);
                 pawn.setSquare(this.board.getSquareByPos(xPos, yForPawns));
                 pawn.setBoard(this.board);
             }
