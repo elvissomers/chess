@@ -41,7 +41,8 @@ public class King extends Piece {
             for (int y = -1; y <= 1; y++){
                 if (0 <= xPos + x && xPos + x <= xSize && 0 <= yPos + y && yPos + y <= ySize){
                 Square currentSquare = this.getBoard().getSquareByPos(xPos + x, yPos + y);
-                if (currentSquare.getPiece().getTeam() != this.getTeam()) {
+                if (currentSquare.getPiece() == null ||
+                        currentSquare.getPiece().getTeam() != this.getTeam()) {
                     // TODO: check if king is put in check by moving here
                     this.addMovableSquare(currentSquare);
                     }
