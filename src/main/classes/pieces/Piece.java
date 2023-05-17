@@ -13,6 +13,10 @@ public abstract class Piece {
 
     private Board board;
 
+    // TODO: Instead of having the Game & Team attribute, Piece should have a Player
+    // TODO: attribute. Then we can get the game from the player, and also the Team
+    // TODO: from the player.
+
     private Game game;
 
     public enum Team {
