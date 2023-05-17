@@ -4,6 +4,8 @@ import main.classes.board.Square;
 import main.classes.controllers.Game;
 import main.classes.controllers.Player;
 
+import java.util.List;
+
 public class King extends Piece {
 
     public King(Game game, Team team) {
@@ -40,17 +42,29 @@ public class King extends Piece {
         int ySize = this.getBoard().getVerticalSize();
 
         for (int x = -1; x <= 1; x++) {
-            for (int y = -1; y <= 1; y++){
-                if (0 <= xPos + x && xPos + x <= xSize && 0 <= yPos + y && yPos + y <= ySize){
-                Square currentSquare = this.getBoard().getSquareByPos(xPos + x, yPos + y);
-                if (currentSquare.getPiece() == null ||
-                        currentSquare.getPiece().getTeam() != this.getTeam()) {
-                    // TODO: check if king is put in check by moving here
-                    this.addMovableSquare(currentSquare);
+            for (int y = -1; y <= 1; y++) {
+                if (0 <= xPos + x && xPos + x <= xSize && 0 <= yPos + y && yPos + y <= ySize) {
+                    Square currentSquare = this.getBoard().getSquareByPos(xPos + x, yPos + y);
+                    if (currentSquare.getPiece() == null ||
+                            currentSquare.getPiece().getTeam() != this.getTeam()) {
+                        if (!checkCheck(currentSquare, this.getGame(), this.getTeam())) {
+                            this.addMovableSquare(currentSquare);
+                        }
                     }
                 }
             }
         }
+    }
 
+    public boolean checkCheck(Square square, Game game, Team team) {
+        Player attackingPlayer = (team == Team.WHITE) ? game.getBlackPlayer() : game.getWhitePlayer();
+        for (Piece piece : attackingPlayer.getPieces()) {
+            List<Square> squaresUnderAttack = piece.getMovableSquares();
+            // TODO: change this for pawn. Pawns can move to places that they do not attack
+            if (squaresUnderAttack.contains(square)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
