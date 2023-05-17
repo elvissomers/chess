@@ -1,6 +1,7 @@
 package main.classes.controllers;
 
 import main.classes.board.Square;
+import main.classes.game.Move;
 import main.classes.pieces.Piece;
 
 import java.util.List;
@@ -51,6 +52,9 @@ public class Player {
     }
 
     public void movePiece(Piece piece, Square destSquare) {
+        Square fromSquare = piece.getSquare();
+        Move move = new Move(piece, fromSquare, destSquare);
         piece.setSquare(destSquare);
+        this.game.getMoveHistory().add(move);
     }
 }

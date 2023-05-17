@@ -32,6 +32,10 @@ public class Game {
         this.board = board;
     }
 
+    public List<Move> getMoveHistory() {
+        return moveHistory;
+    }
+
     public Player getWhitePlayer() {
         return whitePlayer;
     }
