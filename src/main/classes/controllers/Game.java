@@ -1,7 +1,11 @@
 package main.classes.controllers;
 
 import main.classes.board.Board;
+import main.classes.game.Move;
 import main.classes.pieces.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Game {
 
@@ -11,10 +15,12 @@ public class Game {
 
     private Player blackPlayer;
 
+    private List<Move> moveHistory = new ArrayList<>();
+
     public Game() {
         this.board = new Board(8, 8);
-        this.whitePlayer = new Player(Player.Team.WHITE);
-        this.blackPlayer = new Player(Player.Team.BLACK);
+        this.whitePlayer = new Player(this, Player.Team.WHITE);
+        this.blackPlayer = new Player(this, Player.Team.BLACK);
         this.setStartBoard();
     }
 
@@ -30,16 +36,8 @@ public class Game {
         return whitePlayer;
     }
 
-    public void setWhitePlayer(Player whitePlayer) {
-        this.whitePlayer = whitePlayer;
-    }
-
     public Player getBlackPlayer() {
         return blackPlayer;
-    }
-
-    public void setBlackPlayer(Player blackPlayer) {
-        this.blackPlayer = blackPlayer;
     }
 
     public void setStartBoard(){

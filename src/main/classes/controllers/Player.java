@@ -7,6 +7,8 @@ import java.util.List;
 
 public class Player {
 
+    private Game game;
+
     public enum Team {
         WHITE, BLACK
     }
@@ -18,6 +20,11 @@ public class Player {
 
     // TODO: create specific class here too (instead of list)
     private List<Square> coveredSquares;
+
+    public Player(Game game, Team team) {
+        this.game = game;
+        this.team = team;
+    }
 
     public Player(Team team) {
         this.team = team;
