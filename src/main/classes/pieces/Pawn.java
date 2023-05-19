@@ -72,14 +72,12 @@ public class Pawn extends Piece{
         int yDirection = (this.getTeam() == Team.WHITE) ? 1 : -1;
 
         if (xPos + 1 < xSize) {
-            Square squareInFrontRight = this.getBoard().getSquareByPos(xPos + 1,
-                    yPos + yDirection);
+            Square squareInFrontRight = this.getBoard().getSquareByPos(xPos + 1, yPos + yDirection);
             this.attackedSquares.add(squareInFrontRight);
         }
 
         if (xPos > 0) {
-            Square squareInFrontLeft = this.getBoard().getSquareByPos(xPos - 1,
-                    yPos + yDirection);
+            Square squareInFrontLeft = this.getBoard().getSquareByPos(xPos - 1, yPos + yDirection);
             this.attackedSquares.add(squareInFrontLeft);
         }
     }
