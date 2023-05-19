@@ -12,7 +12,6 @@ public class Bishop extends Piece {
 
     @Override
     public void setMovableSquares() {
-        System.out.println("hallooohoo?");
         int xPos = this.getSquare().getHorizontalPosition();
         int yPos = this.getSquare().getVerticalPosition();
         int xSize = this.getBoard().getHorizontalSize();
