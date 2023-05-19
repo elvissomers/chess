@@ -3,6 +3,7 @@ package main.classes.structures;
 import main.classes.board.Square;
 import main.classes.controllers.Player;
 import main.classes.pieces.King;
+import main.classes.pieces.Pawn;
 import main.classes.pieces.Piece;
 
 import java.util.HashSet;
@@ -22,7 +23,13 @@ public class PieceSet extends HashSet<Piece> implements IPieceSet{
 
     @Override
     public void setAllAttackedSquares() {
-
+        for (Piece piece : this){
+            if (piece instanceof Pawn pawn) {
+                attackedSquares.addAll(pawn.getAttackedSquares());
+            } else {
+                attackedSquares.addAll(piece.getMovableSquares());
+            }
+        }
     }
 
     @Override
