@@ -82,4 +82,8 @@ public class Pawn extends Piece{
             this.attackedSquares.add(squareInFrontLeft);
         }
     }
+
+    public Set<Square> getAttackedSquares() {
+        return attackedSquares;
+    }
 }
