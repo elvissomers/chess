@@ -3,6 +3,7 @@ package main.classes.controllers;
 import main.classes.board.Square;
 import main.classes.game.Move;
 import main.classes.pieces.Piece;
+import main.classes.structures.PieceSet;
 import main.classes.structures.Team;
 
 import java.util.ArrayList;
@@ -16,8 +17,7 @@ public class Player {
 
     private final Team team;
 
-    // TODO: create specific pieceList class
-    private List<Piece> pieces;
+    private PieceSet pieceSet;
 
     public Player(Game game, Team team) {
         this.game = game;
@@ -46,5 +46,9 @@ public class Player {
         piece.setSquare(destSquare);
         moveHistory.add(move);
         this.game.getMoveHistory().add(move);
+    }
+
+    public PieceSet getPieceSet() {
+        return pieceSet;
     }
 }
