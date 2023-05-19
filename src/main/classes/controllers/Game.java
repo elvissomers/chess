@@ -47,6 +47,8 @@ public class Game {
 
     public void setStartBoard(){
         for (Team team : new Team[] {Team.WHITE, Team.BLACK}) {
+            Player currentPlayer = (team == Team.WHITE) ? whitePlayer : blackPlayer;
+
             Piece[] piecesInOrder = new Piece[] {
                     new Rook(this, null), new Knight(this, null), new Bishop(this, null),
                     new Queen(this, null), new King(this, null), new Bishop(this, null),
@@ -61,6 +63,8 @@ public class Game {
                 piece.setTeam(team);
                 piece.setSquare(this.board.getSquareByPos(xPos, yForMajorPieces));
                 piece.setBoard(this.board);
+
+                currentPlayer.getPieceSet().add(piece);
             }
 
             // Set pawns
@@ -68,6 +72,8 @@ public class Game {
                 Pawn pawn = new Pawn(this, team);
                 pawn.setSquare(this.board.getSquareByPos(xPos, yForPawns));
                 pawn.setBoard(this.board);
+
+                currentPlayer.getPieceSet().add(pawn);
             }
         }
     }
