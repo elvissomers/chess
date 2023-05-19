@@ -7,6 +7,7 @@ import main.classes.controllers.Game;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import main.classes.structures.Team;
 
 public class GameTest {
     private Game Game;
@@ -24,22 +25,22 @@ public class GameTest {
         for (int xPos = 0; xPos < board.getHorizontalSize(); xPos++) {
             // Check white team
             Piece whitePiece = board.getSquareByPos(xPos, 0).getPiece();
-            assertEquals(Piece.Team.WHITE, whitePiece.getTeam());
+            assertEquals(Team.WHITE, whitePiece.getTeam());
 
             // Check black team
             Piece blackPiece = board.getSquareByPos(xPos, 7).getPiece();
-            assertEquals(Piece.Team.BLACK, blackPiece.getTeam());
+            assertEquals(Team.BLACK, blackPiece.getTeam());
         }
 
         // Check pawns for both teams
         for (int xPos = 0; xPos < board.getHorizontalSize(); xPos++) {
             // Check white team
             Piece whitePawn = board.getSquareByPos(xPos, 1).getPiece();
-            assertEquals(Piece.Team.WHITE, whitePawn.getTeam());
+            assertEquals(Team.WHITE, whitePawn.getTeam());
 
             // Check black team
             Piece blackPawn = board.getSquareByPos(xPos, 6).getPiece();
-            assertEquals(Piece.Team.BLACK, blackPawn.getTeam());
+            assertEquals(Team.BLACK, blackPawn.getTeam());
         }
     }
 

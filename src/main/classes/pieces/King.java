@@ -3,6 +3,7 @@ package main.classes.pieces;
 import main.classes.board.Square;
 import main.classes.controllers.Game;
 import main.classes.controllers.Player;
+import main.classes.structures.Team;
 
 import java.util.List;
 

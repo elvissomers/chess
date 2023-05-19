@@ -3,6 +3,7 @@ package main.classes.controllers;
 import main.classes.board.Square;
 import main.classes.game.Move;
 import main.classes.pieces.Piece;
+import main.classes.structures.Team;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +14,7 @@ public class Player {
 
     private List<Move> moveHistory = new ArrayList<>();
 
-    public enum Team {
-        WHITE, BLACK
-    }
-
-    private final Player.Team team;
+    private final Team team;
 
     // TODO: create specific pieceList class
     private List<Piece> pieces;

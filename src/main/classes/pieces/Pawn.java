@@ -2,6 +2,7 @@ package main.classes.pieces;
 
 import main.classes.board.Square;
 import main.classes.controllers.Game;
+import main.classes.structures.Team;
 
 public class Pawn extends Piece{
     public Pawn(Game game, Team team) {

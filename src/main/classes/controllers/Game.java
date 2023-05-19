@@ -3,6 +3,7 @@ package main.classes.controllers;
 import main.classes.board.Board;
 import main.classes.game.Move;
 import main.classes.pieces.*;
+import main.classes.structures.Team;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +20,8 @@ public class Game {
 
     public Game() {
         this.board = new Board(8, 8);
-        this.whitePlayer = new Player(this, Player.Team.WHITE);
-        this.blackPlayer = new Player(this, Player.Team.BLACK);
+        this.whitePlayer = new Player(this, Team.WHITE);
+        this.blackPlayer = new Player(this, Team.BLACK);
         this.setStartBoard();
     }
 
@@ -45,14 +46,14 @@ public class Game {
     }
 
     public void setStartBoard(){
-        for (Piece.Team team : new Piece.Team[] {Piece.Team.WHITE, Piece.Team.BLACK}) {
+        for (Team team : new Team[] {Team.WHITE, Team.BLACK}) {
             Piece[] piecesInOrder = new Piece[] {
                     new Rook(this, null), new Knight(this, null), new Bishop(this, null),
                     new Queen(this, null), new King(this, null), new Bishop(this, null),
                     new Knight(this, null), new Rook(this, null)
             };
-            int yForMajorPieces = (team == Piece.Team.WHITE) ? 0 : 7;
-            int yForPawns = (team == Piece.Team.WHITE) ? 1 : 6;
+            int yForMajorPieces = (team == Team.WHITE) ? 0 : 7;
+            int yForPawns = (team == Team.WHITE) ? 1 : 6;
 
             // Set major pieces
             for (int xPos = 0; xPos < piecesInOrder.length; xPos++) {

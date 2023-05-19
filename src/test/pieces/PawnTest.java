@@ -5,6 +5,7 @@ import main.classes.board.Square;
 import main.classes.controllers.Game;
 import main.classes.pieces.Pawn;
 import main.classes.pieces.Piece;
+import main.classes.structures.Team;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,9 +19,11 @@ class PawnTest {
     Board startBoard;
 
     Board emptyBoard;
+
+    Game game;
     @BeforeEach
     public void setStartAndEmptyBoard(){
-        Game game = new Game();
+        game = new Game();
         startBoard = game.getBoard();
         emptyBoard = new Board(8, 8);
     }
@@ -42,7 +45,7 @@ class PawnTest {
     public void testPawnStartPosWithTake() {
         Pawn Pawn = (Pawn) startBoard.getSquareByPos(3, 1).getPiece();
 
-        Pawn enemyPawn = new Pawn(Piece.Team.BLACK);
+        Pawn enemyPawn = new Pawn(game, Team.BLACK);
         startBoard.getSquareByPos(4,2).setPiece(enemyPawn);
         Pawn.setMovableSquares();
 
