@@ -3,6 +3,7 @@ package main.classes.controllers;
 import main.classes.board.Board;
 import main.classes.game.Move;
 import main.classes.pieces.*;
+import main.classes.structures.PieceSet;
 import main.classes.structures.Team;
 
 import java.util.ArrayList;
@@ -19,9 +20,13 @@ public class Game {
     private List<Move> moveHistory = new ArrayList<>();
 
     public Game() {
-        this.board = new Board(8, 8);
-        this.whitePlayer = new Player(this, Team.WHITE);
-        this.blackPlayer = new Player(this, Team.BLACK);
+        board = new Board(8, 8);
+
+        whitePlayer = new Player(this, Team.WHITE);
+        new PieceSet(whitePlayer);
+        blackPlayer = new Player(this, Team.BLACK);
+        new PieceSet(blackPlayer);
+
         this.setStartBoard();
     }
 
