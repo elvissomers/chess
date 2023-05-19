@@ -46,7 +46,7 @@ public class King extends Piece {
 
         for (int x = -1; x <= 1; x++) {
             for (int y = -1; y <= 1; y++) {
-                if (0 <= xPos + x && xPos + x <= xSize && 0 <= yPos + y && yPos + y <= ySize) {
+                if (0 <= xPos + x && xPos + x < xSize && 0 <= yPos + y && yPos + y < ySize) {
                     Square currentSquare = this.getBoard().getSquareByPos(xPos + x, yPos + y);
                     if (currentSquare.getPiece() == null ||
                             currentSquare.getPiece().getTeam() != this.getTeam()) {
