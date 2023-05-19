@@ -32,6 +32,11 @@ public class PieceSet extends HashSet<Piece> implements IPieceSet{
 
     @Override
     public King getKing() {
+        for (Piece piece : this) {
+            if (piece instanceof King) {
+                return (King) piece;
+            }
+        }
         return null;
     }
 }
