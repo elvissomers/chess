@@ -24,20 +24,8 @@ public class Player {
         this.team = team;
     }
 
-    public Player(Team team) {
-        this.team = team;
-    }
-
     public Team getTeam() {
         return team;
-    }
-
-    public List<Piece> getPieces() {
-        return pieces;
-    }
-
-    public void setPieces(List<Piece> pieces) {
-        this.pieces = pieces;
     }
 
     public void movePiece(Piece piece, Square destSquare) {
