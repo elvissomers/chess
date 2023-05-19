@@ -32,8 +32,10 @@ public class PieceSet extends HashSet<Piece> implements IPieceSet{
     public void setAllAttackedSquares() {
         for (Piece piece : this){
             if (piece instanceof Pawn pawn) {
+                pawn.setAttackedSquares();
                 attackedSquares.addAll(pawn.getAttackedSquares());
             } else {
+                piece.setMovableSquares();
                 attackedSquares.addAll(piece.getMovableSquares());
             }
         }
