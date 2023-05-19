@@ -57,7 +57,8 @@ class KingTest {
         startBoard.getSquareByPos(5, 1).setPiece(null);
         // Pawn at d3, attacking e2
         Pawn attackPawn = new Pawn(game, Team.BLACK);
-        startBoard.getSquareByPos(3, 2).setPiece(attackPawn);
+        attackPawn.setBoard(startBoard);
+        attackPawn.setSquare(startBoard.getSquareByPos(3, 2));
         game.getBlackPlayer().getPieceSet().add(attackPawn);
         game.getBlackPlayer().getPieceSet().setAllAttackedSquares();
 
