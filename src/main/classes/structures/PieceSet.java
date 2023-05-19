@@ -21,6 +21,12 @@ public class PieceSet extends HashSet<Piece> implements IPieceSet{
         player.setPieceSet(this);
     }
 
+    @Override
+    public void setAllMovableSquares(){
+        for (Piece piece : this){
+            piece.setMovableSquares();
+        }
+    }
 
     @Override
     public void setAllAttackedSquares() {

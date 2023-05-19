@@ -11,6 +11,8 @@ public interface IPieceSet extends Set<Piece> {
 
     public void setAllAttackedSquares();
 
+    public void setAllMovableSquares();
+
     public Set<Square> getAllAttackedSquares();
 
     public King getKing();
