@@ -1,5 +1,6 @@
 package main.classes.structures;
 
+import main.classes.board.Square;
 import main.classes.pieces.King;
 import main.classes.pieces.Piece;
 
@@ -10,7 +11,7 @@ public interface IPieceSet extends Set<Piece> {
 
     public void setAllAttackedSquares();
 
-    public void setAllMovableSquares();
+    public Set<Square> getAllAttackedSquares();
 
     public King getKing();
 
