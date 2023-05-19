@@ -46,6 +46,11 @@ public class Game {
     }
 
     public void setStartBoard(){
+        /**
+         * setStartBoard sets the Board to the standard chess starting position.
+         *
+         * It also fills the players PieceSets with all the pieces of their team.
+         */
         for (Team team : new Team[] {Team.WHITE, Team.BLACK}) {
             Player currentPlayer = (team == Team.WHITE) ? whitePlayer : blackPlayer;
 
