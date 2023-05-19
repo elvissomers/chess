@@ -18,6 +18,7 @@ public class PieceSet extends HashSet<Piece> implements IPieceSet{
     public PieceSet(Player player) {
         this.player = player;
         this.attackedSquares = new HashSet<>();
+        player.setPieceSet(this);
     }
 
 

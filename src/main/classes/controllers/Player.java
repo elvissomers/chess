@@ -39,4 +39,8 @@ public class Player {
     public PieceSet getPieceSet() {
         return pieceSet;
     }
+
+    public void setPieceSet(PieceSet pieceSet) {
+        this.pieceSet = pieceSet;
+    }
 }
