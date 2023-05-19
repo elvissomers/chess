@@ -74,7 +74,7 @@ public class Pawn extends Piece{
         if (xPos + 1 < xSize) {
             Square squareInFrontRight = this.getBoard().getSquareByPos(xPos + 1,
                     yPos + yDirection);
-
+            this.attackedSquares.add(squareInFrontRight);
         }
 
         if (xPos > 0) {
