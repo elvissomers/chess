@@ -6,6 +6,7 @@ import main.classes.controllers.Player;
 import main.classes.structures.Team;
 
 import java.util.List;
+import java.util.Set;
 
 public class King extends Piece {
 
@@ -60,13 +61,7 @@ public class King extends Piece {
 
     public boolean checkCheck(Square square, Game game, Team team) {
         Player attackingPlayer = (team == Team.WHITE) ? game.getBlackPlayer() : game.getWhitePlayer();
-        for (Piece piece : attackingPlayer.getPieces()) {
-            List<Square> squaresUnderAttack = piece.getMovableSquares();
-            // TODO: change this for pawn. Pawns can move to places that they do not attack
-            if (squaresUnderAttack.contains(square)) {
-                return true;
-            }
-        }
-        return false;
+        Set<Square> squaresUnderAttack = attackingPlayer.getPieceSet().getAllAttackedSquares();
+        return squaresUnderAttack.contains(square);
     }
 }
