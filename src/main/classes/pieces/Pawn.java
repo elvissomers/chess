@@ -4,6 +4,7 @@ import main.classes.board.Square;
 import main.classes.controllers.Game;
 import main.classes.structures.Team;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Pawn extends Piece{
@@ -17,7 +18,7 @@ public class Pawn extends Piece{
      * We need to keep track of these squares to be able to see if there are
      * checks, checkmates or stalemates.
      */
-    private Set<Square> attackedSquares;
+    private Set<Square> attackedSquares = new HashSet<>();
 
     @Override
     public void setMovableSquares() {
