@@ -33,8 +33,8 @@ public class PieceSet extends HashSet<Piece> implements IPieceSet{
     }
 
     @Override
-    public void setAllMovableSquares() {
-
+    public Set<Square> getAllAttackedSquares() {
+        return attackedSquares;
     }
 
     @Override
