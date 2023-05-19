@@ -1,20 +1,37 @@
 package main.classes.structures;
 
+import main.classes.board.Square;
 import main.classes.controllers.Player;
 import main.classes.pieces.King;
 import main.classes.pieces.Piece;
 
+import java.util.HashSet;
 import java.util.Set;
 
-public interface PieceSet extends Set<Piece> {
+public class PieceSet extends HashSet<Piece> implements IPieceSet{
 
-    Player player = null;
+    private Player player;
 
-    public void setAllAttackedSquares();
+    private Set<Square> attackedSquares;
 
-    public void setAllMovableSquares();
+    public PieceSet(Player player) {
+        this.player = player;
+        this.attackedSquares = new HashSet<>();
+    }
 
-    public King getKing();
 
+    @Override
+    public void setAllAttackedSquares() {
 
+    }
+
+    @Override
+    public void setAllMovableSquares() {
+
+    }
+
+    @Override
+    public King getKing() {
+        return null;
+    }
 }
