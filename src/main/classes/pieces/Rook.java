@@ -8,6 +8,10 @@ public class Rook extends Piece {
 
     // Rook keeps track of whether it has moved during this game
     // - needed for castling rule
+    // TODO: implement this by looping through moveHistory
+    // if hasMoved is true for both rooks OR for the king, there is no need
+    // to do this anymore.
+    // TODO: this should probably be implemented in the PieceSet class
     private boolean hasMoved;
 
     public Rook(Game game, Team team) {
