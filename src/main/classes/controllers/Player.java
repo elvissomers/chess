@@ -30,22 +30,6 @@ public class Player {
         return team;
     }
 
-    public void movePiece(Piece piece, Square destSquare) {
-        Square fromSquare = piece.getSquare();
-        Move move = new Move(piece, fromSquare, destSquare);
-        piece.setSquare(destSquare);
-        moveHistory.add(move);
-
-        if (piece instanceof King king && !king.isHasMoved()){
-            king.setHasMoved(true);
-        }
-        if (piece instanceof Rook rook && !rook.isHasMoved()){
-            rook.setHasMoved(true);
-        }
-        // TODO: remove the double movehistory attribute
-        this.game.getMoveHistory().add(move);
-    }
-
     public PieceSet getPieceSet() {
         return pieceSet;
     }
@@ -68,5 +52,22 @@ public class Player {
 
     public void setMoveHistory(List<Move> moveHistory) {
         this.moveHistory = moveHistory;
+    }
+
+
+    public void movePiece(Piece piece, Square destSquare) {
+        Square fromSquare = piece.getSquare();
+        Move move = new Move(piece, fromSquare, destSquare);
+        piece.setSquare(destSquare);
+        moveHistory.add(move);
+
+        if (piece instanceof King king && !king.isHasMoved()){
+            king.setHasMoved(true);
+        }
+        if (piece instanceof Rook rook && !rook.isHasMoved()){
+            rook.setHasMoved(true);
+        }
+        // TODO: remove the double movehistory attribute
+        this.game.getMoveHistory().add(move);
     }
 }
