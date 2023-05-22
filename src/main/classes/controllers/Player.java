@@ -57,6 +57,8 @@ public class Player {
 
 
     public void movePiece(Piece piece, Square destSquare) {
+        // TODO: a piece is "taken" when an enemy piece moves to its square
+        // How do we implement this?
         Square fromSquare = piece.getSquare();
         Move move = new Move(piece, fromSquare, destSquare);
 
