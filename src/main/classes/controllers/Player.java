@@ -5,6 +5,7 @@ import main.classes.game.Move;
 import main.classes.pieces.King;
 import main.classes.pieces.Piece;
 import main.classes.pieces.Rook;
+import main.classes.structures.CastleType;
 import main.classes.structures.PieceSet;
 import main.classes.structures.Team;
 
@@ -81,5 +82,27 @@ public class Player {
         moveHistory.add(move);
         // TODO: remove the double movehistory attribute
         this.game.getMoveHistory().add(move);
+    }
+
+    public void castle(King king, Rook rook, CastleType type){
+        // TODO: simple move method that just updates piece and square;
+        // will be called from here and from the current movePiece method
+        king.setHasMoved(true);
+        rook.setHasMoved(true);
+
+        if (type == CastleType.SHORT){
+            king.setSquare(game.getBoard().getSquareByPos(king.getSquare().getHorizontalPosition()+2,
+                    king.getSquare().getVerticalPosition()
+            ));
+            rook.setSquare(game.getBoard().getSquareByPos(rook.getSquare().getHorizontalPosition()-2,
+                    rook.getSquare().getVerticalPosition()
+            ));
+        } else {
+            king.setSquare(game.getBoard().getSquareByPos(king.getSquare().getHorizontalPosition()-2,
+                    king.getSquare().getVerticalPosition()
+            ));
+            rook.setSquare(game.getBoard().getSquareByPos(rook.getSquare().getHorizontalPosition()+3,
+                    rook.getSquare().getVerticalPosition()));
+        }
     }
 }
