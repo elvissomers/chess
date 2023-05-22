@@ -62,6 +62,17 @@ public class Player {
         moveHistory.add(move);
 
         if (piece instanceof King king && !king.isHasMoved()){
+            if (destSquare.getHorizontalPosition() - fromSquare.getHorizontalPosition() == 2) {
+                castle(king, (Rook) game.getBoard().getSquareByPos(game.getBoard().getHorizontalSize(),
+                        fromSquare.getVerticalPosition()).getPiece(), CastleType.SHORT
+                );
+                return;
+            } else if (destSquare.getHorizontalPosition() - fromSquare.getHorizontalPosition() == -2) {
+                castle(king, (Rook) game.getBoard().getSquareByPos(0,
+                        fromSquare.getVerticalPosition()).getPiece(), CastleType.LONG
+                );
+                return;
+            }
             king.setHasMoved(true);
         }
         if (piece instanceof Rook rook && !rook.isHasMoved()){
