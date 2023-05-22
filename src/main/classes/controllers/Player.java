@@ -2,7 +2,9 @@ package main.classes.controllers;
 
 import main.classes.board.Square;
 import main.classes.game.Move;
+import main.classes.pieces.King;
 import main.classes.pieces.Piece;
+import main.classes.pieces.Rook;
 import main.classes.structures.PieceSet;
 import main.classes.structures.Team;
 
@@ -33,6 +35,13 @@ public class Player {
         Move move = new Move(piece, fromSquare, destSquare);
         piece.setSquare(destSquare);
         moveHistory.add(move);
+
+        if (piece instanceof King king && !king.isHasMoved()){
+            king.setHasMoved(true);
+        }
+        if (piece instanceof Rook rook && !rook.isHasMoved()){
+            rook.setHasMoved(true);
+        }
         // TODO: remove the double movehistory attribute
         this.game.getMoveHistory().add(move);
     }
