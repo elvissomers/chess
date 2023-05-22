@@ -52,7 +52,7 @@ public class King extends Piece {
                     Square currentSquare = this.getBoard().getSquareByPos(xPos + x, yPos + y);
                     if (currentSquare.getPiece() == null ||
                             currentSquare.getPiece().getTeam() != this.getTeam()) {
-                        if (!checkCheck(currentSquare, this.getGame(), this.getTeam())) {
+                        if (!checkCheck(currentSquare)) {
                             this.addMovableSquare(currentSquare);
                         }
                     }
@@ -61,8 +61,17 @@ public class King extends Piece {
         }
     }
 
-    public boolean checkCheck(Square square, Game game, Team team) {
-        Player attackingPlayer = (team == Team.WHITE) ? game.getBlackPlayer() : game.getWhitePlayer();
+    // TODO: this could also return a boolean hasMoved instead of having hasMoved
+    // TODO: as an attribute
+    public void checkHasMoved(){
+        Player player = (this.getTeam() == Team.WHITE) ? this.getGame().getWhitePlayer() :
+                this.getGame().getBlackPlayer();
+
+    }
+
+    public boolean checkCheck(Square square) {
+        Player attackingPlayer = (this.getTeam() == Team.WHITE) ? this.getGame().getBlackPlayer() :
+                this.getGame().getWhitePlayer();
         Set<Square> squaresUnderAttack = attackingPlayer.getPieceSet().getAllAttackedSquares();
         return squaresUnderAttack.contains(square);
     }
