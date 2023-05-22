@@ -2,6 +2,7 @@ package main.classes.pieces;
 
 import main.classes.board.Square;
 import main.classes.controllers.Game;
+import main.classes.controllers.Player;
 import main.classes.structures.Team;
 
 import java.util.HashSet;
@@ -67,7 +68,32 @@ public class Pawn extends Piece{
             if (xPos > 0 && this.getBoard().getSquareByPos(xPos - 1, yPos).getPiece()
                     instanceof Pawn pawn && pawn.getTeam() != this.getTeam()){
                 // TODO: check if pawn just movedIm
+                Player player = (this.getTeam() == Team.WHITE) ? this.getGame().getWhitePlayer()
+                        : this.getGame().getBlackPlayer();
+                if (player.getMoveHistory().get(player.getMoveHistory().size()-1).getPiece()
+                        instanceof Pawn && player.getMoveHistory().get(player.getMoveHistory().size()-1)
+                        .getSquareFrom().getVerticalPosition() == ((this.getTeam() == Team.BLACK) ? 1 : 6)
+                ) {
+                    Square squareInFrontLeft = this.getBoard().getSquareByPos(xPos - 1,
+                            yPos + yDirection);
+                    this.addMovableSquare(squareInFrontLeft);
+                }
+            } else if (xPos + 1 < xSize && this.getBoard().getSquareByPos(xPos + 1, yPos).getPiece()
+                    instanceof Pawn pawn && pawn.getTeam() != this.getTeam()){
+                // TODO: check if pawn just movedIm
+                Player player = (this.getTeam() == Team.WHITE) ? this.getGame().getWhitePlayer()
+                        : this.getGame().getBlackPlayer();
+                if (player.getMoveHistory().get(player.getMoveHistory().size()-1).getPiece()
+                        instanceof Pawn && player.getMoveHistory().get(player.getMoveHistory().size()-1)
+                        .getSquareFrom().getVerticalPosition() == ((this.getTeam() == Team.BLACK) ? 1 : 6)
+                ) {
+                    Square squareInFrontRight = this.getBoard().getSquareByPos(xPos + 1,
+                            yPos + yDirection);
+                    this.addMovableSquare(squareInFrontRight);
+                }
             }
+
+
         }
         // TODO : promotion
     }
