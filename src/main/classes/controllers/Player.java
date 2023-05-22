@@ -58,8 +58,6 @@ public class Player {
     public void movePiece(Piece piece, Square destSquare) {
         Square fromSquare = piece.getSquare();
         Move move = new Move(piece, fromSquare, destSquare);
-        piece.setSquare(destSquare);
-        moveHistory.add(move);
 
         if (piece instanceof King king && !king.isHasMoved()){
             if (destSquare.getHorizontalPosition() - fromSquare.getHorizontalPosition() == 2) {
