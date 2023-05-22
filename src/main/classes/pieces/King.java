@@ -3,6 +3,7 @@ package main.classes.pieces;
 import main.classes.board.Square;
 import main.classes.controllers.Game;
 import main.classes.controllers.Player;
+import main.classes.game.Move;
 import main.classes.structures.Team;
 
 import java.util.List;
@@ -61,13 +62,15 @@ public class King extends Piece {
         }
     }
 
-    // TODO: this could also return a boolean hasMoved instead of having hasMoved
-    // TODO: as an attribute
-    public void checkHasMoved(){
-        Player player = (this.getTeam() == Team.WHITE) ? this.getGame().getWhitePlayer() :
-                this.getGame().getBlackPlayer();
-
-    }
+//    public void checkHasMoved(){
+//        Player player = (this.getTeam() == Team.WHITE) ? this.getGame().getWhitePlayer() :
+//                this.getGame().getBlackPlayer();
+//        for (Move move : player.getMoveHistory()){
+//            if (move.getPiece() == this){
+//                hasMoved = true;
+//            }
+//        }
+//    }
 
     public boolean checkCheck(Square square) {
         Player attackingPlayer = (this.getTeam() == Team.WHITE) ? this.getGame().getBlackPlayer() :
