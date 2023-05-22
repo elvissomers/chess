@@ -44,4 +44,20 @@ public class Player {
     public void setPieceSet(PieceSet pieceSet) {
         this.pieceSet = pieceSet;
     }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public List<Move> getMoveHistory() {
+        return moveHistory;
+    }
+
+    public void setMoveHistory(List<Move> moveHistory) {
+        this.moveHistory = moveHistory;
+    }
 }
