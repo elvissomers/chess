@@ -33,6 +33,7 @@ public class Player {
         Move move = new Move(piece, fromSquare, destSquare);
         piece.setSquare(destSquare);
         moveHistory.add(move);
+        // TODO: remove the double movehistory attribute
         this.game.getMoveHistory().add(move);
     }
 
