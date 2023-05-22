@@ -63,6 +63,12 @@ public class Pawn extends Piece{
         }
 
         // TODO : en passant
+        if (yPos == startPos + 3 * yDirection){
+            if (xPos > 0 && this.getBoard().getSquareByPos(xPos - 1, yPos).getPiece()
+                    instanceof Pawn pawn && pawn.getTeam() != this.getTeam()){
+                // TODO: check if pawn just movedIm
+            }
+        }
         // TODO : promotion
     }
 
