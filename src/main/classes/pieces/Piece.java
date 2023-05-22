@@ -75,6 +75,15 @@ public abstract class Piece {
 
     public abstract void setMovableSquares();
 
+    public void removePreviousMovableSquares(){
+        /*
+         * Every implementation of setMovableSquares should call this
+         * method, so that we clean out all previous movable squares
+         * before setting new ones.
+         */
+        movableSquares = new ArrayList<>();
+    }
+
     public void addMovableSquare(Square square){
         this.movableSquares.add(square);
     }

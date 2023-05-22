@@ -22,6 +22,8 @@ public class Pawn extends Piece{
 
     @Override
     public void setMovableSquares() {
+        removePreviousMovableSquares();
+
         int xPos = this.getSquare().getHorizontalPosition();
         int yPos = this.getSquare().getVerticalPosition();
         int xSize = this.getBoard().getHorizontalSize();
