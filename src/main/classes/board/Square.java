@@ -37,4 +37,6 @@ public class Square {
     public void setPiece(Piece piece) {
         this.piece = piece;
     }
+
+    // TODO: helper methods, squareup, squaredown, squareleft, squareright
 }
