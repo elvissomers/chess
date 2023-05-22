@@ -67,6 +67,9 @@ public class Player {
         if (piece instanceof Rook rook && !rook.isHasMoved()){
             rook.setHasMoved(true);
         }
+
+        piece.setSquare(destSquare);
+        moveHistory.add(move);
         // TODO: remove the double movehistory attribute
         this.game.getMoveHistory().add(move);
     }
