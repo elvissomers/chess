@@ -60,6 +60,30 @@ public class King extends Piece {
                 }
             }
         }
+
+        // Castling
+        if (!inCheck && !hasMoved){
+            // Short castling from here
+            if (this.getBoard().getSquareByPos(xPos+1, yPos).getPiece() == null &&
+                    !checkCheck(this.getBoard().getSquareByPos(xPos+1, yPos)) &&
+                    this.getBoard().getSquareByPos(xPos+2, yPos).getPiece() == null &&
+                    !checkCheck(this.getBoard().getSquareByPos(xPos+2, yPos)) &&
+                    this.getBoard().getSquareByPos(xPos+3, yPos).getPiece() instanceof Rook rook &&
+                    !rook.isHasMoved()) {
+                this.addMovableSquare(this.getBoard().getSquareByPos(xPos+2, yPos));
+            }
+
+            // Long castling from here
+            if (this.getBoard().getSquareByPos(xPos-1, yPos).getPiece() == null &&
+                    !checkCheck(this.getBoard().getSquareByPos(xPos-1, yPos)) &&
+                    this.getBoard().getSquareByPos(xPos-2, yPos).getPiece() == null &&
+                    !checkCheck(this.getBoard().getSquareByPos(xPos-2, yPos)) &&
+                    this.getBoard().getSquareByPos(xPos-3, yPos).getPiece() == null &&
+                    this.getBoard().getSquareByPos(xPos-4, yPos).getPiece() instanceof Rook rook &&
+                    !rook.isHasMoved()) {
+                this.addMovableSquare(this.getBoard().getSquareByPos(xPos-2, yPos));
+            }
+        }
     }
 
 //    public void checkHasMoved(){
