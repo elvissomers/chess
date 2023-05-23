@@ -64,7 +64,7 @@ public class Player {
 
         if (piece instanceof King king && !king.isHasMoved()){
             if (destSquare.getHorizontalPosition() - fromSquare.getHorizontalPosition() == 2) {
-                castle(king, (Rook) game.getBoard().getSquareByPos(game.getBoard().getHorizontalSize(),
+                castle(king, (Rook) game.getBoard().getSquareByPos(game.getBoard().getHorizontalSize()-1,
                         fromSquare.getVerticalPosition()).getPiece(), CastleType.SHORT
                 );
                 return;
