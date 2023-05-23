@@ -59,6 +59,11 @@ public class Player {
     public void movePiece(Piece piece, Square destSquare) {
         // TODO: a piece is "taken" when an enemy piece moves to its square
         // How do we implement this?
+        Piece takenPiece = destSquare.getPiece();
+        Player enemyPlayer = (team == Team.WHITE) ? game.getBlackPlayer() : game.getWhitePlayer();
+        enemyPlayer.getPieceSet().remove(takenPiece);
+        // We removed it from the piece set. So what?
+
         Square fromSquare = piece.getSquare();
         Move move = new Move(piece, fromSquare, destSquare);
 
