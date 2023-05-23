@@ -69,4 +69,44 @@ public class MovesTest {
         assertEquals("e6",e5Movables.get(0).toString());
         assertEquals("f6",e5Movables.get(1).toString());
     }
+
+    @Test
+    void testShortCastleAvailable(){
+        game.getBoard().getSquareByPos(6,0).getPiece().setMovableSquares();
+        game.getWhitePlayer().movePiece(game.getBoard().getSquareByPos(6,0).getPiece(),
+                game.getBoard().getSquareByPos(6,0).getPiece().getMovableSquares().get(0));
+        game.getBoard().getSquareByPos(5,0).getPiece().setMovableSquares();
+        game.getWhitePlayer().movePiece(game.getBoard().getSquareByPos(5,0).getPiece(),
+                game.getBoard().getSquareByPos(5,0).getPiece().getMovableSquares().get(0));
+
+        game.getBoard().getSquareByPos(4,0).getPiece().setMovableSquares();
+        List<Square> kingMovables = game.getBoard().getSquareByPos(4,0).getPiece().getMovableSquares();
+        Square castleSquare = game.getBoard().getSquareByPos(6,0);
+
+        assertTrue(kingMovables.contains(castleSquare));
+    }
+
+    @Test
+    void testShortCastleExecution(){
+        game.getBoard().getSquareByPos(6,0).getPiece().setMovableSquares();
+        game.getWhitePlayer().movePiece(game.getBoard().getSquareByPos(6,0).getPiece(),
+                game.getBoard().getSquareByPos(6,0).getPiece().getMovableSquares().get(0));
+        game.getBoard().getSquareByPos(5,0).getPiece().setMovableSquares();
+        game.getWhitePlayer().movePiece(game.getBoard().getSquareByPos(5,0).getPiece(),
+                game.getBoard().getSquareByPos(5,0).getPiece().getMovableSquares().get(0));
+
+        game.getBoard().getSquareByPos(4,0).getPiece().setMovableSquares();
+        List<Square> kingMovables = game.getBoard().getSquareByPos(4,0).getPiece().getMovableSquares();
+        Square castleSquare = game.getBoard().getSquareByPos(6,0);
+
+        game.getWhitePlayer().movePiece(game.getBoard().getSquareByPos(4,0).getPiece(),
+                castleSquare);
+        
+        assertTrue(game.getBoard().getSquareByPos(6,0).getPiece() instanceof King);
+        King king = (King) game.getBoard().getSquareByPos(6,0).getPiece();
+        assertTrue(king.isHasMoved());
+        assertTrue(game.getBoard().getSquareByPos(5,0).getPiece() instanceof Rook);
+        Rook rook = (Rook) game.getBoard().getSquareByPos(5,0).getPiece();
+        assertTrue(rook.isHasMoved());
+    }
 }
