@@ -67,6 +67,6 @@ public class MovesTest {
         assertEquals(2, e5Movables.size());
         // TODO: don't use indices here!
         assertEquals("e6",e5Movables.get(0).toString());
-        assertEquals("d6",e5Movables.get(1).toString());
+        assertEquals("f6",e5Movables.get(1).toString());
     }
 }

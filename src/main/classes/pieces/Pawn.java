@@ -71,7 +71,7 @@ public class Pawn extends Piece {
                 Player otherPlayer = (this.getTeam() == Team.WHITE) ? this.getGame().getBlackPlayer()
                         : this.getGame().getWhitePlayer();
                 if (otherPlayer.getMoveHistory().get(otherPlayer.getMoveHistory().size() - 1).getPiece()
-                        instanceof Pawn && otherPlayer.getMoveHistory().get(otherPlayer.getMoveHistory().size() - 1)
+                        == pawn && otherPlayer.getMoveHistory().get(otherPlayer.getMoveHistory().size() - 1)
                         .getSquareFrom().getVerticalPosition() == ((this.getTeam() == Team.BLACK) ? 1 : 6)
                 ) {
                     Square squareInFrontLeft = this.getBoard().getSquareByPos(xPos - 1,
@@ -87,7 +87,7 @@ public class Pawn extends Piece {
                         Player otherPlayer = (this.getTeam() == Team.WHITE) ? this.getGame().getBlackPlayer()
                                 : this.getGame().getWhitePlayer();
                         if (otherPlayer.getMoveHistory().get(otherPlayer.getMoveHistory().size() - 1).getPiece()
-                                instanceof Pawn && otherPlayer.getMoveHistory().get(otherPlayer.getMoveHistory().size() - 1)
+                                == pawn && otherPlayer.getMoveHistory().get(otherPlayer.getMoveHistory().size() - 1)
                                 .getSquareFrom().getVerticalPosition() == ((this.getTeam() == Team.BLACK) ? 1 : 6)
                         ) {
                             Square squareInFrontRight = this.getBoard().getSquareByPos(xPos + 1,
