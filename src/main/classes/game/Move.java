@@ -1,7 +1,7 @@
 package main.classes.game;
 
 import main.classes.board.Square;
-import main.classes.pieces.Piece;
+import main.classes.pieces.*;
 
 public class Move {
 
@@ -27,5 +27,22 @@ public class Move {
 
     public Square getSquareTo() {
         return squareTo;
+    }
+
+    @Override
+    public String toString(){
+        String pieceChar = "";
+        if (piece instanceof Knight)
+            pieceChar = "N";
+        else if (piece instanceof Bishop)
+            pieceChar = "B";
+        else if (piece instanceof Rook)
+            pieceChar = "R";
+        else if (piece instanceof Queen)
+            pieceChar = "Q";
+        else if (piece instanceof King)
+            pieceChar = "K";
+
+        return pieceChar + squareFrom.toString() + "-" + squareTo.toString();
     }
 }
