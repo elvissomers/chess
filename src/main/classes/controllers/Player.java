@@ -2,9 +2,7 @@ package main.classes.controllers;
 
 import main.classes.board.Square;
 import main.classes.game.Move;
-import main.classes.pieces.King;
-import main.classes.pieces.Piece;
-import main.classes.pieces.Rook;
+import main.classes.pieces.*;
 import main.classes.structures.CastleType;
 import main.classes.structures.PieceSet;
 import main.classes.structures.Team;
@@ -85,7 +83,16 @@ public class Player {
             rook.setHasMoved(true);
         }
 
-        piece.setSquare(destSquare);
+        if (piece instanceof Pawn pawn && destSquare.getVerticalPosition() == game.getBoard().getVerticalSize()){
+            pieceSet.remove(pawn);
+            // TODO: let player choose a piece instead of always having a queen
+            Queen promotionPiece = new Queen(game, team);
+            promotionPiece.setSquare(destSquare);
+            pieceSet.add(promotionPiece);
+            // TODO: add "promoted" attribute to Move object, with the piece specification
+        } else {
+            piece.setSquare(destSquare);
+        }
         moveHistory.add(move);
         // TODO: remove the double movehistory attribute
         this.game.getMoveHistory().add(move);
