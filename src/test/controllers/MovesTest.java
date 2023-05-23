@@ -15,6 +15,8 @@ import java.util.List;
 public class MovesTest {
     private Game game;
 
+    // TODO: implement tests with PieceSet.setmovablesquares, instead of individual pieces
+
     @BeforeEach
     public void setUp() {
         game = new Game();
@@ -101,7 +103,7 @@ public class MovesTest {
 
         game.getWhitePlayer().movePiece(game.getBoard().getSquareByPos(4,0).getPiece(),
                 castleSquare);
-        
+
         assertTrue(game.getBoard().getSquareByPos(6,0).getPiece() instanceof King);
         King king = (King) game.getBoard().getSquareByPos(6,0).getPiece();
         assertTrue(king.isHasMoved());
