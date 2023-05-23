@@ -64,9 +64,9 @@ public class MovesTest {
 
         game.getBoard().getSquareByPos(4,4).getPiece().setMovableSquares();
         List<Square> e5Movables = game.getBoard().getSquareByPos(4,4).getPiece().getMovableSquares();
-//        assertEquals(2, e5Movables.size());
+        assertEquals(2, e5Movables.size());
         // TODO: don't use indices here!
         assertEquals("e6",e5Movables.get(0).toString());
-//        assertEquals("d6",e5Movables.get(1).toString());
+        assertEquals("d6",e5Movables.get(1).toString());
     }
 }

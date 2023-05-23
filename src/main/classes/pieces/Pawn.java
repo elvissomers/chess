@@ -8,7 +8,7 @@ import main.classes.structures.Team;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Pawn extends Piece{
+public class Pawn extends Piece {
     public Pawn(Game game, Team team) {
         super(game, team);
     }
@@ -56,7 +56,7 @@ public class Pawn extends Piece{
         }
 
 
-        if (yPos == startPos){
+        if (yPos == startPos) {
             Square squareTwoInFront = this.getBoard().getSquareByPos(xPos, yPos + 2 * yDirection);
             if (squareTwoInFront.getPiece() == null) {
                 this.addMovableSquare(squareTwoInFront);
@@ -64,39 +64,45 @@ public class Pawn extends Piece{
         }
 
         // TODO : en passant
-        if (yPos == startPos + 3 * yDirection){
+        if (yPos == startPos + 3 * yDirection) {
             if (xPos > 0 && this.getBoard().getSquareByPos(xPos - 1, yPos).getPiece()
-                    instanceof Pawn pawn && pawn.getTeam() != this.getTeam()){
+                    instanceof Pawn pawn && pawn.getTeam() != this.getTeam()) {
                 // TODO: check if pawn just movedIm
-                Player player = (this.getTeam() == Team.WHITE) ? this.getGame().getWhitePlayer()
-                        : this.getGame().getBlackPlayer();
-                if (player.getMoveHistory().get(player.getMoveHistory().size()-1).getPiece()
-                        instanceof Pawn && player.getMoveHistory().get(player.getMoveHistory().size()-1)
+                Player otherPlayer = (this.getTeam() == Team.WHITE) ? this.getGame().getBlackPlayer()
+                        : this.getGame().getWhitePlayer();
+                if (otherPlayer.getMoveHistory().get(otherPlayer.getMoveHistory().size() - 1).getPiece()
+                        instanceof Pawn && otherPlayer.getMoveHistory().get(otherPlayer.getMoveHistory().size() - 1)
                         .getSquareFrom().getVerticalPosition() == ((this.getTeam() == Team.BLACK) ? 1 : 6)
                 ) {
                     Square squareInFrontLeft = this.getBoard().getSquareByPos(xPos - 1,
                             yPos + yDirection);
                     this.addMovableSquare(squareInFrontLeft);
                 }
-            } else if (xPos + 1 < xSize && this.getBoard().getSquareByPos(xPos + 1, yPos).getPiece()
-                    instanceof Pawn pawn && pawn.getTeam() != this.getTeam()){
-                // TODO: check if pawn just movedIm
-                Player player = (this.getTeam() == Team.WHITE) ? this.getGame().getWhitePlayer()
-                        : this.getGame().getBlackPlayer();
-                if (player.getMoveHistory().get(player.getMoveHistory().size()-1).getPiece()
-                        instanceof Pawn && player.getMoveHistory().get(player.getMoveHistory().size()-1)
-                        .getSquareFrom().getVerticalPosition() == ((this.getTeam() == Team.BLACK) ? 1 : 6)
-                ) {
-                    Square squareInFrontRight = this.getBoard().getSquareByPos(xPos + 1,
-                            yPos + yDirection);
-                    this.addMovableSquare(squareInFrontRight);
+            } if (xPos + 1 < xSize) {
+                System.out.println( "helloo?");
+                if (this.getBoard().getSquareByPos(xPos + 1, yPos).getPiece()
+                        instanceof Pawn pawn) {
+                    if (pawn.getTeam() != this.getTeam()) {
+                        // TODO: check if pawn just movedIm
+                        Player otherPlayer = (this.getTeam() == Team.WHITE) ? this.getGame().getBlackPlayer()
+                                : this.getGame().getWhitePlayer();
+                        if (otherPlayer.getMoveHistory().get(otherPlayer.getMoveHistory().size() - 1).getPiece()
+                                instanceof Pawn && otherPlayer.getMoveHistory().get(otherPlayer.getMoveHistory().size() - 1)
+                                .getSquareFrom().getVerticalPosition() == ((this.getTeam() == Team.BLACK) ? 1 : 6)
+                        ) {
+                            Square squareInFrontRight = this.getBoard().getSquareByPos(xPos + 1,
+                                    yPos + yDirection);
+                            this.addMovableSquare(squareInFrontRight);
+                        }
+                    }
                 }
             }
-
-
         }
-        // TODO : promotion
+
+
     }
+    // TODO : promotion
+
 
     public void setAttackedSquares() {
         int xPos = this.getSquare().getHorizontalPosition();
