@@ -38,5 +38,11 @@ public class Square {
         this.piece = piece;
     }
 
+    @Override
+    public String toString(){
+        char[] horizontalIndices = {'a','b','c','d','e','f','g','h'};
+        return horizontalIndices[horizontalPosition] + (verticalPosition+1) + "";
+    }
+
     // TODO: helper methods, squareup, squaredown, squareleft, squareright
 }
