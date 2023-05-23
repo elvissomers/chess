@@ -41,7 +41,8 @@ public class Square {
     @Override
     public String toString(){
         char[] horizontalIndices = {'a','b','c','d','e','f','g','h'};
-        return horizontalIndices[horizontalPosition] + (verticalPosition+1) + "";
+        String verticalIndex = Integer.toString(verticalPosition+1);
+        return horizontalIndices[horizontalPosition] + verticalIndex;
     }
 
     // TODO: helper methods, squareup, squaredown, squareleft, squareright
