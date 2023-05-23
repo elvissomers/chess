@@ -10,16 +10,16 @@ import static org.junit.jupiter.api.Assertions.*;
 import main.classes.structures.Team;
 
 public class GameTest {
-    private Game Game;
+    private Game game;
 
     @BeforeEach
     public void setUp() {
-        Game = new Game();
+        game = new Game();
     }
 
     @Test
     public void testSetStartBoardTeams() {
-        Board board = Game.getBoard();
+        Board board = game.getBoard();
 
         // Check major pieces for both teams
         for (int xPos = 0; xPos < board.getHorizontalSize(); xPos++) {
@@ -46,7 +46,7 @@ public class GameTest {
 
     @Test
     public void testSetStartBoardPieces() {
-        Board board = Game.getBoard();
+        Board board = game.getBoard();
 
         // Array representing the correct order of major pieces
         Class[] correctOrder = new Class[] {
