@@ -2,7 +2,7 @@ package main.classes.board;
 
 import main.classes.pieces.Piece;
 
-public class Square implements Cloneable{
+public class Square{
     private int horizontalPosition;
 
     private int verticalPosition;
@@ -45,19 +45,19 @@ public class Square implements Cloneable{
         return horizontalIndices[horizontalPosition] + verticalIndex;
     }
 
-    @Override
-    public Square clone() {
-        Square clone = null;
-        try {
-            // TODO: copy mutable state here, so the clone can't change the internals of the original
-            clone = (Square) super.clone();
-        } catch (CloneNotSupportedException e) {
-            System.out.println("WARNING: Square not properly cloned!");
-            clone = new Square(this.getHorizontalPosition(), this.getVerticalPosition());
-            clone.setPiece(this.getPiece());
-        }
-        return clone;
-    }
+//    @Override
+//    public Square clone() {
+//        Square clone = null;
+//        try {
+//            // TODO: copy mutable state here, so the clone can't change the internals of the original
+//            clone = (Square) super.clone();
+//        } catch (CloneNotSupportedException e) {
+//            System.out.println("WARNING: Square not properly cloned!");
+//            clone = new Square(this.getHorizontalPosition(), this.getVerticalPosition());
+//            clone.setPiece(this.getPiece());
+//        }
+//        return clone;
+//    }
 
     // TODO: helper methods, squareup, squaredown, squareleft, squareright
 }
