@@ -14,6 +14,12 @@ public class Square{
         this.verticalPosition = verticalPosition;
     }
 
+    public Square(Square other){
+        this.horizontalPosition = other.getHorizontalPosition();
+        this.verticalPosition = other.getVerticalPosition();
+        this.piece = other.getPiece();
+    }
+
     public int getHorizontalPosition() {
         return horizontalPosition;
     }
