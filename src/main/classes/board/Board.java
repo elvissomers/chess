@@ -2,6 +2,8 @@ package main.classes.board;
 
 import main.classes.pieces.Piece;
 
+import java.util.Arrays;
+
 public class Board {
 
     private int verticalSize;
@@ -20,7 +22,12 @@ public class Board {
     public Board(Board other){
         this.verticalSize = other.getVerticalSize();
         this.horizontalSize = other.getHorizontalSize();
-        this.squares = other.getSquares();
+
+        Square[][] copySquares = new Square[horizontalSize][verticalSize];
+        for (int i = 0; i < copySquares.length; i++) {
+            copySquares[i] = Arrays.copyOf(other.getSquares()[i], copySquares.length);
+        }
+        this.squares = copySquares;
     }
 
     public int getVerticalSize() {
