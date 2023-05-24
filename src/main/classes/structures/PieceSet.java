@@ -1,5 +1,6 @@
 package main.classes.structures;
 
+import main.classes.board.Board;
 import main.classes.board.Square;
 import main.classes.controllers.Player;
 import main.classes.pieces.King;
@@ -23,9 +24,20 @@ public class PieceSet extends HashSet<Piece> implements IPieceSet{
 
     @Override
     public void setAllMovableSquares(){
-        // TODO: change movable squares when King is in check, allowing only moves that resolve the check
         for (Piece piece : this){
             piece.setMovableSquares();
+        }
+
+        if (getKing().isInCheck()) {
+            // TODO: change movable squares when King is in check, allowing only moves that resolve the check
+            Player attackingPlayer = (player.getTeam() == Team.WHITE) ? player.getGame().getBlackPlayer() :
+                    player.getGame().getWhitePlayer();
+            for (Piece piece : this){
+                for (Square square : piece.getMovableSquares()){
+                    Board tempBoard = new Board(player.getGame().getBoard());
+                    tempBoard.setPiece(square, piece);
+                }
+            }
         }
     }
 
