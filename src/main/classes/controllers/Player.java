@@ -25,6 +25,11 @@ public class Player {
         this.team = team;
     }
 
+//    public Player (Player other) {
+//        this.team = other.getTeam();
+//        this.pieceSet = new PieceSet(other.getPieceSet());
+//    }
+
     public Team getTeam() {
         return team;
     }
