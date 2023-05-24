@@ -23,6 +23,7 @@ public class PieceSet extends HashSet<Piece> implements IPieceSet{
 
     @Override
     public void setAllMovableSquares(){
+        // TODO: change movable squares when King is in check, allowing only moves that resolve the check
         for (Piece piece : this){
             piece.setMovableSquares();
         }
