@@ -25,7 +25,9 @@ public class Board {
 
         Square[][] copySquares = new Square[horizontalSize][verticalSize];
         for (int i = 0; i < copySquares.length; i++) {
-            copySquares[i] = Arrays.copyOf(other.getSquares()[i], copySquares.length);
+            for (int j = 0; j < copySquares.length; j++) {
+                copySquares[i][j] = new Square(other.getSquareByPos(i,j));
+            }
         }
         this.squares = copySquares;
     }
