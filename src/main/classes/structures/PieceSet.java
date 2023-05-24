@@ -30,6 +30,10 @@ public class PieceSet extends HashSet<Piece> implements IPieceSet{
         this.attackedSquares = new HashSet<>();
     }
 
+//    public PieceSet(PieceSet other){
+//        this.
+//    }
+
     @Override
     public void setAllMovableSquares(){
         for (Piece piece : this){
@@ -44,6 +48,16 @@ public class PieceSet extends HashSet<Piece> implements IPieceSet{
                 for (Square square : piece.getMovableSquares()){
                     Board tempBoard = new Board(player.getGame().getBoard());
                     tempBoard.setPiece(square, piece);
+
+                    PieceSet tempEnemyPieces = new PieceSet(attackingPlayer, tempBoard);
+                    tempEnemyPieces.setAllAttackedSquares();
+                    if (player.getTeam() == Team.WHITE) {
+                        tempBoard.setWhitePieces(this);
+                        tempBoard.setBlackPieces(tempEnemyPieces);
+                    } else {
+                        tempBoard.setWhitePieces(tempEnemyPieces);
+                        tempBoard.setBlackPieces(this);
+                    }
                 }
             }
         }
