@@ -47,13 +47,16 @@ public class Square implements Cloneable{
 
     @Override
     public Square clone() {
+        Square clone = null;
         try {
-            Square clone = (Square) super.clone();
             // TODO: copy mutable state here, so the clone can't change the internals of the original
-            return clone;
+            clone = (Square) super.clone();
         } catch (CloneNotSupportedException e) {
-            throw new AssertionError();
+            System.out.println("WARNING: Square not properly cloned!");
+            clone = new Square(this.getHorizontalPosition(), this.getVerticalPosition());
+            clone.setPiece(this.getPiece());
         }
+        return clone;
     }
 
     // TODO: helper methods, squareup, squaredown, squareleft, squareright
