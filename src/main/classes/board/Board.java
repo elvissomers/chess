@@ -17,6 +17,12 @@ public class Board {
         this.setSquares();
     }
 
+    public Board(Board other){
+        this.verticalSize = other.getVerticalSize();
+        this.horizontalSize = other.getHorizontalSize();
+        this.squares = other.getSquares();
+    }
+
     public int getVerticalSize() {
         return verticalSize;
     }
