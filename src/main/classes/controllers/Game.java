@@ -30,6 +30,11 @@ public class Game {
         this.setStartBoard();
     }
 
+    public Game(Game other) {
+        this.board = new Board(other.getBoard());
+        // TODO
+    }
+
     public Board getBoard() {
         return board;
     }
