@@ -1,5 +1,6 @@
 package main.classes.pieces;
 
+import main.classes.board.Board;
 import main.classes.board.Square;
 import main.classes.controllers.Game;
 import main.classes.controllers.Player;
@@ -101,5 +102,16 @@ public class King extends Piece {
                 this.getGame().getWhitePlayer();
         Set<Square> squaresUnderAttack = attackingPlayer.getPieceSet().getAllAttackedSquares();
         return squaresUnderAttack.contains(square);
+    }
+
+    /**
+     * Separate checkCheck method that is used for checking a hypothetical board,
+     * that is, a board that does not belong to a Game and.
+     *
+     * It does not need a Square as input, as it only checks if the King is in check
+     * on the square that it currently is on.
+     */
+    public boolean checkCheck(Board board){
+        return false;
     }
 }
