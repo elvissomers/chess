@@ -1,6 +1,7 @@
 package main.classes.board;
 
 import main.classes.pieces.Piece;
+import main.classes.structures.PieceSet;
 
 import java.util.Arrays;
 
@@ -11,6 +12,13 @@ public class Board {
     private int horizontalSize;
 
     private Square[][] squares;
+
+    /*
+     * PieceSet attributes are used if this is a temporary board, which is not part of a game
+     */
+    private PieceSet whitePieces;
+
+    private PieceSet blackPieces;
 
     public Board(int verticalSize, int horizontalSize) {
         this.verticalSize = verticalSize;
@@ -67,5 +75,21 @@ public class Board {
 
     public Square getSquareByPos(int xPos, int yPos){
         return this.squares[xPos][yPos];
+    }
+
+    public PieceSet getWhitePieces() {
+        return whitePieces;
+    }
+
+    public void setWhitePieces(PieceSet whitePieces) {
+        this.whitePieces = whitePieces;
+    }
+
+    public PieceSet getBlackPieces() {
+        return blackPieces;
+    }
+
+    public void setBlackPieces(PieceSet blackPieces) {
+        this.blackPieces = blackPieces;
     }
 }
