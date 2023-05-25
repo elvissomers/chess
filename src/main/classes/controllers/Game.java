@@ -32,7 +32,15 @@ public class Game {
 
     public Game(Game other) {
         this.board = new Board(other.getBoard());
-        // TODO
+
+        this.whitePlayer = new Player(other.getWhitePlayer());
+        new PieceSet(whitePlayer);
+        whitePlayer.setGame(this);
+        this.blackPlayer = new Player(other.getBlackPlayer());
+        new PieceSet(blackPlayer);
+        blackPlayer.setGame(this);
+
+        this.moveHistory = other.getMoveHistory();
     }
 
     public Board getBoard() {
