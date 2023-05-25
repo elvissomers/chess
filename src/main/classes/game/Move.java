@@ -45,4 +45,6 @@ public class Move {
 
         return pieceChar + squareFrom.toString() + "-" + squareTo.toString();
     }
+
+    // Comment to test if GIT revision was succesful
 }
