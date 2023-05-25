@@ -23,33 +23,49 @@ public class PieceSet extends HashSet<Piece> implements IPieceSet{
         player.setPieceSet(this);
     }
 
+    public PieceSet(Player player, PieceSet other){
+        this.attackedSquares = new HashSet<>();
+        for (Piece piece : other){
+            this.add(piece);
+        }
+        player.setPieceSet(this);
+    }
+
     @Override
     public void setAllMovableSquares(){
         for (Piece piece : this){
             piece.setMovableSquares();
         }
 
+        if (getKing().checkCheck(getKing().getSquare()))
+            getKing().setInCheck(true);
+
         if (getKing().isInCheck()) {
-            // TODO: change movable squares when King is in check, allowing only moves that resolve the check
-            Player attackingPlayer = (player.getTeam() == Team.WHITE) ? player.getGame().getBlackPlayer() :
-                    player.getGame().getWhitePlayer();
             for (Piece piece : this){
+                Player enemyPlayer = (player.getTeam() == Team.WHITE) ? player.getGame().getBlackPlayer() :
+                        player.getGame().getWhitePlayer();
                 for (Square square : piece.getMovableSquares()){
                     Board tempBoard = new Board(player.getGame().getBoard());
                     tempBoard.setPiece(square, piece);
 
-                    PieceSet tempEnemyPieces = new PieceSet(attackingPlayer);
+                    Player tempEnemyPlayer = new Player(enemyPlayer);
+                    PieceSet tempEnemyPieces = new PieceSet(tempEnemyPlayer, enemyPlayer.getPieceSet());
                     tempEnemyPieces.setAllAttackedSquares();
+                    tempEnemyPlayer.setPieceSet(tempEnemyPieces);
 
                     Game tempGame = new Game(player.getGame());
                     tempGame.setBoard(tempBoard);
 
-                    Player tempAttackingPlayer = new Player(attackingPlayer);
-                    tempAttackingPlayer.setPieceSet(tempEnemyPieces);
-                    if (player.getTeam() == Team.WHITE)
-                        tempGame.setBlackPlayer(tempAttackingPlayer);
-                    else
-                        tempGame.setWhitePlayer(tempAttackingPlayer);
+                    Player tempPlayer = new Player(player);
+                    tempPlayer.setPieceSet(player.getPieceSet());
+                    if (player.getTeam() == Team.WHITE) {
+                        tempGame.setWhitePlayer(tempPlayer);
+                        tempGame.setBlackPlayer(tempEnemyPlayer);
+                    }
+                    else {
+                        tempGame.setWhitePlayer(tempEnemyPlayer);
+                        tempGame.setBlackPlayer(tempPlayer);
+                    }
 
                     King tempKing = new King(tempGame, player.getTeam());
                     if (tempKing.checkCheck(getKing().getSquare()))

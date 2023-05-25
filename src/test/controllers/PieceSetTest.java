@@ -14,26 +14,25 @@ class PieceSetTest {
         game = new Game();
         game.getWhitePlayer().movePiece(game.getBoard().getSquareByPos(4,1).getPiece(),
                 game.getBoard().getSquareByPos(4,3));
-        game.getBlackPlayer().movePiece(game.getBoard().getSquareByPos(4,6).getPiece(),
-                game.getBoard().getSquareByPos(4,4));
+        game.getBlackPlayer().movePiece(game.getBoard().getSquareByPos(5,6).getPiece(),
+                game.getBoard().getSquareByPos(5,4));
         game.getWhitePlayer().movePiece(game.getBoard().getSquareByPos(3,0).getPiece(),
                 game.getBoard().getSquareByPos(7,4));
         //Qh5+, black is now in check!
         game.getWhitePlayer().getPieceSet().setAllMovableSquares();
+        game.getWhitePlayer().getPieceSet().setAllAttackedSquares();
         game.getBlackPlayer().getPieceSet().setAllMovableSquares();
     }
 
     @Test
     void setAllMovableSquaresKingInCheckShouldPreventMovesNotResolvingCheck() {
         assertTrue(game.getBoard().getSquareByPos(0,6).getPiece().getMovableSquares().isEmpty());
-        assertTrue(game.getBoard().getSquareByPos(0,7).getPiece().getMovableSquares().isEmpty());
         assertTrue(game.getBoard().getSquareByPos(1,6).getPiece().getMovableSquares().isEmpty());
         assertTrue(game.getBoard().getSquareByPos(1,7).getPiece().getMovableSquares().isEmpty());
     }
 
     @Test
     void setAllMovableSquaresCheckShouldNotPreventCheckingPlayerFromMoving(){
-        assertFalse(game.getBoard().getSquareByPos(0,0).getPiece().getMovableSquares().isEmpty());
         assertFalse(game.getBoard().getSquareByPos(0,1).getPiece().getMovableSquares().isEmpty());
         assertFalse(game.getBoard().getSquareByPos(1,0).getPiece().getMovableSquares().isEmpty());
         assertFalse(game.getBoard().getSquareByPos(1,1).getPiece().getMovableSquares().isEmpty());
@@ -45,7 +44,7 @@ class PieceSetTest {
         assertEquals("g6", game.getBoard().getSquareByPos(6,6).getPiece().getMovableSquares()
                 .get(0).toString());
         assertEquals(1, game.getBoard().getSquareByPos(4,7).getPiece().getMovableSquares().size());
-        assertEquals("e7", game.getBoard().getSquareByPos(7,7).getPiece().getMovableSquares()
+        assertEquals("e7", game.getBoard().getSquareByPos(4,7).getPiece().getMovableSquares()
                 .get(0).toString());
     }
 }
