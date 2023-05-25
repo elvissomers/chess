@@ -4,10 +4,13 @@ import main.classes.board.Board;
 import main.classes.board.Square;
 import main.classes.controllers.Game;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import main.classes.service.movement.MovementAnalyzer;
 import main.classes.structures.MovementType;
 =======
 >>>>>>> parent of 8857575 (Added movementTypes to Piece class)
+=======
+>>>>>>> parent of be01cb3 (Created movementtype enum)
 import main.classes.structures.Team;
 
 import java.util.ArrayList;
@@ -27,8 +30,6 @@ public abstract class Piece {
 
     private Team team;
 
-    private MovementAnalyzer movementAnalyzer;
-
     private List<Square> movableSquares = new ArrayList<>();
 
     public void setGame(Game game) {
@@ -39,7 +40,6 @@ public abstract class Piece {
         return game;
     }
 
-    // TODO: set square in constructor
     public Piece(Game game, Team team) {
         this.game = game;
         this.team = team;
@@ -83,17 +83,6 @@ public abstract class Piece {
 
     public abstract void setMovableSquares();
 
-    public void newSetMovableSquares(){
-        for (MovementType movementType : movementTypes){
-            switch (movementType) {
-                case HORIZONTAL -> addMultipleMovableSquares(movementAnalyzer.getHorizontalMovableSquares());
-                case VERTICAL -> addMultipleMovableSquares(movementAnalyzer.getVerticalMovableSquares());
-                case DIAGONAL -> addMultipleMovableSquares(movementAnalyzer.getDiagonalMovableSquares());
-                case LSHAPED -> addMultipleMovableSquares(movementAnalyzer.getLShapedMovableSquares());
-            }
-        }
-    }
-
     public void removePreviousMovableSquares(){
         /*
          * Every implementation of setMovableSquares should call this
@@ -105,9 +94,5 @@ public abstract class Piece {
 
     public void addMovableSquare(Square square){
         this.movableSquares.add(square);
-    }
-
-    public void addMultipleMovableSquares(Set<Square> squares){
-        this.movableSquares.addAll(squares);
     }
 }
