@@ -25,10 +25,13 @@ public class Player {
         this.team = team;
     }
 
-//    public Player (Player other) {
-//        this.team = other.getTeam();
-//        this.pieceSet = new PieceSet(other.getPieceSet());
-//    }
+    public Player (Player other) {
+        this.team = other.getTeam();
+        this.game = other.getGame();
+        this.moveHistory = other.getMoveHistory();
+        // Null because pieceSet is designated to Player in PieceSet(Player) constructor
+        this.pieceSet = null;
+    }
 
     public Team getTeam() {
         return team;
