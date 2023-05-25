@@ -3,20 +3,6 @@ package main.classes.pieces;
 import main.classes.board.Board;
 import main.classes.board.Square;
 import main.classes.controllers.Game;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-import main.classes.service.movement.MovementAnalyzer;
-import main.classes.structures.MovementType;
-=======
->>>>>>> parent of 8857575 (Added movementTypes to Piece class)
-=======
->>>>>>> parent of be01cb3 (Created movementtype enum)
-=======
->>>>>>> parent of be01cb3 (Created movementtype enum)
-=======
->>>>>>> parent of be01cb3 (Created movementtype enum)
 import main.classes.structures.Team;
 
 import java.util.ArrayList;
