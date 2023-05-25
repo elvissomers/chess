@@ -3,17 +3,17 @@ package main.classes.pieces;
 import main.classes.board.Board;
 import main.classes.board.Square;
 import main.classes.controllers.Game;
+<<<<<<< HEAD
 import main.classes.service.movement.MovementAnalyzer;
 import main.classes.structures.MovementType;
+=======
+>>>>>>> parent of 8857575 (Added movementTypes to Piece class)
 import main.classes.structures.Team;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public abstract class Piece {
-
-    private Set<MovementType> movementTypes;
 
     private Square square;
 
