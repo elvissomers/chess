@@ -36,6 +36,27 @@ public class MovementAnalyzer {
                 }
             }
         }
+
+        return movableSquares;
+    }
+
+    public Set<Square> getHorizontalMovableSquares(){
+        Set<Square> movableSquares = new HashSet<>();
+
+        for (int direction = -1; direction <= 1; direction += 2) {
+            for (int x = piece.getSquare().getHorizontalPosition() + direction;
+                 (direction > 0 ? x < board.getHorizontalSize() : x > 0); x += direction) {
+                Square currentSquare = board.getSquareByPos(x, piece.getSquare().getVerticalPosition());
+                if (currentSquare.getPiece() != null) {
+                    if (currentSquare.getPiece().getTeam() != piece.getTeam()) {
+                        movableSquares.add(currentSquare);
+                    }
+                    break;
+                }
+                movableSquares.add(currentSquare);
+            }
+        }
+
         return movableSquares;
     }
 }
