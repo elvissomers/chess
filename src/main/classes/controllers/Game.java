@@ -63,6 +63,14 @@ public class Game {
         return blackPlayer;
     }
 
+    public void setBlackPlayer(Player blackPlayer) {
+        this.blackPlayer = blackPlayer;
+    }
+
+    public void setWhitePlayer(Player whitePlayer) {
+        this.whitePlayer = whitePlayer;
+    }
+
     public void setStartBoard(){
         /**
          * setStartBoard sets the Board to the standard chess starting position.
