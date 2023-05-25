@@ -2,6 +2,7 @@ package main.classes.structures;
 
 import main.classes.board.Board;
 import main.classes.board.Square;
+import main.classes.controllers.Game;
 import main.classes.controllers.Player;
 import main.classes.pieces.King;
 import main.classes.pieces.Pawn;
@@ -37,15 +38,24 @@ public class PieceSet extends HashSet<Piece> implements IPieceSet{
                     Board tempBoard = new Board(player.getGame().getBoard());
                     tempBoard.setPiece(square, piece);
 
-                    PieceSet tempEnemyPieces = new PieceSet(attackingPlayer, tempBoard);
+                    PieceSet tempEnemyPieces = new PieceSet(attackingPlayer);
                     tempEnemyPieces.setAllAttackedSquares();
-                    if (player.getTeam() == Team.WHITE) {
-                        tempBoard.setWhitePieces(this);
-                        tempBoard.setBlackPieces(tempEnemyPieces);
-                    } else {
-                        tempBoard.setWhitePieces(tempEnemyPieces);
-                        tempBoard.setBlackPieces(this);
-                    }
+
+                    Game tempGame = new Game(player.getGame());
+                    tempGame.setBoard(tempBoard);
+
+                    Player tempAttackingPlayer = new Player(attackingPlayer);
+                    tempAttackingPlayer.setPieceSet(tempEnemyPieces);
+                    if (player.getTeam() == Team.WHITE)
+                        tempGame.setBlackPlayer(tempAttackingPlayer);
+                    else
+                        tempGame.setWhitePlayer(tempAttackingPlayer);
+
+                    King tempKing = new King(tempGame, player.getTeam());
+                    if (tempKing.checkCheck(getKing().getSquare()))
+                        piece.getMovableSquares().remove(square);
+
+
                 }
             }
         }
