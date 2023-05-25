@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="todo">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="revision check- comment removed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -161,20 +161,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00087" summary="Update game constructor to create piece sets">
-      <created>1684497557942</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1684497557942</updated>
-    </task>
-    <task id="LOCAL-00088" summary="Set pieceset to player in PieceSet.java constructor">
-      <created>1684497672196</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1684497672196</updated>
     </task>
     <task id="LOCAL-00089" summary="Added extra test in kingtest to check checkcheck - the test fails, so there is a bug to fix here">
       <created>1684498206981</created>
@@ -505,7 +491,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684846318049</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="revision check- comment">
+      <created>1685007158950</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1685007158950</updated>
+    </task>
+    <task id="LOCAL-00137" summary="revision check- comment removed">
+      <created>1685007209613</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1685007209613</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -522,8 +522,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Added enum for long/short castling" />
-    <MESSAGE value="Added TODO" />
     <MESSAGE value="Check if move is a castle move" />
     <MESSAGE value="formatting" />
     <MESSAGE value="implement castle method" />
@@ -547,7 +545,9 @@
     <MESSAGE value="added piecetaking functionality to movepiece method" />
     <MESSAGE value="Added pawn promotion (always to queen) in movePiece method" />
     <MESSAGE value="todo" />
-    <option name="LAST_COMMIT_MESSAGE" value="todo" />
+    <MESSAGE value="revision check- comment" />
+    <MESSAGE value="revision check- comment removed" />
+    <option name="LAST_COMMIT_MESSAGE" value="revision check- comment removed" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
