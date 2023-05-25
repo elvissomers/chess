@@ -27,7 +27,7 @@ public class Player {
 
     public Player (Player other) {
         this.team = other.getTeam();
-        this.game = other.getGame();
+        this.game = null;
         this.moveHistory = other.getMoveHistory();
         // Null because pieceSet is designated to Player in PieceSet(Player) constructor
         this.pieceSet = null;
