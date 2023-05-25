@@ -3,6 +3,7 @@ package main.classes.pieces;
 import main.classes.board.Board;
 import main.classes.board.Square;
 import main.classes.controllers.Game;
+import main.classes.service.movement.MovementAnalyzer;
 import main.classes.structures.MovementType;
 import main.classes.structures.Team;
 
@@ -25,6 +26,8 @@ public abstract class Piece {
     private Game game;
 
     private Team team;
+
+    private MovementAnalyzer movementAnalyzer;
 
     private List<Square> movableSquares = new ArrayList<>();
 
@@ -80,6 +83,17 @@ public abstract class Piece {
 
     public abstract void setMovableSquares();
 
+    public void newSetMovableSquares(){
+        for (MovementType movementType : movementTypes){
+            switch (movementType) {
+                case HORIZONTAL -> addMultipleMovableSquares(movementAnalyzer.getHorizontalMovableSquares());
+                case VERTICAL -> addMultipleMovableSquares(movementAnalyzer.getVerticalMovableSquares());
+                case DIAGONAL -> addMultipleMovableSquares(movementAnalyzer.getDiagonalMovableSquares());
+                case LSHAPED -> addMultipleMovableSquares(movementAnalyzer.getLShapedMovableSquares());
+            }
+        }
+    }
+
     public void removePreviousMovableSquares(){
         /*
          * Every implementation of setMovableSquares should call this
@@ -91,5 +105,9 @@ public abstract class Piece {
 
     public void addMovableSquare(Square square){
         this.movableSquares.add(square);
+    }
+
+    public void addMultipleMovableSquares(Set<Square> squares){
+        this.movableSquares.addAll(squares);
     }
 }
