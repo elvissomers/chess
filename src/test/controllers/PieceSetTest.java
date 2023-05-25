@@ -19,6 +19,8 @@ class PieceSetTest {
         game.getWhitePlayer().movePiece(game.getBoard().getSquareByPos(3,0).getPiece(),
                 game.getBoard().getSquareByPos(7,4));
         //Qh5+, black is now in check!
+        game.getWhitePlayer().getPieceSet().setAllMovableSquares();
+        game.getBlackPlayer().getPieceSet().setAllMovableSquares();
     }
 
     @Test
