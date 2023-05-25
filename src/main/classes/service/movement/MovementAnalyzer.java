@@ -7,9 +7,11 @@ import main.classes.structures.Team;
 import java.util.HashSet;
 import java.util.Set;
 
-public class DiagonalMovement {
+public class MovementAnalyzer {
 
     private Board board;
+
+    private Piece piece;
 
     public Set<Square> getDiagonalMovableSquares(int xPos, int yPos, Team team){
         Set<Square> movableSquares = new HashSet<>();
