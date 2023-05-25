@@ -16,23 +16,11 @@ public class PieceSet extends HashSet<Piece> implements IPieceSet{
 
     private Set<Square> attackedSquares;
 
-    private Board board;
-
     public PieceSet(Player player) {
         this.player = player;
         this.attackedSquares = new HashSet<>();
         player.setPieceSet(this);
     }
-
-    public PieceSet(Player player, Board board){
-        this.player = player;
-        this.board = board;
-        this.attackedSquares = new HashSet<>();
-    }
-
-//    public PieceSet(PieceSet other){
-//        this.
-//    }
 
     @Override
     public void setAllMovableSquares(){
