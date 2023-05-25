@@ -87,16 +87,6 @@ public class King extends Piece {
         }
     }
 
-//    public void checkHasMoved(){
-//        Player player = (this.getTeam() == Team.WHITE) ? this.getGame().getWhitePlayer() :
-//                this.getGame().getBlackPlayer();
-//        for (Move move : player.getMoveHistory()){
-//            if (move.getPiece() == this){
-//                hasMoved = true;
-//            }
-//        }
-//    }
-
     public boolean checkCheck(Square square) {
         Player attackingPlayer = (this.getTeam() == Team.WHITE) ? this.getGame().getBlackPlayer() :
                 this.getGame().getWhitePlayer();
