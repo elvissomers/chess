@@ -8,11 +8,11 @@ import main.classes.pieces.King;
 import main.classes.pieces.Pawn;
 import main.classes.pieces.Piece;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class PieceSet extends HashSet<Piece> implements IPieceSet{
 
+    //TODO: reimplement pieceSet to pieceMap
     private Player player;
 
     private Set<Square> attackedSquares;
@@ -42,11 +42,13 @@ public class PieceSet extends HashSet<Piece> implements IPieceSet{
 
         if (getKing().isInCheck()) {
             for (Piece piece : this){
+                List<Square> squaresToRemove = new ArrayList<>();
                 Player enemyPlayer = (player.getTeam() == Team.WHITE) ? player.getGame().getBlackPlayer() :
                         player.getGame().getWhitePlayer();
                 for (Square square : piece.getMovableSquares()){
                     Board tempBoard = new Board(player.getGame().getBoard());
-                    tempBoard.setPiece(square, piece);
+                    tempBoard.setPiece(tempBoard.getSquareByPos(square.getHorizontalPosition(),
+                            square.getVerticalPosition()), piece);
 
                     Player tempEnemyPlayer = new Player(enemyPlayer);
                     PieceSet tempEnemyPieces = new PieceSet(tempEnemyPlayer, enemyPlayer.getPieceSet());
@@ -57,7 +59,9 @@ public class PieceSet extends HashSet<Piece> implements IPieceSet{
                     tempGame.setBoard(tempBoard);
 
                     Player tempPlayer = new Player(player);
-                    tempPlayer.setPieceSet(player.getPieceSet());
+                    PieceSet tempPieces = new PieceSet(tempPlayer, this);
+                    tempPieces.get(piece).setSquare()
+                    tempPlayer.setPieceSet(tempPieces);
                     if (player.getTeam() == Team.WHITE) {
                         tempGame.setWhitePlayer(tempPlayer);
                         tempGame.setBlackPlayer(tempEnemyPlayer);
@@ -68,10 +72,14 @@ public class PieceSet extends HashSet<Piece> implements IPieceSet{
                     }
 
                     King tempKing = new King(tempGame, player.getTeam());
-                    if (tempKing.checkCheck(getKing().getSquare()))
-                        piece.getMovableSquares().remove(square);
+                    // TODO: what if king was just moved?
+                    if (tempKing.checkCheck(getKing().getSquare())) {
+                        squaresToRemove.add(square);
+                    }
 
-
+                }
+                for (Square square : squaresToRemove){
+                    piece.getMovableSquares().remove(square);
                 }
             }
         }
