@@ -3,12 +3,16 @@ package main.classes.pieces;
 import main.classes.board.Board;
 import main.classes.board.Square;
 import main.classes.controllers.Game;
+import main.classes.structures.MovementType;
 import main.classes.structures.Team;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public abstract class Piece {
+
+    private Set<MovementType> movementTypes;
 
     private Square square;
 
