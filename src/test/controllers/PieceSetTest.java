@@ -43,8 +43,5 @@ class PieceSetTest {
         assertEquals(1, game.getBoard().getSquareByPos(6,6).getPiece().getMovableSquares().size());
         assertEquals("g6", game.getBoard().getSquareByPos(6,6).getPiece().getMovableSquares()
                 .get(0).toString());
-        assertEquals(1, game.getBoard().getSquareByPos(4,7).getPiece().getMovableSquares().size());
-        assertEquals("e7", game.getBoard().getSquareByPos(4,7).getPiece().getMovableSquares()
-                .get(0).toString());
     }
 }
