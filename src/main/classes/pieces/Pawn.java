@@ -109,6 +109,8 @@ public class Pawn extends Piece {
 
 
     public void setAttackedSquares() {
+        attackedSquares = new HashSet<>();
+
         int xPos = this.getSquare().getHorizontalPosition();
         int yPos = this.getSquare().getVerticalPosition();
         int xSize = this.getBoard().getHorizontalSize();
