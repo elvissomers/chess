@@ -7,6 +7,7 @@ import java.util.Arrays;
 
 public class Board {
 
+    // TODO: sizes to game?
     private int verticalSize;
 
     private int horizontalSize;
