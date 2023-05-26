@@ -37,6 +37,11 @@ public abstract class Piece {
         this.team = team;
     }
 
+    public Piece(Piece other) {
+        this.team = other.getTeam();
+        // Game & Square will be set separately
+    }
+
     public Square getSquare() {
         return square;
     }
