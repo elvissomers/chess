@@ -102,8 +102,6 @@ public class Player {
             piece.setSquare(destSquare);
         }
         moveHistory.add(move);
-        // TODO: remove the double movehistory attribute
-        this.game.getMoveHistory().add(move);
     }
 
     public void castle(King king, Rook rook, CastleType type){
