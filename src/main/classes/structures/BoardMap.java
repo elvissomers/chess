@@ -10,50 +10,76 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
 
     private Game game;
 
+    private Coordinate[][] coordinateArray;
+
     /**
      * Constructor for BoardMap is supposed to generate a starting Board according to the standard chess rules.
      *
      * @param game the game the Board belongs to
      */
     public BoardMap(Game game){
-        // Hardcoded for now, since game setup is defined for 8x8 board anyways
-        int horizontalSize = 8;
-        int verticalSize = 8;
-        // Set all squares, empty
-        for (Player player : new Player[] {game.getWhitePlayer(), game.getBlackPlayer()}){
-            // do some stuff
-            Piece[] piecesInOrder = new Piece[] {
-                    new Rook(player), new Knight(player), new Bishop(player),
-                    new Queen(player), new King(player), new Bishop(player),
-                    new Knight(player), new Rook(player)
-            };
-            int yForMajorPieces = (player.getTeam() == Team.WHITE) ? 0 : 7;
-            int yForPawns = (player.getTeam() == Team.WHITE) ? 1 : 6;
+        this.game = game;
+        coordinateArray = new Coordinate[8][8];
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                coordinateArray[i][j] = new Coordinate(i, j);
+            }
+        }
 
-            // Set major pieces
-            for (int xPos = 0; xPos < horizontalSize; xPos++) {
-                Piece piece = piecesInOrder[xPos];
-                Coordinate pieceCoordinate = new Coordinate(xPos, yForMajorPieces);
-                put(pieceCoordinate, piece);
+        for (Player player : new Player[] {game.getWhitePlayer(), game.getBlackPlayer()})
+            setStartPieces(player);
+
+        setStartEmptySquares();
+    }
+
+    /**
+     * Copy constructor to create a copy of a Board
+     * @param other the Board to copy
+     */
+    public BoardMap(BoardMap other){
+        // TODO: every Piece should be "deep" copied, but not necessarily every Coordinate. The coordinates used
+        // are still the same
+
+    }
+
+
+    private void setStartPieces(Player player){
+        int horizontalSize = 8;
+
+        Piece[] piecesInOrder = new Piece[] {
+                new Rook(player), new Knight(player), new Bishop(player),
+                new Queen(player), new King(player), new Bishop(player),
+                new Knight(player), new Rook(player)
+        };
+        int yForMajorPieces = (player.getTeam() == Team.WHITE) ? 0 : 7;
+        int yForPawns = (player.getTeam() == Team.WHITE) ? 1 : 6;
+
+        // Set major pieces
+        for (int xPos = 0; xPos < horizontalSize; xPos++) {
+            Piece piece = piecesInOrder[xPos];
+            Coordinate pieceCoordinate = coordinateArray[xPos][yForMajorPieces];
+            put(pieceCoordinate, piece);
 
 //                currentPlayer.getPieceSet().add(piece);
-            }
+        }
 
-            // Set pawns
-            for (int xPos = 0; xPos < horizontalSize; xPos++){
-                Pawn pawn = new Pawn(player);
-                Coordinate pieceCoordinate = new Coordinate(xPos, yForPawns);
-                put(pieceCoordinate, pawn);
+        // Set pawns
+        for (int xPos = 0; xPos < horizontalSize; xPos++){
+            Pawn pawn = new Pawn(player);
+            Coordinate pieceCoordinate = coordinateArray[xPos][yForPawns];
+            put(pieceCoordinate, pawn);
 
 //                currentPlayer.getPieceSet().add(pawn);
-            }
+        }
+    }
 
-            // Set empty squares
-            for (int xPos = 0; xPos < horizontalSize; xPos++){
-                for (int yPos = 2; yPos < 6; yPos++){
-                    Coordinate emptySquareCoordinate = new Coordinate(xPos, yPos);
-                    put(emptySquareCoordinate, null);
-                }
+    private void setStartEmptySquares(){
+        int horizontalSize = 8;
+
+        for (int xPos = 0; xPos < horizontalSize; xPos++){
+            for (int yPos = 2; yPos < 6; yPos++){
+                Coordinate emptySquareCoordinate = coordinateArray[xPos][yPos];
+                put(emptySquareCoordinate, null);
             }
         }
     }
