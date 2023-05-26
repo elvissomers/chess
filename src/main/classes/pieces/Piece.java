@@ -3,6 +3,7 @@ package main.classes.pieces;
 import main.classes.board.Board;
 import main.classes.board.Square;
 import main.classes.controllers.Game;
+import main.classes.controllers.Player;
 import main.classes.structures.Team;
 
 import java.util.ArrayList;
@@ -30,6 +31,13 @@ public abstract class Piece {
 
     public Game getGame() {
         return game;
+    }
+
+    // TODO: make every creation of Piece use this constructor
+    // TODO: make logic depend on player instead of game
+    public Piece(Player player){
+        this.game = player.getGame();
+        this.team = player.getTeam();
     }
 
     public Piece(Game game, Team team) {
