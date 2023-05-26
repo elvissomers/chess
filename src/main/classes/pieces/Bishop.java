@@ -11,6 +11,7 @@ public class Bishop extends Piece {
         super(game, team);
     }
 
+    // TODO change type from Piece to Bishop (idem) other classes
     public Bishop(Piece other){
         super(other);
     }
