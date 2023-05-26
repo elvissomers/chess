@@ -17,8 +17,6 @@ public class Game {
 
     private Player blackPlayer;
 
-    private List<Move> moveHistory = new ArrayList<>();
-
     public Game() {
         board = new Board(8, 8);
 
@@ -39,8 +37,6 @@ public class Game {
         this.blackPlayer = new Player(other.getBlackPlayer());
         new PieceSet(blackPlayer);
         blackPlayer.setGame(this);
-
-        this.moveHistory = other.getMoveHistory();
     }
 
     public Board getBoard() {
@@ -49,10 +45,6 @@ public class Game {
 
     public void setBoard(Board board) {
         this.board = board;
-    }
-
-    public List<Move> getMoveHistory() {
-        return moveHistory;
     }
 
     public Player getWhitePlayer() {
