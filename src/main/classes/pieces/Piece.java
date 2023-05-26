@@ -4,6 +4,7 @@ import main.classes.board.Board;
 import main.classes.board.Square;
 import main.classes.controllers.Game;
 import main.classes.controllers.Player;
+import main.classes.structures.PieceType;
 import main.classes.structures.Team;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public abstract class Piece {
     private Square square;
 
     private Board board;
+    private PieceType type;
 
     // TODO: Instead of having the Game & Team attribute, Piece should have a Player
     // TODO: attribute. Then we can get the game from the player, and also the Team
@@ -52,6 +54,11 @@ public abstract class Piece {
 
     public Square getSquare() {
         return square;
+    }
+
+    //nw
+    public PieceType getType() {
+        return type;
     }
 
     /*
