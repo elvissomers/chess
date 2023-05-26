@@ -2,6 +2,7 @@ package main.classes.pieces;
 
 import main.classes.board.Square;
 import main.classes.controllers.Game;
+import main.classes.controllers.Player;
 import main.classes.structures.Team;
 
 public class Queen extends Piece{
@@ -12,6 +13,10 @@ public class Queen extends Piece{
 
     public Queen(Piece other){
         super(other);
+    }
+
+    public Queen(Player player){
+        super(player);
     }
 
     @Override

@@ -24,6 +24,10 @@ public class King extends Piece {
         super(other.getGame(), other.getTeam());
     }
 
+    public King(Player player){
+        super(player);
+    }
+
     // King keeps track of whether it has moved during this game
     // - needed for castling rule
     // TODO: will remove this, obtain it from the move history instead

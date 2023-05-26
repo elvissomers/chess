@@ -17,6 +17,10 @@ public class Pawn extends Piece {
         super(other);
     }
 
+    public Pawn(Player player){
+        super(player);
+    }
+
     /*
      * Unlike any of the other pieces, the pawn has specific squares they attack,
      * without necessarily being able to move to these squares.
