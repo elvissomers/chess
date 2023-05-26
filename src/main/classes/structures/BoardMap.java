@@ -4,6 +4,7 @@ import main.classes.controllers.Game;
 import main.classes.controllers.Player;
 import main.classes.pieces.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
 public class BoardMap extends HashMap<Coordinate, Piece> {
@@ -36,12 +37,24 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
      * Copy constructor to create a copy of a Board
      * @param other the Board to copy
      */
-    public BoardMap(BoardMap other){
+    public BoardMap(BoardMap other) throws InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         // TODO: every Piece should be "deep" copied, but not necessarily every Coordinate. The coordinates used
         // are still the same
+        coordinateArray = other.getCoordinateArray();
+        for (int i = 0; i < 8; i++){
+            for (int j = 0; j < 8; j++){
+                Piece currentPiece = other.get(coordinateArray[i][j]);
+                Class<? extends Piece> pieceClass = currentPiece.getType().getPieceImplementation();
+                Piece copyPiece = pieceClass.getDeclaredConstructor(pieceClass).newInstance(currentPiece);
 
+                put(coordinateArray[i][j], copyPiece);
+            }
+        }
     }
 
+    public Coordinate[][] getCoordinateArray() {
+        return coordinateArray;
+    }
 
     private void setStartPieces(Player player){
         int horizontalSize = 8;
