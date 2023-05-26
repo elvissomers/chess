@@ -18,6 +18,10 @@ public class Rook extends Piece {
         super(game, team);
     }
 
+    public Rook(Piece other){
+        super(other);
+    }
+
     public boolean isHasMoved() {
         return hasMoved;
     }

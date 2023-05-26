@@ -10,6 +10,10 @@ public class Knight extends Piece {
         super(game, team);
     }
 
+    public Knight(Piece other){
+        super(other);
+    }
+
     @Override
     public void setMovableSquares() {
         removePreviousMovableSquares();

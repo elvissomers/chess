@@ -10,6 +10,10 @@ public class Bishop extends Piece {
         super(game, team);
     }
 
+    public Bishop(Piece other){
+        super(other);
+    }
+
     @Override
     public void setMovableSquares() {
         removePreviousMovableSquares();

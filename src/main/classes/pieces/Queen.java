@@ -10,6 +10,10 @@ public class Queen extends Piece{
         super(game, team);
     }
 
+    public Queen(Piece other){
+        super(other);
+    }
+
     @Override
     public void setMovableSquares() {
         removePreviousMovableSquares();

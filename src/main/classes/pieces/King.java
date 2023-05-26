@@ -16,6 +16,10 @@ public class King extends Piece {
         super(game, team);
     }
 
+    public King(Piece other){
+        super(other);
+    }
+
     public King(King other){
         super(other.getGame(), other.getTeam());
     }
