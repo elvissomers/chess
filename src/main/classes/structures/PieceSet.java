@@ -60,7 +60,8 @@ public class PieceSet extends HashSet<Piece> implements IPieceSet{
 
                     Player tempPlayer = new Player(player);
                     PieceSet tempPieces = new PieceSet(tempPlayer, this);
-                    tempPieces.get(piece).setSquare()
+//                    tempPieces.get(piece).setSquare();
+                    // TODO: bug: the moved piece is not moved inside tempPieces
                     tempPlayer.setPieceSet(tempPieces);
                     if (player.getTeam() == Team.WHITE) {
                         tempGame.setWhitePlayer(tempPlayer);
