@@ -8,10 +8,18 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
 public class BoardMap extends HashMap<Coordinate, Piece> {
+    /**
+     * Note: BoardMap creates new Pieces. Therefore, these should not be
+     * created in either Player or Game classes.
+     *
+     * Players are assumed to already exist when the BoardMap is created. Therefore,
+     * players should be created before BoardMap. Their PieceMap, however, should still be
+     * empty.
+     */
 
     private Game game;
 
-    private Coordinate[][] coordinateArray;
+    private final Coordinate[][] coordinateArray;
 
     /**
      * Constructor for BoardMap is supposed to generate a starting Board according to the standard chess rules.
@@ -37,16 +45,16 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
      * Copy constructor to create a copy of a Board
      * @param other the Board to copy
      */
-    public BoardMap(BoardMap other) throws InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+    public BoardMap(BoardMap other)  {
         // TODO: every Piece should be "deep" copied, but not necessarily every Coordinate. The coordinates used
         // are still the same
         coordinateArray = other.getCoordinateArray(); // Reference, no copy
         for (int i = 0; i < 8; i++){
             for (int j = 0; j < 8; j++){
                 Piece currentPiece = other.get(coordinateArray[i][j]);
-                Piece copyPiece = currentPiece.copy();
+                Piece copyPiece = currentPiece.copy(); // New instance, actual copy
 //                Class<? extends Piece> pieceClass = currentPiece.getType().getPieceImplementation();
-//                Piece copyPiece = pieceClass.getDeclaredConstructor(pieceClass).newInstance(currentPiece); // New instance, actual copy
+//                Piece copyPiece = pieceClass.getDeclaredConstructor(pieceClass).newInstance(currentPiece);
 
                 put(coordinateArray[i][j], copyPiece);
             }
@@ -96,5 +104,9 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
                 put(emptySquareCoordinate, null);
             }
         }
+    }
+
+    public Game getGame() {
+        return game;
     }
 }
