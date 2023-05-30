@@ -69,4 +69,8 @@ public class Rook extends Piece {
         }
 
     }
+
+    public Rook copy(){
+        return new Rook(this);
+    }
 }

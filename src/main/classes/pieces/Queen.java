@@ -74,4 +74,8 @@ public class Queen extends Piece{
             }
         }
     }
+
+    public Queen copy(){
+        return new Queen(this);
+    }
 }

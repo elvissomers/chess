@@ -52,4 +52,8 @@ public class Knight extends Piece {
             }
         }
     }
+
+    public Knight copy(){
+        return new Knight(this);
+    }
 }

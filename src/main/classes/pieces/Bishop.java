@@ -49,4 +49,8 @@ public class Bishop extends Piece {
             }
         }
     }
+
+    public Bishop copy(){
+        return new Bishop(this);
+    }
 }

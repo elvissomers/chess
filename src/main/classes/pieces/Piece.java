@@ -95,6 +95,8 @@ public abstract class Piece {
 
     public abstract void setMovableSquares();
 
+    public abstract Piece copy();
+
     public void removePreviousMovableSquares(){
         /*
          * Every implementation of setMovableSquares should call this

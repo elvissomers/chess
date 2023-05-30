@@ -135,4 +135,8 @@ public class Pawn extends Piece {
     public Set<Square> getAttackedSquares() {
         return attackedSquares;
     }
+
+    public Pawn copy(){
+        return new Pawn(this);
+    }
 }

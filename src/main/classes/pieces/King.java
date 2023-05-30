@@ -116,4 +116,8 @@ public class King extends Piece {
     public boolean checkCheck(Board board){
         return false;
     }
+
+    public King copy(){
+        return new King(this);
+    }
 }
