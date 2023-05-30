@@ -81,6 +81,37 @@ public class MovementFinder {
         }
     }
 
+    public void setLShapedMoves(Piece piece, BoardMap board){
+        piece.removePreviousMovableSquares();
+
+        int xPos = piece.getPosition().getX();
+        int yPos = piece.getPosition().getY();
+
+        for (int xDirection = -1; xDirection <= 1; xDirection += 2) {
+            for (int yRelativeDirection = -1; yRelativeDirection <= 1; yRelativeDirection += 2) {
+                int x1 = xPos + xDirection;
+                int x2 = xPos + 2 * xDirection;
+                int y1 = yPos + 2 * xDirection * yRelativeDirection;
+                int y2 = yPos + xDirection * yRelativeDirection;
+
+                if (0 <= x1 && x1 < xSize && 0 <= y1 && y1 < ySize){
+                    Piece otherPiece = board.get(board.getCoordinateArray()[x1][y1]);
+                    if (otherPiece == null || otherPiece.getPlayer().getTeam() != piece.getPlayer().getTeam()) {
+                        piece.addMovableSquare(board.getCoordinateArray()[x1][y1]);
+                    }
+                }
+                if (0 <= x2 && x2 < xSize && 0 <= y2 && y2 < ySize){
+                    Piece otherPiece = board.get(board.getCoordinateArray()[x2][y2]);
+                    if (otherPiece == null || otherPiece.getPlayer().getTeam() != piece.getPlayer().getTeam()) {
+                        piece.addMovableSquare(board.getCoordinateArray()[x2][y2]);
+                    }
+                }
+            }
+        }
+    }
+
+
+
     public void setPawnMoves(Piece pawn, BoardMap board) {
         pawn.removePreviousMovableSquares();
 
