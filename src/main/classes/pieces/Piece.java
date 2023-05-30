@@ -5,6 +5,7 @@ import main.classes.board.Square;
 import main.classes.controllers.Game;
 import main.classes.controllers.Player;
 import main.classes.structures.Coordinate;
+import main.classes.structures.MovementType;
 import main.classes.structures.PieceType;
 import main.classes.structures.Team;
 
@@ -26,6 +27,8 @@ public abstract class Piece {
     private Team team;
 
     private List<Coordinate> movableSquares = new ArrayList<>();
+
+    private List<MovementType> moveRules = new ArrayList<>();
 
     public void setGame(Game game) {
         this.game = game;
