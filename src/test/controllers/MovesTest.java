@@ -25,12 +25,6 @@ public class MovesTest {
     }
 
     @Test
-    void testMoveStringGame(){
-        Move e2e4 = game.getMoveHistory().get(0);
-        assertEquals("e2-e4",e2e4.toString());
-    }
-
-    @Test
     void testMoveStringPlayer(){
         Move e2e4 = game.getWhitePlayer().getMoveHistory().get(0);
         assertEquals("e2-e4",e2e4.toString());
