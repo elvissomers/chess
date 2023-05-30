@@ -1,5 +1,6 @@
 package main.classes.movement;
 
+import main.classes.board.Square;
 import main.classes.controllers.Player;
 import main.classes.pieces.Pawn;
 import main.classes.pieces.Piece;
@@ -12,6 +13,46 @@ public class MovementFinder {
     private final int xSize = 8;
 
     private final int ySize = 8;
+
+    public void setHorizontalMoves(Piece piece, BoardMap board){
+        piece.removePreviousMovableSquares();
+
+        int xPos = piece.getPosition().getX();
+        int yPos = piece.getPosition().getY();
+
+        for (int direction = -1; direction <= 1; direction += 2) {
+            for (int x = xPos + direction; (direction > 0 ? x < xSize : x > 0); x += direction) {
+                Piece possiblePiece = board.get(board.getCoordinateArray()[x][yPos]);
+                if (possiblePiece != null) {
+                    if (possiblePiece.getPlayer().getTeam() != piece.getPlayer().getTeam()) {
+                        piece.addMovableSquare(board.getCoordinateArray()[x][yPos]);
+                    }
+                    break;
+                }
+                piece.addMovableSquare(board.getCoordinateArray()[x][yPos]);
+            }
+        }
+    }
+
+    public void setVerticalMoves(Piece piece, BoardMap board){
+        piece.removePreviousMovableSquares();
+
+        int xPos = piece.getPosition().getX();
+        int yPos = piece.getPosition().getY();
+
+        for (int direction = -1; direction <= 1; direction += 2) {
+            for (int y = yPos + direction; (direction > 0 ? y < ySize : y > 0); y += direction) {
+                Piece possiblePiece = board.get(board.getCoordinateArray()[xPos][y]);
+                if (possiblePiece != null) {
+                    if (possiblePiece.getPlayer().getTeam() != piece.getPlayer().getTeam()) {
+                        piece.addMovableSquare(board.getCoordinateArray()[xPos][y]);
+                    }
+                    break;
+                }
+                piece.addMovableSquare(board.getCoordinateArray()[xPos][y]);
+            }
+        }
+    }
 
     public void setDiagonalMoves(Piece piece, BoardMap board){
         piece.removePreviousMovableSquares();
