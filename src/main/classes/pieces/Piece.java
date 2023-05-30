@@ -76,6 +76,10 @@ public abstract class Piece {
         return position;
     }
 
+    public void setPosition(Coordinate position) {
+        this.position = position;
+    }
+
     public abstract void setMovableSquares();
 
     public abstract Piece copy();
