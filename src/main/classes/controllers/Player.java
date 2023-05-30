@@ -57,6 +57,7 @@ public class Player {
     // TODO: implement this using coordinate, instead of Square
     public void movePiece(Piece piece, Coordinate destination) {
         Coordinate fromSquare = piece.getPosition();
+        piece.setPosition(destination);
 
         // A piece is "taken" when an enemy piece moves to its square
         Piece takenPiece = game.getBoard().get(destination); // Should be BoardMap
@@ -73,12 +74,12 @@ public class Player {
         if (piece instanceof King king && !king.isHasMoved()){
             if (destination.getX() - fromSquare.getX() == 2) {
                 castle(king, (Rook) game.getBoard().get(game.getBoard().getCoordinateArray()[7][fromSquare.getY()]),
-                        CastleType.SHORT
+                        destination, CastleType.SHORT
                 );
                 return;
             } else if (destination.getX() - fromSquare.getX() == -2) {
                 castle(king, (Rook) game.getBoard().get(game.getBoard().getCoordinateArray()[0][fromSquare.getY()]),
-                        CastleType.LONG
+                        destination, CastleType.LONG
                 );
                 return;
             }
@@ -103,25 +104,19 @@ public class Player {
 //        moveHistory.add(move);
     }
 
-    public void castle(King king, Rook rook, CastleType type){
+    public void castle(King king, Rook rook, Coordinate destination, CastleType type){
         // TODO: simple move method that just updates piece and square;
         // will be called from here and from the current movePiece method
         king.setHasMoved(true);
         rook.setHasMoved(true);
 
-        if (type == CastleType.SHORT){
-            king.setSquare(game.getBoard().getSquareByPos(king.getSquare().getHorizontalPosition()+2,
-                    king.getSquare().getVerticalPosition()
-            ));
-            rook.setSquare(game.getBoard().getSquareByPos(rook.getSquare().getHorizontalPosition()-2,
-                    rook.getSquare().getVerticalPosition()
-            ));
-        } else {
-            king.setSquare(game.getBoard().getSquareByPos(king.getSquare().getHorizontalPosition()-2,
-                    king.getSquare().getVerticalPosition()
-            ));
-            rook.setSquare(game.getBoard().getSquareByPos(rook.getSquare().getHorizontalPosition()+3,
-                    rook.getSquare().getVerticalPosition()));
-        }
+        game.getBoard().put(destination, king);
+
+        int rookRelativePos = (type == CastleType.SHORT) ? -1 : 1;
+        Coordinate rookPosition = game.getBoard().getCoordinateArray()
+                [destination.getX()+rookRelativePos][destination.getY()];
+
+        game.getBoard().put(rookPosition, rook);
+        rook.setPosition(rookPosition);
     }
 }
