@@ -102,4 +102,26 @@ public class Player {
         }
 //        moveHistory.add(move);
     }
+
+    public void castle(King king, Rook rook, CastleType type){
+        // TODO: simple move method that just updates piece and square;
+        // will be called from here and from the current movePiece method
+        king.setHasMoved(true);
+        rook.setHasMoved(true);
+
+        if (type == CastleType.SHORT){
+            king.setSquare(game.getBoard().getSquareByPos(king.getSquare().getHorizontalPosition()+2,
+                    king.getSquare().getVerticalPosition()
+            ));
+            rook.setSquare(game.getBoard().getSquareByPos(rook.getSquare().getHorizontalPosition()-2,
+                    rook.getSquare().getVerticalPosition()
+            ));
+        } else {
+            king.setSquare(game.getBoard().getSquareByPos(king.getSquare().getHorizontalPosition()-2,
+                    king.getSquare().getVerticalPosition()
+            ));
+            rook.setSquare(game.getBoard().getSquareByPos(rook.getSquare().getHorizontalPosition()+3,
+                    rook.getSquare().getVerticalPosition()));
+        }
+    }
 }
