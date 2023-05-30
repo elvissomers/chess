@@ -4,6 +4,7 @@ import main.classes.board.Board;
 import main.classes.board.Square;
 import main.classes.controllers.Game;
 import main.classes.controllers.Player;
+import main.classes.structures.Coordinate;
 import main.classes.structures.PieceType;
 import main.classes.structures.Team;
 
@@ -12,7 +13,7 @@ import java.util.List;
 
 public abstract class Piece {
 
-    private Square square;
+    private Coordinate position;
 
     private Board board;
 
@@ -24,7 +25,7 @@ public abstract class Piece {
 
     private Team team;
 
-    private List<Square> movableSquares = new ArrayList<>();
+    private List<Coordinate> movableSquares = new ArrayList<>();
 
     public void setGame(Game game) {
         this.game = game;
@@ -51,22 +52,6 @@ public abstract class Piece {
         // Game & Square will be set separately
     }
 
-    public Square getSquare() {
-        return square;
-    }
-
-    /*
-     * set square method also updates the square from which the
-     * piece was moved, and the square the pieces was moved to
-     */
-    public void setSquare(Square square) {
-        if (this.square != null && this.square.getPiece() != null) {
-            this.square.setPiece(null);
-        }
-        this.square = square;
-        this.square.setPiece(this);
-    }
-
     public Board getBoard() {
         return board;
     }
@@ -83,8 +68,12 @@ public abstract class Piece {
         this.team = team;
     }
 
-    public List<Square> getMovableSquares() {
+    public List<Coordinate> getMovableSquares() {
         return movableSquares;
+    }
+
+    public Coordinate getPosition() {
+        return position;
     }
 
     public abstract void setMovableSquares();
@@ -100,7 +89,7 @@ public abstract class Piece {
         movableSquares = new ArrayList<>();
     }
 
-    public void addMovableSquare(Square square){
-        this.movableSquares.add(square);
+    public void addMovableSquare(Coordinate coordinate){
+        this.movableSquares.add(coordinate);
     }
 }
