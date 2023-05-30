@@ -40,12 +40,13 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
     public BoardMap(BoardMap other) throws InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         // TODO: every Piece should be "deep" copied, but not necessarily every Coordinate. The coordinates used
         // are still the same
-        coordinateArray = other.getCoordinateArray();
+        coordinateArray = other.getCoordinateArray(); // Reference, no copy
         for (int i = 0; i < 8; i++){
             for (int j = 0; j < 8; j++){
                 Piece currentPiece = other.get(coordinateArray[i][j]);
-                Class<? extends Piece> pieceClass = currentPiece.getType().getPieceImplementation();
-                Piece copyPiece = pieceClass.getDeclaredConstructor(pieceClass).newInstance(currentPiece);
+                Piece copyPiece = currentPiece.copy();
+//                Class<? extends Piece> pieceClass = currentPiece.getType().getPieceImplementation();
+//                Piece copyPiece = pieceClass.getDeclaredConstructor(pieceClass).newInstance(currentPiece); // New instance, actual copy
 
                 put(coordinateArray[i][j], copyPiece);
             }
