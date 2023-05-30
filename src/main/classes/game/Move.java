@@ -2,16 +2,17 @@ package main.classes.game;
 
 import main.classes.board.Square;
 import main.classes.pieces.*;
+import main.classes.structures.Coordinate;
 
 public class Move {
 
     private Piece piece;
 
-    private Square squareFrom;
+    private Coordinate squareFrom;
 
-    private Square squareTo;
+    private Coordinate squareTo;
 
-    public Move(Piece piece, Square squareFrom, Square squareTo) {
+    public Move(Piece piece, Coordinate squareFrom, Coordinate squareTo) {
         this.piece = piece;
         this.squareFrom = squareFrom;
         this.squareTo = squareTo;
@@ -21,16 +22,13 @@ public class Move {
         return piece;
     }
 
-    public Square getSquareFrom() {
+    public Coordinate getSquareFrom() {
         return squareFrom;
-    }
-
-    public Square getSquareTo() {
-        return squareTo;
     }
 
     @Override
     public String toString(){
+        // TODO: write this in piece classes, and call their toString() here
         String pieceChar = "";
         if (piece instanceof Knight)
             pieceChar = "N";
