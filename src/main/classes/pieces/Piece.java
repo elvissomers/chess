@@ -15,7 +15,6 @@ public abstract class Piece {
     private Square square;
 
     private Board board;
-    private PieceType type;
 
     // TODO: Instead of having the Game & Team attribute, Piece should have a Player
     // TODO: attribute. Then we can get the game from the player, and also the Team
@@ -54,11 +53,6 @@ public abstract class Piece {
 
     public Square getSquare() {
         return square;
-    }
-
-    //nw
-    public PieceType getType() {
-        return type;
     }
 
     /*
