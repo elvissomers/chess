@@ -4,13 +4,14 @@ import main.classes.board.Square;
 import main.classes.game.Move;
 import main.classes.pieces.*;
 import main.classes.structures.CastleType;
-import main.classes.structures.PieceSet;
+import main.classes.structures.Coordinate;
 import main.classes.structures.Team;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
-public class OldPlayer {
+public class Player {
 
     private Game game;
 
@@ -18,70 +19,66 @@ public class OldPlayer {
 
     private final Team team;
 
-    private PieceSet pieceSet;
+    private Set<Piece> pieces;
 
-    public OldPlayer(Game game, Team team) {
+    private Set<Square> attackedSquares;
+
+    private King king;
+
+    public Player(Game game, Team team) {
         this.game = game;
         this.team = team;
-    }
-
-    public OldPlayer (OldPlayer other) {
-        this.team = other.getTeam();
-        this.game = null;
-        this.moveHistory = other.getMoveHistory();
-        // Null because pieceSet is designated to Player in PieceSet(Player) constructor
-        this.pieceSet = null;
-    }
-
-    public Team getTeam() {
-        return team;
-    }
-
-    public PieceSet getPieceSet() {
-        return pieceSet;
-    }
-
-    public void setPieceSet(PieceSet pieceSet) {
-        this.pieceSet = pieceSet;
     }
 
     public Game getGame() {
         return game;
     }
 
-    public void setGame(Game game) {
-        this.game = game;
-    }
-
     public List<Move> getMoveHistory() {
         return moveHistory;
     }
 
-    public void setMoveHistory(List<Move> moveHistory) {
-        this.moveHistory = moveHistory;
+    public Team getTeam() {
+        return team;
     }
 
+    public Set<Piece> getPieces() {
+        return pieces;
+    }
 
-    public void movePiece(Piece piece, Square destSquare) {
-        // TODO: a piece is "taken" when an enemy piece moves to its square
-        // How do we implement this?
-        Piece takenPiece = destSquare.getPiece();
-        Player enemyPlayer = (team == Team.WHITE) ? game.getBlackPlayer() : game.getWhitePlayer();
-        enemyPlayer.getPieceSet().remove(takenPiece);
-        // We removed it from the piece set. So what?
+    public King getKing() {
+        return king;
+    }
 
-        Square fromSquare = piece.getSquare();
-        Move move = new Move(piece, fromSquare, destSquare);
+    public Set<Square> getAttackedSquares() {
+        return attackedSquares;
+    }
+
+    // TODO: implement this using coordinate, instead of Square
+    public void movePiece(Piece piece, Coordinate destination) {
+        Coordinate fromSquare = piece.getPosition();
+
+        // A piece is "taken" when an enemy piece moves to its square
+        Piece takenPiece = game.getBoard().get(destination); // Should be BoardMap
+        if (takenPiece != null) {
+            Player enemyPlayer = (team == Team.WHITE) ? game.getBlackPlayer() : game.getWhitePlayer();
+            enemyPlayer.getPieces().remove(takenPiece);
+        }
+
+        // TODO: new Move object
+//        Square fromSquare = piece.getSquare();
+//        Move move = new Move(piece, fromSquare, destSquare);
+
 
         if (piece instanceof King king && !king.isHasMoved()){
-            if (destSquare.getHorizontalPosition() - fromSquare.getHorizontalPosition() == 2) {
-                castle(king, (Rook) game.getBoard().getSquareByPos(game.getBoard().getHorizontalSize()-1,
-                        fromSquare.getVerticalPosition()).getPiece(), CastleType.SHORT
+            if (destination.getX() - fromSquare.getX() == 2) {
+                castle(king, (Rook) game.getBoard().get(game.getBoard().getCoordinateArray()[7][fromSquare.getY()]),
+                        CastleType.SHORT
                 );
                 return;
-            } else if (destSquare.getHorizontalPosition() - fromSquare.getHorizontalPosition() == -2) {
-                castle(king, (Rook) game.getBoard().getSquareByPos(0,
-                        fromSquare.getVerticalPosition()).getPiece(), CastleType.LONG
+            } else if (destination.getX() - fromSquare.getX() == -2) {
+                castle(king, (Rook) game.getBoard().get(game.getBoard().getCoordinateArray()[0][fromSquare.getY()]),
+                        CastleType.LONG
                 );
                 return;
             }
@@ -91,38 +88,18 @@ public class OldPlayer {
             rook.setHasMoved(true);
         }
 
-        if (piece instanceof Pawn pawn && destSquare.getVerticalPosition() == game.getBoard().getVerticalSize()){
-            pieceSet.remove(pawn);
+        int promotionRank = (team == Team.WHITE) ? 7 : 0;
+
+        if (piece instanceof Pawn pawn && destination.getY() == promotionRank){
+            pieces.remove(pawn);
             // TODO: let player choose a piece instead of always having a queen
             Queen promotionPiece = new Queen(game, team);
-            promotionPiece.setSquare(destSquare);
-            pieceSet.add(promotionPiece);
+            game.getBoard().put(destination, promotionPiece);
+            pieces.add(promotionPiece);
             // TODO: add "promoted" attribute to Move object, with the piece specification
         } else {
-            piece.setSquare(destSquare);
+            game.getBoard().put(destination, piece);
         }
-        moveHistory.add(move);
-    }
-
-    public void castle(King king, Rook rook, CastleType type){
-        // TODO: simple move method that just updates piece and square;
-        // will be called from here and from the current movePiece method
-        king.setHasMoved(true);
-        rook.setHasMoved(true);
-
-        if (type == CastleType.SHORT){
-            king.setSquare(game.getBoard().getSquareByPos(king.getSquare().getHorizontalPosition()+2,
-                    king.getSquare().getVerticalPosition()
-            ));
-            rook.setSquare(game.getBoard().getSquareByPos(rook.getSquare().getHorizontalPosition()-2,
-                    rook.getSquare().getVerticalPosition()
-            ));
-        } else {
-            king.setSquare(game.getBoard().getSquareByPos(king.getSquare().getHorizontalPosition()-2,
-                    king.getSquare().getVerticalPosition()
-            ));
-            rook.setSquare(game.getBoard().getSquareByPos(rook.getSquare().getHorizontalPosition()+3,
-                    rook.getSquare().getVerticalPosition()));
-        }
+//        moveHistory.add(move);
     }
 }
