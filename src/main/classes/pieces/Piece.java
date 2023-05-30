@@ -10,7 +10,9 @@ import main.classes.structures.PieceType;
 import main.classes.structures.Team;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public abstract class Piece {
 
@@ -26,9 +28,11 @@ public abstract class Piece {
 
     private Team team;
 
+    private Player player;
+
     private List<Coordinate> movableSquares = new ArrayList<>();
 
-    private List<MovementType> moveRules = new ArrayList<>();
+    private Set<MovementType> moveRules = new HashSet<>();
 
     public void setGame(Game game) {
         this.game = game;
@@ -98,5 +102,9 @@ public abstract class Piece {
 
     public void addMovableSquare(Coordinate coordinate){
         this.movableSquares.add(coordinate);
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }
