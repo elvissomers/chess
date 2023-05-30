@@ -21,7 +21,7 @@ public class Player {
 
     private Set<Piece> pieces;
 
-    private Set<Square> attackedSquares;
+    private Set<Coordinate> attackedSquares;
 
     private King king;
 
@@ -50,8 +50,26 @@ public class Player {
         return king;
     }
 
-    public Set<Square> getAttackedSquares() {
+    public Set<Coordinate> getAttackedSquares() {
         return attackedSquares;
+    }
+
+    public void setAllMovableSquares() {
+        for (Piece piece : pieces) {
+            piece.setMovableSquares();
+        }
+    }
+
+    public void setAllAttackedSquares() {
+        for (Piece piece : this){
+            if (piece instanceof Pawn pawn) {
+                pawn.setAttackedSquares();
+                attackedSquares.addAll(pawn.getAttackedSquares());
+            } else {
+                piece.setMovableSquares();
+                attackedSquares.addAll(piece.getMovableSquares());
+            }
+        }
     }
 
     // TODO: implement this using coordinate, instead of Square

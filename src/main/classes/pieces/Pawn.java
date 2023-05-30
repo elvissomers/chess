@@ -3,6 +3,8 @@ package main.classes.pieces;
 import main.classes.board.Square;
 import main.classes.controllers.Game;
 import main.classes.controllers.Player;
+import main.classes.structures.Coordinate;
+import main.classes.structures.MovementType;
 import main.classes.structures.Team;
 
 import java.util.HashSet;
@@ -27,7 +29,9 @@ public class Pawn extends Piece {
      * We need to keep track of these squares to be able to see if there are
      * checks, checkmates or stalemates.
      */
-    private Set<Square> attackedSquares = new HashSet<>();
+    private Set<Coordinate> attackedSquares = new HashSet<>();
+
+    private Set<MovementType> moveRules = Set.of(MovementType.PAWN);
 
     @Override
     public void setMovableSquares() {
