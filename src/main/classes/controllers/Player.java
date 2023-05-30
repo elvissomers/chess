@@ -85,6 +85,7 @@ public class Player {
         }
 
         // TODO: new Move object
+        Move move = new Move(piece, fromSquare, destination);
 //        Square fromSquare = piece.getSquare();
 //        Move move = new Move(piece, fromSquare, destSquare);
 
@@ -119,7 +120,7 @@ public class Player {
         } else {
             game.getBoard().put(destination, piece);
         }
-//        moveHistory.add(move);
+        moveHistory.add(move);
     }
 
     public void castle(King king, Rook rook, Coordinate destination, CastleType type){
@@ -136,5 +137,7 @@ public class Player {
 
         game.getBoard().put(rookPosition, rook);
         rook.setPosition(rookPosition);
+
+        // TODO: save castling to move history
     }
 }
