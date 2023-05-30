@@ -11,6 +11,14 @@ public class Coordinate {
         this.yPos = yPos;
     }
 
+    public int getX() {
+        return xPos;
+    }
+
+    public int getY() {
+        return yPos;
+    }
+
     @Override
     public String toString(){
         char[] horizontalIndices = {'a','b','c','d','e','f','g','h'};
