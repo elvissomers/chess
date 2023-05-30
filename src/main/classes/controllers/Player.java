@@ -10,7 +10,7 @@ import main.classes.structures.Team;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
+public class OldPlayer {
 
     private Game game;
 
@@ -20,12 +20,12 @@ public class Player {
 
     private PieceSet pieceSet;
 
-    public Player(Game game, Team team) {
+    public OldPlayer(Game game, Team team) {
         this.game = game;
         this.team = team;
     }
 
-    public Player (Player other) {
+    public OldPlayer (OldPlayer other) {
         this.team = other.getTeam();
         this.game = null;
         this.moveHistory = other.getMoveHistory();
