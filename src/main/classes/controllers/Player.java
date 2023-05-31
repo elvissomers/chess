@@ -50,7 +50,7 @@ public class Player {
         return king;
     }
 
-    public Set<Coordinate> getAttackedSquares() {
+    public Set<Coordinate> getAllAttackedSquares() {
         return allAttackedSquares;
     }
 
