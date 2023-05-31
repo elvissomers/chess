@@ -4,6 +4,7 @@ import main.classes.board.Square;
 import main.classes.controllers.Player;
 import main.classes.pieces.Pawn;
 import main.classes.pieces.Piece;
+import main.classes.pieces.Rook;
 import main.classes.structures.BoardMap;
 import main.classes.structures.Coordinate;
 import main.classes.structures.Team;
@@ -200,6 +201,34 @@ public class MovementFinder {
                     }
                 }
             }
+        }
+    }
+
+    public void setKingCastlingMoves(Piece king, BoardMap board){
+        king.removePreviousMovableSquares();
+
+        int xPos = king.getPosition().getX();
+        int yPos = king.getPosition().getY();
+        Team team = king.getPlayer().getTeam();
+
+        if (board.getPieceByPos(xPos+1,yPos) == null &&
+                !checkCheck(board.getCoordinateByPos(xPos+1, yPos), board, team) &&
+                board.getPieceByPos(xPos+2, yPos) == null &&
+                !checkCheck(board.getCoordinateByPos(xPos+2, yPos), board, team) &&
+                board.getPieceByPos(xPos+3, yPos) instanceof Rook rook &&
+                !rook.isHasMoved()) {
+            king.addMovableSquare(board.getCoordinateByPos(xPos+2, yPos));
+        }
+
+        // Long castling from here
+        if (board.getPieceByPos(xPos-1, yPos) == null &&
+                !checkCheck(board.getCoordinateByPos(xPos-1, yPos), board, team) &&
+                board.getPieceByPos(xPos-2, yPos) == null &&
+                !checkCheck(board.getCoordinateByPos(xPos-2, yPos), board, team) &&
+                board.getPieceByPos(xPos-3, yPos) == null &&
+                board.getPieceByPos(xPos-4, yPos) instanceof Rook rook &&
+                !rook.isHasMoved()) {
+            king.addMovableSquare(board.getCoordinateByPos(xPos-2, yPos));
         }
     }
 
