@@ -8,6 +8,8 @@ import main.classes.structures.BoardMap;
 import main.classes.structures.Coordinate;
 import main.classes.structures.Team;
 
+import java.util.Set;
+
 public class MovementFinder {
 
     private final int xSize = 8;
@@ -192,12 +194,20 @@ public class MovementFinder {
                     Piece currentPiece = board.get(board.getCoordinateArray()[xPos + x][yPos + y]);
                     if (currentPiece == null || currentPiece.getPlayer().getTeam() != king.getPlayer().getTeam()) {
                         // TODO: checkCheck using coordinate and board
-                        if (!checkCheck(currentSquare)) {
-                            this.addMovableSquare(currentSquare);
+                        if (!checkCheck(board.getCoordinateByPos(xPos+x,yPos+y), board, king.getPlayer().getTeam())) {
+                            king.addMovableSquare(board.getCoordinateByPos(xPos+x,yPos+y));
                         }
                     }
                 }
             }
         }
+    }
+
+    public boolean checkCheck(Coordinate position, BoardMap board, Team team) {
+        Player attackingPlayer = (team == Team.WHITE) ? board.getGame().getBlackPlayer() :
+                board.getGame().getWhitePlayer();
+        attackingPlayer.setAllAttackedSquares();
+        Set<Coordinate> squaresUnderAttack = attackingPlayer.getAllAttackedSquares();
+        return squaresUnderAttack.contains(position);
     }
 }
