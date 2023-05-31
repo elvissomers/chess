@@ -110,14 +110,19 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
         return game;
     }
 
+
     /**
-     * A short helper method to replace the use of the clunky "board.get(board.getCoordinateArray[x][y]"
+     * Two short helper methods to replace the use of the clunky "board.get [(board.getCoordinateArray[x][y])]"
      * that is used so often with a shorter syntax.
      * @param xPos
      * @param yPos
      * @return board.get(board.getCoordinateArray[x][y]
      */
-    private Piece getByPos(int xPos, int yPos){
+    public Piece getPieceByPos(int xPos, int yPos){
         return get(coordinateArray[xPos][yPos]);
     }
+    public Coordinate getCoordinateByPos(int xPos, int yPos){
+        return coordinateArray[xPos][yPos];
+    }
+
 }
