@@ -178,7 +178,26 @@ public class MovementFinder {
                 }
             }
         }
+    }
 
+    public void setKingBasicMoves(Piece king, BoardMap board){
+        king.removePreviousMovableSquares();
 
+        int xPos = king.getPosition().getX();
+        int yPos = king.getPosition().getY();
+
+        for (int x = -1; x <= 1; x++) {
+            for (int y = -1; y <= 1; y++) {
+                if (0 <= xPos + x && xPos + x < xSize && 0 <= yPos + y && yPos + y < ySize) {
+                    Piece currentPiece = board.get(board.getCoordinateArray()[xPos + x][yPos + y]);
+                    if (currentPiece == null || currentPiece.getPlayer().getTeam() != king.getPlayer().getTeam()) {
+                        // TODO: checkCheck using coordinate and board
+                        if (!checkCheck(currentSquare)) {
+                            this.addMovableSquare(currentSquare);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
