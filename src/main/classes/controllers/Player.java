@@ -21,7 +21,7 @@ public class Player {
 
     private Set<Piece> pieces;
 
-    private Set<Coordinate> attackedSquares;
+    private Set<Coordinate> allAttackedSquares;
 
     private King king;
 
@@ -51,7 +51,7 @@ public class Player {
     }
 
     public Set<Coordinate> getAttackedSquares() {
-        return attackedSquares;
+        return allAttackedSquares;
     }
 
     public void setAllMovableSquares() {
@@ -68,7 +68,7 @@ public class Player {
 //                attackedSquares.addAll(pawn.getAttackedSquares());
             } else {
                 piece.setMovableSquares();
-                attackedSquares.addAll(piece.getMovableSquares());
+                allAttackedSquares.addAll(piece.getMovableSquares());
             }
         }
     }
