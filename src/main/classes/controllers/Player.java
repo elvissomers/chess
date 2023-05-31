@@ -61,10 +61,11 @@ public class Player {
     }
 
     public void setAllAttackedSquares() {
-        for (Piece piece : this){
+        for (Piece piece : this.pieces){
             if (piece instanceof Pawn pawn) {
-                pawn.setAttackedSquares();
-                attackedSquares.addAll(pawn.getAttackedSquares());
+                // TODO!
+//                pawn.setAttackedSquares();
+//                attackedSquares.addAll(pawn.getAttackedSquares());
             } else {
                 piece.setMovableSquares();
                 attackedSquares.addAll(piece.getMovableSquares());
