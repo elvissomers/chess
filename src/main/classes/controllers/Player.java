@@ -19,6 +19,7 @@ public class Player {
 
     private final Team team;
 
+    // TODO: fill this set in Game instantiaton
     private Set<Piece> pieces;
 
     private Set<Coordinate> allAttackedSquares;
@@ -63,9 +64,8 @@ public class Player {
     public void setAllAttackedSquares() {
         for (Piece piece : this.pieces){
             if (piece instanceof Pawn pawn) {
-                // TODO!
-//                pawn.setAttackedSquares();
-//                attackedSquares.addAll(pawn.getAttackedSquares());
+                pawn.setAttackedSquares(game.getBoard());
+                allAttackedSquares.addAll(pawn.getAttackedSquares());
             } else {
                 piece.setMovableSquares();
                 allAttackedSquares.addAll(piece.getMovableSquares());

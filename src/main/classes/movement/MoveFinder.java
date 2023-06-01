@@ -1,6 +1,5 @@
 package main.classes.movement;
 
-import main.classes.board.Square;
 import main.classes.controllers.Player;
 import main.classes.pieces.King;
 import main.classes.pieces.Pawn;
@@ -12,7 +11,7 @@ import main.classes.structures.Team;
 
 import java.util.Set;
 
-public class MovementFinder {
+public class MoveFinder {
 
     private final int xSize = 8;
 

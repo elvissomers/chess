@@ -1,10 +1,8 @@
 package main.classes.pieces;
 
-import main.classes.board.Board;
-import main.classes.board.Square;
 import main.classes.controllers.Game;
 import main.classes.controllers.Player;
-import main.classes.movement.MovementFinder;
+import main.classes.movement.MoveFinder;
 import main.classes.structures.*;
 
 import java.util.ArrayList;
@@ -32,7 +30,7 @@ public abstract class Piece {
 
     private Set<MovementType> moveRules = new HashSet<>();
 
-    private MovementFinder moveFinder = new MovementFinder();
+    private MoveFinder moveFinder = new MoveFinder();
 
     public void setGame(Game game) {
         this.game = game;
