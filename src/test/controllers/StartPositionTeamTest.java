@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StartPositionTeamTest {
+
     private Game game;
 
     @BeforeEach
