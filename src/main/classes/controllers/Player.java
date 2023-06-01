@@ -19,7 +19,7 @@ public class Player {
 
     private final Team team;
 
-    private Set<Piece> pieces;
+    private Set<Piece> pieces = new HashSet<>();
 
     private Set<Coordinate> allAttackedSquares = new HashSet<>();
 
