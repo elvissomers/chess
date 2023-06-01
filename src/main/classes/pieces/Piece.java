@@ -4,10 +4,8 @@ import main.classes.board.Board;
 import main.classes.board.Square;
 import main.classes.controllers.Game;
 import main.classes.controllers.Player;
-import main.classes.structures.Coordinate;
-import main.classes.structures.MovementType;
-import main.classes.structures.PieceType;
-import main.classes.structures.Team;
+import main.classes.movement.MovementFinder;
+import main.classes.structures.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -18,7 +16,7 @@ public abstract class Piece {
 
     private Coordinate position;
 
-    private Board board;
+    private BoardMap board;
 
     // TODO: Instead of having the Game & Team attribute, Piece should have a Player
     // TODO: attribute. Then we can get the game from the player, and also the Team
@@ -33,6 +31,8 @@ public abstract class Piece {
     private List<Coordinate> movableSquares = new ArrayList<>();
 
     private Set<MovementType> moveRules = new HashSet<>();
+
+    private MovementFinder moveFinder = new MovementFinder();
 
     public void setGame(Game game) {
         this.game = game;
@@ -98,6 +98,23 @@ public abstract class Piece {
          * before setting new ones.
          */
         movableSquares = new ArrayList<>();
+    }
+
+    public void newSetMovableSquares(){
+        if (moveRules.contains(MovementType.HORIZONTAL))
+            moveFinder.setHorizontalMoves(this, board);
+        if (moveRules.contains(MovementType.VERTICAL))
+            moveFinder.setVerticalMoves(this, board);
+        if (moveRules.contains(MovementType.DIAGONAL))
+            moveFinder.setDiagonalMoves(this, board);
+        if (moveRules.contains(MovementType.LSHAPED))
+            moveFinder.setLShapedMoves(this, board);
+        if (moveRules.contains(MovementType.PAWN))
+            moveFinder.setPawnMoves(this, board);
+        if (moveRules.contains(MovementType.KING)) {
+            moveFinder.setKingBasicMoves(this, board);
+            moveFinder.setKingCastlingMoves(this, board);
+        }
     }
 
     public void addMovableSquare(Coordinate coordinate){
