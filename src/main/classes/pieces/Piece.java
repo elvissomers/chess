@@ -15,13 +15,13 @@ public abstract class Piece {
 
     private BoardMap board;
 
-    private Player player;
+    private final Player player;
 
     private List<Coordinate> movableSquares = new ArrayList<>();
 
     private Set<MovementType> moveRules = new HashSet<>();
 
-    private MoveFinder moveFinder = new MoveFinder();
+    private final MoveFinder moveFinder = new MoveFinder();
 
     public Piece(Player player) {
         this.player = player;
@@ -31,7 +31,6 @@ public abstract class Piece {
     // That means it should also copy null
     public Piece(Piece other) {
         this.player = other.getPlayer();
-        // Game & Square will be set separately
     }
 
     public BoardMap getBoard() {
