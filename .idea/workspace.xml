@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="revision check- comment removed">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="un abstracted setMovableSquares -&gt; implementation in King">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/classes/pieces/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/pieces/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/classes/pieces/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/pieces/Rook.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +18,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Enum" />
         <option value="Class" />
-        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -49,7 +51,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -57,76 +59,12 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="test.controllers" />
       <recent name="test.board" />
       <recent name="test.pieces" />
-      <recent name="test.controllers" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MovesTest.testShortCastleExecution">
-    <configuration name="MovesTest.testPawnMovableSquares" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test.controllers" />
-      <option name="MAIN_CLASS_NAME" value="test.controllers.MovesTest" />
-      <option name="METHOD_NAME" value="testPawnMovableSquares" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MovesTest.testPawnMovableSquaresWithAttack" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test.controllers" />
-      <option name="MAIN_CLASS_NAME" value="test.controllers.MovesTest" />
-      <option name="METHOD_NAME" value="testPawnMovableSquaresWithAttack" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MovesTest.testPawnMovableSquaresWithEnPassant" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test.controllers" />
-      <option name="MAIN_CLASS_NAME" value="test.controllers.MovesTest" />
-      <option name="METHOD_NAME" value="testPawnMovableSquaresWithEnPassant" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MovesTest.testShortCastleAvailable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test.controllers" />
-      <option name="MAIN_CLASS_NAME" value="test.controllers.MovesTest" />
-      <option name="METHOD_NAME" value="testShortCastleAvailable" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.PieceSetTest.setAllMovableSquaresKingInCheckShouldPreventMovesNotResolvingCheck">
     <configuration name="MovesTest.testShortCastleExecution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
@@ -143,13 +81,76 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PieceSetTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.controllers" />
+      <option name="MAIN_CLASS_NAME" value="test.controllers.PieceSetTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PieceSetTest.setAllMovableSquaresCheckPreventingMovesShouldBeAllowed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.controllers" />
+      <option name="MAIN_CLASS_NAME" value="test.controllers.PieceSetTest" />
+      <option name="METHOD_NAME" value="setAllMovableSquaresCheckPreventingMovesShouldBeAllowed" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PieceSetTest.setAllMovableSquaresCheckShouldNotPreventCheckingPlayerFromMoving" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.controllers" />
+      <option name="MAIN_CLASS_NAME" value="test.controllers.PieceSetTest" />
+      <option name="METHOD_NAME" value="setAllMovableSquaresCheckShouldNotPreventCheckingPlayerFromMoving" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PieceSetTest.setAllMovableSquaresKingInCheckShouldPreventMovesNotResolvingCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.controllers" />
+      <option name="MAIN_CLASS_NAME" value="test.controllers.PieceSetTest" />
+      <option name="METHOD_NAME" value="setAllMovableSquaresKingInCheckShouldPreventMovesNotResolvingCheck" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PieceSetTest.setAllMovableSquaresKingInCheckShouldPreventMovesNotResolvingCheck" />
+        <item itemvalue="JUnit.PieceSetTest" />
+        <item itemvalue="JUnit.PieceSetTest.setAllMovableSquaresCheckPreventingMovesShouldBeAllowed" />
+        <item itemvalue="JUnit.PieceSetTest.setAllMovableSquaresCheckShouldNotPreventCheckingPlayerFromMoving" />
         <item itemvalue="JUnit.MovesTest.testShortCastleExecution" />
-        <item itemvalue="JUnit.MovesTest.testShortCastleAvailable" />
-        <item itemvalue="JUnit.MovesTest.testPawnMovableSquaresWithEnPassant" />
-        <item itemvalue="JUnit.MovesTest.testPawnMovableSquaresWithAttack" />
-        <item itemvalue="JUnit.MovesTest.testPawnMovableSquares" />
       </list>
     </recent_temporary>
   </component>
@@ -162,350 +163,350 @@
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
     </task>
-    <task id="LOCAL-00089" summary="Added extra test in kingtest to check checkcheck - the test fails, so there is a bug to fix here">
-      <created>1684498206981</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
+    <task id="LOCAL-00169" summary="TODO comment">
+      <created>1685107395271</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
       <option name="project" value="LOCAL" />
-      <updated>1684498206981</updated>
+      <updated>1685107395271</updated>
     </task>
-    <task id="LOCAL-00090" summary="Add back setAllMovableSquares to piece set - now with implementation">
-      <created>1684498322349</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
+    <task id="LOCAL-00170" summary="Update boardMap to contain Coordinate[][] 2D array">
+      <created>1685109600324</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
       <option name="project" value="LOCAL" />
-      <updated>1684498322349</updated>
+      <updated>1685109600324</updated>
     </task>
-    <task id="LOCAL-00091" summary="initialise attackedsquares with empty set">
-      <created>1684498609570</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
+    <task id="LOCAL-00171" summary="update piecetype to contain Class (Class&lt;? extends Piece&gt;) specification attribute">
+      <created>1685112803938</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
       <option name="project" value="LOCAL" />
-      <updated>1684498609570</updated>
+      <updated>1685112803938</updated>
     </task>
-    <task id="LOCAL-00092" summary="update setallattackedsquares">
-      <created>1684498827906</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
+    <task id="LOCAL-00172" summary="add piecetype attribute to piece">
+      <created>1685112824547</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
       <option name="project" value="LOCAL" />
-      <updated>1684498827906</updated>
+      <updated>1685112824547</updated>
     </task>
-    <task id="LOCAL-00093" summary="testing king - work in progress">
-      <created>1684498907919</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
+    <task id="LOCAL-00173" summary="todo comment">
+      <created>1685112834292</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
       <option name="project" value="LOCAL" />
-      <updated>1684498907919</updated>
+      <updated>1685112834292</updated>
     </task>
-    <task id="LOCAL-00094" summary="Change &lt;= into &lt; where appropriate">
-      <created>1684499075722</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
+    <task id="LOCAL-00174" summary="BoardMap copy constructor - work in progress">
+      <created>1685112858860</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
       <option name="project" value="LOCAL" />
-      <updated>1684499075722</updated>
+      <updated>1685112858860</updated>
     </task>
-    <task id="LOCAL-00095" summary="Change &lt;= into &lt; where appropriate">
-      <created>1684499124705</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
+    <task id="LOCAL-00175" summary="New polymorphic copy implementation">
+      <created>1685432543554</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
       <option name="project" value="LOCAL" />
-      <updated>1684499124705</updated>
+      <updated>1685432543554</updated>
     </task>
-    <task id="LOCAL-00096" summary="Pawn attacked squares bugfix">
-      <created>1684499598746</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
+    <task id="LOCAL-00176" summary="New polymorphic copy implementation">
+      <created>1685432801041</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
       <option name="project" value="LOCAL" />
-      <updated>1684499598746</updated>
+      <updated>1685432801041</updated>
     </task>
-    <task id="LOCAL-00097" summary="King Test - now passes">
-      <created>1684500392897</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
+    <task id="LOCAL-00177" summary="Remove type attribute from Piece.java">
+      <created>1685432852249</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
       <option name="project" value="LOCAL" />
-      <updated>1684500392897</updated>
+      <updated>1685432852249</updated>
     </task>
-    <task id="LOCAL-00098" summary="formatting">
-      <created>1684500409006</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
+    <task id="LOCAL-00178" summary="Remove unused test (game move history)">
+      <created>1685434646253</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
       <option name="project" value="LOCAL" />
-      <updated>1684500409006</updated>
+      <updated>1685434646253</updated>
     </task>
-    <task id="LOCAL-00099" summary="remove old code">
-      <created>1684500829274</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
+    <task id="LOCAL-00179" summary="PieceMap.java - work in progress">
+      <created>1685434667806</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
       <option name="project" value="LOCAL" />
-      <updated>1684500829274</updated>
+      <updated>1685434667806</updated>
     </task>
-    <task id="LOCAL-00100" summary="Added removePreviousMovableSquares() to Piece classes">
-      <created>1684742494630</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
+    <task id="LOCAL-00180" summary="Added more comments">
+      <created>1685434689929</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
       <option name="project" value="LOCAL" />
-      <updated>1684742494630</updated>
+      <updated>1685434689929</updated>
     </task>
-    <task id="LOCAL-00101" summary="Add TODO">
-      <created>1684742685791</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
+    <task id="LOCAL-00181" summary="Brand new PieceSet implementation - work in progress">
+      <created>1685434704134</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
       <option name="project" value="LOCAL" />
-      <updated>1684742685791</updated>
+      <updated>1685434704134</updated>
     </task>
-    <task id="LOCAL-00102" summary="Add TODO, some more comments">
-      <created>1684742852827</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
+    <task id="LOCAL-00182" summary="Brand new Player implementation - work in progress">
+      <created>1685434714937</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
       <option name="project" value="LOCAL" />
-      <updated>1684742852827</updated>
+      <updated>1685434714937</updated>
     </task>
-    <task id="LOCAL-00103" summary="Update checkcheck method">
-      <created>1684751247308</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
+    <task id="LOCAL-00183" summary="Added X &amp; Y getters">
+      <created>1685435385393</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
       <option name="project" value="LOCAL" />
-      <updated>1684751247308</updated>
+      <updated>1685435385393</updated>
     </task>
-    <task id="LOCAL-00104" summary="Added getters &amp; setters for game and movehistory">
-      <created>1684751331141</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
+    <task id="LOCAL-00184" summary="Refactoring to New player implementation">
+      <created>1685435401442</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
       <option name="project" value="LOCAL" />
-      <updated>1684751331141</updated>
+      <updated>1685435401442</updated>
     </task>
-    <task id="LOCAL-00105" summary="Work in progress - checkhasmoved will probably be implemented differently">
-      <created>1684751438573</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
+    <task id="LOCAL-00185" summary="Refactoring to New player implementation">
+      <created>1685435406521</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
       <option name="project" value="LOCAL" />
-      <updated>1684751438573</updated>
+      <updated>1685435406521</updated>
     </task>
-    <task id="LOCAL-00106" summary="Implement hasMoved check in Player.java; movePiece method">
-      <created>1684751874062</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
+    <task id="LOCAL-00186" summary="Refactoring to New player implementation">
+      <created>1685436210255</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
       <option name="project" value="LOCAL" />
-      <updated>1684751874062</updated>
+      <updated>1685436210255</updated>
     </task>
-    <task id="LOCAL-00107" summary="Add castling checks to King.setMovableSquares">
-      <created>1684752600222</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
+    <task id="LOCAL-00187" summary="Refactoring to New player implementation - move implementation">
+      <created>1685436217615</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
       <option name="project" value="LOCAL" />
-      <updated>1684752600222</updated>
+      <updated>1685436217615</updated>
     </task>
-    <task id="LOCAL-00108" summary="formatting">
-      <created>1684752636122</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
+    <task id="LOCAL-00188" summary="Piece rework to use Coordinate instead of Square">
+      <created>1685436238609</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
       <option name="project" value="LOCAL" />
-      <updated>1684752636122</updated>
+      <updated>1685436238609</updated>
     </task>
-    <task id="LOCAL-00109" summary="Added enum for long/short castling">
-      <created>1684753611541</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
+    <task id="LOCAL-00189" summary="rebuilding, work in progress">
+      <created>1685437953404</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
       <option name="project" value="LOCAL" />
-      <updated>1684753611541</updated>
+      <updated>1685437953404</updated>
     </task>
-    <task id="LOCAL-00110" summary="Added TODO">
-      <created>1684753620382</created>
-      <option name="number" value="00110" />
-      <option name="presentableId" value="LOCAL-00110" />
+    <task id="LOCAL-00190" summary="add setter for piece position">
+      <created>1685439384517</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
       <option name="project" value="LOCAL" />
-      <updated>1684753620382</updated>
+      <updated>1685439384517</updated>
     </task>
-    <task id="LOCAL-00111" summary="formatting">
-      <created>1684753641403</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
+    <task id="LOCAL-00191" summary="rebuild - update castling">
+      <created>1685439394681</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
       <option name="project" value="LOCAL" />
-      <updated>1684753641403</updated>
+      <updated>1685439394681</updated>
     </task>
-    <task id="LOCAL-00112" summary="Check if move is a castle move">
-      <created>1684753666972</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
+    <task id="LOCAL-00192" summary="Added movement type enum">
+      <created>1685440031562</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
       <option name="project" value="LOCAL" />
-      <updated>1684753666973</updated>
+      <updated>1685440031562</updated>
     </task>
-    <task id="LOCAL-00113" summary="formatting">
-      <created>1684753677456</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
+    <task id="LOCAL-00193" summary="added player attribute to piece">
+      <created>1685440411604</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
       <option name="project" value="LOCAL" />
-      <updated>1684753677456</updated>
+      <updated>1685440411604</updated>
     </task>
-    <task id="LOCAL-00114" summary="implement castle method">
-      <created>1684753697406</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
+    <task id="LOCAL-00194" summary="Finding moves in a separate logic layer - work in progress">
+      <created>1685440793657</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
       <option name="project" value="LOCAL" />
-      <updated>1684753697406</updated>
+      <updated>1685440793657</updated>
     </task>
-    <task id="LOCAL-00115" summary="Implement en passant: work in progress">
-      <created>1684754112035</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
+    <task id="LOCAL-00195" summary="Update classes to use Coordinate instead of Square">
+      <created>1685440822851</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
       <option name="project" value="LOCAL" />
-      <updated>1684754112035</updated>
+      <updated>1685440822851</updated>
     </task>
-    <task id="LOCAL-00116" summary="Implement en passant: work in progress">
-      <created>1684759527373</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
+    <task id="LOCAL-00196" summary="Update classes to use Coordinate instead of Square">
+      <created>1685440999405</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
       <option name="project" value="LOCAL" />
-      <updated>1684759527373</updated>
+      <updated>1685440999405</updated>
     </task>
-    <task id="LOCAL-00117" summary="comment">
-      <created>1684759543000</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL-00117" />
+    <task id="LOCAL-00197" summary="refactor pawn movement finder to general MovementFinder.java, added setDiagonalMoves">
+      <created>1685442127215</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
       <option name="project" value="LOCAL" />
-      <updated>1684759543000</updated>
+      <updated>1685442127215</updated>
     </task>
-    <task id="LOCAL-00118" summary="setup moves test class">
-      <created>1684829731414</created>
-      <option name="number" value="00118" />
-      <option name="presentableId" value="LOCAL-00118" />
+    <task id="LOCAL-00198" summary="Added new Move History to Player.makeMove">
+      <created>1685442144528</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
       <option name="project" value="LOCAL" />
-      <updated>1684829731415</updated>
+      <updated>1685442144528</updated>
     </task>
-    <task id="LOCAL-00119" summary="Added overriding toString method">
-      <created>1684830140048</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
+    <task id="LOCAL-00199" summary="Added horizontal and vertical movement to MovementFinder.java">
+      <created>1685442356015</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
       <option name="project" value="LOCAL" />
-      <updated>1684830140048</updated>
+      <updated>1685442356015</updated>
     </task>
-    <task id="LOCAL-00120" summary="Added overriding toString method - test">
-      <created>1684830148146</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
+    <task id="LOCAL-00200" summary="Added L Shaped movement to MovementFinder.java">
+      <created>1685442625588</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
       <option name="project" value="LOCAL" />
-      <updated>1684830148146</updated>
+      <updated>1685442625588</updated>
     </task>
-    <task id="LOCAL-00121" summary="update toString()">
-      <created>1684830399477</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
+    <task id="LOCAL-00201" summary="Start adding King movement to MovementFinder.java">
+      <created>1685539177850</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
       <option name="project" value="LOCAL" />
-      <updated>1684830399477</updated>
+      <updated>1685539177850</updated>
     </task>
-    <task id="LOCAL-00122" summary="Added second test">
-      <created>1684830406523</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
+    <task id="LOCAL-00202" summary="Added helper function getByPos to BoardMap.java">
+      <created>1685539324379</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
       <option name="project" value="LOCAL" />
-      <updated>1684830406523</updated>
+      <updated>1685539324379</updated>
     </task>
-    <task id="LOCAL-00123" summary="Added tostring() for move">
-      <created>1684830702651</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
+    <task id="LOCAL-00203" summary="Update Player.setAllAttackedSquares -&gt; Pawn attacked squares temporarily disabled until implemented in Pawn.java">
+      <created>1685539579190</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
       <option name="project" value="LOCAL" />
-      <updated>1684830702651</updated>
+      <updated>1685539579190</updated>
     </task>
-    <task id="LOCAL-00124" summary="fixed variable capitalization">
-      <created>1684830899414</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
+    <task id="LOCAL-00204" summary="refactor attackedSquares -&gt; allAttackedSquares">
+      <created>1685539658714</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
       <option name="project" value="LOCAL" />
-      <updated>1684830899414</updated>
+      <updated>1685539658714</updated>
     </task>
-    <task id="LOCAL-00125" summary="move toString testing">
-      <created>1684831144476</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
+    <task id="LOCAL-00205" summary="refactor attackedSquares -&gt; allAttackedSquares">
+      <created>1685539684742</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
       <option name="project" value="LOCAL" />
-      <updated>1684831144476</updated>
+      <updated>1685539684742</updated>
     </task>
-    <task id="LOCAL-00126" summary="e4 can move to e5 test">
-      <created>1684831350181</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
+    <task id="LOCAL-00206" summary="Added second helper method in BoardMap, getCoordinateByPos">
+      <created>1685539971519</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
       <option name="project" value="LOCAL" />
-      <updated>1684831350181</updated>
+      <updated>1685539971519</updated>
     </task>
-    <task id="LOCAL-00127" summary="Added e4 can go to e5 and take d5 test">
-      <created>1684831490266</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
+    <task id="LOCAL-00207" summary="Added checkCheck for King movement in MovementFinder.java">
+      <created>1685539993538</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
       <option name="project" value="LOCAL" />
-      <updated>1684831490266</updated>
+      <updated>1685539993538</updated>
     </task>
-    <task id="LOCAL-00128" summary="En PAssant test - fails, need to debug">
-      <created>1684831695420</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
+    <task id="LOCAL-00208" summary="Implemented Castling moves for King movement in MovementFinder.java">
+      <created>1685540982213</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
       <option name="project" value="LOCAL" />
-      <updated>1684831695420</updated>
+      <updated>1685540982213</updated>
     </task>
-    <task id="LOCAL-00129" summary="En PAssant test - still fails- 3rd square also gets added">
-      <created>1684832403472</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
+    <task id="LOCAL-00209" summary="Update Castling moves for King movement  in MovementFinder.java ; &#10;check for check and hasmoved">
+      <created>1685606258725</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
       <option name="project" value="LOCAL" />
-      <updated>1684832403472</updated>
+      <updated>1685606258725</updated>
     </task>
-    <task id="LOCAL-00130" summary="Bug fixed - test runs succesfully now">
-      <created>1684832677269</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
+    <task id="LOCAL-00210" summary="Implementing MovementFinder separation of concerns in Piece.java">
+      <created>1685606297608</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
       <option name="project" value="LOCAL" />
-      <updated>1684832677269</updated>
+      <updated>1685606297608</updated>
     </task>
-    <task id="LOCAL-00131" summary="bugfix - index out of bound">
-      <created>1684835609055</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
+    <task id="LOCAL-00211" summary="Update MovementType enum to contain functionality">
+      <created>1685606549839</created>
+      <option name="number" value="00211" />
+      <option name="presentableId" value="LOCAL-00211" />
       <option name="project" value="LOCAL" />
-      <updated>1684835609055</updated>
+      <updated>1685606549839</updated>
     </task>
-    <task id="LOCAL-00132" summary="wrote tests for castling">
-      <created>1684835632339</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
+    <task id="LOCAL-00212" summary="Piece update getters &amp; setters from board to boardmap">
+      <created>1685606569728</created>
+      <option name="number" value="00212" />
+      <option name="presentableId" value="LOCAL-00212" />
       <option name="project" value="LOCAL" />
-      <updated>1684835632339</updated>
+      <updated>1685606569728</updated>
     </task>
-    <task id="LOCAL-00133" summary="added piecetaking functionality to movepiece method">
-      <created>1684836097103</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
+    <task id="LOCAL-00213" summary="Update enum methods to public">
+      <created>1685606692884</created>
+      <option name="number" value="00213" />
+      <option name="presentableId" value="LOCAL-00213" />
       <option name="project" value="LOCAL" />
-      <updated>1684836097103</updated>
+      <updated>1685606692884</updated>
     </task>
-    <task id="LOCAL-00134" summary="Added pawn promotion (always to queen) in movePiece method">
-      <created>1684836368589</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
+    <task id="LOCAL-00214" summary="Piece.newSetMovableSquares - new implementation">
+      <created>1685606711104</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
       <option name="project" value="LOCAL" />
-      <updated>1684836368589</updated>
+      <updated>1685606711104</updated>
     </task>
-    <task id="LOCAL-00135" summary="todo">
-      <created>1684846318049</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
+    <task id="LOCAL-00215" summary="un abstracted setMovableSquares">
+      <created>1685606966666</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
       <option name="project" value="LOCAL" />
-      <updated>1684846318049</updated>
+      <updated>1685606966666</updated>
     </task>
-    <task id="LOCAL-00136" summary="revision check- comment">
-      <created>1685007158950</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
+    <task id="LOCAL-00216" summary="un abstracted setMovableSquares -&gt; implementation in Bishop">
+      <created>1685606978382</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
       <option name="project" value="LOCAL" />
-      <updated>1685007158950</updated>
+      <updated>1685606978382</updated>
     </task>
-    <task id="LOCAL-00137" summary="revision check- comment removed">
-      <created>1685007209613</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
+    <task id="LOCAL-00217" summary="un abstracted setMovableSquares -&gt; implementation in King">
+      <created>1685607079901</created>
+      <option name="number" value="00217" />
+      <option name="presentableId" value="LOCAL-00217" />
       <option name="project" value="LOCAL" />
-      <updated>1685007209613</updated>
+      <updated>1685607079901</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <option name="localTasksCounter" value="218" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -522,37 +523,158 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Check if move is a castle move" />
-    <MESSAGE value="formatting" />
-    <MESSAGE value="implement castle method" />
-    <MESSAGE value="Implement en passant: work in progress" />
-    <MESSAGE value="comment" />
-    <MESSAGE value="setup moves test class" />
-    <MESSAGE value="Added overriding toString method" />
-    <MESSAGE value="Added overriding toString method - test" />
-    <MESSAGE value="update toString()" />
-    <MESSAGE value="Added second test" />
-    <MESSAGE value="Added tostring() for move" />
-    <MESSAGE value="fixed variable capitalization" />
-    <MESSAGE value="move toString testing" />
-    <MESSAGE value="e4 can move to e5 test" />
-    <MESSAGE value="Added e4 can go to e5 and take d5 test" />
-    <MESSAGE value="En PAssant test - fails, need to debug" />
-    <MESSAGE value="En PAssant test - still fails- 3rd square also gets added" />
-    <MESSAGE value="Bug fixed - test runs succesfully now" />
-    <MESSAGE value="bugfix - index out of bound" />
-    <MESSAGE value="wrote tests for castling" />
-    <MESSAGE value="added piecetaking functionality to movepiece method" />
-    <MESSAGE value="Added pawn promotion (always to queen) in movePiece method" />
-    <MESSAGE value="todo" />
-    <MESSAGE value="revision check- comment" />
-    <MESSAGE value="revision check- comment removed" />
-    <option name="LAST_COMMIT_MESSAGE" value="revision check- comment removed" />
+    <MESSAGE value="rebuild - update castling" />
+    <MESSAGE value="Added movement type enum" />
+    <MESSAGE value="added player attribute to piece" />
+    <MESSAGE value="Finding moves in a separate logic layer - work in progress" />
+    <MESSAGE value="Update classes to use Coordinate instead of Square" />
+    <MESSAGE value="refactor pawn movement finder to general MovementFinder.java, added setDiagonalMoves" />
+    <MESSAGE value="Added new Move History to Player.makeMove" />
+    <MESSAGE value="Added horizontal and vertical movement to MovementFinder.java" />
+    <MESSAGE value="Added L Shaped movement to MovementFinder.java" />
+    <MESSAGE value="Start adding King movement to MovementFinder.java" />
+    <MESSAGE value="Added helper function getByPos to BoardMap.java" />
+    <MESSAGE value="Update Player.setAllAttackedSquares -&gt; Pawn attacked squares temporarily disabled until implemented in Pawn.java" />
+    <MESSAGE value="refactor attackedSquares -&gt; allAttackedSquares" />
+    <MESSAGE value="Added second helper method in BoardMap, getCoordinateByPos" />
+    <MESSAGE value="Added checkCheck for King movement in MovementFinder.java" />
+    <MESSAGE value="Implemented Castling moves for King movement in MovementFinder.java" />
+    <MESSAGE value="Update Castling moves for King movement  in MovementFinder.java ; &#10;check for check and hasmoved" />
+    <MESSAGE value="Implementing MovementFinder separation of concerns in Piece.java" />
+    <MESSAGE value="Update MovementType enum to contain functionality" />
+    <MESSAGE value="Piece update getters &amp; setters from board to boardmap" />
+    <MESSAGE value="Update enum methods to public" />
+    <MESSAGE value="Piece.newSetMovableSquares - new implementation" />
+    <MESSAGE value="un abstracted setMovableSquares" />
+    <MESSAGE value="un abstracted setMovableSquares -&gt; implementation in Bishop" />
+    <MESSAGE value="un abstracted setMovableSquares -&gt; implementation in King" />
+    <option name="LAST_COMMIT_MESSAGE" value="un abstracted setMovableSquares -&gt; implementation in King" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>112</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>99</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>101</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>114</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="main.classes.controllers.Player" memberName="game" />
+      </pinned-members>
+    </pin-to-top-manager>
     <watches-manager>
       <configuration name="JUnit">
         <watch expression="((Game)((GameTest)this).Game).whitePlayer" custom="main.classes.controllers.Game,test.controllers.GameTest" />
+        <watch expression="((main.classes.structures.PieceSet)this).toArray()[6]" custom="main.classes.structures.PieceSet" />
+        <watch expression="this" />
       </configuration>
     </watches-manager>
   </component>
