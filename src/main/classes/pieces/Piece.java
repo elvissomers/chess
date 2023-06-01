@@ -87,8 +87,6 @@ public abstract class Piece {
         this.position = position;
     }
 
-    public abstract void setMovableSquares();
-
     public abstract Piece copy();
 
     public void removePreviousMovableSquares(){
@@ -100,7 +98,7 @@ public abstract class Piece {
         movableSquares = new ArrayList<>();
     }
 
-    public void newSetMovableSquares(){
+    public void setMovableSquares(){
         for (MovementType moveRule : moveRules){
             moveRule.setMoves(this, board, moveFinder);
         }
@@ -112,5 +110,9 @@ public abstract class Piece {
 
     public Player getPlayer() {
         return player;
+    }
+
+    public void setMoveRules(Set<MovementType> moveRules) {
+        this.moveRules = moveRules;
     }
 }
