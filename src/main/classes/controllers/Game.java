@@ -5,11 +5,11 @@ import main.classes.structures.Team;
 
 public class Game {
 
-    private BoardMap board;
+    private final BoardMap board;
 
-    private Player whitePlayer;
+    private final Player whitePlayer;
 
-    private Player blackPlayer;
+    private final Player blackPlayer;
 
     public Game() {
         whitePlayer = new Player(this, Team.WHITE);
