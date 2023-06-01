@@ -18,7 +18,6 @@ public class Player {
 
     private final Team team;
 
-    // TODO: fill this set in Game instantiaton
     private Set<Piece> pieces;
 
     private Set<Coordinate> allAttackedSquares;

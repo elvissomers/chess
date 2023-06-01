@@ -4,7 +4,6 @@ import main.classes.controllers.Game;
 import main.classes.controllers.Player;
 import main.classes.pieces.*;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
 public class BoardMap extends HashMap<Coordinate, Piece> {
@@ -50,15 +49,11 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
      * @param other the Board to copy
      */
     public BoardMap(BoardMap other)  {
-        // TODO: every Piece should be "deep" copied, but not necessarily every Coordinate. The coordinates used
-        // are still the same
         coordinateArray = other.getCoordinateArray(); // Reference, no copy
         for (int i = 0; i < 8; i++){
             for (int j = 0; j < 8; j++){
                 Piece currentPiece = other.get(coordinateArray[i][j]);
                 Piece copyPiece = currentPiece.copy(); // New instance, actual copy
-//                Class<? extends Piece> pieceClass = currentPiece.getType().getPieceImplementation();
-//                Piece copyPiece = pieceClass.getDeclaredConstructor(pieceClass).newInstance(currentPiece);
 
                 put(coordinateArray[i][j], copyPiece);
             }
@@ -82,7 +77,7 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
             Coordinate pieceCoordinate = coordinateArray[xPos][yForMajorPieces];
             put(pieceCoordinate, piece);
 
-//                currentPlayer.getPieceSet().add(piece);
+            player.getPieces().add(piece);
         }
 
         // Set pawns
@@ -91,7 +86,7 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
             Coordinate pieceCoordinate = coordinateArray[xPos][yForPawns];
             put(pieceCoordinate, pawn);
 
-//                currentPlayer.getPieceSet().add(pawn);
+            player.getPieces().add(pawn);
         }
     }
 
