@@ -23,13 +23,12 @@ public abstract class Piece {
 
     private MoveFinder moveFinder = new MoveFinder();
 
-    // TODO: make every creation of Piece use this constructor
-    // TODO: make logic depend on player instead of game
     public Piece(Player player) {
         this.player = player;
     }
 
     // TODO: Piece copy constructor should be working properly
+    // That means it should also copy null
     public Piece(Piece other) {
         this.player = other.getPlayer();
         // Game & Square will be set separately
