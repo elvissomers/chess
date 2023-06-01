@@ -21,6 +21,10 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
 
     private final Coordinate[][] coordinateArray;
 
+    public Coordinate[][] getCoordinateArray() {
+        return coordinateArray;
+    }
+
     /**
      * Constructor for BoardMap is supposed to generate a starting Board according to the standard chess rules.
      *
@@ -59,10 +63,6 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
                 put(coordinateArray[i][j], copyPiece);
             }
         }
-    }
-
-    public Coordinate[][] getCoordinateArray() {
-        return coordinateArray;
     }
 
     private void setStartPieces(Player player){
