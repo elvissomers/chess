@@ -15,6 +15,8 @@ public class MoveFinder {
 
     // TODO: Player should not be able to make moves that put himself in Check!
 
+    // TODO: Use helper methods board.getCoordinate/PieceByPos in all methods
+
     private final int xSize = 8;
 
     private final int ySize = 8;
