@@ -101,19 +101,8 @@ public abstract class Piece {
     }
 
     public void newSetMovableSquares(){
-        if (moveRules.contains(MovementType.HORIZONTAL))
-            moveFinder.setHorizontalMoves(this, board);
-        if (moveRules.contains(MovementType.VERTICAL))
-            moveFinder.setVerticalMoves(this, board);
-        if (moveRules.contains(MovementType.DIAGONAL))
-            moveFinder.setDiagonalMoves(this, board);
-        if (moveRules.contains(MovementType.LSHAPED))
-            moveFinder.setLShapedMoves(this, board);
-        if (moveRules.contains(MovementType.PAWN))
-            moveFinder.setPawnMoves(this, board);
-        if (moveRules.contains(MovementType.KING)) {
-            moveFinder.setKingBasicMoves(this, board);
-            moveFinder.setKingCastlingMoves(this, board);
+        for (MovementType moveRule : moveRules){
+            moveRule.setMoves(this, board, moveFinder);
         }
     }
 
