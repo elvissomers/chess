@@ -33,11 +33,13 @@ public class Game {
         for (int i = 0; i < 8; i++){
             for (int j = 0; j < 8; j++) {
                 Piece currentPiece = other.getBoard().get(coordinateArray[i][j]);
-                Piece copyPiece = currentPiece.copy(); // New instance, actual copy
+                Piece copyPiece = (currentPiece != null) ? currentPiece.copy() : null; // New instance, actual copy
 
                 board.put(coordinateArray[i][j],copyPiece);
-                Player player = (copyPiece.getPlayer().getTeam() == Team.WHITE) ? whitePlayer : blackPlayer;
-                player.getPieces().add(copyPiece);
+                if (copyPiece != null) {
+                    Player player = (copyPiece.getPlayer().getTeam() == Team.WHITE) ? whitePlayer : blackPlayer;
+                    player.getPieces().add(copyPiece);
+                }
             }
         }
     }

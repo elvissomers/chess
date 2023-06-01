@@ -30,7 +30,12 @@ public abstract class Piece {
     // TODO: Piece copy constructor should be working properly
     // That means it should also copy null
     public Piece(Piece other) {
+        if (other == null){
+            throw new IllegalArgumentException("Cannot copy a null Piece");
+        }
+
         this.player = other.getPlayer();
+        this.position = other.getPosition();
     }
 
     public BoardMap getBoard() {
