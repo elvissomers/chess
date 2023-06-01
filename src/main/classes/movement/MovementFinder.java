@@ -2,6 +2,7 @@ package main.classes.movement;
 
 import main.classes.board.Square;
 import main.classes.controllers.Player;
+import main.classes.pieces.King;
 import main.classes.pieces.Pawn;
 import main.classes.pieces.Piece;
 import main.classes.pieces.Rook;
@@ -205,6 +206,10 @@ public class MovementFinder {
     }
 
     public void setKingCastlingMoves(Piece king, BoardMap board){
+        King kingKing = (King) king;
+        if (kingKing.isInCheck() || kingKing.isHasMoved()){
+            return;
+        }
         king.removePreviousMovableSquares();
 
         int xPos = king.getPosition().getX();
