@@ -52,23 +52,6 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
         this.coordinateArray = coordinateArray;
     }
 
-
-    /**
-     * Copy constructor to create a copy of a Board
-     * @param other the Board to copy
-     */
-    public BoardMap(BoardMap other)  {
-        coordinateArray = other.getCoordinateArray(); // Reference, no copy
-        for (int i = 0; i < 8; i++){
-            for (int j = 0; j < 8; j++){
-                Piece currentPiece = other.get(coordinateArray[i][j]);
-                Piece copyPiece = currentPiece.copy(); // New instance, actual copy
-
-                put(coordinateArray[i][j], copyPiece);
-            }
-        }
-    }
-
     private void setStartPieces(Player player){
         int horizontalSize = 8;
 
