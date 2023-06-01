@@ -1,6 +1,8 @@
 package main.classes.controllers;
 
+import main.classes.pieces.Piece;
 import main.classes.structures.BoardMap;
+import main.classes.structures.Coordinate;
 import main.classes.structures.Team;
 
 public class Game {
@@ -16,6 +18,28 @@ public class Game {
         blackPlayer = new Player(this, Team.BLACK);
 
         board = new BoardMap(this);
+    }
+
+    /**
+     * Copy constructor for Game. Should ensure everything is copied properly.
+     * @param other the Game to copy.
+     */
+    public Game(Game other){
+        whitePlayer = new Player(this, Team.WHITE);
+        blackPlayer = new Player(this, Team.BLACK);
+        Coordinate[][] coordinateArray = other.getBoard().getCoordinateArray(); // Reference, no copy
+        board = new BoardMap(other, coordinateArray);
+
+        for (int i = 0; i < 8; i++){
+            for (int j = 0; j < 8; j++) {
+                Piece currentPiece = other.getBoard().get(coordinateArray[i][j]);
+                Piece copyPiece = currentPiece.copy(); // New instance, actual copy
+
+                board.put(coordinateArray[i][j],copyPiece);
+                Player player = (copyPiece.getPlayer().getTeam() == Team.WHITE) ? whitePlayer : blackPlayer;
+                player.getPieces().add(copyPiece);
+            }
+        }
     }
 
     public BoardMap getBoard() {
