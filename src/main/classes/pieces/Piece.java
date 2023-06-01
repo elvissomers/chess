@@ -59,13 +59,13 @@ public abstract class Piece {
         // Game & Square will be set separately
     }
 
-    public Board getBoard() {
+    public BoardMap getBoard() {
         return board;
     }
 
-    public void setBoard(Board board) {
-        this.board = board;
-    }
+//    public void setBoard(Board board) {
+//        this.board = board;
+//    }
 
     public Team getTeam() {
         return team;
