@@ -1,6 +1,5 @@
 package main.classes.game;
 
-import main.classes.board.Square;
 import main.classes.pieces.*;
 import main.classes.structures.Coordinate;
 
