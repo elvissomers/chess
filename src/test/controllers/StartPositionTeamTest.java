@@ -2,7 +2,6 @@ package test.controllers;
 
 import main.classes.controllers.Game;
 import main.classes.pieces.*;
-import org.junit.jupiter.api.Test;
 import main.classes.structures.Team;
 
 import org.junit.jupiter.api.BeforeEach;
