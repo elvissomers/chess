@@ -7,12 +7,13 @@ import main.classes.structures.Coordinate;
 import main.classes.structures.Team;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class Player {
 
-    private Game game;
+    private final Game game;
 
     private List<Move> moveHistory = new ArrayList<>();
 
@@ -20,11 +21,11 @@ public class Player {
 
     private Set<Piece> pieces;
 
-    private Set<Coordinate> allAttackedSquares;
+    private Set<Coordinate> allAttackedSquares = new HashSet<>();
 
     private King king;
 
-    private MoveMaker moveMaker = new MoveMaker();
+    private final MoveMaker moveMaker = new MoveMaker();
 
     public Player(Game game, Team team) {
         this.game = game;
