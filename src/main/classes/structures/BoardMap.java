@@ -45,6 +45,15 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
     }
 
     /**
+     * "Empty" constructor that does not set pieces to the board
+     */
+    public BoardMap(Game game, Coordinate[][] coordinateArray){
+        this.game = game;
+        this.coordinateArray = coordinateArray;
+    }
+
+
+    /**
      * Copy constructor to create a copy of a Board
      * @param other the Board to copy
      */
