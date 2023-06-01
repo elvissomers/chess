@@ -3,6 +3,7 @@ package main.classes.pieces;
 import main.classes.board.Square;
 import main.classes.controllers.Game;
 import main.classes.controllers.Player;
+import main.classes.structures.BoardMap;
 import main.classes.structures.Coordinate;
 import main.classes.structures.MovementType;
 import main.classes.structures.Team;
@@ -34,27 +35,26 @@ public class Pawn extends Piece {
     // TODO : promotion
 
 
-    public void setAttackedSquares() {
+    public void setAttackedSquares(BoardMap board) {
         attackedSquares = new HashSet<>();
 
-        int xPos = this.getSquare().getHorizontalPosition();
-        int yPos = this.getSquare().getVerticalPosition();
-        int xSize = this.getBoard().getHorizontalSize();
-        int ySize = this.getBoard().getVerticalSize();
+        int xPos = this.getPosition().getX();
+        int yPos = this.getPosition().getY();
+        int xSize = 8;
         int yDirection = (this.getTeam() == Team.WHITE) ? 1 : -1;
 
         if (xPos + 1 < xSize) {
-            Square squareInFrontRight = this.getBoard().getSquareByPos(xPos + 1, yPos + yDirection);
+            Coordinate squareInFrontRight = board.getCoordinateByPos(xPos + 1, yPos + yDirection);
             this.attackedSquares.add(squareInFrontRight);
         }
 
         if (xPos > 0) {
-            Square squareInFrontLeft = this.getBoard().getSquareByPos(xPos - 1, yPos + yDirection);
+            Coordinate squareInFrontLeft = board.getCoordinateByPos(xPos - 1, yPos + yDirection);
             this.attackedSquares.add(squareInFrontLeft);
         }
     }
 
-    public Set<Square> getAttackedSquares() {
+    public Set<Coordinate> getAttackedSquares() {
         return attackedSquares;
     }
 
