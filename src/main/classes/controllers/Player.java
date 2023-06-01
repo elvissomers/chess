@@ -1,10 +1,8 @@
 package main.classes.controllers;
 
-import main.classes.board.Square;
 import main.classes.game.Move;
 import main.classes.movement.MoveMaker;
 import main.classes.pieces.*;
-import main.classes.structures.CastleType;
 import main.classes.structures.Coordinate;
 import main.classes.structures.Team;
 

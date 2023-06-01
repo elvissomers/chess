@@ -158,7 +158,6 @@ public class MoveFinder {
         if (yPos == startPos + 3 * yDirection) {
             if (xPos > 0 && board.get(board.getCoordinateArray()[xPos - 1][yPos]) instanceof Pawn otherPawn &&
                     otherPawn.getPlayer().getTeam() != pawn.getPlayer().getTeam()) {
-                // TODO: check if pawn just movedIm
                 Player otherPlayer = (pawn.getPlayer().getTeam() == Team.WHITE) ? board.getGame().getBlackPlayer()
                         : board.getGame().getWhitePlayer();
                 if (otherPlayer.getMoveHistory().get(otherPlayer.getMoveHistory().size() - 1).getPiece()
@@ -171,7 +170,6 @@ public class MoveFinder {
             }
             if (xPos + 1 < xSize && board.get(board.getCoordinateArray()[xPos + 1][yPos]) instanceof Pawn otherPawn &&
                     otherPawn.getPlayer().getTeam() != pawn.getPlayer().getTeam()) {
-                // TODO: check if pawn just movedIm
                 Player otherPlayer = (pawn.getPlayer().getTeam() == Team.WHITE) ? board.getGame().getBlackPlayer()
                         : board.getGame().getWhitePlayer();
                 if (otherPlayer.getMoveHistory().get(otherPlayer.getMoveHistory().size() - 1).getPiece()
@@ -196,7 +194,6 @@ public class MoveFinder {
                 if (0 <= xPos + x && xPos + x < xSize && 0 <= yPos + y && yPos + y < ySize) {
                     Piece currentPiece = board.get(board.getCoordinateArray()[xPos + x][yPos + y]);
                     if (currentPiece == null || currentPiece.getPlayer().getTeam() != king.getPlayer().getTeam()) {
-                        // TODO: checkCheck using coordinate and board
                         if (!checkCheck(board.getCoordinateByPos(xPos+x,yPos+y), board, king.getPlayer().getTeam())) {
                             king.addMovableSquare(board.getCoordinateByPos(xPos+x,yPos+y));
                         }

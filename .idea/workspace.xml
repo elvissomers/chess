@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="un abstracted setMovableSquares -&gt; implementation in King">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="TODO added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/classes/pieces/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/pieces/Queen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/classes/pieces/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/pieces/Rook.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,76 +160,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00169" summary="TODO comment">
-      <created>1685107395271</created>
-      <option name="number" value="00169" />
-      <option name="presentableId" value="LOCAL-00169" />
-      <option name="project" value="LOCAL" />
-      <updated>1685107395271</updated>
-    </task>
-    <task id="LOCAL-00170" summary="Update boardMap to contain Coordinate[][] 2D array">
-      <created>1685109600324</created>
-      <option name="number" value="00170" />
-      <option name="presentableId" value="LOCAL-00170" />
-      <option name="project" value="LOCAL" />
-      <updated>1685109600324</updated>
-    </task>
-    <task id="LOCAL-00171" summary="update piecetype to contain Class (Class&lt;? extends Piece&gt;) specification attribute">
-      <created>1685112803938</created>
-      <option name="number" value="00171" />
-      <option name="presentableId" value="LOCAL-00171" />
-      <option name="project" value="LOCAL" />
-      <updated>1685112803938</updated>
-    </task>
-    <task id="LOCAL-00172" summary="add piecetype attribute to piece">
-      <created>1685112824547</created>
-      <option name="number" value="00172" />
-      <option name="presentableId" value="LOCAL-00172" />
-      <option name="project" value="LOCAL" />
-      <updated>1685112824547</updated>
-    </task>
-    <task id="LOCAL-00173" summary="todo comment">
-      <created>1685112834292</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL-00173" />
-      <option name="project" value="LOCAL" />
-      <updated>1685112834292</updated>
-    </task>
-    <task id="LOCAL-00174" summary="BoardMap copy constructor - work in progress">
-      <created>1685112858860</created>
-      <option name="number" value="00174" />
-      <option name="presentableId" value="LOCAL-00174" />
-      <option name="project" value="LOCAL" />
-      <updated>1685112858860</updated>
-    </task>
-    <task id="LOCAL-00175" summary="New polymorphic copy implementation">
-      <created>1685432543554</created>
-      <option name="number" value="00175" />
-      <option name="presentableId" value="LOCAL-00175" />
-      <option name="project" value="LOCAL" />
-      <updated>1685432543554</updated>
-    </task>
-    <task id="LOCAL-00176" summary="New polymorphic copy implementation">
-      <created>1685432801041</created>
-      <option name="number" value="00176" />
-      <option name="presentableId" value="LOCAL-00176" />
-      <option name="project" value="LOCAL" />
-      <updated>1685432801041</updated>
-    </task>
-    <task id="LOCAL-00177" summary="Remove type attribute from Piece.java">
-      <created>1685432852249</created>
-      <option name="number" value="00177" />
-      <option name="presentableId" value="LOCAL-00177" />
-      <option name="project" value="LOCAL" />
-      <updated>1685432852249</updated>
-    </task>
-    <task id="LOCAL-00178" summary="Remove unused test (game move history)">
-      <created>1685434646253</created>
-      <option name="number" value="00178" />
-      <option name="presentableId" value="LOCAL-00178" />
-      <option name="project" value="LOCAL" />
-      <updated>1685434646253</updated>
     </task>
     <task id="LOCAL-00179" summary="PieceMap.java - work in progress">
       <created>1685434667806</created>
@@ -506,7 +434,77 @@
       <option name="project" value="LOCAL" />
       <updated>1685607079901</updated>
     </task>
-    <option name="localTasksCounter" value="218" />
+    <task id="LOCAL-00218" summary="implementation separation of concerns (moveRules in separate location from objects)">
+      <created>1685607272345</created>
+      <option name="number" value="00218" />
+      <option name="presentableId" value="LOCAL-00218" />
+      <option name="project" value="LOCAL" />
+      <updated>1685607272345</updated>
+    </task>
+    <task id="LOCAL-00219" summary="Update attacked squares in Pawn to use Coordinate instead of Square">
+      <created>1685607477747</created>
+      <option name="number" value="00219" />
+      <option name="presentableId" value="LOCAL-00219" />
+      <option name="project" value="LOCAL" />
+      <updated>1685607477747</updated>
+    </task>
+    <task id="LOCAL-00220" summary="new MoveMaker class - further separation of concerns">
+      <created>1685608314940</created>
+      <option name="number" value="00220" />
+      <option name="presentableId" value="LOCAL-00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1685608314940</updated>
+    </task>
+    <task id="LOCAL-00221" summary="refactor MovementFinder -&gt; MoveFinder">
+      <created>1685608338733</created>
+      <option name="number" value="00221" />
+      <option name="presentableId" value="LOCAL-00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1685608338733</updated>
+    </task>
+    <task id="LOCAL-00222" summary="separation of concerns, separate movemaker class">
+      <created>1685608474316</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1685608474316</updated>
+    </task>
+    <task id="LOCAL-00223" summary="Deleted all tests. Will write new ones later">
+      <created>1685608538120</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL-00223" />
+      <option name="project" value="LOCAL" />
+      <updated>1685608538120</updated>
+    </task>
+    <task id="LOCAL-00224" summary="Remove depracated classes">
+      <created>1685608599611</created>
+      <option name="number" value="00224" />
+      <option name="presentableId" value="LOCAL-00224" />
+      <option name="project" value="LOCAL" />
+      <updated>1685608599611</updated>
+    </task>
+    <task id="LOCAL-00225" summary="Remove depracated classes">
+      <created>1685608791646</created>
+      <option name="number" value="00225" />
+      <option name="presentableId" value="LOCAL-00225" />
+      <option name="project" value="LOCAL" />
+      <updated>1685608791646</updated>
+    </task>
+    <task id="LOCAL-00226" summary="some formatting">
+      <created>1685608806465</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL-00226" />
+      <option name="project" value="LOCAL" />
+      <updated>1685608806465</updated>
+    </task>
+    <task id="LOCAL-00227" summary="TODO added">
+      <created>1685608852834</created>
+      <option name="number" value="00227" />
+      <option name="presentableId" value="LOCAL-00227" />
+      <option name="project" value="LOCAL" />
+      <updated>1685608852834</updated>
+    </task>
+    <option name="localTasksCounter" value="228" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -523,15 +521,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="rebuild - update castling" />
-    <MESSAGE value="Added movement type enum" />
-    <MESSAGE value="added player attribute to piece" />
-    <MESSAGE value="Finding moves in a separate logic layer - work in progress" />
-    <MESSAGE value="Update classes to use Coordinate instead of Square" />
-    <MESSAGE value="refactor pawn movement finder to general MovementFinder.java, added setDiagonalMoves" />
-    <MESSAGE value="Added new Move History to Player.makeMove" />
-    <MESSAGE value="Added horizontal and vertical movement to MovementFinder.java" />
-    <MESSAGE value="Added L Shaped movement to MovementFinder.java" />
     <MESSAGE value="Start adding King movement to MovementFinder.java" />
     <MESSAGE value="Added helper function getByPos to BoardMap.java" />
     <MESSAGE value="Update Player.setAllAttackedSquares -&gt; Pawn attacked squares temporarily disabled until implemented in Pawn.java" />
@@ -548,123 +537,18 @@
     <MESSAGE value="un abstracted setMovableSquares" />
     <MESSAGE value="un abstracted setMovableSquares -&gt; implementation in Bishop" />
     <MESSAGE value="un abstracted setMovableSquares -&gt; implementation in King" />
-    <option name="LAST_COMMIT_MESSAGE" value="un abstracted setMovableSquares -&gt; implementation in King" />
+    <MESSAGE value="implementation separation of concerns (moveRules in separate location from objects)" />
+    <MESSAGE value="Update attacked squares in Pawn to use Coordinate instead of Square" />
+    <MESSAGE value="new MoveMaker class - further separation of concerns" />
+    <MESSAGE value="refactor MovementFinder -&gt; MoveFinder" />
+    <MESSAGE value="separation of concerns, separate movemaker class" />
+    <MESSAGE value="Deleted all tests. Will write new ones later" />
+    <MESSAGE value="Remove depracated classes" />
+    <MESSAGE value="some formatting" />
+    <MESSAGE value="TODO added" />
+    <option name="LAST_COMMIT_MESSAGE" value="TODO added" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>109</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>112</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>75</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>78</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>82</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>99</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>100</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>101</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>105</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>114</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/structures/PieceSet.java</url>
-          <line>89</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="main.classes.controllers.Player" memberName="game" />
