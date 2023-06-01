@@ -23,6 +23,7 @@ public class Player {
 
     private Set<Coordinate> allAttackedSquares = new HashSet<>();
 
+    // TODO: player should actually have a pointer to his king
     private King king;
 
     private final MoveMaker moveMaker = new MoveMaker();
