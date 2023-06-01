@@ -1,6 +1,5 @@
 package main.classes.pieces;
 
-import main.classes.controllers.Game;
 import main.classes.controllers.Player;
 import main.classes.structures.BoardMap;
 import main.classes.structures.Coordinate;
@@ -11,17 +10,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Pawn extends Piece {
-    public Pawn(Game game, Team team) {
-        super(game, team);
-    }
-
-    public Pawn(Piece other){
-        super(other);
-    }
 
     public Pawn(Player player){
         super(player);
         this.setMoveRules(Set.of(MovementType.PAWN));
+    }
+
+    public Pawn(Piece other){
+        super(other);
     }
 
     /*
@@ -30,6 +26,7 @@ public class Pawn extends Piece {
      * We need to keep track of these squares to be able to see if there are
      * checks, checkmates or stalemates.
      */
+    // TODO: implement this in a separate logic class, instead of in the object
     private Set<Coordinate> attackedSquares = new HashSet<>();
     // TODO : promotion
 
@@ -40,7 +37,7 @@ public class Pawn extends Piece {
         int xPos = this.getPosition().getX();
         int yPos = this.getPosition().getY();
         int xSize = 8;
-        int yDirection = (this.getTeam() == Team.WHITE) ? 1 : -1;
+        int yDirection = (this.getPlayer().getTeam() == Team.WHITE) ? 1 : -1;
 
         if (xPos + 1 < xSize) {
             Coordinate squareInFrontRight = board.getCoordinateByPos(xPos + 1, yPos + yDirection);

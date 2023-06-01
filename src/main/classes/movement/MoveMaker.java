@@ -49,7 +49,7 @@ public class MoveMaker {
         if (piece instanceof Pawn pawn && destination.getY() == promotionRank){
             thisPlayer.getPieces().remove(pawn);
             // TODO: let player choose a piece instead of always having a queen
-            Queen promotionPiece = new Queen(game, thisPlayer.getTeam());
+            Queen promotionPiece = new Queen(thisPlayer);
             game.getBoard().put(destination, promotionPiece);
             thisPlayer.getPieces().add(promotionPiece);
             // TODO: add "promoted" attribute to Move object, with the piece specification

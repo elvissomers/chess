@@ -1,6 +1,5 @@
 package main.classes.pieces;
 
-import main.classes.controllers.Game;
 import main.classes.controllers.Player;
 import main.classes.movement.MoveFinder;
 import main.classes.structures.*;
@@ -16,14 +15,6 @@ public abstract class Piece {
 
     private BoardMap board;
 
-    // TODO: Instead of having the Game & Team attribute, Piece should have a Player
-    // TODO: attribute. Then we can get the game from the player, and also the Team
-    // TODO: from the player.
-
-    private Game game;
-
-    private Team team;
-
     private Player player;
 
     private List<Coordinate> movableSquares = new ArrayList<>();
@@ -32,45 +23,20 @@ public abstract class Piece {
 
     private MoveFinder moveFinder = new MoveFinder();
 
-    public void setGame(Game game) {
-        this.game = game;
-    }
-
-    public Game getGame() {
-        return game;
-    }
-
     // TODO: make every creation of Piece use this constructor
     // TODO: make logic depend on player instead of game
-    public Piece(Player player){
-        this.game = player.getGame();
-        this.team = player.getTeam();
+    public Piece(Player player) {
+        this.player = player;
     }
 
-    public Piece(Game game, Team team) {
-        this.game = game;
-        this.team = team;
-    }
-
+    // TODO: Piece copy constructor should be working properly
     public Piece(Piece other) {
-        this.team = other.getTeam();
+        this.player = other.getPlayer();
         // Game & Square will be set separately
     }
 
     public BoardMap getBoard() {
         return board;
-    }
-
-//    public void setBoard(Board board) {
-//        this.board = board;
-//    }
-
-    public Team getTeam() {
-        return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
     }
 
     public List<Coordinate> getMovableSquares() {
