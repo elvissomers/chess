@@ -29,4 +29,9 @@ public class Rook extends Piece {
     public Rook copy(){
         return new Rook(this);
     }
+
+    @Override
+    public String toString(){
+        return "R";
+    }
 }

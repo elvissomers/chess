@@ -57,4 +57,9 @@ public class Pawn extends Piece {
     public Pawn copy(){
         return new Pawn(this);
     }
+
+    @Override
+    public String toString(){
+        return "";
+    }
 }

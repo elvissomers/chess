@@ -38,6 +38,11 @@ public class King extends Piece {
         this.hasMoved = hasMoved;
     }
 
+    @Override
+    public String toString(){
+        return "K";
+    }
+
     public void setInCheck(){
         Player attackingPlayer = (getPlayer().getTeam() == Team.WHITE) ? getPlayer().getGame().getBlackPlayer() :
                 getPlayer().getGame().getWhitePlayer();

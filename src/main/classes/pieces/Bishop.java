@@ -20,4 +20,9 @@ public class Bishop extends Piece {
     public Bishop copy(){
         return new Bishop(this);
     }
+
+    @Override
+    public String toString(){
+        return "B";
+    }
 }
