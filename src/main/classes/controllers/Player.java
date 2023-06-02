@@ -25,8 +25,6 @@ public class Player {
 
     private King king;
 
-    private final MoveMaker moveMaker = new MoveMaker();
-
     public Player(Game game, Team team) {
         this.game = game;
         this.team = team;
@@ -57,7 +55,7 @@ public class Player {
     }
 
     public MoveMaker getMoveMaker() {
-        return moveMaker;
+        return game.getMoveMaker();
     }
 
     public void setKing(King king) {

@@ -1,5 +1,6 @@
 package main.classes.controllers;
 
+import main.classes.movement.MoveMaker;
 import main.classes.pieces.Piece;
 import main.classes.structures.BoardMap;
 import main.classes.structures.Coordinate;
@@ -12,6 +13,8 @@ public class Game {
     private final Player whitePlayer;
 
     private final Player blackPlayer;
+
+    private final MoveMaker moveMaker = new MoveMaker();
 
     public Game() {
         whitePlayer = new Player(this, Team.WHITE);
@@ -55,6 +58,12 @@ public class Game {
     public Player getBlackPlayer() {
         return blackPlayer;
     }
+
+    public MoveMaker getMoveMaker() {
+        return moveMaker;
+    }
+
+
 
     public void update() {
         whitePlayer.setAllMovableSquares();
