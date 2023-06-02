@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="started pruning moves that put player in check in MoveFinder.java">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="TODO comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/classes/controllers/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/controllers/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/classes/controllers/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/controllers/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/classes/movement/MoveMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/movement/MoveMaker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,22 +66,7 @@
       <recent name="test.pieces" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CopyNotEqualTest">
-    <configuration name="ChessGameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test.controllers" />
-      <option name="MAIN_CLASS_NAME" value="test.controllers.ChessGameTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.MoveFinderTest">
     <configuration name="CopyNotEqualTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
@@ -93,7 +82,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PieceSetTest.setAllMovableSquaresKingInCheckShouldPreventMovesNotResolvingCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CopyNotEqualTest.newGameTestA1CopyRemovePiece_ShouldNotRemoveOriginalPiece" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
         <pattern>
@@ -102,14 +91,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test.controllers" />
-      <option name="MAIN_CLASS_NAME" value="test.controllers.PieceSetTest" />
-      <option name="METHOD_NAME" value="setAllMovableSquaresKingInCheckShouldPreventMovesNotResolvingCheck" />
+      <option name="MAIN_CLASS_NAME" value="test.controllers.CopyNotEqualTest" />
+      <option name="METHOD_NAME" value="newGameTestA1CopyRemovePiece_ShouldNotRemoveOriginalPiece" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StartPositionTeamTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MoveFinderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
         <pattern>
@@ -118,8 +107,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test.controllers" />
-      <option name="MAIN_CLASS_NAME" value="test.controllers.StartPositionTeamTest" />
+      <option name="MAIN_CLASS_NAME" value="test.controllers.MoveFinderTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MoveFinderTest.setAllMovableSquaresKingInCheckShouldPreventMovesNotResolvingCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.controllers" />
+      <option name="MAIN_CLASS_NAME" value="test.controllers.MoveFinderTest" />
+      <option name="METHOD_NAME" value="setAllMovableSquaresKingInCheckShouldPreventMovesNotResolvingCheck" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -141,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MoveFinderTest" />
+        <item itemvalue="JUnit.MoveFinderTest.setAllMovableSquaresKingInCheckShouldPreventMovesNotResolvingCheck" />
+        <item itemvalue="JUnit.CopyNotEqualTest.newGameTestA1CopyRemovePiece_ShouldNotRemoveOriginalPiece" />
         <item itemvalue="JUnit.CopyNotEqualTest" />
         <item itemvalue="JUnit.StartPositionTypeTest" />
-        <item itemvalue="JUnit.StartPositionTeamTest" />
-        <item itemvalue="JUnit.ChessGameTest" />
-        <item itemvalue="JUnit.PieceSetTest.setAllMovableSquaresKingInCheckShouldPreventMovesNotResolvingCheck" />
       </list>
     </recent_temporary>
   </component>
@@ -157,132 +162,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00218" summary="implementation separation of concerns (moveRules in separate location from objects)">
-      <created>1685607272345</created>
-      <option name="number" value="00218" />
-      <option name="presentableId" value="LOCAL-00218" />
-      <option name="project" value="LOCAL" />
-      <updated>1685607272345</updated>
-    </task>
-    <task id="LOCAL-00219" summary="Update attacked squares in Pawn to use Coordinate instead of Square">
-      <created>1685607477747</created>
-      <option name="number" value="00219" />
-      <option name="presentableId" value="LOCAL-00219" />
-      <option name="project" value="LOCAL" />
-      <updated>1685607477747</updated>
-    </task>
-    <task id="LOCAL-00220" summary="new MoveMaker class - further separation of concerns">
-      <created>1685608314940</created>
-      <option name="number" value="00220" />
-      <option name="presentableId" value="LOCAL-00220" />
-      <option name="project" value="LOCAL" />
-      <updated>1685608314940</updated>
-    </task>
-    <task id="LOCAL-00221" summary="refactor MovementFinder -&gt; MoveFinder">
-      <created>1685608338733</created>
-      <option name="number" value="00221" />
-      <option name="presentableId" value="LOCAL-00221" />
-      <option name="project" value="LOCAL" />
-      <updated>1685608338733</updated>
-    </task>
-    <task id="LOCAL-00222" summary="separation of concerns, separate movemaker class">
-      <created>1685608474316</created>
-      <option name="number" value="00222" />
-      <option name="presentableId" value="LOCAL-00222" />
-      <option name="project" value="LOCAL" />
-      <updated>1685608474316</updated>
-    </task>
-    <task id="LOCAL-00223" summary="Deleted all tests. Will write new ones later">
-      <created>1685608538120</created>
-      <option name="number" value="00223" />
-      <option name="presentableId" value="LOCAL-00223" />
-      <option name="project" value="LOCAL" />
-      <updated>1685608538120</updated>
-    </task>
-    <task id="LOCAL-00224" summary="Remove depracated classes">
-      <created>1685608599611</created>
-      <option name="number" value="00224" />
-      <option name="presentableId" value="LOCAL-00224" />
-      <option name="project" value="LOCAL" />
-      <updated>1685608599611</updated>
-    </task>
-    <task id="LOCAL-00225" summary="Remove depracated classes">
-      <created>1685608791646</created>
-      <option name="number" value="00225" />
-      <option name="presentableId" value="LOCAL-00225" />
-      <option name="project" value="LOCAL" />
-      <updated>1685608791646</updated>
-    </task>
-    <task id="LOCAL-00226" summary="some formatting">
-      <created>1685608806465</created>
-      <option name="number" value="00226" />
-      <option name="presentableId" value="LOCAL-00226" />
-      <option name="project" value="LOCAL" />
-      <updated>1685608806465</updated>
-    </task>
-    <task id="LOCAL-00227" summary="TODO added">
-      <created>1685608852834</created>
-      <option name="number" value="00227" />
-      <option name="presentableId" value="LOCAL-00227" />
-      <option name="project" value="LOCAL" />
-      <updated>1685608852834</updated>
-    </task>
-    <task id="LOCAL-00228" summary="remove unused imports">
-      <created>1685610542849</created>
-      <option name="number" value="00228" />
-      <option name="presentableId" value="LOCAL-00228" />
-      <option name="project" value="LOCAL" />
-      <updated>1685610542849</updated>
-    </task>
-    <task id="LOCAL-00229" summary="remove old comments">
-      <created>1685610625978</created>
-      <option name="number" value="00229" />
-      <option name="presentableId" value="LOCAL-00229" />
-      <option name="project" value="LOCAL" />
-      <updated>1685610625978</updated>
-    </task>
-    <task id="LOCAL-00230" summary="// TODO: fill this set in Game instantiaton - finished">
-      <created>1685610757863</created>
-      <option name="number" value="00230" />
-      <option name="presentableId" value="LOCAL-00230" />
-      <option name="project" value="LOCAL" />
-      <updated>1685610757863</updated>
-    </task>
-    <task id="LOCAL-00231" summary="Delete unused classes">
-      <created>1685610897016</created>
-      <option name="number" value="00231" />
-      <option name="presentableId" value="LOCAL-00231" />
-      <option name="project" value="LOCAL" />
-      <updated>1685610897016</updated>
-    </task>
-    <task id="LOCAL-00232" summary="// TODO: make every Piece only depend on Player, instead of on Game and Team.&#10;&#10;Also, some comment &amp; unused import removals">
-      <created>1685611350274</created>
-      <option name="number" value="00232" />
-      <option name="presentableId" value="LOCAL-00232" />
-      <option name="project" value="LOCAL" />
-      <updated>1685611350274</updated>
-    </task>
-    <task id="LOCAL-00233" summary="&#10;Also, some comment &amp; unused import removals">
-      <created>1685611583124</created>
-      <option name="number" value="00233" />
-      <option name="presentableId" value="LOCAL-00233" />
-      <option name="project" value="LOCAL" />
-      <updated>1685611583124</updated>
-    </task>
-    <task id="LOCAL-00234" summary="Used final for game attributes">
-      <created>1685611615485</created>
-      <option name="number" value="00234" />
-      <option name="presentableId" value="LOCAL-00234" />
-      <option name="project" value="LOCAL" />
-      <updated>1685611615485</updated>
-    </task>
-    <task id="LOCAL-00235" summary="todo comment">
-      <created>1685611788114</created>
-      <option name="number" value="00235" />
-      <option name="presentableId" value="LOCAL-00235" />
-      <option name="project" value="LOCAL" />
-      <updated>1685611788114</updated>
     </task>
     <task id="LOCAL-00236" summary="added final where appropriate">
       <created>1685611949736</created>
@@ -501,7 +380,133 @@
       <option name="project" value="LOCAL" />
       <updated>1685692115617</updated>
     </task>
-    <option name="localTasksCounter" value="267" />
+    <task id="LOCAL-00267" summary="create Game.update">
+      <created>1685699084924</created>
+      <option name="number" value="00267" />
+      <option name="presentableId" value="LOCAL-00267" />
+      <option name="project" value="LOCAL" />
+      <updated>1685699084924</updated>
+    </task>
+    <task id="LOCAL-00268" summary="formatting">
+      <created>1685699159317</created>
+      <option name="number" value="00268" />
+      <option name="presentableId" value="LOCAL-00268" />
+      <option name="project" value="LOCAL" />
+      <updated>1685699159317</updated>
+    </task>
+    <task id="LOCAL-00269" summary="setInCheck method">
+      <created>1685699373001</created>
+      <option name="number" value="00269" />
+      <option name="presentableId" value="LOCAL-00269" />
+      <option name="project" value="LOCAL" />
+      <updated>1685699373001</updated>
+    </task>
+    <task id="LOCAL-00270" summary="update update method">
+      <created>1685699407692</created>
+      <option name="number" value="00270" />
+      <option name="presentableId" value="LOCAL-00270" />
+      <option name="project" value="LOCAL" />
+      <updated>1685699407692</updated>
+    </task>
+    <task id="LOCAL-00271" summary="move moveMaker from Player to Game">
+      <created>1685699590738</created>
+      <option name="number" value="00271" />
+      <option name="presentableId" value="LOCAL-00271" />
+      <option name="project" value="LOCAL" />
+      <updated>1685699590738</updated>
+    </task>
+    <task id="LOCAL-00272" summary="move moveFinder from Piece to Game">
+      <created>1685699656121</created>
+      <option name="number" value="00272" />
+      <option name="presentableId" value="LOCAL-00272" />
+      <option name="project" value="LOCAL" />
+      <updated>1685699656121</updated>
+    </task>
+    <task id="LOCAL-00273" summary="toString() methods in all Pieces">
+      <created>1685699804752</created>
+      <option name="number" value="00273" />
+      <option name="presentableId" value="LOCAL-00273" />
+      <option name="project" value="LOCAL" />
+      <updated>1685699804752</updated>
+    </task>
+    <task id="LOCAL-00274" summary="update Move.toString">
+      <created>1685699969558</created>
+      <option name="number" value="00274" />
+      <option name="presentableId" value="LOCAL-00274" />
+      <option name="project" value="LOCAL" />
+      <updated>1685699969558</updated>
+    </task>
+    <task id="LOCAL-00275" summary="In case of en passant, pawn is taken">
+      <created>1685700574858</created>
+      <option name="number" value="00275" />
+      <option name="presentableId" value="LOCAL-00275" />
+      <option name="project" value="LOCAL" />
+      <updated>1685700574858</updated>
+    </task>
+    <task id="LOCAL-00276" summary="remove unused statement">
+      <created>1685700676772</created>
+      <option name="number" value="00276" />
+      <option name="presentableId" value="LOCAL-00276" />
+      <option name="project" value="LOCAL" />
+      <updated>1685700676772</updated>
+    </task>
+    <task id="LOCAL-00277" summary="set piece coordinates in initial board setup">
+      <created>1685701600135</created>
+      <option name="number" value="00277" />
+      <option name="presentableId" value="LOCAL-00277" />
+      <option name="project" value="LOCAL" />
+      <updated>1685701600135</updated>
+    </task>
+    <task id="LOCAL-00278" summary="Added extra test - changing a piece on the copied board should not change the piece on the original board">
+      <created>1685701617451</created>
+      <option name="number" value="00278" />
+      <option name="presentableId" value="LOCAL-00278" />
+      <option name="project" value="LOCAL" />
+      <updated>1685701617451</updated>
+    </task>
+    <task id="LOCAL-00279" summary="Remove &quot;board&quot; attribute from piece class - retrieve it from Player instead">
+      <created>1685701766338</created>
+      <option name="number" value="00279" />
+      <option name="presentableId" value="LOCAL-00279" />
+      <option name="project" value="LOCAL" />
+      <updated>1685701766338</updated>
+    </task>
+    <task id="LOCAL-00280" summary="remove setAllAttackedSquares from checkcheck, since it is already done in update">
+      <created>1685701954578</created>
+      <option name="number" value="00280" />
+      <option name="presentableId" value="LOCAL-00280" />
+      <option name="project" value="LOCAL" />
+      <updated>1685701954578</updated>
+    </task>
+    <task id="LOCAL-00281" summary="implemented test for movefinder. Fails on pruning moves that put self in check">
+      <created>1685702005095</created>
+      <option name="number" value="00281" />
+      <option name="presentableId" value="LOCAL-00281" />
+      <option name="project" value="LOCAL" />
+      <updated>1685702005095</updated>
+    </task>
+    <task id="LOCAL-00282" summary="update update to actually call method pruning moves that put self in check">
+      <created>1685702157391</created>
+      <option name="number" value="00282" />
+      <option name="presentableId" value="LOCAL-00282" />
+      <option name="project" value="LOCAL" />
+      <updated>1685702157391</updated>
+    </task>
+    <task id="LOCAL-00283" summary="Added king setting to Game copy constructor">
+      <created>1685702265118</created>
+      <option name="number" value="00283" />
+      <option name="presentableId" value="LOCAL-00283" />
+      <option name="project" value="LOCAL" />
+      <updated>1685702265118</updated>
+    </task>
+    <task id="LOCAL-00284" summary="TODO comments">
+      <created>1685702366681</created>
+      <option name="number" value="00284" />
+      <option name="presentableId" value="LOCAL-00284" />
+      <option name="project" value="LOCAL" />
+      <updated>1685702366681</updated>
+    </task>
+    <option name="localTasksCounter" value="285" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -518,24 +523,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="made some attributes &quot;final&quot;" />
-    <MESSAGE value="TODO comment" />
-    <MESSAGE value="null handling in piece copying" />
-    <MESSAGE value="remove some comments" />
-    <MESSAGE value="remove unused import" />
-    <MESSAGE value="setup game test" />
-    <MESSAGE value="set Player.pieces to empty set" />
-    <MESSAGE value="testing start position, piece type" />
-    <MESSAGE value="testing start position, player team" />
-    <MESSAGE value="formatting" />
-    <MESSAGE value="added copying to test" />
-    <MESSAGE value="Create CopyNotEqualTest.java" />
-    <MESSAGE value="Setting a players king attribute" />
-    <MESSAGE value="update move attributes to final" />
-    <MESSAGE value="Added extra field to Move" />
-    <MESSAGE value="New MakeMove method, using a Move object as input" />
-    <MESSAGE value="New get Move function, outputting a Move object" />
-    <MESSAGE value="makeMove(Move) update" />
     <MESSAGE value="remove finisehd todo comment" />
     <MESSAGE value="change Game attribute to final" />
     <MESSAGE value="Put promotion into separate method" />
@@ -543,9 +530,81 @@
     <MESSAGE value="quick syntax shortening" />
     <MESSAGE value="finished castling in makeMove" />
     <MESSAGE value="started pruning moves that put player in check in MoveFinder.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="started pruning moves that put player in check in MoveFinder.java" />
+    <MESSAGE value="create Game.update" />
+    <MESSAGE value="formatting" />
+    <MESSAGE value="setInCheck method" />
+    <MESSAGE value="update update method" />
+    <MESSAGE value="move moveMaker from Player to Game" />
+    <MESSAGE value="move moveFinder from Piece to Game" />
+    <MESSAGE value="toString() methods in all Pieces" />
+    <MESSAGE value="update Move.toString" />
+    <MESSAGE value="In case of en passant, pawn is taken" />
+    <MESSAGE value="remove unused statement" />
+    <MESSAGE value="set piece coordinates in initial board setup" />
+    <MESSAGE value="Added extra test - changing a piece on the copied board should not change the piece on the original board" />
+    <MESSAGE value="Remove &quot;board&quot; attribute from piece class - retrieve it from Player instead" />
+    <MESSAGE value="remove setAllAttackedSquares from checkcheck, since it is already done in update" />
+    <MESSAGE value="implemented test for movefinder. Fails on pruning moves that put self in check" />
+    <MESSAGE value="update update to actually call method pruning moves that put self in check" />
+    <MESSAGE value="Added king setting to Game copy constructor" />
+    <MESSAGE value="TODO comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="TODO comments" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/controllers/MoveFinderTest.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/controllers/MoveFinderTest.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
+          <line>249</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
+          <line>269</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
+          <line>268</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
+          <line>270</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
+          <line>271</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/pieces/King.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/pieces/King.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/classes/pieces/Piece.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="main.classes.controllers.Player" memberName="game" />

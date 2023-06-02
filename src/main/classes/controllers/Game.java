@@ -77,11 +77,8 @@ public class Game {
         whitePlayer.setAllAttackedSquares();
         blackPlayer.setAllAttackedSquares();
 
-        whitePlayer.setAllMovableSquares();
-        blackPlayer.setAllMovableSquares();
-        moveFinder.pruneSelfCheckMoves(this, moveMaker);
-
         whitePlayer.getKing().setInCheck();
         blackPlayer.getKing().setInCheck();
+        moveFinder.pruneSelfCheckMoves(this, moveMaker);
     }
 }

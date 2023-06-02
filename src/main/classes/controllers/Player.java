@@ -62,16 +62,14 @@ public class Player {
         this.king = king;
     }
 
-    public void setAllMovableSquares() {
-        for (Piece piece : pieces) {
-            piece.setMovableSquares();
-        }
-    }
-
+    /**
+     * Also sets all movable squares for all the pieces
+     */
     public void setAllAttackedSquares() {
         for (Piece piece : this.pieces){
             if (piece instanceof Pawn pawn) {
                 pawn.setAttackedSquares(game.getBoard());
+                pawn.setMovableSquares();
                 allAttackedSquares.addAll(pawn.getAttackedSquares());
             } else {
                 piece.setMovableSquares();

@@ -249,21 +249,25 @@ public class MoveFinder {
         for (Player player : new Player[]{game.getWhitePlayer(), game.getBlackPlayer()}){
             for (Piece piece : player.getPieces()){
                 for (Coordinate moveOption : piece.getMovableSquares()){
-                    Move moveToCheck = moveMaker.getMove(game, piece, moveOption);
-                    pruneSelfCheckMove(piece, moveToCheck, moveMaker, game);
+                    // TODO: wrong!
+                    Game copyGame = new Game(game);
+                    Piece copyPiece = copyGame.getBoard().getPieceByPos(piece.getPosition().getX(),
+                            piece.getPosition().getY());
+                    Move moveToCheck = moveMaker.getMove(copyGame, copyPiece, moveOption);
+                    pruneSelfCheckMove(piece, moveToCheck, moveMaker, copyGame);
                 }
             }
         }
     }
 
     public void pruneSelfCheckMove(Piece piece, Move move, MoveMaker moveMaker, Game game){
-        Game copyGame = new Game(game);
-        moveMaker.makeMove(move, copyGame);
-
-        // TODO: players in copied game do not have king pointer!
-        copyGame.update();
-        Player copyOfCurrentPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? copyGame.getWhitePlayer() :
-                copyGame.getBlackPlayer();
+        moveMaker.makeMove(move, game);
+        Player copyOfCurrentPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? game.getWhitePlayer() :
+                game.getBlackPlayer();
+        Player copyOfOpponentPlayer = (copyOfCurrentPlayer.getTeam() == Team.WHITE) ? game.getBlackPlayer() :
+                game.getWhitePlayer();
+        copyOfOpponentPlayer.setAllAttackedSquares();
+        copyOfCurrentPlayer.getKing().setInCheck();
         if (copyOfCurrentPlayer.getKing().isInCheck())
             piece.getMovableSquares().remove(move.getSquareTo());
     }
