@@ -1,7 +1,9 @@
 package main.classes.pieces;
 
 import main.classes.controllers.Player;
+import main.classes.structures.Coordinate;
 import main.classes.structures.MovementType;
+import main.classes.structures.Team;
 
 import java.util.Set;
 
@@ -37,7 +39,10 @@ public class King extends Piece {
     }
 
     public void setInCheck(){
-
+        Player attackingPlayer = (getPlayer().getTeam() == Team.WHITE) ? getPlayer().getGame().getBlackPlayer() :
+                getPlayer().getGame().getWhitePlayer();
+        Set<Coordinate> allAttackedPositions = attackingPlayer.getAllAttackedSquares();
+        inCheck = allAttackedPositions.contains(getPosition());
     }
 
 }
