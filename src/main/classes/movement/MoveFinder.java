@@ -1,6 +1,8 @@
 package main.classes.movement;
 
+import main.classes.controllers.Game;
 import main.classes.controllers.Player;
+import main.classes.game.Move;
 import main.classes.pieces.King;
 import main.classes.pieces.Pawn;
 import main.classes.pieces.Piece;
@@ -243,5 +245,27 @@ public class MoveFinder {
         attackingPlayer.setAllAttackedSquares();
         Set<Coordinate> squaresUnderAttack = attackingPlayer.getAllAttackedSquares();
         return squaresUnderAttack.contains(position);
+    }
+
+    public void pruneSelfCheckMoves(Game game, MoveMaker moveMaker){
+        for (Player player : new Player[]{game.getWhitePlayer(), game.getBlackPlayer()}){
+            for (Piece piece : player.getPieces()){
+                for (Coordinate moveOption : piece.getMovableSquares()){
+                    Move moveToCheck = moveMaker.getMove(game, piece, moveOption);
+                    pruneSelfCheckMove(piece, moveToCheck, moveMaker, game);
+                }
+            }
+        }
+    }
+
+    public void pruneSelfCheckMove(Piece piece, Move move, MoveMaker moveMaker, Game game){
+        Game copyGame = new Game(game);
+        moveMaker.makeMove(move, copyGame);
+
+        copyGame.update() // TODO: this method does not exist yet!
+        Player copyOfCurrentPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? copyGame.getWhitePlayer() :
+                copyGame.getBlackPlayer();
+        if (copyOfCurrentPlayer.getKing().isInCheck())
+            piece.getMovableSquares().remove(move.getSquareTo());
     }
 }
