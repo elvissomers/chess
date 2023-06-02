@@ -2,6 +2,7 @@ package main.classes.controllers;
 
 import main.classes.movement.MoveFinder;
 import main.classes.movement.MoveMaker;
+import main.classes.pieces.King;
 import main.classes.pieces.Piece;
 import main.classes.structures.BoardMap;
 import main.classes.structures.Coordinate;
@@ -45,6 +46,8 @@ public class Game {
                 if (copyPiece != null) {
                     Player player = (copyPiece.getPlayer().getTeam() == Team.WHITE) ? whitePlayer : blackPlayer;
                     player.getPieces().add(copyPiece);
+                    if (copyPiece instanceof King king)
+                        player.setKing(king);
                 }
             }
         }
