@@ -5,11 +5,11 @@ import main.classes.structures.Coordinate;
 
 public class Move {
 
-    private Piece piece;
+    private final Piece piece;
 
-    private Coordinate squareFrom;
+    private final Coordinate squareFrom;
 
-    private Coordinate squareTo;
+    private final Coordinate squareTo;
 
     public Move(Piece piece, Coordinate squareFrom, Coordinate squareTo) {
         this.piece = piece;
