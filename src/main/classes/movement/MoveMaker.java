@@ -75,6 +75,29 @@ public class MoveMaker {
         // TODO: save castling to move history
     }
 
+    public Move getMove(Game game, Piece piece, Coordinate destination) {
+        Coordinate fromSquare = piece.getPosition();
+        CastleType castleType = null;
+
+        // A piece is "taken" when an enemy piece moves to its square
+        // TODO: taken Piece in case of en PAssant:!
+        Piece takenPiece = game.getBoard().get(destination);
+
+        if (piece instanceof King king && !king.isHasMoved()){
+            if (destination.getX() - fromSquare.getX() == 2)
+                castleType = CastleType.SHORT;
+            else if (destination.getX() - fromSquare.getX() == -2)
+                castleType = CastleType.LONG;
+        }
+
+        Player thisPlayer = piece.getPlayer();
+        int promotionRank = (thisPlayer.getTeam() == Team.WHITE) ? 7 : 0;
+
+        boolean promoted = piece instanceof Pawn && destination.getY() == promotionRank;
+
+        return(new Move(piece, fromSquare, destination, takenPiece, castleType, promoted));
+    }
+
     public void makeMove(Move move, Game game){
         // TODO
         if (move.getCastleType() != null)
