@@ -16,7 +16,7 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
      * empty.
      */
 
-    private Game game;
+    private final Game game;
 
     private final Coordinate[][] coordinateArray;
 
