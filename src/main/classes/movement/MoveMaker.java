@@ -102,6 +102,12 @@ public class MoveMaker {
         // TODO
         if (move.getCastleType() != null)
             castle(); // TODO
+        if (move.getPiece() instanceof Rook rook && !rook.isHasMoved()){
+            rook.setHasMoved(true);
+        }
+        if (move.getPiece() instanceof King king && !king.isHasMoved()){
+            king.setHasMoved(true);
+        }
 
         Player thisPlayer = (move.getPiece().getPlayer().getTeam() == Team.WHITE) ? game.getWhitePlayer() :
                 game.getBlackPlayer();
