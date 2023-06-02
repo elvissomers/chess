@@ -34,18 +34,23 @@ public class MoveMaker {
     }
 
     public void makeMove(Move move, Game game){
-        // TODO
-        if (move.getCastleType() != null)
-            castle(); // TODO
+        Player thisPlayer = (move.getPiece().getPlayer().getTeam() == Team.WHITE) ? game.getWhitePlayer() :
+                game.getBlackPlayer();
+
+        if (move.getCastleType() != null) {
+            int rookXPosition = (move.getCastleType() == CastleType.SHORT) ? 7 : 0;
+            int rookYPosition = (thisPlayer.getTeam() == Team.WHITE) ? 0 : 7;
+            castle(game, (King) move.getPiece(), (Rook) game.getBoard().getPieceByPos(rookXPosition, rookYPosition),
+                    move.getSquareTo(), move.getCastleType());
+            return;
+        }
+
         if (move.getPiece() instanceof Rook rook && !rook.isHasMoved()){
             rook.setHasMoved(true);
         }
         if (move.getPiece() instanceof King king && !king.isHasMoved()){
             king.setHasMoved(true);
         }
-
-        Player thisPlayer = (move.getPiece().getPlayer().getTeam() == Team.WHITE) ? game.getWhitePlayer() :
-                game.getBlackPlayer();
 
         if (move.getTakenPiece() != null){
             game.getBoard().remove(move.getTakenPiece().getPosition());
@@ -83,6 +88,7 @@ public class MoveMaker {
         rook.setHasMoved(true);
 
         game.getBoard().put(destination, king);
+        king.setPosition(destination);
 
         int rookRelativePos = (type == CastleType.SHORT) ? -1 : 1;
         Coordinate rookPosition = game.getBoard().getCoordinateArray()
