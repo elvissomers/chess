@@ -241,7 +241,6 @@ public class MoveFinder {
     public boolean checkCheck(Coordinate position, BoardMap board, Team team) {
         Player attackingPlayer = (team == Team.WHITE) ? board.getGame().getBlackPlayer() :
                 board.getGame().getWhitePlayer();
-        attackingPlayer.setAllAttackedSquares();
         Set<Coordinate> squaresUnderAttack = attackingPlayer.getAllAttackedSquares();
         return squaresUnderAttack.contains(position);
     }
