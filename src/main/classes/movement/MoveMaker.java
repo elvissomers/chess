@@ -14,9 +14,18 @@ public class MoveMaker {
         Coordinate fromSquare = piece.getPosition();
         CastleType castleType = null;
 
-        // A piece is "taken" when an enemy piece moves to its square
-        // TODO: taken Piece in case of en PAssant:!
+        Player thisPlayer = piece.getPlayer();
+        int promotionRank = (thisPlayer.getTeam() == Team.WHITE) ? 7 : 0;
+        int pawnDirection = (thisPlayer.getTeam() == Team.WHITE) ? 1 : -1;
+        boolean promoted = piece instanceof Pawn && destination.getY() == promotionRank;
+
+        // A piece is taken when an enemy piece moves to its square
         Piece takenPiece = game.getBoard().get(destination);
+        if (piece instanceof Pawn pawn && takenPiece == null && destination.getX() != fromSquare.getX()){
+            // Taken piece in case of en passant!
+            takenPiece = game.getBoard().getPieceByPos(piece.getPosition().getX(),
+                    piece.getPosition().getY()-pawnDirection);
+        }
 
         if (piece instanceof King king && !king.isHasMoved()){
             if (destination.getX() - fromSquare.getX() == 2)
@@ -24,11 +33,6 @@ public class MoveMaker {
             else if (destination.getX() - fromSquare.getX() == -2)
                 castleType = CastleType.LONG;
         }
-
-        Player thisPlayer = piece.getPlayer();
-        int promotionRank = (thisPlayer.getTeam() == Team.WHITE) ? 7 : 0;
-
-        boolean promoted = piece instanceof Pawn && destination.getY() == promotionRank;
 
         return(new Move(piece, fromSquare, destination, takenPiece, castleType, promoted));
     }

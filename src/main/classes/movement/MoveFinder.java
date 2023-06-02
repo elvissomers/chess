@@ -158,7 +158,6 @@ public class MoveFinder {
             }
         }
 
-        // TODO : en passant should also take the pawn!
         if (yPos == startPos + 3 * yDirection) {
             if (xPos > 0 && board.get(board.getCoordinateArray()[xPos - 1][yPos]) instanceof Pawn otherPawn &&
                     otherPawn.getPlayer().getTeam() != pawn.getPlayer().getTeam()) {
