@@ -67,8 +67,8 @@ public class MoveMaker {
         game.getBoard().remove(piece.getPosition());
 
         // TODO: player should be able to pick a piece, instead of always getting a queen!
-        Queen queen = new Queen(piece.getPlayer());
-        int yDirection = (piece.getPlayer().getTeam() == Team.WHITE) ? 1 : -1;
+        Queen queen = new Queen(player);
+        int yDirection = (player.getTeam() == Team.WHITE) ? 1 : -1;
         queen.setPosition(game.getBoard().getCoordinateByPos(piece.getPosition().getX(),
                 piece.getPosition().getY()+yDirection));
         game.getBoard().put(game.getBoard().getCoordinateByPos(piece.getPosition().getX(),
