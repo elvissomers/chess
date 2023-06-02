@@ -1,7 +1,6 @@
 package main.classes.pieces;
 
 import main.classes.controllers.Player;
-import main.classes.movement.MoveFinder;
 import main.classes.structures.*;
 
 import java.util.ArrayList;
@@ -20,8 +19,6 @@ public abstract class Piece {
     private List<Coordinate> movableSquares = new ArrayList<>();
 
     private Set<MovementType> moveRules = new HashSet<>();
-
-    private final MoveFinder moveFinder = new MoveFinder();
 
     public Piece(Player player) {
         this.player = player;
@@ -67,7 +64,7 @@ public abstract class Piece {
 
     public void setMovableSquares(){
         for (MovementType moveRule : moveRules){
-            moveRule.setMoves(this, board, moveFinder);
+            moveRule.setMoves(this, board, player.getGame().getMoveFinder());
         }
     }
 

@@ -1,5 +1,6 @@
 package main.classes.controllers;
 
+import main.classes.movement.MoveFinder;
 import main.classes.movement.MoveMaker;
 import main.classes.pieces.Piece;
 import main.classes.structures.BoardMap;
@@ -13,6 +14,8 @@ public class Game {
     private final Player whitePlayer;
 
     private final Player blackPlayer;
+
+    private final MoveFinder moveFinder = new MoveFinder();
 
     private final MoveMaker moveMaker = new MoveMaker();
 
@@ -63,7 +66,9 @@ public class Game {
         return moveMaker;
     }
 
-
+    public MoveFinder getMoveFinder() {
+        return moveFinder;
+    }
 
     public void update() {
         whitePlayer.setAllMovableSquares();
