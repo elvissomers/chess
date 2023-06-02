@@ -56,5 +56,10 @@ public class Game {
         return blackPlayer;
     }
 
-
+    public void update() {
+        whitePlayer.setAllMovableSquares();
+        whitePlayer.setAllAttackedSquares();
+        blackPlayer.setAllMovableSquares();
+        blackPlayer.setAllAttackedSquares();
+    }
 }

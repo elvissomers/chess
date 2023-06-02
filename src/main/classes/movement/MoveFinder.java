@@ -262,7 +262,7 @@ public class MoveFinder {
         Game copyGame = new Game(game);
         moveMaker.makeMove(move, copyGame);
 
-        copyGame.update() // TODO: this method does not exist yet!
+        copyGame.update();
         Player copyOfCurrentPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? copyGame.getWhitePlayer() :
                 copyGame.getBlackPlayer();
         if (copyOfCurrentPlayer.getKing().isInCheck())
