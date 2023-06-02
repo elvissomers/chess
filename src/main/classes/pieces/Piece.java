@@ -12,8 +12,6 @@ public abstract class Piece {
 
     private Coordinate position;
 
-    private BoardMap board;
-
     private final Player player;
 
     private List<Coordinate> movableSquares = new ArrayList<>();
@@ -33,10 +31,6 @@ public abstract class Piece {
 
         this.player = other.getPlayer();
         this.position = other.getPosition();
-    }
-
-    public BoardMap getBoard() {
-        return board;
     }
 
     public List<Coordinate> getMovableSquares() {
@@ -64,7 +58,7 @@ public abstract class Piece {
 
     public void setMovableSquares(){
         for (MovementType moveRule : moveRules){
-            moveRule.setMoves(this, board, player.getGame().getMoveFinder());
+            moveRule.setMoves(this, player.getGame().getBoard(), player.getGame().getMoveFinder());
         }
     }
 
