@@ -74,4 +74,40 @@ public class MoveMaker {
 
         // TODO: save castling to move history
     }
+
+    public void makeMove(Move move, Game game){
+        // TODO
+        if (move.getCastleType() != null)
+            castle(); // TODO
+
+        Player thisPlayer = (move.getPiece().getPlayer().getTeam() == Team.WHITE) ? game.getWhitePlayer() :
+                game.getBlackPlayer();
+
+        if (move.getTakenPiece() != null){
+            game.getBoard().remove(move.getTakenPiece().getPosition());
+            Player enemyPlayer = (thisPlayer.getTeam() == Team.WHITE) ? game.getBlackPlayer() :
+                    game.getWhitePlayer();
+            enemyPlayer.getPieces().remove(move.getTakenPiece());
+        }
+
+        if (move.isPromoted()){
+            game.getBoard().remove(move.getPiece().getPosition());
+
+            Queen queen = new Queen(move.getPiece().getPlayer());
+            int yDirection = (move.getPiece().getPlayer().getTeam() == Team.WHITE) ? 1 : -1;
+            queen.setPosition(game.getBoard().getCoordinateByPos(move.getPiece().getPosition().getX(),
+                    move.getPiece().getPosition().getY()+yDirection));
+            game.getBoard().put(game.getBoard().getCoordinateByPos(move.getPiece().getPosition().getX(),
+                    move.getPiece().getPosition().getY()+yDirection), queen);
+
+            thisPlayer.getPieces().remove(move.getPiece());
+            thisPlayer.getPieces().add(queen);
+        } else {
+            game.getBoard().put(move.getSquareFrom(), null);
+            game.getBoard().put(move.getSquareTo(), move.getPiece());
+            move.getPiece().setPosition(move.getSquareTo());
+        }
+
+
+    }
 }
