@@ -7,6 +7,10 @@ import java.util.Set;
 
 public class King extends Piece {
 
+    private boolean hasMoved;
+
+    private boolean inCheck;
+
     public King(Player player){
         super(player);
         this.setMoveRules(Set.of(MovementType.KING));
@@ -16,16 +20,12 @@ public class King extends Piece {
         super(other);
     }
 
-    private boolean hasMoved;
-
-    private boolean inCheck;
+    public King copy(){
+        return new King(this);
+    }
 
     public boolean isInCheck() {
         return inCheck;
-    }
-
-    public void setInCheck(boolean inCheck) {
-        this.inCheck = inCheck;
     }
 
     public boolean isHasMoved() {
@@ -36,7 +36,8 @@ public class King extends Piece {
         this.hasMoved = hasMoved;
     }
 
-    public King copy(){
-        return new King(this);
+    public void setInCheck(){
+
     }
+
 }
