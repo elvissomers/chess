@@ -10,6 +10,7 @@ import main.classes.structures.Team;
 
 public class MoveMaker {
 
+    // TODO: Moves are not saved to moveHistory!
     public Move getMove(Game game, Piece piece, Coordinate destination) {
         Coordinate fromSquare = piece.getPosition();
         CastleType castleType = null;

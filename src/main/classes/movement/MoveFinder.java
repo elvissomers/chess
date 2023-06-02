@@ -260,6 +260,7 @@ public class MoveFinder {
         Game copyGame = new Game(game);
         moveMaker.makeMove(move, copyGame);
 
+        // TODO: players in copied game do not have king pointer!
         copyGame.update();
         Player copyOfCurrentPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? copyGame.getWhitePlayer() :
                 copyGame.getBlackPlayer();
