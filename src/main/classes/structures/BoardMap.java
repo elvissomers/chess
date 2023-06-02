@@ -70,6 +70,8 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
             put(pieceCoordinate, piece);
 
             player.getPieces().add(piece);
+            if (piece instanceof King king)
+                player.setKing(king);
         }
 
         // Set pawns

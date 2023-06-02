@@ -61,6 +61,10 @@ public class Player {
         return moveMaker;
     }
 
+    public void setKing(King king) {
+        this.king = king;
+    }
+
     public void setAllMovableSquares() {
         for (Piece piece : pieces) {
             piece.setMovableSquares();
