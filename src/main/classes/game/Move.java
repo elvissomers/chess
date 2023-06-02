@@ -56,19 +56,12 @@ public class Move {
 
     @Override
     public String toString(){
-        // TODO: write this in piece classes, and call their toString() here
-        String pieceChar = "";
-        if (piece instanceof Knight)
-            pieceChar = "N";
-        else if (piece instanceof Bishop)
-            pieceChar = "B";
-        else if (piece instanceof Rook)
-            pieceChar = "R";
-        else if (piece instanceof Queen)
-            pieceChar = "Q";
-        else if (piece instanceof King)
-            pieceChar = "K";
+        if (castleType == CastleType.SHORT)
+            return "0-0";
+        else if (castleType == CastleType.LONG)
+            return "0-0-0";
 
-        return pieceChar + squareFrom.toString() + "-" + squareTo.toString();
+        String moveChar = (takenPiece == null) ? "-" : "x";
+        return piece.toString() + squareFrom.toString() + moveChar + squareTo.toString();
     }
 }
