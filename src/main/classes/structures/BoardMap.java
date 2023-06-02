@@ -68,6 +68,7 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
             Piece piece = piecesInOrder[xPos];
             Coordinate pieceCoordinate = coordinateArray[xPos][yForMajorPieces];
             put(pieceCoordinate, piece);
+            piece.setPosition(pieceCoordinate);
 
             player.getPieces().add(piece);
             if (piece instanceof King king)
@@ -79,6 +80,7 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
             Pawn pawn = new Pawn(player);
             Coordinate pieceCoordinate = coordinateArray[xPos][yForPawns];
             put(pieceCoordinate, pawn);
+            pawn.setPosition(pieceCoordinate);
 
             player.getPieces().add(pawn);
         }
