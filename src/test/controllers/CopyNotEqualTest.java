@@ -6,6 +6,7 @@ import main.classes.pieces.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class CopyNotEqualTest {
@@ -24,6 +25,13 @@ public class CopyNotEqualTest {
         Piece a1Piece = game.getBoard().getPieceByPos(0, 0);
         Piece a1PieceCopy = copyGame.getBoard().getPieceByPos(0, 0);
         assertNotEquals(a1Piece, a1PieceCopy);
+    }
+
+    @Test
+    public void newGameTestA1CopyRemovePiece_ShouldNotRemoveOriginalPiece() {
+        Piece a1Piece = game.getBoard().getPieceByPos(0, 0);
+        copyGame.getBoard().put(copyGame.getBoard().getCoordinateByPos(0,0), null);
+        assertEquals(a1Piece, game.getBoard().getPieceByPos(0,0));
     }
 
     @Test
