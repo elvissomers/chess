@@ -10,22 +10,6 @@ import main.classes.structures.Team;
 
 public class MoveMaker {
 
-    public void castle(Game game, King king, Rook rook, Coordinate destination, CastleType type){
-        king.setHasMoved(true);
-        rook.setHasMoved(true);
-
-        game.getBoard().put(destination, king);
-
-        int rookRelativePos = (type == CastleType.SHORT) ? -1 : 1;
-        Coordinate rookPosition = game.getBoard().getCoordinateArray()
-                [destination.getX()+rookRelativePos][destination.getY()];
-
-        game.getBoard().put(rookPosition, rook);
-        rook.setPosition(rookPosition);
-
-        // TODO: save castling to move history
-    }
-
     public Move getMove(Game game, Piece piece, Coordinate destination) {
         Coordinate fromSquare = piece.getPosition();
         CastleType castleType = null;
@@ -92,5 +76,19 @@ public class MoveMaker {
 
         player.getPieces().remove(piece);
         player.getPieces().add(queen);
+    }
+
+    public void castle(Game game, King king, Rook rook, Coordinate destination, CastleType type){
+        king.setHasMoved(true);
+        rook.setHasMoved(true);
+
+        game.getBoard().put(destination, king);
+
+        int rookRelativePos = (type == CastleType.SHORT) ? -1 : 1;
+        Coordinate rookPosition = game.getBoard().getCoordinateArray()
+                [destination.getX()+rookRelativePos][destination.getY()];
+
+        game.getBoard().put(rookPosition, rook);
+        rook.setPosition(rookPosition);
     }
 }
