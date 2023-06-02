@@ -21,7 +21,7 @@ public class MoveMaker {
 
         // A piece is taken when an enemy piece moves to its square
         Piece takenPiece = game.getBoard().get(destination);
-        if (piece instanceof Pawn pawn && takenPiece == null && destination.getX() != fromSquare.getX()){
+        if (piece instanceof Pawn && takenPiece == null && destination.getX() != fromSquare.getX()){
             // Taken piece in case of en passant!
             takenPiece = game.getBoard().getPieceByPos(piece.getPosition().getX(),
                     piece.getPosition().getY()-pawnDirection);
