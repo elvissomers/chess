@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="formatting">
-      <change afterPath="$PROJECT_DIR$/src/main/classes/controllers/PlayGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="initialize Maven support" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -152,13 +149,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00258" summary="New get Move function, outputting a Move object">
-      <created>1685688939134</created>
-      <option name="number" value="00258" />
-      <option name="presentableId" value="LOCAL-00258" />
-      <option name="project" value="LOCAL" />
-      <updated>1685688939134</updated>
     </task>
     <task id="LOCAL-00259" summary="makeMove(Move) update">
       <created>1685688950504</created>
@@ -496,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685967281028</updated>
     </task>
-    <option name="localTasksCounter" value="307" />
+    <task id="LOCAL-00307" summary="initialize Maven support">
+      <created>1685972228633</created>
+      <option name="number" value="00307" />
+      <option name="presentableId" value="LOCAL-00307" />
+      <option name="project" value="LOCAL" />
+      <updated>1685972228633</updated>
+    </task>
+    <option name="localTasksCounter" value="308" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -513,7 +510,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="remove setAllAttackedSquares from checkcheck, since it is already done in update" />
     <MESSAGE value="implemented test for movefinder. Fails on pruning moves that put self in check" />
     <MESSAGE value="update update to actually call method pruning moves that put self in check" />
     <MESSAGE value="Added king setting to Game copy constructor" />
@@ -538,13 +534,14 @@
     <MESSAGE value="print out a sample game in Main" />
     <MESSAGE value="remove old comments" />
     <MESSAGE value="formatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="formatting" />
+    <MESSAGE value="initialize Maven support" />
+    <option name="LAST_COMMIT_MESSAGE" value="initialize Maven support" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/controllers/MoveFinderTest.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/test/controllers/MoveFinderTest.java</url>
           <line>28</line>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
