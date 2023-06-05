@@ -56,9 +56,8 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
         int horizontalSize = 8;
 
         Piece[] piecesInOrder = new Piece[] {
-                new Rook(player), new Knight(player), new Bishop(player),
-                new Queen(player), new King(player), new Bishop(player),
-                new Knight(player), new Rook(player)
+                new Rook(player), new Knight(player), new Bishop(player), new Queen(player),
+                new King(player), new Bishop(player), new Knight(player), new Rook(player)
         };
         int yForMajorPieces = (player.getTeam() == Team.WHITE) ? 0 : 7;
         int yForPawns = (player.getTeam() == Team.WHITE) ? 1 : 6;
