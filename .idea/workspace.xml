@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="initialize Maven support" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="refactor">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -149,13 +152,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00259" summary="makeMove(Move) update">
-      <created>1685688950504</created>
-      <option name="number" value="00259" />
-      <option name="presentableId" value="LOCAL-00259" />
-      <option name="project" value="LOCAL" />
-      <updated>1685688950504</updated>
     </task>
     <task id="LOCAL-00260" summary="remove finisehd todo comment">
       <created>1685689080762</created>
@@ -493,7 +489,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685972228633</updated>
     </task>
-    <option name="localTasksCounter" value="308" />
+    <task id="LOCAL-00308" summary="refactor">
+      <created>1685972472051</created>
+      <option name="number" value="00308" />
+      <option name="presentableId" value="LOCAL-00308" />
+      <option name="project" value="LOCAL" />
+      <updated>1685972472051</updated>
+    </task>
+    <option name="localTasksCounter" value="309" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -522,7 +525,6 @@
     <MESSAGE value="empty out allattackedsquares before setting it" />
     <MESSAGE value="remove old //TODO comments" />
     <MESSAGE value="saving moves to moveHistory" />
-    <MESSAGE value="refactor" />
     <MESSAGE value="Added &quot;GameState&quot; (draw/white/blackwins/ongoing)" />
     <MESSAGE value="Added allMovableSquares attribute to Player.java" />
     <MESSAGE value="Overwrite equals() and hashCode() in Move.java" />
@@ -535,38 +537,39 @@
     <MESSAGE value="remove old comments" />
     <MESSAGE value="formatting" />
     <MESSAGE value="initialize Maven support" />
-    <option name="LAST_COMMIT_MESSAGE" value="initialize Maven support" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/test/controllers/MoveFinderTest.java</url>
+          <url>file://$PROJECT_DIR$/src/test/MoveFinderTest.java</url>
           <line>28</line>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/classes/movement/MoveFinder.java</url>
           <line>234</line>
           <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/classes/movement/MoveFinder.java</url>
           <line>235</line>
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/classes/movement/MoveFinder.java</url>
           <line>252</line>
           <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/classes/movement/MoveFinder.java</url>
           <line>253</line>
           <option name="timeStamp" value="78" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/classes/movement/MoveFinder.java</url>
           <line>254</line>
           <option name="timeStamp" value="79" />
         </line-breakpoint>
