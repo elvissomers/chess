@@ -45,6 +45,7 @@ public class Game {
                 board.put(coordinateArray[i][j],copyPiece);
                 if (copyPiece != null) {
                     Player player = (copyPiece.getPlayer().getTeam() == Team.WHITE) ? whitePlayer : blackPlayer;
+                    copyPiece.setPlayer(player);
                     player.getPieces().add(copyPiece);
                     if (copyPiece instanceof King king)
                         player.setKing(king);

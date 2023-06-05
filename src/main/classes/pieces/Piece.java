@@ -12,7 +12,7 @@ public abstract class Piece {
 
     private Coordinate position;
 
-    private final Player player;
+    private Player player;
 
     private List<Coordinate> movableSquares = new ArrayList<>();
 
@@ -30,8 +30,7 @@ public abstract class Piece {
         if (other == null){
             throw new IllegalArgumentException("Cannot copy a null Piece");
         }
-
-        this.player = other.getPlayer();
+        this.player = other.getPlayer(); // Will be set in set method, overwriting this original player
         this.position = other.getPosition();
         this.moveRules = other.getMoveRules();
     }
@@ -81,6 +80,11 @@ public abstract class Piece {
 
     public Player getPlayer() {
         return player;
+    }
+
+    // TODO: could use final instead, with two-argument copy constructor
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     public void setMoveRules(Set<MovementType> moveRules) {
