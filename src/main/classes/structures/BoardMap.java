@@ -63,7 +63,6 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
         int yForMajorPieces = (player.getTeam() == Team.WHITE) ? 0 : 7;
         int yForPawns = (player.getTeam() == Team.WHITE) ? 1 : 6;
 
-        // Set major pieces
         for (int xPos = 0; xPos < horizontalSize; xPos++) {
             Piece piece = piecesInOrder[xPos];
             Coordinate pieceCoordinate = coordinateArray[xPos][yForMajorPieces];
@@ -75,7 +74,6 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
                 player.setKing(king);
         }
 
-        // Set pawns
         for (int xPos = 0; xPos < horizontalSize; xPos++){
             Pawn pawn = new Pawn(player);
             Coordinate pieceCoordinate = coordinateArray[xPos][yForPawns];
