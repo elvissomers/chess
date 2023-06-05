@@ -5,6 +5,8 @@ import main.classes.structures.CastleType;
 import main.classes.structures.Coordinate;
 import main.classes.structures.PieceType;
 
+import java.util.Objects;
+
 public class Move {
 
     private final Piece piece;
@@ -64,4 +66,27 @@ public class Move {
         String moveChar = (takenPiece == null) ? "-" : "x";
         return piece.toString() + squareFrom.toString() + moveChar + squareTo.toString();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        if (this == obj) {
+            return true;
+        }
+        Move move = (Move) obj;
+
+        return (Objects.equals(piece, move.piece)) && (Objects.equals(squareFrom, move.squareFrom))
+                && (Objects.equals(squareTo, move.squareTo));
+    }
+
+    @Override
+    public int hashCode() {
+        int result = piece != null ? piece.hashCode() : 0;
+        result = 31 * result + (squareFrom != null ? squareFrom.hashCode() : 0);
+        result = 31 * result + (squareTo != null ? squareTo.hashCode() : 0);
+        return result;
+    }
+
 }
