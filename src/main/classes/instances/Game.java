@@ -87,11 +87,24 @@ public class Game {
     }
 
     public void update() {
-        whitePlayer.setAllAttackedSquares();
-        blackPlayer.setAllAttackedSquares();
+        // TODO: have this take a player in turn as input and use that to do less computation?
+        whitePlayer.setAllAttackedAndMovableSquares();
+        blackPlayer.setAllAttackedAndMovableSquares();
 
         whitePlayer.getKing().setInCheck();
         blackPlayer.getKing().setInCheck();
         moveFinder.pruneSelfCheckMoves(this, moveMaker);
+        checkState();
+    }
+
+    public void checkState() {
+        if (whitePlayer.getKing().isInCheck() && whitePlayer.getAllMovableSquares().isEmpty()) {
+            state = GameState.BLACKWINS;
+        } else if (blackPlayer.getKing().isInCheck() && blackPlayer.getAllMovableSquares().isEmpty()) {
+            state = GameState.WHITEWINS;
+        }
+        // TODO: stalemate: should check if player has no moves, but only if its his turn
+        // TODO; 3-move-repeat draw rule
+        // TODO; 50-move draw rule
     }
 }

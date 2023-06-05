@@ -250,7 +250,7 @@ public class MoveFinder {
                 game.getBlackPlayer();
         Player copyOfOpponentPlayer = (copyOfCurrentPlayer.getTeam() == Team.WHITE) ? game.getBlackPlayer() :
                 game.getWhitePlayer();
-        copyOfOpponentPlayer.setAllAttackedSquares();
+        copyOfOpponentPlayer.setAllAttackedAndMovableSquares();
         copyOfCurrentPlayer.getKing().setInCheck();
         if (!copyOfCurrentPlayer.getKing().isInCheck())
             piece.getLegalMovableSquares().add(move.getSquareTo());
