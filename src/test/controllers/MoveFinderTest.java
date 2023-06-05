@@ -1,6 +1,6 @@
 package test.controllers;
 
-import main.classes.controllers.Game;
+import main.classes.instances.Game;
 import main.classes.game.Move;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

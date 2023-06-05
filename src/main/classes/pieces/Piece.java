@@ -1,6 +1,6 @@
 package main.classes.pieces;
 
-import main.classes.controllers.Player;
+import main.classes.instances.Player;
 import main.classes.structures.*;
 
 import java.util.ArrayList;

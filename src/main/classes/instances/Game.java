@@ -1,4 +1,4 @@
-package main.classes.controllers;
+package main.classes.instances;
 
 import main.classes.movement.MoveFinder;
 import main.classes.movement.MoveMaker;

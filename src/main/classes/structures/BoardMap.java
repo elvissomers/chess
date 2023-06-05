@@ -1,7 +1,7 @@
 package main.classes.structures;
 
-import main.classes.controllers.Game;
-import main.classes.controllers.Player;
+import main.classes.instances.Game;
+import main.classes.instances.Player;
 import main.classes.pieces.*;
 
 import java.util.HashMap;

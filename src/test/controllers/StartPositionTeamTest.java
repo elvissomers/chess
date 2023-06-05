@@ -1,6 +1,6 @@
 package test.controllers;
 
-import main.classes.controllers.Game;
+import main.classes.instances.Game;
 import main.classes.pieces.*;
 import main.classes.structures.Team;
 

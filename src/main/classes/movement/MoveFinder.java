@@ -1,7 +1,7 @@
 package main.classes.movement;
 
-import main.classes.controllers.Game;
-import main.classes.controllers.Player;
+import main.classes.instances.Game;
+import main.classes.instances.Player;
 import main.classes.game.Move;
 import main.classes.pieces.King;
 import main.classes.pieces.Pawn;

@@ -1,6 +1,6 @@
 package main.classes.pieces;
 
-import main.classes.controllers.Player;
+import main.classes.instances.Player;
 import main.classes.structures.Coordinate;
 import main.classes.structures.MovementType;
 import main.classes.structures.Team;
