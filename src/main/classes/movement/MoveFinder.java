@@ -24,8 +24,6 @@ public class MoveFinder {
     private final int ySize = 8;
 
     public void setHorizontalMoves(Piece piece, BoardMap board){
-        piece.removePreviousMovableSquares();
-
         int xPos = piece.getPosition().getX();
         int yPos = piece.getPosition().getY();
 
@@ -44,8 +42,6 @@ public class MoveFinder {
     }
 
     public void setVerticalMoves(Piece piece, BoardMap board){
-        piece.removePreviousMovableSquares();
-
         int xPos = piece.getPosition().getX();
         int yPos = piece.getPosition().getY();
 
@@ -64,8 +60,6 @@ public class MoveFinder {
     }
 
     public void setDiagonalMoves(Piece piece, BoardMap board){
-        piece.removePreviousMovableSquares();
-
         int xPos = piece.getPosition().getX();
         int yPos = piece.getPosition().getY();
 
@@ -91,8 +85,6 @@ public class MoveFinder {
     }
 
     public void setLShapedMoves(Piece piece, BoardMap board){
-        piece.removePreviousMovableSquares();
-
         int xPos = piece.getPosition().getX();
         int yPos = piece.getPosition().getY();
 
@@ -122,8 +114,6 @@ public class MoveFinder {
 
 
     public void setPawnMoves(Piece pawn, BoardMap board) {
-        pawn.removePreviousMovableSquares();
-
         int xPos = pawn.getPosition().getX();
         int yPos = pawn.getPosition().getY();
 
@@ -187,8 +177,6 @@ public class MoveFinder {
     }
 
     public void setKingBasicMoves(Piece king, BoardMap board){
-        king.removePreviousMovableSquares();
-
         int xPos = king.getPosition().getX();
         int yPos = king.getPosition().getY();
 
@@ -211,7 +199,6 @@ public class MoveFinder {
         if (kingKing.isInCheck() || kingKing.isHasMoved()){
             return;
         }
-        king.removePreviousMovableSquares();
 
         int xPos = king.getPosition().getX();
         int yPos = king.getPosition().getY();

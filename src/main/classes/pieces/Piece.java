@@ -57,6 +57,7 @@ public abstract class Piece {
     }
 
     public void setMovableSquares(){
+        removePreviousMovableSquares();
         for (MovementType moveRule : moveRules){
             moveRule.setMoves(this, player.getGame().getBoard(), player.getGame().getMoveFinder());
         }
