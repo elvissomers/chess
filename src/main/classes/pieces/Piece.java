@@ -24,8 +24,6 @@ public abstract class Piece {
         this.player = player;
     }
 
-    // TODO: Piece copy constructor should be working properly
-    // That means it should also copy null
     public Piece(Piece other) {
         if (other == null){
             throw new IllegalArgumentException("Cannot copy a null Piece");

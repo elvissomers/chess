@@ -13,7 +13,6 @@ public class MoveMaker {
     // TODO: Moves are not saved to moveHistory!
     public Move getMove(Game game, Piece piece, Coordinate destination) {
         Coordinate fromSquare = piece.getPosition();
-        // TODO: bug: somehow the position of the piece is updated in getting the move
         CastleType castleType = null;
 
         Player thisPlayer = piece.getPlayer();

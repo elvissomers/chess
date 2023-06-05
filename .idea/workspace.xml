@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="TODO comments">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Added moveRules to copied piece">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/classes/controllers/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/controllers/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/classes/controllers/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/controllers/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/classes/movement/MoveMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/movement/MoveMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/classes/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/pieces/Piece.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,21 +66,6 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.MoveFinderTest">
-    <configuration name="CopyNotEqualTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test.controllers" />
-      <option name="MAIN_CLASS_NAME" value="test.controllers.CopyNotEqualTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CopyNotEqualTest.newGameTestA1CopyRemovePiece_ShouldNotRemoveOriginalPiece" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
@@ -113,6 +97,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MoveFinderTest.setAllMovableSquaresCheckPreventingMovesShouldBeAllowed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.controllers" />
+      <option name="MAIN_CLASS_NAME" value="test.controllers.MoveFinderTest" />
+      <option name="METHOD_NAME" value="setAllMovableSquaresCheckPreventingMovesShouldBeAllowed" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MoveFinderTest.setAllMovableSquaresCheckShouldNotPreventCheckingPlayerFromMoving" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.controllers" />
+      <option name="MAIN_CLASS_NAME" value="test.controllers.MoveFinderTest" />
+      <option name="METHOD_NAME" value="setAllMovableSquaresCheckShouldNotPreventCheckingPlayerFromMoving" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MoveFinderTest.setAllMovableSquaresKingInCheckShouldPreventMovesNotResolvingCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
@@ -129,28 +145,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StartPositionTypeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test.controllers" />
-      <option name="MAIN_CLASS_NAME" value="test.controllers.StartPositionTypeTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.MoveFinderTest" />
+        <item itemvalue="JUnit.MoveFinderTest.setAllMovableSquaresCheckPreventingMovesShouldBeAllowed" />
+        <item itemvalue="JUnit.MoveFinderTest.setAllMovableSquaresCheckShouldNotPreventCheckingPlayerFromMoving" />
         <item itemvalue="JUnit.MoveFinderTest.setAllMovableSquaresKingInCheckShouldPreventMovesNotResolvingCheck" />
         <item itemvalue="JUnit.CopyNotEqualTest.newGameTestA1CopyRemovePiece_ShouldNotRemoveOriginalPiece" />
-        <item itemvalue="JUnit.CopyNotEqualTest" />
-        <item itemvalue="JUnit.StartPositionTypeTest" />
       </list>
     </recent_temporary>
   </component>
@@ -162,48 +163,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00236" summary="added final where appropriate">
-      <created>1685611949736</created>
-      <option name="number" value="00236" />
-      <option name="presentableId" value="LOCAL-00236" />
-      <option name="project" value="LOCAL" />
-      <updated>1685611949736</updated>
-    </task>
-    <task id="LOCAL-00237" summary="commment editing">
-      <created>1685612188928</created>
-      <option name="number" value="00237" />
-      <option name="presentableId" value="LOCAL-00237" />
-      <option name="project" value="LOCAL" />
-      <updated>1685612188928</updated>
-    </task>
-    <task id="LOCAL-00238" summary="Game copy constructor setup">
-      <created>1685613183424</created>
-      <option name="number" value="00238" />
-      <option name="presentableId" value="LOCAL-00238" />
-      <option name="project" value="LOCAL" />
-      <updated>1685613183424</updated>
-    </task>
-    <task id="LOCAL-00239" summary="BoardMap empty constructor that gives an empty board instead of one filled with pieces in the starting position">
-      <created>1685613208675</created>
-      <option name="number" value="00239" />
-      <option name="presentableId" value="LOCAL-00239" />
-      <option name="project" value="LOCAL" />
-      <updated>1685613208675</updated>
-    </task>
-    <task id="LOCAL-00240" summary="remove unused boardmap copy constructor">
-      <created>1685613267471</created>
-      <option name="number" value="00240" />
-      <option name="presentableId" value="LOCAL-00240" />
-      <option name="project" value="LOCAL" />
-      <updated>1685613267471</updated>
-    </task>
-    <task id="LOCAL-00241" summary="made some attributes &quot;final&quot;">
-      <created>1685613353850</created>
-      <option name="number" value="00241" />
-      <option name="presentableId" value="LOCAL-00241" />
-      <option name="project" value="LOCAL" />
-      <updated>1685613353850</updated>
     </task>
     <task id="LOCAL-00242" summary="TODO comment">
       <created>1685613919951</created>
@@ -506,7 +465,49 @@
       <option name="project" value="LOCAL" />
       <updated>1685702366681</updated>
     </task>
-    <option name="localTasksCounter" value="285" />
+    <task id="LOCAL-00285" summary="bugfixing, work in progress">
+      <created>1685714650348</created>
+      <option name="number" value="00285" />
+      <option name="presentableId" value="LOCAL-00285" />
+      <option name="project" value="LOCAL" />
+      <updated>1685714650348</updated>
+    </task>
+    <task id="LOCAL-00286" summary="moved removePreviousMovableSquares to Piece.setMovableSquares (from MoveFinder methods)">
+      <created>1685951562040</created>
+      <option name="number" value="00286" />
+      <option name="presentableId" value="LOCAL-00286" />
+      <option name="project" value="LOCAL" />
+      <updated>1685951562040</updated>
+    </task>
+    <task id="LOCAL-00287" summary="Added &quot;legalMovableSquares&quot; attribute aside from just movableSquares">
+      <created>1685952133586</created>
+      <option name="number" value="00287" />
+      <option name="presentableId" value="LOCAL-00287" />
+      <option name="project" value="LOCAL" />
+      <updated>1685952133586</updated>
+    </task>
+    <task id="LOCAL-00288" summary="Added &quot;legalMovableSquares&quot; attribute aside from just movableSquares">
+      <created>1685952276842</created>
+      <option name="number" value="00288" />
+      <option name="presentableId" value="LOCAL-00288" />
+      <option name="project" value="LOCAL" />
+      <updated>1685952276842</updated>
+    </task>
+    <task id="LOCAL-00289" summary="Added &quot;legalMovableSquares&quot; attribute aside from just movableSquares">
+      <created>1685952456873</created>
+      <option name="number" value="00289" />
+      <option name="presentableId" value="LOCAL-00289" />
+      <option name="project" value="LOCAL" />
+      <updated>1685952456873</updated>
+    </task>
+    <task id="LOCAL-00290" summary="Added moveRules to copied piece">
+      <created>1685953488508</created>
+      <option name="number" value="00290" />
+      <option name="presentableId" value="LOCAL-00290" />
+      <option name="project" value="LOCAL" />
+      <updated>1685953488508</updated>
+    </task>
+    <option name="localTasksCounter" value="291" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -523,10 +524,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="remove finisehd todo comment" />
-    <MESSAGE value="change Game attribute to final" />
-    <MESSAGE value="Put promotion into separate method" />
-    <MESSAGE value="formatting, remove comment" />
     <MESSAGE value="quick syntax shortening" />
     <MESSAGE value="finished castling in makeMove" />
     <MESSAGE value="started pruning moves that put player in check in MoveFinder.java" />
@@ -548,66 +545,51 @@
     <MESSAGE value="update update to actually call method pruning moves that put self in check" />
     <MESSAGE value="Added king setting to Game copy constructor" />
     <MESSAGE value="TODO comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="TODO comments" />
+    <MESSAGE value="bugfixing, work in progress" />
+    <MESSAGE value="moved removePreviousMovableSquares to Piece.setMovableSquares (from MoveFinder methods)" />
+    <MESSAGE value="Added &quot;legalMovableSquares&quot; attribute aside from just movableSquares" />
+    <MESSAGE value="Added moveRules to copied piece" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added moveRules to copied piece" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/controllers/MoveFinderTest.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/controllers/MoveFinderTest.java</url>
           <line>27</line>
-          <option name="timeStamp" value="48" />
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
-          <line>249</line>
-          <option name="timeStamp" value="53" />
+          <line>236</line>
+          <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
-          <line>269</line>
-          <option name="timeStamp" value="54" />
+          <line>237</line>
+          <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
-          <line>268</line>
-          <option name="timeStamp" value="55" />
+          <line>255</line>
+          <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
-          <line>270</line>
-          <option name="timeStamp" value="56" />
+          <line>256</line>
+          <option name="timeStamp" value="78" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
-          <line>271</line>
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/pieces/King.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/pieces/King.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/classes/pieces/Piece.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="60" />
+          <line>257</line>
+          <option name="timeStamp" value="79" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="main.classes.controllers.Player" memberName="game" />
+        <PinnedItemInfo parentTag="main.classes.controllers.Player" memberName="pieces" />
       </pinned-members>
     </pin-to-top-manager>
     <watches-manager>
@@ -615,6 +597,10 @@
         <watch expression="((Game)((GameTest)this).Game).whitePlayer" custom="main.classes.controllers.Game,test.controllers.GameTest" />
         <watch expression="((main.classes.structures.PieceSet)this).toArray()[6]" custom="main.classes.structures.PieceSet" />
         <watch expression="this" />
+        <watch expression="((ImmutableCollections.Set12)((King)((Player)((Game)((MoveFinderTest)this).game).blackPlayer).king).moveRules).toArray()[0]" custom="main.classes.controllers.Game,main.classes.controllers.Player,test.controllers.MoveFinderTest,main.classes.pieces.King,java.util.ImmutableCollections.Set12" />
+        <watch expression="((Player)((Game)((MoveFinderTest)this).game).whitePlayer).pieces" custom="main.classes.controllers.Game,main.classes.controllers.Player,test.controllers.MoveFinderTest" />
+        <watch expression="copyOfOpponentPlayer.allAttackedSquares.toArray()[19]" />
+        <watch expression="copyOfOpponentPlayer.allAttackedSquares.toArray()[19]" />
       </configuration>
     </watches-manager>
   </component>
