@@ -60,6 +60,7 @@ public abstract class Piece {
          * before setting new ones.
          */
         movableSquares = new ArrayList<>();
+        legalMovableSquares = new ArrayList<>();
     }
 
     public void setMovableSquares(){
