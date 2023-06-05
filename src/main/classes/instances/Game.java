@@ -12,7 +12,6 @@ import main.classes.structures.GameState;
 import main.classes.structures.Team;
 
 import java.util.List;
-import java.util.Set;
 
 public class Game {
 
@@ -91,7 +90,7 @@ public class Game {
         this.state = state;
     }
 
-    public void update() {
+    public void update(Team teamTurn) {
         // TODO: have this take a player in turn as input and use that to do less computation?
         whitePlayer.setAllAttackedAndMovableSquares();
         blackPlayer.setAllAttackedAndMovableSquares();
@@ -99,21 +98,19 @@ public class Game {
         whitePlayer.getKing().setInCheck();
         blackPlayer.getKing().setInCheck();
         moveFinder.pruneSelfCheckMoves(this, moveMaker);
-        checkState();
+        checkState(teamTurn);
     }
 
-    public void checkState() {
-        if (whitePlayer.getKing().isInCheck() && whitePlayer.getAllMovableSquares().isEmpty())
-            state = GameState.BLACKWINS;
+    public void checkState(Team teamTurn) {
+        Player currentPlayer = (teamTurn == Team.WHITE) ? whitePlayer : blackPlayer;
+        if (currentPlayer.getKing().isInCheck() && currentPlayer.getAllMovableSquares().isEmpty())
+            state = (teamTurn == Team.WHITE) ? GameState.BLACKWINS : GameState.WHITEWINS;
 
-        if (blackPlayer.getKing().isInCheck() && blackPlayer.getAllMovableSquares().isEmpty())
-            state = GameState.WHITEWINS;
+        if (currentPlayer.getAllMovableSquares().isEmpty() && !currentPlayer.getKing().isInCheck())
+            state = GameState.DRAW;
 
         if (checkThreefoldRepetition() || checkFiftyMoveRule())
             state = GameState.DRAW;
-
-
-        // TODO: stalemate: should check if player has no moves, but only if its his turn
     }
 
     private boolean checkThreefoldRepetition() {

@@ -2,6 +2,7 @@ package test.controllers;
 
 import main.classes.instances.Game;
 import main.classes.game.Move;
+import main.classes.structures.Team;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,19 +14,19 @@ class MoveFinderTest {
     @BeforeEach
     public void setUp() {
         game = new Game();
-        game.update();
+        game.update(Team.WHITE);
         Move e2e4 = game.getMoveMaker().getMove(game, game.getBoard().getPieceByPos(4,1),
                 game.getBoard().getCoordinateByPos(4,3));
         game.getMoveMaker().makeMove(e2e4, game);
-        game.update();
+        game.update(Team.BLACK);
         Move f7f5 = game.getMoveMaker().getMove(game, game.getBoard().getPieceByPos(5,6),
                 game.getBoard().getCoordinateByPos(5,4));
         game.getMoveMaker().makeMove(f7f5, game);
-        game.update();
+        game.update(Team.WHITE);
         Move Qh5 = game.getMoveMaker().getMove(game, game.getBoard().getPieceByPos(3,0),
                 game.getBoard().getCoordinateByPos(7,4));
         game.getMoveMaker().makeMove(Qh5, game);
-        game.update();
+        game.update(Team.BLACK);
         //Qh5+, black is now in check!
     }
 
