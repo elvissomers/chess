@@ -1,17 +1,32 @@
+import main.classes.game.Move;
+import main.classes.instances.Game;
+import main.classes.structures.Team;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Game game = new Game();
+        game.update(Team.WHITE);
+        System.out.println(game.getBoard());
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        Move e2e4 = game.getMoveMaker().getMove(game, game.getBoard().getPieceByPos(4,1),
+                game.getBoard().getCoordinateByPos(4,3));
+        game.getMoveMaker().makeMove(e2e4, game);
+        game.update(Team.BLACK);
+        System.out.println(game.getBoard());
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        Move f7f5 = game.getMoveMaker().getMove(game, game.getBoard().getPieceByPos(5,6),
+                game.getBoard().getCoordinateByPos(5,4));
+        game.getMoveMaker().makeMove(f7f5, game);
+        game.update(Team.WHITE);
+        System.out.println(game.getBoard());
+
+        Move Qh5 = game.getMoveMaker().getMove(game, game.getBoard().getPieceByPos(3,0),
+                game.getBoard().getCoordinateByPos(7,4));
+        game.getMoveMaker().makeMove(Qh5, game);
+        game.update(Team.BLACK);
+        System.out.println(game.getBoard());
+
     }
 }
