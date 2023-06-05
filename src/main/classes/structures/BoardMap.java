@@ -118,21 +118,20 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
 
     @Override
     public String toString() {
-        StringBuilder boardString = new StringBuilder("=================\n");
+        StringBuilder boardString = new StringBuilder(" =================\n");
         for (int i = 0; i < 8; i++) {
-            boardString.append("|");
+            boardString.append((8 - i)).append("|");
             for (int j = 0; j < 8; j++) {
-                Piece currentPiece = getPieceByPos(i, 7 - j);
+                Piece currentPiece = getPieceByPos(j, 7 - i);
                 if (currentPiece == null)
                     boardString.append(" ");
                 else
                     boardString.append((currentPiece instanceof Pawn) ? "1" : currentPiece.toString());
                 boardString.append("|");
             }
-            boardString.append("|\n");
-            boardString.append("=================\n");
+            boardString.append("\n =================\n");
         }
-        boardString.append("|a|b|c|d|e|f|g|h|");
+        boardString.append(" |a|b|c|d|e|f|g|h|");
         return(boardString.toString());
     }
 }
