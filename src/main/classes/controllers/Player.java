@@ -66,6 +66,7 @@ public class Player {
      * Also sets all movable squares for all the pieces
      */
     public void setAllAttackedSquares() {
+        allAttackedSquares = new HashSet<>();
         for (Piece piece : this.pieces){
             if (piece instanceof Pawn pawn) {
                 pawn.setAttackedSquares(game.getBoard());
