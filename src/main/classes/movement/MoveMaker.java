@@ -10,7 +10,6 @@ import main.classes.structures.Team;
 
 public class MoveMaker {
 
-    // TODO: Moves are not saved to moveHistory!
     public Move getMove(Game game, Piece piece, Coordinate destination) {
         Coordinate fromSquare = piece.getPosition();
         CastleType castleType = null;
@@ -41,6 +40,7 @@ public class MoveMaker {
     public void makeMove(Move move, Game game){
         Player thisPlayer = (move.getPiece().getPlayer().getTeam() == Team.WHITE) ? game.getWhitePlayer() :
                 game.getBlackPlayer();
+        thisPlayer.getMoveHistory().add(move);
 
         if (move.getCastleType() != null) {
             int rookXPosition = (move.getCastleType() == CastleType.SHORT) ? 7 : 0;
