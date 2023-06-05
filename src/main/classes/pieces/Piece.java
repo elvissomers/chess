@@ -33,6 +33,7 @@ public abstract class Piece {
 
         this.player = other.getPlayer();
         this.position = other.getPosition();
+        this.moveRules = other.getMoveRules();
     }
 
     public List<Coordinate> getMovableSquares() {
@@ -41,6 +42,10 @@ public abstract class Piece {
 
     public List<Coordinate> getLegalMovableSquares() {
         return legalMovableSquares;
+    }
+
+    public Set<MovementType> getMoveRules() {
+        return moveRules;
     }
 
     public Coordinate getPosition() {
