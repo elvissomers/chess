@@ -6,9 +6,12 @@ import main.classes.pieces.King;
 import main.classes.pieces.Piece;
 import main.classes.structures.BoardMap;
 import main.classes.structures.Coordinate;
+import main.classes.structures.GameState;
 import main.classes.structures.Team;
 
 public class Game {
+
+    private GameState state;
 
     private final BoardMap board;
 
@@ -32,6 +35,7 @@ public class Game {
      * @param other the Game to copy.
      */
     public Game(Game other){
+        state = GameState.ONGOING;
         whitePlayer = new Player(this, Team.WHITE);
         blackPlayer = new Player(this, Team.BLACK);
         Coordinate[][] coordinateArray = other.getBoard().getCoordinateArray(); // Reference, no copy
@@ -72,6 +76,14 @@ public class Game {
 
     public MoveFinder getMoveFinder() {
         return moveFinder;
+    }
+
+    public GameState getState() {
+        return state;
+    }
+
+    public void setState(GameState state) {
+        this.state = state;
     }
 
     public void update() {
