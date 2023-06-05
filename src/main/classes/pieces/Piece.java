@@ -16,6 +16,8 @@ public abstract class Piece {
 
     private List<Coordinate> movableSquares = new ArrayList<>();
 
+    private List<Coordinate> legalMovableSquares = new ArrayList<>();
+
     private Set<MovementType> moveRules = new HashSet<>();
 
     public Piece(Player player) {
@@ -35,6 +37,10 @@ public abstract class Piece {
 
     public List<Coordinate> getMovableSquares() {
         return movableSquares;
+    }
+
+    public List<Coordinate> getLegalMovableSquares() {
+        return legalMovableSquares;
     }
 
     public Coordinate getPosition() {

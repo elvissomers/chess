@@ -236,7 +236,6 @@ public class MoveFinder {
         for (Player player : new Player[]{game.getWhitePlayer(), game.getBlackPlayer()}){
             for (Piece piece : player.getPieces()){
                 for (Coordinate moveOption : piece.getMovableSquares()){
-                    // TODO: wrong!
                     Game copyGame = new Game(game);
                     Piece copyPiece = copyGame.getBoard().getPieceByPos(piece.getPosition().getX(),
                             piece.getPosition().getY());
@@ -255,7 +254,7 @@ public class MoveFinder {
                 game.getWhitePlayer();
         copyOfOpponentPlayer.setAllAttackedSquares();
         copyOfCurrentPlayer.getKing().setInCheck();
-        if (copyOfCurrentPlayer.getKing().isInCheck())
-            piece.getMovableSquares().remove(move.getSquareTo());
+        if (!copyOfCurrentPlayer.getKing().isInCheck())
+            piece.getLegalMovableSquares().add(move.getSquareTo());
     }
 }
