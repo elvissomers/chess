@@ -1,5 +1,6 @@
 package main.classes.instances;
 
+import main.classes.game.Move;
 import main.classes.movement.MoveFinder;
 import main.classes.movement.MoveMaker;
 import main.classes.pieces.King;
@@ -98,13 +99,33 @@ public class Game {
     }
 
     public void checkState() {
-        if (whitePlayer.getKing().isInCheck() && whitePlayer.getAllMovableSquares().isEmpty()) {
+        if (whitePlayer.getKing().isInCheck() && whitePlayer.getAllMovableSquares().isEmpty())
             state = GameState.BLACKWINS;
-        } else if (blackPlayer.getKing().isInCheck() && blackPlayer.getAllMovableSquares().isEmpty()) {
+
+        if (blackPlayer.getKing().isInCheck() && blackPlayer.getAllMovableSquares().isEmpty())
             state = GameState.WHITEWINS;
-        }
+
+        if (checkThreefoldRepetition())
+            state = GameState.DRAW;
+
+
         // TODO: stalemate: should check if player has no moves, but only if its his turn
         // TODO; 3-move-repeat draw rule
         // TODO; 50-move draw rule
     }
+
+    private boolean checkThreefoldRepetition() {
+        return hasThreefoldRepetition(whitePlayer) && hasThreefoldRepetition(blackPlayer);
+    }
+
+    private boolean hasThreefoldRepetition(Player player) {
+        int historySize = player.getMoveHistory().size();
+        if (historySize < 3)
+            return false;
+
+        Move lastMove = player.getMoveHistory().get(historySize - 1);
+        return lastMove.equals(player.getMoveHistory().get(historySize - 3))
+                && lastMove.equals(player.getMoveHistory().get(historySize - 2));
+    }
+
 }
