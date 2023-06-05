@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Added moveRules to copied piece">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="formatting">
+      <change afterPath="$PROJECT_DIR$/src/main/classes/controllers/PlayGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/classes/controllers/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/controllers/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/classes/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/classes/pieces/Piece.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +17,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Enum" />
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -65,19 +63,10 @@
       <recent name="test.pieces" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MoveFinderTest">
-    <configuration name="CopyNotEqualTest.newGameTestA1CopyRemovePiece_ShouldNotRemoveOriginalPiece" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test.controllers" />
-      <option name="MAIN_CLASS_NAME" value="test.controllers.CopyNotEqualTest" />
-      <option name="METHOD_NAME" value="newGameTestA1CopyRemovePiece_ShouldNotRemoveOriginalPiece" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -147,11 +136,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.MoveFinderTest" />
         <item itemvalue="JUnit.MoveFinderTest.setAllMovableSquaresCheckPreventingMovesShouldBeAllowed" />
         <item itemvalue="JUnit.MoveFinderTest.setAllMovableSquaresCheckShouldNotPreventCheckingPlayerFromMoving" />
         <item itemvalue="JUnit.MoveFinderTest.setAllMovableSquaresKingInCheckShouldPreventMovesNotResolvingCheck" />
-        <item itemvalue="JUnit.CopyNotEqualTest.newGameTestA1CopyRemovePiece_ShouldNotRemoveOriginalPiece" />
       </list>
     </recent_temporary>
   </component>
@@ -163,118 +152,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00242" summary="TODO comment">
-      <created>1685613919951</created>
-      <option name="number" value="00242" />
-      <option name="presentableId" value="LOCAL-00242" />
-      <option name="project" value="LOCAL" />
-      <updated>1685613919951</updated>
-    </task>
-    <task id="LOCAL-00243" summary="null handling in piece copying">
-      <created>1685613938712</created>
-      <option name="number" value="00243" />
-      <option name="presentableId" value="LOCAL-00243" />
-      <option name="project" value="LOCAL" />
-      <updated>1685613938712</updated>
-    </task>
-    <task id="LOCAL-00244" summary="remove some comments">
-      <created>1685613996308</created>
-      <option name="number" value="00244" />
-      <option name="presentableId" value="LOCAL-00244" />
-      <option name="project" value="LOCAL" />
-      <updated>1685613996308</updated>
-    </task>
-    <task id="LOCAL-00245" summary="remove unused import">
-      <created>1685614454458</created>
-      <option name="number" value="00245" />
-      <option name="presentableId" value="LOCAL-00245" />
-      <option name="project" value="LOCAL" />
-      <updated>1685614454458</updated>
-    </task>
-    <task id="LOCAL-00246" summary="setup game test">
-      <created>1685614461123</created>
-      <option name="number" value="00246" />
-      <option name="presentableId" value="LOCAL-00246" />
-      <option name="project" value="LOCAL" />
-      <updated>1685614461123</updated>
-    </task>
-    <task id="LOCAL-00247" summary="set Player.pieces to empty set">
-      <created>1685614539377</created>
-      <option name="number" value="00247" />
-      <option name="presentableId" value="LOCAL-00247" />
-      <option name="project" value="LOCAL" />
-      <updated>1685614539377</updated>
-    </task>
-    <task id="LOCAL-00248" summary="testing start position, piece type">
-      <created>1685615627935</created>
-      <option name="number" value="00248" />
-      <option name="presentableId" value="LOCAL-00248" />
-      <option name="project" value="LOCAL" />
-      <updated>1685615627935</updated>
-    </task>
-    <task id="LOCAL-00249" summary="testing start position, player team">
-      <created>1685615641156</created>
-      <option name="number" value="00249" />
-      <option name="presentableId" value="LOCAL-00249" />
-      <option name="project" value="LOCAL" />
-      <updated>1685615641156</updated>
-    </task>
-    <task id="LOCAL-00250" summary="formatting">
-      <created>1685621204762</created>
-      <option name="number" value="00250" />
-      <option name="presentableId" value="LOCAL-00250" />
-      <option name="project" value="LOCAL" />
-      <updated>1685621204762</updated>
-    </task>
-    <task id="LOCAL-00251" summary="added copying to test">
-      <created>1685621560027</created>
-      <option name="number" value="00251" />
-      <option name="presentableId" value="LOCAL-00251" />
-      <option name="project" value="LOCAL" />
-      <updated>1685621560027</updated>
-    </task>
-    <task id="LOCAL-00252" summary="added copying to test">
-      <created>1685621762406</created>
-      <option name="number" value="00252" />
-      <option name="presentableId" value="LOCAL-00252" />
-      <option name="project" value="LOCAL" />
-      <updated>1685621762406</updated>
-    </task>
-    <task id="LOCAL-00253" summary="Create CopyNotEqualTest.java">
-      <created>1685622302341</created>
-      <option name="number" value="00253" />
-      <option name="presentableId" value="LOCAL-00253" />
-      <option name="project" value="LOCAL" />
-      <updated>1685622302341</updated>
-    </task>
-    <task id="LOCAL-00254" summary="Setting a players king attribute">
-      <created>1685686870306</created>
-      <option name="number" value="00254" />
-      <option name="presentableId" value="LOCAL-00254" />
-      <option name="project" value="LOCAL" />
-      <updated>1685686870306</updated>
-    </task>
-    <task id="LOCAL-00255" summary="update move attributes to final">
-      <created>1685686920089</created>
-      <option name="number" value="00255" />
-      <option name="presentableId" value="LOCAL-00255" />
-      <option name="project" value="LOCAL" />
-      <updated>1685686920089</updated>
-    </task>
-    <task id="LOCAL-00256" summary="Added extra field to Move">
-      <created>1685687624062</created>
-      <option name="number" value="00256" />
-      <option name="presentableId" value="LOCAL-00256" />
-      <option name="project" value="LOCAL" />
-      <updated>1685687624062</updated>
-    </task>
-    <task id="LOCAL-00257" summary="New MakeMove method, using a Move object as input">
-      <created>1685688274647</created>
-      <option name="number" value="00257" />
-      <option name="presentableId" value="LOCAL-00257" />
-      <option name="project" value="LOCAL" />
-      <updated>1685688274647</updated>
     </task>
     <task id="LOCAL-00258" summary="New get Move function, outputting a Move object">
       <created>1685688939134</created>
@@ -507,7 +384,119 @@
       <option name="project" value="LOCAL" />
       <updated>1685953488508</updated>
     </task>
-    <option name="localTasksCounter" value="291" />
+    <task id="LOCAL-00291" summary="Correct player is assigned to piece on copied board. Test passes now">
+      <created>1685954032622</created>
+      <option name="number" value="00291" />
+      <option name="presentableId" value="LOCAL-00291" />
+      <option name="project" value="LOCAL" />
+      <updated>1685954032622</updated>
+    </task>
+    <task id="LOCAL-00292" summary="empty out allattackedsquares before setting it">
+      <created>1685954506510</created>
+      <option name="number" value="00292" />
+      <option name="presentableId" value="LOCAL-00292" />
+      <option name="project" value="LOCAL" />
+      <updated>1685954506510</updated>
+    </task>
+    <task id="LOCAL-00293" summary="remove old //TODO comments">
+      <created>1685955670829</created>
+      <option name="number" value="00293" />
+      <option name="presentableId" value="LOCAL-00293" />
+      <option name="project" value="LOCAL" />
+      <updated>1685955670829</updated>
+    </task>
+    <task id="LOCAL-00294" summary="saving moves to moveHistory">
+      <created>1685955904071</created>
+      <option name="number" value="00294" />
+      <option name="presentableId" value="LOCAL-00294" />
+      <option name="project" value="LOCAL" />
+      <updated>1685955904071</updated>
+    </task>
+    <task id="LOCAL-00295" summary="refactor">
+      <created>1685956729826</created>
+      <option name="number" value="00295" />
+      <option name="presentableId" value="LOCAL-00295" />
+      <option name="project" value="LOCAL" />
+      <updated>1685956729826</updated>
+    </task>
+    <task id="LOCAL-00296" summary="Added &quot;GameState&quot; (draw/white/blackwins/ongoing)">
+      <created>1685956985385</created>
+      <option name="number" value="00296" />
+      <option name="presentableId" value="LOCAL-00296" />
+      <option name="project" value="LOCAL" />
+      <updated>1685956985385</updated>
+    </task>
+    <task id="LOCAL-00297" summary="Added allMovableSquares attribute to Player.java">
+      <created>1685957627827</created>
+      <option name="number" value="00297" />
+      <option name="presentableId" value="LOCAL-00297" />
+      <option name="project" value="LOCAL" />
+      <updated>1685957627827</updated>
+    </task>
+    <task id="LOCAL-00298" summary="Overwrite equals() and hashCode() in Move.java">
+      <created>1685964121657</created>
+      <option name="number" value="00298" />
+      <option name="presentableId" value="LOCAL-00298" />
+      <option name="project" value="LOCAL" />
+      <updated>1685964121657</updated>
+    </task>
+    <task id="LOCAL-00299" summary="Implemented three fold repetition check">
+      <created>1685964364254</created>
+      <option name="number" value="00299" />
+      <option name="presentableId" value="LOCAL-00299" />
+      <option name="project" value="LOCAL" />
+      <updated>1685964364254</updated>
+    </task>
+    <task id="LOCAL-00300" summary="Implemented fifty move rule check">
+      <created>1685964947456</created>
+      <option name="number" value="00300" />
+      <option name="presentableId" value="LOCAL-00300" />
+      <option name="project" value="LOCAL" />
+      <updated>1685964947456</updated>
+    </task>
+    <task id="LOCAL-00301" summary="Stalemate check, implemented Team input in Game.update">
+      <created>1685965319170</created>
+      <option name="number" value="00301" />
+      <option name="presentableId" value="LOCAL-00301" />
+      <option name="project" value="LOCAL" />
+      <updated>1685965319170</updated>
+    </task>
+    <task id="LOCAL-00302" summary="implement toString() in BoardMap.java">
+      <created>1685965997662</created>
+      <option name="number" value="00302" />
+      <option name="presentableId" value="LOCAL-00302" />
+      <option name="project" value="LOCAL" />
+      <updated>1685965997662</updated>
+    </task>
+    <task id="LOCAL-00303" summary="update toString() in BoardMap.java">
+      <created>1685966349264</created>
+      <option name="number" value="00303" />
+      <option name="presentableId" value="LOCAL-00303" />
+      <option name="project" value="LOCAL" />
+      <updated>1685966349264</updated>
+    </task>
+    <task id="LOCAL-00304" summary="print out a sample game in Main">
+      <created>1685966360546</created>
+      <option name="number" value="00304" />
+      <option name="presentableId" value="LOCAL-00304" />
+      <option name="project" value="LOCAL" />
+      <updated>1685966360546</updated>
+    </task>
+    <task id="LOCAL-00305" summary="remove old comments">
+      <created>1685967247837</created>
+      <option name="number" value="00305" />
+      <option name="presentableId" value="LOCAL-00305" />
+      <option name="project" value="LOCAL" />
+      <updated>1685967247837</updated>
+    </task>
+    <task id="LOCAL-00306" summary="formatting">
+      <created>1685967281028</created>
+      <option name="number" value="00306" />
+      <option name="presentableId" value="LOCAL-00306" />
+      <option name="project" value="LOCAL" />
+      <updated>1685967281028</updated>
+    </task>
+    <option name="localTasksCounter" value="307" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -524,22 +513,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="quick syntax shortening" />
-    <MESSAGE value="finished castling in makeMove" />
-    <MESSAGE value="started pruning moves that put player in check in MoveFinder.java" />
-    <MESSAGE value="create Game.update" />
-    <MESSAGE value="formatting" />
-    <MESSAGE value="setInCheck method" />
-    <MESSAGE value="update update method" />
-    <MESSAGE value="move moveMaker from Player to Game" />
-    <MESSAGE value="move moveFinder from Piece to Game" />
-    <MESSAGE value="toString() methods in all Pieces" />
-    <MESSAGE value="update Move.toString" />
-    <MESSAGE value="In case of en passant, pawn is taken" />
-    <MESSAGE value="remove unused statement" />
-    <MESSAGE value="set piece coordinates in initial board setup" />
-    <MESSAGE value="Added extra test - changing a piece on the copied board should not change the piece on the original board" />
-    <MESSAGE value="Remove &quot;board&quot; attribute from piece class - retrieve it from Player instead" />
     <MESSAGE value="remove setAllAttackedSquares from checkcheck, since it is already done in update" />
     <MESSAGE value="implemented test for movefinder. Fails on pruning moves that put self in check" />
     <MESSAGE value="update update to actually call method pruning moves that put self in check" />
@@ -549,39 +522,55 @@
     <MESSAGE value="moved removePreviousMovableSquares to Piece.setMovableSquares (from MoveFinder methods)" />
     <MESSAGE value="Added &quot;legalMovableSquares&quot; attribute aside from just movableSquares" />
     <MESSAGE value="Added moveRules to copied piece" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added moveRules to copied piece" />
+    <MESSAGE value="Correct player is assigned to piece on copied board. Test passes now" />
+    <MESSAGE value="empty out allattackedsquares before setting it" />
+    <MESSAGE value="remove old //TODO comments" />
+    <MESSAGE value="saving moves to moveHistory" />
+    <MESSAGE value="refactor" />
+    <MESSAGE value="Added &quot;GameState&quot; (draw/white/blackwins/ongoing)" />
+    <MESSAGE value="Added allMovableSquares attribute to Player.java" />
+    <MESSAGE value="Overwrite equals() and hashCode() in Move.java" />
+    <MESSAGE value="Implemented three fold repetition check" />
+    <MESSAGE value="Implemented fifty move rule check" />
+    <MESSAGE value="Stalemate check, implemented Team input in Game.update" />
+    <MESSAGE value="implement toString() in BoardMap.java" />
+    <MESSAGE value="update toString() in BoardMap.java" />
+    <MESSAGE value="print out a sample game in Main" />
+    <MESSAGE value="remove old comments" />
+    <MESSAGE value="formatting" />
+    <option name="LAST_COMMIT_MESSAGE" value="formatting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/controllers/MoveFinderTest.java</url>
-          <line>27</line>
+          <line>28</line>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
-          <line>236</line>
+          <line>234</line>
           <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
-          <line>237</line>
+          <line>235</line>
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
-          <line>255</line>
+          <line>252</line>
           <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
-          <line>256</line>
+          <line>253</line>
           <option name="timeStamp" value="78" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/classes/movement/MoveFinder.java</url>
-          <line>257</line>
+          <line>254</line>
           <option name="timeStamp" value="79" />
         </line-breakpoint>
       </breakpoints>
