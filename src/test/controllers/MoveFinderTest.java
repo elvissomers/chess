@@ -31,22 +31,26 @@ class MoveFinderTest {
 
     @Test
     void setAllMovableSquaresKingInCheckShouldPreventMovesNotResolvingCheck() {
-        assertTrue(game.getBoard().getPieceByPos(0,6).getMovableSquares().isEmpty());
-        assertTrue(game.getBoard().getPieceByPos(1,6).getMovableSquares().isEmpty());
-        assertTrue(game.getBoard().getPieceByPos(1,7).getMovableSquares().isEmpty());
+        assertFalse(game.getBoard().getPieceByPos(0,6).getMovableSquares().isEmpty());
+        assertFalse(game.getBoard().getPieceByPos(1,6).getMovableSquares().isEmpty());
+        assertFalse(game.getBoard().getPieceByPos(1,7).getMovableSquares().isEmpty());
+
+        assertTrue(game.getBoard().getPieceByPos(0,6).getLegalMovableSquares().isEmpty());
+        assertTrue(game.getBoard().getPieceByPos(1,6).getLegalMovableSquares().isEmpty());
+        assertTrue(game.getBoard().getPieceByPos(1,7).getLegalMovableSquares().isEmpty());
     }
 
     @Test
     void setAllMovableSquaresCheckShouldNotPreventCheckingPlayerFromMoving(){
-        assertFalse(game.getBoard().getPieceByPos(0,1).getMovableSquares().isEmpty());
-        assertFalse(game.getBoard().getPieceByPos(1,0).getMovableSquares().isEmpty());
-        assertFalse(game.getBoard().getPieceByPos(1,1).getMovableSquares().isEmpty());
+        assertFalse(game.getBoard().getPieceByPos(0,1).getLegalMovableSquares().isEmpty());
+        assertFalse(game.getBoard().getPieceByPos(1,0).getLegalMovableSquares().isEmpty());
+        assertFalse(game.getBoard().getPieceByPos(1,1).getLegalMovableSquares().isEmpty());
     }
 
     @Test
     void setAllMovableSquaresCheckPreventingMovesShouldBeAllowed(){
-        assertEquals(1, game.getBoard().getPieceByPos(6,6).getMovableSquares().size());
-        assertEquals("g6", game.getBoard().getPieceByPos(6,6).getMovableSquares()
+        assertEquals(1, game.getBoard().getPieceByPos(6,6).getLegalMovableSquares().size());
+        assertEquals("g6", game.getBoard().getPieceByPos(6,6).getLegalMovableSquares()
                 .get(0).toString());
     }
 }
