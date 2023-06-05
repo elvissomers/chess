@@ -4,11 +4,15 @@ import main.classes.game.Move;
 import main.classes.movement.MoveFinder;
 import main.classes.movement.MoveMaker;
 import main.classes.pieces.King;
+import main.classes.pieces.Pawn;
 import main.classes.pieces.Piece;
 import main.classes.structures.BoardMap;
 import main.classes.structures.Coordinate;
 import main.classes.structures.GameState;
 import main.classes.structures.Team;
+
+import java.util.List;
+import java.util.Set;
 
 public class Game {
 
@@ -105,13 +109,11 @@ public class Game {
         if (blackPlayer.getKing().isInCheck() && blackPlayer.getAllMovableSquares().isEmpty())
             state = GameState.WHITEWINS;
 
-        if (checkThreefoldRepetition())
+        if (checkThreefoldRepetition() || checkFiftyMoveRule())
             state = GameState.DRAW;
 
 
         // TODO: stalemate: should check if player has no moves, but only if its his turn
-        // TODO; 3-move-repeat draw rule
-        // TODO; 50-move draw rule
     }
 
     private boolean checkThreefoldRepetition() {
@@ -127,5 +129,25 @@ public class Game {
         return lastMove.equals(player.getMoveHistory().get(historySize - 3))
                 && lastMove.equals(player.getMoveHistory().get(historySize - 2));
     }
+
+    private boolean checkFiftyMoveRule() {
+        List<Move> whiteHistory = whitePlayer.getMoveHistory();
+        List<Move> blackHistory = blackPlayer.getMoveHistory();
+        if (blackHistory.size() < 50)
+            return false;
+
+        for (int i = 0; i < 50; i++) {
+            Move whiteMove = whiteHistory.get(whiteHistory.size() - 1 - i);
+            if (whiteMove.getPiece() instanceof Pawn || whiteMove.getTakenPiece() != null) {
+                return false;
+            }
+            Move blackMove = blackHistory.get(blackHistory.size() - 1 - i);
+            if (blackMove.getPiece() instanceof Pawn || blackMove.getTakenPiece() != null) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
 }
