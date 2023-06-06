@@ -1,6 +1,6 @@
-import main.java.classes.game.Move;
-import main.java.classes.instances.Game;
-import main.java.classes.structures.Team;
+import classes.game.Move;
+import classes.instances.Game;
+import classes.structures.Team;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.

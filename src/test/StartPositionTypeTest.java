@@ -1,8 +1,8 @@
 package test;
 
-import main.java.classes.instances.Game;
+import classes.instances.Game;
 
-import main.java.classes.pieces.*;
+import classes.pieces.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;

@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="maven initialization">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="package name refactor" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -151,13 +149,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00261" summary="change Game attribute to final">
-      <created>1685689095293</created>
-      <option name="number" value="00261" />
-      <option name="presentableId" value="LOCAL-00261" />
-      <option name="project" value="LOCAL" />
-      <updated>1685689095293</updated>
     </task>
     <task id="LOCAL-00262" summary="Put promotion into separate method">
       <created>1685689447479</created>
@@ -495,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685977057620</updated>
     </task>
-    <option name="localTasksCounter" value="310" />
+    <task id="LOCAL-00310" summary="package name refactor">
+      <created>1686052258511</created>
+      <option name="number" value="00310" />
+      <option name="presentableId" value="LOCAL-00310" />
+      <option name="project" value="LOCAL" />
+      <updated>1686052258512</updated>
+    </task>
+    <option name="localTasksCounter" value="311" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -512,7 +510,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="update update to actually call method pruning moves that put self in check" />
     <MESSAGE value="Added king setting to Game copy constructor" />
     <MESSAGE value="TODO comments" />
     <MESSAGE value="bugfixing, work in progress" />
@@ -537,7 +534,8 @@
     <MESSAGE value="initialize Maven support" />
     <MESSAGE value="refactor" />
     <MESSAGE value="maven initialization" />
-    <option name="LAST_COMMIT_MESSAGE" value="maven initialization" />
+    <MESSAGE value="package name refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="package name refactor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

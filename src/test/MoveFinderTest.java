@@ -1,8 +1,8 @@
 package test;
 
-import main.java.classes.instances.Game;
-import main.java.classes.game.Move;
-import main.java.classes.structures.Team;
+import classes.instances.Game;
+import classes.game.Move;
+import classes.structures.Team;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

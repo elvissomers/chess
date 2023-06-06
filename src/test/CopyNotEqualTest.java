@@ -1,8 +1,8 @@
 package test;
 
-import main.java.classes.instances.Game;
+import classes.instances.Game;
 
-import main.java.classes.pieces.Piece;
+import classes.pieces.Piece;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
