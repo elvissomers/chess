@@ -21,11 +21,11 @@ public abstract class Piece {
 
     private Set<MovementType> moveRules = new HashSet<>();
 
-    public Piece(Player player) {
+    protected Piece(Player player) {
         this.player = player;
     }
 
-    public Piece(Piece other) {
+    protected Piece(Piece other) {
         if (other == null){
             throw new IllegalArgumentException("Cannot copy a null Piece");
         }
