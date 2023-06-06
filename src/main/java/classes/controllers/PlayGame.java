@@ -1,7 +1,7 @@
-package main.java.classes.controllers;
+package classes.controllers;
 
-import main.java.classes.instances.Game;
-import main.java.classes.structures.Team;
+import classes.instances.Game;
+import classes.structures.Team;
 
 public class PlayGame {
 

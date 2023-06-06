@@ -1,7 +1,6 @@
-package main.java.classes.structures;
+package classes.structures;
 
-import main.classes.pieces.*;
-import main.java.classes.pieces.*;
+import classes.pieces.*;
 
 public enum PieceType {
     PAWN(Pawn.class),

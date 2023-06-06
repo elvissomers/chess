@@ -1,13 +1,12 @@
-package main.java.classes.instances;
+package classes.instances;
 
-import main.java.classes.game.Move;
-import main.java.classes.movement.MoveMaker;
-import main.classes.pieces.*;
-import main.java.classes.pieces.King;
-import main.java.classes.pieces.Pawn;
-import main.java.classes.pieces.Piece;
-import main.java.classes.structures.Coordinate;
-import main.java.classes.structures.Team;
+import classes.game.Move;
+import classes.movement.MoveMaker;
+import classes.pieces.King;
+import classes.pieces.Pawn;
+import classes.pieces.Piece;
+import classes.structures.Coordinate;
+import classes.structures.Team;
 
 import java.util.ArrayList;
 import java.util.HashSet;

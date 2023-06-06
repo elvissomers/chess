@@ -1,9 +1,8 @@
-package main.java.classes.game;
+package classes.game;
 
-import main.classes.pieces.*;
-import main.java.classes.structures.CastleType;
-import main.java.classes.structures.Coordinate;
-import main.java.classes.pieces.Piece;
+import classes.structures.CastleType;
+import classes.structures.Coordinate;
+import classes.pieces.Piece;
 
 import java.util.Objects;
 

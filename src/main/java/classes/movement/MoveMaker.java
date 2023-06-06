@@ -1,13 +1,12 @@
-package main.java.classes.movement;
+package classes.movement;
 
-import main.java.classes.instances.Game;
-import main.java.classes.instances.Player;
-import main.java.classes.game.Move;
-import main.classes.pieces.*;
-import main.java.classes.pieces.*;
-import main.java.classes.structures.CastleType;
-import main.java.classes.structures.Coordinate;
-import main.java.classes.structures.Team;
+import classes.instances.Game;
+import classes.instances.Player;
+import classes.game.Move;
+import classes.pieces.*;
+import classes.structures.CastleType;
+import classes.structures.Coordinate;
+import classes.structures.Team;
 
 public class MoveMaker {
 

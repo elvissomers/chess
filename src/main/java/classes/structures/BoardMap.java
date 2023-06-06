@@ -1,9 +1,8 @@
-package main.java.classes.structures;
+package classes.structures;
 
-import main.java.classes.instances.Game;
-import main.java.classes.instances.Player;
-import main.classes.pieces.*;
-import main.java.classes.pieces.*;
+import classes.instances.Game;
+import classes.instances.Player;
+import classes.pieces.*;
 
 import java.util.HashMap;
 

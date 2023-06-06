@@ -1,9 +1,9 @@
-package main.java.classes.pieces;
+package classes.pieces;
 
-import main.java.classes.instances.Player;
-import main.java.classes.structures.Coordinate;
-import main.java.classes.structures.MovementType;
-import main.java.classes.structures.Team;
+import classes.instances.Player;
+import classes.structures.Coordinate;
+import classes.structures.MovementType;
+import classes.structures.Team;
 
 import java.util.Set;
 

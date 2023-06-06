@@ -1,7 +1,7 @@
-package main.java.classes.structures;
+package classes.structures;
 
-import main.java.classes.movement.MoveFinder;
-import main.java.classes.pieces.Piece;
+import classes.movement.MoveFinder;
+import classes.pieces.Piece;
 
 public enum MovementType {
     HORIZONTAL {

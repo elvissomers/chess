@@ -1,4 +1,4 @@
-package main.java.classes.structures;
+package classes.structures;
 
 public class Coordinate {
 

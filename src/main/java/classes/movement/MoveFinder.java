@@ -1,15 +1,15 @@
-package main.java.classes.movement;
+package classes.movement;
 
-import main.java.classes.instances.Game;
-import main.java.classes.instances.Player;
-import main.java.classes.game.Move;
-import main.java.classes.pieces.King;
-import main.java.classes.pieces.Pawn;
-import main.java.classes.pieces.Piece;
-import main.java.classes.pieces.Rook;
-import main.java.classes.structures.BoardMap;
-import main.java.classes.structures.Coordinate;
-import main.java.classes.structures.Team;
+import classes.instances.Game;
+import classes.instances.Player;
+import classes.game.Move;
+import classes.pieces.King;
+import classes.pieces.Pawn;
+import classes.pieces.Piece;
+import classes.pieces.Rook;
+import classes.structures.BoardMap;
+import classes.structures.Coordinate;
+import classes.structures.Team;
 
 import java.util.Set;
 

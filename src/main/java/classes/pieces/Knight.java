@@ -1,7 +1,7 @@
-package main.java.classes.pieces;
+package classes.pieces;
 
-import main.java.classes.instances.Player;
-import main.java.classes.structures.MovementType;
+import classes.instances.Player;
+import classes.structures.MovementType;
 
 import java.util.Set;
 
