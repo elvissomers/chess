@@ -17,9 +17,9 @@ public class MoveFinder {
 
     // TODO: Use helper methods board.getCoordinate/PieceByPos in all methods
 
-    private final int xSize = 8;
+    private static final int xSize = 8;
 
-    private final int ySize = 8;
+    private static final int ySize = 8;
 
     public void setHorizontalMoves(Piece piece, BoardMap board){
         int xPos = piece.getPosition().getX();
