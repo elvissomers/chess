@@ -15,8 +15,8 @@ public class StartPositionTypeTest {
 
     private Game game;
 
-    static Stream<Boolean> copyBoard() {
-        return Stream.of(Boolean.TRUE, Boolean.FALSE);
+    static Stream<boolean> copyBoard() {
+        return Stream.of(true, false);
     }
 
     @BeforeEach
@@ -26,7 +26,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestA1HasRook(Boolean copy) {
+    public void newGameTestA1HasRook(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -36,7 +36,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestB1HasKnight(Boolean copy) {
+    public void newGameTestB1HasKnight(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -46,7 +46,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestC1HasBishop(Boolean copy) {
+    public void newGameTestC1HasBishop(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -56,7 +56,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestD1HasQueen(Boolean copy) {
+    public void newGameTestD1HasQueen(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -66,7 +66,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestE1HasKing(Boolean copy) {
+    public void newGameTestE1HasKing(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -76,7 +76,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestF1HasBishop(Boolean copy) {
+    public void newGameTestF1HasBishop(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -86,7 +86,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestG1HasKnight(Boolean copy) {
+    public void newGameTestG1HasKnight(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -96,7 +96,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestH1HasRook(Boolean copy) {
+    public void newGameTestH1HasRook(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -106,7 +106,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestA2HasPawn(Boolean copy) {
+    public void newGameTestA2HasPawn(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -116,7 +116,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestB2HasPawn(Boolean copy) {
+    public void newGameTestB2HasPawn(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -126,7 +126,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestC2HasPawn(Boolean copy) {
+    public void newGameTestC2HasPawn(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -136,7 +136,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestD2HasPawn(Boolean copy) {
+    public void newGameTestD2HasPawn(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -146,7 +146,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestE2HasPawn(Boolean copy) {
+    public void newGameTestE2HasPawn(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -156,7 +156,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestF2HasPawn(Boolean copy) {
+    public void newGameTestF2HasPawn(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -166,7 +166,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestG2HasPawn(Boolean copy) {
+    public void newGameTestG2HasPawn(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -176,7 +176,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestH2HasPawn(Boolean copy) {
+    public void newGameTestH2HasPawn(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -186,7 +186,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestA7HasPawn(Boolean copy) {
+    public void newGameTestA7HasPawn(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -196,7 +196,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestB7HasPawn(Boolean copy) {
+    public void newGameTestB7HasPawn(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -206,7 +206,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestC7HasPawn(Boolean copy) {
+    public void newGameTestC7HasPawn(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -216,7 +216,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestD7HasPawn(Boolean copy) {
+    public void newGameTestD7HasPawn(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -226,7 +226,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestE7HasPawn(Boolean copy) {
+    public void newGameTestE7HasPawn(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -236,7 +236,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestF7HasPawn(Boolean copy) {
+    public void newGameTestF7HasPawn(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -246,7 +246,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestG7HasPawn(Boolean copy) {
+    public void newGameTestG7HasPawn(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -256,7 +256,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestH7HasPawn(Boolean copy) {
+    public void newGameTestH7HasPawn(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -266,7 +266,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestA8HasRook(Boolean copy) {
+    public void newGameTestA8HasRook(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -276,7 +276,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestB8HasKnight(Boolean copy) {
+    public void newGameTestB8HasKnight(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -286,7 +286,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestC8HasBishop(Boolean copy) {
+    public void newGameTestC8HasBishop(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -296,7 +296,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestD8HasQueen(Boolean copy) {
+    public void newGameTestD8HasQueen(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -306,7 +306,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestE8HasKing(Boolean copy) {
+    public void newGameTestE8HasKing(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -316,7 +316,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestF8HasBishop(Boolean copy) {
+    public void newGameTestF8HasBishop(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -326,7 +326,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestG8HasKnight(Boolean copy) {
+    public void newGameTestG8HasKnight(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
@@ -336,7 +336,7 @@ public class StartPositionTypeTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestH8HasRook(Boolean copy) {
+    public void newGameTestH8HasRook(boolean copy) {
         if (copy) {
             game = new Game(game);
         }
