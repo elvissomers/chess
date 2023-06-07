@@ -16,8 +16,8 @@ public class StartPositionTeamTest {
 
     private Game game;
 
-    static Stream<Boolean> copyBoard() {
-        return Stream.of(Boolean.TRUE, Boolean.FALSE);
+    static Stream<boolean> copyBoard() {
+        return Stream.of(true, false);
     }
 
     @BeforeEach
@@ -27,7 +27,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestA1IsWhite(Boolean copy) {
+    public void newGameTestA1IsWhite(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -37,7 +37,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestB1IsWhite(Boolean copy) {
+    public void newGameTestB1IsWhite(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -47,7 +47,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestC1IsWhite(Boolean copy) {
+    public void newGameTestC1IsWhite(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -57,7 +57,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestD1IsWhite(Boolean copy) {
+    public void newGameTestD1IsWhite(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -67,7 +67,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestE1IsWhite(Boolean copy) {
+    public void newGameTestE1IsWhite(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -77,7 +77,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestF1IsWhite(Boolean copy) {
+    public void newGameTestF1IsWhite(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -87,7 +87,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestG1IsWhite(Boolean copy) {
+    public void newGameTestG1IsWhite(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -97,7 +97,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestH1IsWhite(Boolean copy) {
+    public void newGameTestH1IsWhite(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -107,7 +107,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestA2IsWhite(Boolean copy) {
+    public void newGameTestA2IsWhite(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -117,7 +117,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestB2IsWhite(Boolean copy) {
+    public void newGameTestB2IsWhite(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -127,7 +127,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestC2IsWhite(Boolean copy) {
+    public void newGameTestC2IsWhite(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -137,7 +137,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestD2IsWhite(Boolean copy) {
+    public void newGameTestD2IsWhite(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -147,7 +147,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestE2IsWhite(Boolean copy) {
+    public void newGameTestE2IsWhite(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -157,7 +157,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestF2IsWhite(Boolean copy) {
+    public void newGameTestF2IsWhite(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -167,7 +167,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestG2IsWhite(Boolean copy) {
+    public void newGameTestG2IsWhite(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -177,7 +177,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestH2IsWhite(Boolean copy) {
+    public void newGameTestH2IsWhite(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -187,7 +187,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestA7IsBlack(Boolean copy) {
+    public void newGameTestA7IsBlack(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -197,7 +197,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestB7IsBlack(Boolean copy) {
+    public void newGameTestB7IsBlack(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -207,7 +207,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestC7IsBlack(Boolean copy) {
+    public void newGameTestC7IsBlack(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -217,7 +217,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestD7IsBlack(Boolean copy) {
+    public void newGameTestD7IsBlack(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -227,7 +227,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestE7IsBlack(Boolean copy) {
+    public void newGameTestE7IsBlack(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -237,7 +237,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestF7IsBlack(Boolean copy) {
+    public void newGameTestF7IsBlack(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -247,7 +247,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestG7IsBlack(Boolean copy) {
+    public void newGameTestG7IsBlack(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -257,7 +257,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestH7IsBlack(Boolean copy) {
+    public void newGameTestH7IsBlack(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -267,7 +267,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestA8IsBlack(Boolean copy) {
+    public void newGameTestA8IsBlack(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -277,7 +277,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestB8IsBlack(Boolean copy) {
+    public void newGameTestB8IsBlack(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -287,7 +287,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestC8IsBlack(Boolean copy) {
+    public void newGameTestC8IsBlack(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -297,7 +297,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestD8IsBlack(Boolean copy) {
+    public void newGameTestD8IsBlack(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -307,7 +307,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestE8IsBlack(Boolean copy) {
+    public void newGameTestE8IsBlack(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -317,7 +317,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestF8IsBlack(Boolean copy) {
+    public void newGameTestF8IsBlack(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -327,7 +327,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestG8IsBlack(Boolean copy) {
+    public void newGameTestG8IsBlack(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
@@ -337,7 +337,7 @@ public class StartPositionTeamTest {
 
     @ParameterizedTest
     @MethodSource("copyBoard")
-    public void newGameTestH8IsBlack(Boolean copy) {
+    public void newGameTestH8IsBlack(boolean copy) {
     if (copy) {
         game = new Game(game);
     }
