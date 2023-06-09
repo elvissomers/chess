@@ -17,4 +17,10 @@ public class PlayGame {
         return game.getBoard().getPieceByPos(i,j).getMovableSquares();
     }
 
+    @PutRequest
+    private void movePiece(Piece piece, Coordinate destination){
+        Move move = game.getMoveMaker.getMove(piece, destination);
+        game.getMoveMaker.makeMove(move);
+    }
+
 }
