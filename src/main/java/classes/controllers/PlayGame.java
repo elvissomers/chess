@@ -23,6 +23,7 @@ public class PlayGame {
     private void movePiece(Piece piece, Coordinate destination){
         Move move = game.getMoveMaker().getMove(game, piece, destination);
         game.getMoveMaker().makeMove(game, move);
+        game.update(piece.getPlayer().getTeam())
     }
 
 }
