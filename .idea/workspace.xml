@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="package name refactor">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Setup get method in PlayGame.java (will be setup as Spring controller later)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,12 +41,13 @@
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
@@ -66,7 +66,7 @@
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="chess" />
+      <module name="chess-app" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -152,55 +152,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00263" summary="formatting, remove comment">
-      <created>1685689471481</created>
-      <option name="number" value="00263" />
-      <option name="presentableId" value="LOCAL-00263" />
-      <option name="project" value="LOCAL" />
-      <updated>1685689471481</updated>
-    </task>
-    <task id="LOCAL-00264" summary="quick syntax shortening">
-      <created>1685689514970</created>
-      <option name="number" value="00264" />
-      <option name="presentableId" value="LOCAL-00264" />
-      <option name="project" value="LOCAL" />
-      <updated>1685689514970</updated>
-    </task>
-    <task id="LOCAL-00265" summary="finished castling in makeMove">
-      <created>1685690835613</created>
-      <option name="number" value="00265" />
-      <option name="presentableId" value="LOCAL-00265" />
-      <option name="project" value="LOCAL" />
-      <updated>1685690835613</updated>
-    </task>
-    <task id="LOCAL-00266" summary="started pruning moves that put player in check in MoveFinder.java">
-      <created>1685692115617</created>
-      <option name="number" value="00266" />
-      <option name="presentableId" value="LOCAL-00266" />
-      <option name="project" value="LOCAL" />
-      <updated>1685692115617</updated>
-    </task>
-    <task id="LOCAL-00267" summary="create Game.update">
-      <created>1685699084924</created>
-      <option name="number" value="00267" />
-      <option name="presentableId" value="LOCAL-00267" />
-      <option name="project" value="LOCAL" />
-      <updated>1685699084924</updated>
-    </task>
-    <task id="LOCAL-00268" summary="formatting">
-      <created>1685699159317</created>
-      <option name="number" value="00268" />
-      <option name="presentableId" value="LOCAL-00268" />
-      <option name="project" value="LOCAL" />
-      <updated>1685699159317</updated>
-    </task>
-    <task id="LOCAL-00269" summary="setInCheck method">
-      <created>1685699373001</created>
-      <option name="number" value="00269" />
-      <option name="presentableId" value="LOCAL-00269" />
-      <option name="project" value="LOCAL" />
-      <updated>1685699373001</updated>
     </task>
     <task id="LOCAL-00270" summary="update update method">
       <created>1685699407692</created>
@@ -496,7 +447,56 @@
       <option name="project" value="LOCAL" />
       <updated>1686052382355</updated>
     </task>
-    <option name="localTasksCounter" value="312" />
+    <task id="LOCAL-00312" summary="update pom.xml to contain sonarqube">
+      <created>1686055954466</created>
+      <option name="number" value="00312" />
+      <option name="presentableId" value="LOCAL-00312" />
+      <option name="project" value="LOCAL" />
+      <updated>1686055954466</updated>
+    </task>
+    <task id="LOCAL-00313" summary="set piece constructors to protected">
+      <created>1686060875196</created>
+      <option name="number" value="00313" />
+      <option name="presentableId" value="LOCAL-00313" />
+      <option name="project" value="LOCAL" />
+      <updated>1686060875196</updated>
+    </task>
+    <task id="LOCAL-00314" summary="set board size as &quot;static&quot;">
+      <created>1686061471921</created>
+      <option name="number" value="00314" />
+      <option name="presentableId" value="LOCAL-00314" />
+      <option name="project" value="LOCAL" />
+      <updated>1686061471921</updated>
+    </task>
+    <task id="LOCAL-00315" summary="Made game and coordinateArray &quot;transient&quot;">
+      <created>1686061968949</created>
+      <option name="number" value="00315" />
+      <option name="presentableId" value="LOCAL-00315" />
+      <option name="project" value="LOCAL" />
+      <updated>1686061968949</updated>
+    </task>
+    <task id="LOCAL-00316" summary="Replace Boolean with boolean">
+      <created>1686147331009</created>
+      <option name="number" value="00316" />
+      <option name="presentableId" value="LOCAL-00316" />
+      <option name="project" value="LOCAL" />
+      <updated>1686147331009</updated>
+    </task>
+    <task id="LOCAL-00317" summary="Replace Boolean with boolean">
+      <created>1686147358215</created>
+      <option name="number" value="00317" />
+      <option name="presentableId" value="LOCAL-00317" />
+      <option name="project" value="LOCAL" />
+      <updated>1686147358215</updated>
+    </task>
+    <task id="LOCAL-00318" summary="Setup get method in PlayGame.java (will be setup as Spring controller later)">
+      <created>1686236753771</created>
+      <option name="number" value="00318" />
+      <option name="presentableId" value="LOCAL-00318" />
+      <option name="project" value="LOCAL" />
+      <updated>1686236753771</updated>
+    </task>
+    <option name="localTasksCounter" value="319" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -513,12 +513,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Added king setting to Game copy constructor" />
-    <MESSAGE value="TODO comments" />
-    <MESSAGE value="bugfixing, work in progress" />
-    <MESSAGE value="moved removePreviousMovableSquares to Piece.setMovableSquares (from MoveFinder methods)" />
-    <MESSAGE value="Added &quot;legalMovableSquares&quot; attribute aside from just movableSquares" />
-    <MESSAGE value="Added moveRules to copied piece" />
     <MESSAGE value="Correct player is assigned to piece on copied board. Test passes now" />
     <MESSAGE value="empty out allattackedsquares before setting it" />
     <MESSAGE value="remove old //TODO comments" />
@@ -538,7 +532,13 @@
     <MESSAGE value="refactor" />
     <MESSAGE value="maven initialization" />
     <MESSAGE value="package name refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="package name refactor" />
+    <MESSAGE value="update pom.xml to contain sonarqube" />
+    <MESSAGE value="set piece constructors to protected" />
+    <MESSAGE value="set board size as &quot;static&quot;" />
+    <MESSAGE value="Made game and coordinateArray &quot;transient&quot;" />
+    <MESSAGE value="Replace Boolean with boolean" />
+    <MESSAGE value="Setup get method in PlayGame.java (will be setup as Spring controller later)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Setup get method in PlayGame.java (will be setup as Spring controller later)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -592,5 +592,9 @@
         <watch expression="copyOfOpponentPlayer.allAttackedSquares.toArray()[19]" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
