@@ -37,7 +37,7 @@ public class MoveMaker {
         return(new Move(piece, fromSquare, destination, takenPiece, castleType, promoted));
     }
 
-    public void makeMove(Move move, Game game){
+    public void makeMove(Game game, Move move){
         Player thisPlayer = (move.getPiece().getPlayer().getTeam() == Team.WHITE) ? game.getWhitePlayer() :
                 game.getBlackPlayer();
         thisPlayer.getMoveHistory().add(move);
