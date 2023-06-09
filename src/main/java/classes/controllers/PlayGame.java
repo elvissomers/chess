@@ -1,6 +1,8 @@
 package classes.controllers;
 
+import classes.game.Move;
 import classes.instances.Game;
+import classes.pieces.Piece;
 import classes.structures.Coordinate;
 import classes.structures.Team;
 
@@ -19,8 +21,8 @@ public class PlayGame {
 
     @PutRequest
     private void movePiece(Piece piece, Coordinate destination){
-        Move move = game.getMoveMaker.getMove(piece, destination);
-        game.getMoveMaker.makeMove(move);
+        Move move = game.getMoveMaker().getMove(game, piece, destination);
+        game.getMoveMaker().makeMove(game, move);
     }
 
 }
