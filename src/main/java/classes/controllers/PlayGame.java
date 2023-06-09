@@ -1,5 +1,6 @@
 package classes.controllers;
 
+import classes.dto.MovePieceDto;
 import classes.game.Move;
 import classes.instances.Game;
 import classes.pieces.Piece;
@@ -20,10 +21,12 @@ public class PlayGame {
     }
 
     @PutRequest
-    private void movePiece(Piece piece, Coordinate destination){
+    private void movePiece(MovePieceDto movePieceDto){
+        Piece piece = game.getBoard().getPieceByPos(movePieceDto.getxFrom(), movePieceDto.getyFrom());
+        Coordinate destination = game.getBoard().getCoordinateByPos(movePieceDto.getxTo(), movePieceDto.getyTo());
         Move move = game.getMoveMaker().getMove(game, piece, destination);
         game.getMoveMaker().makeMove(game, move);
-        game.update(piece.getPlayer().getTeam())
+        game.update(piece.getPlayer().getTeam());
     }
 
 }
