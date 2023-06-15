@@ -245,7 +245,7 @@ public class MoveFinder {
     }
 
     public void pruneSelfCheckMove(Piece piece, Move move, MoveMaker moveMaker, Game game){
-        moveMaker.makeMove(move, game);
+        moveMaker.makeMove(game, move);
         Player copyOfCurrentPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? game.getWhitePlayer() :
                 game.getBlackPlayer();
         Player copyOfOpponentPlayer = (copyOfCurrentPlayer.getTeam() == Team.WHITE) ? game.getBlackPlayer() :
