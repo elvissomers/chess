@@ -2,7 +2,6 @@ package com.ordina.nl.chess.structures;
 
 import com.ordina.nl.chess.instances.Game;
 import com.ordina.nl.chess.instances.Player;
-import classes.pieces.*;
 import com.ordina.nl.chess.pieces.*;
 
 import java.util.HashMap;
