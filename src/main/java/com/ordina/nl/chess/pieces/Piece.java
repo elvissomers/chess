@@ -3,16 +3,21 @@ package com.ordina.nl.chess.pieces;
 import com.ordina.nl.chess.instances.Player;
 import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.structures.MovementType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Entity
 public abstract class Piece {
 
+    @Column
     private Coordinate position;
 
+    @Column
     private Player player;
 
     private List<Coordinate> movableSquares = new ArrayList<>();
