@@ -1,0 +1,13 @@
+// The MoveFinder methods have to be of the following format:
+
+// Input: A piece, A game.
+
+// Output: The coordinates that this piece can move to.
+
+// In order to do so, it should:
+
+// 1). Find all movable squares for this piece, self checking or not.
+// 2). Find all movable squares for all pieces of the enemy player, self checking or not.
+// 3). Remove all self checking moves for this piece, to obtain all legal moves.
+
+// It then returns a list/set of coordinates.
