@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Setup get method in PlayGame.java (will be setup as Spring controller later)">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="template">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/classes/structures/BoardMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/classes/structures/BoardMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,13 +18,20 @@
       <list>
         <option value="Interface" />
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="2PgVWpDQL98i350SrB0oNYIuhxN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -46,6 +54,7 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess/src/Main.java&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
@@ -152,76 +161,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00270" summary="update update method">
-      <created>1685699407692</created>
-      <option name="number" value="00270" />
-      <option name="presentableId" value="LOCAL-00270" />
-      <option name="project" value="LOCAL" />
-      <updated>1685699407692</updated>
-    </task>
-    <task id="LOCAL-00271" summary="move moveMaker from Player to Game">
-      <created>1685699590738</created>
-      <option name="number" value="00271" />
-      <option name="presentableId" value="LOCAL-00271" />
-      <option name="project" value="LOCAL" />
-      <updated>1685699590738</updated>
-    </task>
-    <task id="LOCAL-00272" summary="move moveFinder from Piece to Game">
-      <created>1685699656121</created>
-      <option name="number" value="00272" />
-      <option name="presentableId" value="LOCAL-00272" />
-      <option name="project" value="LOCAL" />
-      <updated>1685699656121</updated>
-    </task>
-    <task id="LOCAL-00273" summary="toString() methods in all Pieces">
-      <created>1685699804752</created>
-      <option name="number" value="00273" />
-      <option name="presentableId" value="LOCAL-00273" />
-      <option name="project" value="LOCAL" />
-      <updated>1685699804752</updated>
-    </task>
-    <task id="LOCAL-00274" summary="update Move.toString">
-      <created>1685699969558</created>
-      <option name="number" value="00274" />
-      <option name="presentableId" value="LOCAL-00274" />
-      <option name="project" value="LOCAL" />
-      <updated>1685699969558</updated>
-    </task>
-    <task id="LOCAL-00275" summary="In case of en passant, pawn is taken">
-      <created>1685700574858</created>
-      <option name="number" value="00275" />
-      <option name="presentableId" value="LOCAL-00275" />
-      <option name="project" value="LOCAL" />
-      <updated>1685700574858</updated>
-    </task>
-    <task id="LOCAL-00276" summary="remove unused statement">
-      <created>1685700676772</created>
-      <option name="number" value="00276" />
-      <option name="presentableId" value="LOCAL-00276" />
-      <option name="project" value="LOCAL" />
-      <updated>1685700676772</updated>
-    </task>
-    <task id="LOCAL-00277" summary="set piece coordinates in initial board setup">
-      <created>1685701600135</created>
-      <option name="number" value="00277" />
-      <option name="presentableId" value="LOCAL-00277" />
-      <option name="project" value="LOCAL" />
-      <updated>1685701600135</updated>
-    </task>
-    <task id="LOCAL-00278" summary="Added extra test - changing a piece on the copied board should not change the piece on the original board">
-      <created>1685701617451</created>
-      <option name="number" value="00278" />
-      <option name="presentableId" value="LOCAL-00278" />
-      <option name="project" value="LOCAL" />
-      <updated>1685701617451</updated>
-    </task>
-    <task id="LOCAL-00279" summary="Remove &quot;board&quot; attribute from piece class - retrieve it from Player instead">
-      <created>1685701766338</created>
-      <option name="number" value="00279" />
-      <option name="presentableId" value="LOCAL-00279" />
-      <option name="project" value="LOCAL" />
-      <updated>1685701766338</updated>
     </task>
     <task id="LOCAL-00280" summary="remove setAllAttackedSquares from checkcheck, since it is already done in update">
       <created>1685701954578</created>
@@ -496,7 +435,77 @@
       <option name="project" value="LOCAL" />
       <updated>1686236753771</updated>
     </task>
-    <option name="localTasksCounter" value="319" />
+    <task id="LOCAL-00319" summary="unversioned files">
+      <created>1686292291732</created>
+      <option name="number" value="00319" />
+      <option name="presentableId" value="LOCAL-00319" />
+      <option name="project" value="LOCAL" />
+      <updated>1686292291732</updated>
+    </task>
+    <task id="LOCAL-00320" summary="playgame dummy method movePiece">
+      <created>1686292387399</created>
+      <option name="number" value="00320" />
+      <option name="presentableId" value="LOCAL-00320" />
+      <option name="project" value="LOCAL" />
+      <updated>1686292387399</updated>
+    </task>
+    <task id="LOCAL-00321" summary="playgame dummy method movePiece">
+      <created>1686292515708</created>
+      <option name="number" value="00321" />
+      <option name="presentableId" value="LOCAL-00321" />
+      <option name="project" value="LOCAL" />
+      <updated>1686292515708</updated>
+    </task>
+    <task id="LOCAL-00322" summary="small reformat (method paramater order)">
+      <created>1686292530941</created>
+      <option name="number" value="00322" />
+      <option name="presentableId" value="LOCAL-00322" />
+      <option name="project" value="LOCAL" />
+      <updated>1686292530941</updated>
+    </task>
+    <task id="LOCAL-00323" summary="small reformat (method paramater order)">
+      <created>1686293187139</created>
+      <option name="number" value="00323" />
+      <option name="presentableId" value="LOCAL-00323" />
+      <option name="project" value="LOCAL" />
+      <updated>1686293187139</updated>
+    </task>
+    <task id="LOCAL-00324" summary="Added DTO for piece moving">
+      <created>1686293351071</created>
+      <option name="number" value="00324" />
+      <option name="presentableId" value="LOCAL-00324" />
+      <option name="project" value="LOCAL" />
+      <updated>1686293351071</updated>
+    </task>
+    <task id="LOCAL-00325" summary="ordering of inputs in moveMaker.makeMove">
+      <created>1686818988015</created>
+      <option name="number" value="00325" />
+      <option name="presentableId" value="LOCAL-00325" />
+      <option name="project" value="LOCAL" />
+      <updated>1686818988016</updated>
+    </task>
+    <task id="LOCAL-00326" summary="sprint init demo">
+      <created>1687247566005</created>
+      <option name="number" value="00326" />
+      <option name="presentableId" value="LOCAL-00326" />
+      <option name="project" value="LOCAL" />
+      <updated>1687247566005</updated>
+    </task>
+    <task id="LOCAL-00327" summary="template added">
+      <created>1687248984493</created>
+      <option name="number" value="00327" />
+      <option name="presentableId" value="LOCAL-00327" />
+      <option name="project" value="LOCAL" />
+      <updated>1687248984493</updated>
+    </task>
+    <task id="LOCAL-00328" summary="template">
+      <created>1687249371143</created>
+      <option name="number" value="00328" />
+      <option name="presentableId" value="LOCAL-00328" />
+      <option name="project" value="LOCAL" />
+      <updated>1687249371143</updated>
+    </task>
+    <option name="localTasksCounter" value="329" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -513,14 +522,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Correct player is assigned to piece on copied board. Test passes now" />
-    <MESSAGE value="empty out allattackedsquares before setting it" />
-    <MESSAGE value="remove old //TODO comments" />
-    <MESSAGE value="saving moves to moveHistory" />
-    <MESSAGE value="Added &quot;GameState&quot; (draw/white/blackwins/ongoing)" />
-    <MESSAGE value="Added allMovableSquares attribute to Player.java" />
-    <MESSAGE value="Overwrite equals() and hashCode() in Move.java" />
-    <MESSAGE value="Implemented three fold repetition check" />
     <MESSAGE value="Implemented fifty move rule check" />
     <MESSAGE value="Stalemate check, implemented Team input in Game.update" />
     <MESSAGE value="implement toString() in BoardMap.java" />
@@ -538,43 +539,17 @@
     <MESSAGE value="Made game and coordinateArray &quot;transient&quot;" />
     <MESSAGE value="Replace Boolean with boolean" />
     <MESSAGE value="Setup get method in PlayGame.java (will be setup as Spring controller later)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup get method in PlayGame.java (will be setup as Spring controller later)" />
+    <MESSAGE value="unversioned files" />
+    <MESSAGE value="playgame dummy method movePiece" />
+    <MESSAGE value="small reformat (method paramater order)" />
+    <MESSAGE value="Added DTO for piece moving" />
+    <MESSAGE value="ordering of inputs in moveMaker.makeMove" />
+    <MESSAGE value="sprint init demo" />
+    <MESSAGE value="template added" />
+    <MESSAGE value="template" />
+    <option name="LAST_COMMIT_MESSAGE" value="template" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/MoveFinderTest.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/classes/movement/MoveFinder.java</url>
-          <line>234</line>
-          <option name="timeStamp" value="75" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/classes/movement/MoveFinder.java</url>
-          <line>235</line>
-          <option name="timeStamp" value="76" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/classes/movement/MoveFinder.java</url>
-          <line>252</line>
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/classes/movement/MoveFinder.java</url>
-          <line>253</line>
-          <option name="timeStamp" value="78" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/classes/movement/MoveFinder.java</url>
-          <line>254</line>
-          <option name="timeStamp" value="79" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="main.classes.controllers.Player" memberName="game" />

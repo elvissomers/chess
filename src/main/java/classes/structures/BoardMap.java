@@ -70,7 +70,7 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
 
             player.getPieces().add(piece);
             if (piece instanceof King king)
-                player.setKing(king);
+                player.setKing( king);
         }
 
         for (int xPos = 0; xPos < horizontalSize; xPos++){
