@@ -11,3 +11,9 @@
 // 3). Remove all self checking moves for this piece, to obtain all legal moves.
 
 // It then returns a list/set of coordinates.
+
+// So, instead of adding the movable coordinates to the piece attribute, a return list should be passed
+// into the function as an argument. Then, the movable squares can be added to that list before it is returned.
+// Note: We should have a separate list for the legal movable squares, since we don't want to remove elemnts from
+// a data structure while we are iterating over it. So , the movable squares array is only a temporary element.
+// The list that is actually returned is only ever the LegalMovableSquares.
