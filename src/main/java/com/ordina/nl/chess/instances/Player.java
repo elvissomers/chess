@@ -7,6 +7,9 @@ import com.ordina.nl.chess.pieces.Pawn;
 import com.ordina.nl.chess.pieces.Piece;
 import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.structures.Team;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -17,6 +20,11 @@ public class Player {
 
     private final Game game;
 
+    @ManyToMany
+    @JoinTable(
+            name = "player_moves",
+            joinColumns = @JoinColumn(name = "player_id"),
+            inverseJoinColumns = @JoinColumn(name = "move_id"))
     private List<Move> moveHistory = new ArrayList<>();
 
     private final Team team;

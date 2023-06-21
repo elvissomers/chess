@@ -1,13 +1,13 @@
 package com.ordina.nl.chess.game;
 
+import com.ordina.nl.chess.instances.Player;
 import com.ordina.nl.chess.structures.CastleType;
 import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.pieces.Piece;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Move {
@@ -37,6 +37,9 @@ public class Move {
     // TODO: piece or piecetype here?
     @Column
     private final boolean promoted;
+
+    @ManyToMany(mappedBy = "moveHistory")
+    private List<Player> players = new ArrayList<>();
 
     public Move(Piece piece, Coordinate squareFrom, Coordinate squareTo, Piece takenPiece, CastleType castleType,
                 boolean promoted) {
