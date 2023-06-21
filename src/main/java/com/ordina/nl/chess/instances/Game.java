@@ -10,9 +10,11 @@ import com.ordina.nl.chess.structures.BoardMap;
 import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.structures.GameState;
 import com.ordina.nl.chess.structures.Team;
+import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -22,16 +24,20 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(nullable = false)
     private GameState state;
 
     private final BoardMap board;
 
+    // TODO: one to one OR one to many? Replace with a Player[] array of size 2?
     private final Player whitePlayer;
 
     private final Player blackPlayer;
 
+    @Autowired
     private final MoveFinder moveFinder = new MoveFinder();
 
+    @Autowired
     private final MoveMaker moveMaker = new MoveMaker();
 
     // TODO : update all empty constructors
