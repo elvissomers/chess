@@ -7,9 +7,7 @@ import com.ordina.nl.chess.pieces.Pawn;
 import com.ordina.nl.chess.pieces.Piece;
 import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.structures.Team;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -18,6 +16,11 @@ import java.util.Set;
 
 public class Player {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @ManyToOne
     private final Game game;
 
     @ManyToMany
@@ -27,14 +30,17 @@ public class Player {
             inverseJoinColumns = @JoinColumn(name = "move_id"))
     private List<Move> moveHistory = new ArrayList<>();
 
+    @Column(nullable = false)
     private final Team team;
 
+    @OneToMany(mappedBy = "player", orphanRemoval = true)
     private Set<Piece> pieces = new HashSet<>();
 
     private Set<Coordinate> allAttackedSquares = new HashSet<>();
     
     private Set<Coordinate> allMovableSquares = new HashSet<>();
 
+    // TODO: just get it from pieces whenever needed
     private King king;
 
     public Player(Game game, Team team) {

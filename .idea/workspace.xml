@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="added IDs and anootations">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/repository/MoveRepository.java" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Player and piece repositories">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/game/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/game/Move.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,34 +164,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00288" summary="Added &quot;legalMovableSquares&quot; attribute aside from just movableSquares">
-      <created>1685952276842</created>
-      <option name="number" value="00288" />
-      <option name="presentableId" value="LOCAL-00288" />
-      <option name="project" value="LOCAL" />
-      <updated>1685952276842</updated>
-    </task>
-    <task id="LOCAL-00289" summary="Added &quot;legalMovableSquares&quot; attribute aside from just movableSquares">
-      <created>1685952456873</created>
-      <option name="number" value="00289" />
-      <option name="presentableId" value="LOCAL-00289" />
-      <option name="project" value="LOCAL" />
-      <updated>1685952456873</updated>
-    </task>
-    <task id="LOCAL-00290" summary="Added moveRules to copied piece">
-      <created>1685953488508</created>
-      <option name="number" value="00290" />
-      <option name="presentableId" value="LOCAL-00290" />
-      <option name="project" value="LOCAL" />
-      <updated>1685953488508</updated>
-    </task>
-    <task id="LOCAL-00291" summary="Correct player is assigned to piece on copied board. Test passes now">
-      <created>1685954032622</created>
-      <option name="number" value="00291" />
-      <option name="presentableId" value="LOCAL-00291" />
-      <option name="project" value="LOCAL" />
-      <updated>1685954032622</updated>
     </task>
     <task id="LOCAL-00292" summary="empty out allattackedsquares before setting it">
       <created>1685954506510</created>
@@ -511,7 +480,35 @@
       <option name="project" value="LOCAL" />
       <updated>1687339672639</updated>
     </task>
-    <option name="localTasksCounter" value="337" />
+    <task id="LOCAL-00337" summary="many to many relation between player and move">
+      <created>1687340015382</created>
+      <option name="number" value="00337" />
+      <option name="presentableId" value="LOCAL-00337" />
+      <option name="project" value="LOCAL" />
+      <updated>1687340015382</updated>
+    </task>
+    <task id="LOCAL-00338" summary="MoveRepository.java">
+      <created>1687340026347</created>
+      <option name="number" value="00338" />
+      <option name="presentableId" value="LOCAL-00338" />
+      <option name="project" value="LOCAL" />
+      <updated>1687340026347</updated>
+    </task>
+    <task id="LOCAL-00339" summary="MoveRepository.java">
+      <created>1687340031165</created>
+      <option name="number" value="00339" />
+      <option name="presentableId" value="LOCAL-00339" />
+      <option name="project" value="LOCAL" />
+      <updated>1687340031166</updated>
+    </task>
+    <task id="LOCAL-00340" summary="Player and piece repositories">
+      <created>1687340274245</created>
+      <option name="number" value="00340" />
+      <option name="presentableId" value="LOCAL-00340" />
+      <option name="project" value="LOCAL" />
+      <updated>1687340274245</updated>
+    </task>
+    <option name="localTasksCounter" value="341" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -529,9 +526,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="remove old comments" />
-    <MESSAGE value="formatting" />
-    <MESSAGE value="initialize Maven support" />
     <MESSAGE value="maven initialization" />
     <MESSAGE value="package name refactor" />
     <MESSAGE value="update pom.xml to contain sonarqube" />
@@ -554,7 +548,10 @@
     <MESSAGE value="added repositories" />
     <MESSAGE value="added IDs" />
     <MESSAGE value="added IDs and anootations" />
-    <option name="LAST_COMMIT_MESSAGE" value="added IDs and anootations" />
+    <MESSAGE value="many to many relation between player and move" />
+    <MESSAGE value="MoveRepository.java" />
+    <MESSAGE value="Player and piece repositories" />
+    <option name="LAST_COMMIT_MESSAGE" value="Player and piece repositories" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
