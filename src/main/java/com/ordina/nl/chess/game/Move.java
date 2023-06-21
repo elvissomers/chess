@@ -3,22 +3,39 @@ package com.ordina.nl.chess.game;
 import com.ordina.nl.chess.structures.CastleType;
 import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.pieces.Piece;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.util.Objects;
 
 public class Move {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column
+    private int number;
+
+    @Column(nullable = false)
     private final Piece piece;
 
+    @Column(nullable = false)
     private final Coordinate squareFrom;
 
+    @Column(nullable = false)
     private final Coordinate squareTo;
 
+    @Column
     private final Piece takenPiece;
 
+    @Column
     private final CastleType castleType;
 
     // TODO: piece or piecetype here?
+    @Column
     private final boolean promoted;
 
     public Move(Piece piece, Coordinate squareFrom, Coordinate squareTo, Piece takenPiece, CastleType castleType,
