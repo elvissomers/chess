@@ -3,6 +3,9 @@ package com.ordina.nl.chess.structures;
 import com.ordina.nl.chess.instances.Game;
 import com.ordina.nl.chess.instances.Player;
 import com.ordina.nl.chess.pieces.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.util.HashMap;
 
@@ -15,6 +18,9 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
      * players should be created before BoardMap. Their PieceMap, however, should still be
      * empty.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     private final transient Game game;
 

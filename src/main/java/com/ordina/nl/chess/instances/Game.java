@@ -10,10 +10,17 @@ import com.ordina.nl.chess.structures.BoardMap;
 import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.structures.GameState;
 import com.ordina.nl.chess.structures.Team;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.util.List;
 
 public class Game {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     private GameState state;
 
@@ -26,6 +33,8 @@ public class Game {
     private final MoveFinder moveFinder = new MoveFinder();
 
     private final MoveMaker moveMaker = new MoveMaker();
+
+    // TODO : update all empty constructors
 
     public Game() {
         whitePlayer = new Player(this, Team.WHITE);
@@ -60,6 +69,10 @@ public class Game {
                 }
             }
         }
+    }
+
+    public long getId() {
+        return id;
     }
 
     public BoardMap getBoard() {

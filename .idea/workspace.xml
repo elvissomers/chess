@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="template">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/classes/structures/BoardMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/classes/structures/BoardMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/structures/BoardMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/structures/BoardMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +27,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -43,6 +47,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
@@ -161,41 +166,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00280" summary="remove setAllAttackedSquares from checkcheck, since it is already done in update">
-      <created>1685701954578</created>
-      <option name="number" value="00280" />
-      <option name="presentableId" value="LOCAL-00280" />
-      <option name="project" value="LOCAL" />
-      <updated>1685701954578</updated>
-    </task>
-    <task id="LOCAL-00281" summary="implemented test for movefinder. Fails on pruning moves that put self in check">
-      <created>1685702005095</created>
-      <option name="number" value="00281" />
-      <option name="presentableId" value="LOCAL-00281" />
-      <option name="project" value="LOCAL" />
-      <updated>1685702005095</updated>
-    </task>
-    <task id="LOCAL-00282" summary="update update to actually call method pruning moves that put self in check">
-      <created>1685702157391</created>
-      <option name="number" value="00282" />
-      <option name="presentableId" value="LOCAL-00282" />
-      <option name="project" value="LOCAL" />
-      <updated>1685702157391</updated>
-    </task>
-    <task id="LOCAL-00283" summary="Added king setting to Game copy constructor">
-      <created>1685702265118</created>
-      <option name="number" value="00283" />
-      <option name="presentableId" value="LOCAL-00283" />
-      <option name="project" value="LOCAL" />
-      <updated>1685702265118</updated>
-    </task>
-    <task id="LOCAL-00284" summary="TODO comments">
-      <created>1685702366681</created>
-      <option name="number" value="00284" />
-      <option name="presentableId" value="LOCAL-00284" />
-      <option name="project" value="LOCAL" />
-      <updated>1685702366681</updated>
     </task>
     <task id="LOCAL-00285" summary="bugfixing, work in progress">
       <created>1685714650348</created>
@@ -505,7 +475,42 @@
       <option name="project" value="LOCAL" />
       <updated>1687249371143</updated>
     </task>
-    <option name="localTasksCounter" value="329" />
+    <task id="LOCAL-00329" summary="refactoring">
+      <created>1687254167035</created>
+      <option name="number" value="00329" />
+      <option name="presentableId" value="LOCAL-00329" />
+      <option name="project" value="LOCAL" />
+      <updated>1687254167035</updated>
+    </task>
+    <task id="LOCAL-00330" summary="refactoring">
+      <created>1687254368172</created>
+      <option name="number" value="00330" />
+      <option name="presentableId" value="LOCAL-00330" />
+      <option name="project" value="LOCAL" />
+      <updated>1687254368172</updated>
+    </task>
+    <task id="LOCAL-00331" summary="refactoring">
+      <created>1687254414927</created>
+      <option name="number" value="00331" />
+      <option name="presentableId" value="LOCAL-00331" />
+      <option name="project" value="LOCAL" />
+      <updated>1687254414927</updated>
+    </task>
+    <task id="LOCAL-00332" summary="@ annotations in Piece class">
+      <created>1687254470303</created>
+      <option name="number" value="00332" />
+      <option name="presentableId" value="LOCAL-00332" />
+      <option name="project" value="LOCAL" />
+      <updated>1687254470303</updated>
+    </task>
+    <task id="LOCAL-00333" summary="refactor">
+      <created>1687259840018</created>
+      <option name="number" value="00333" />
+      <option name="presentableId" value="LOCAL-00333" />
+      <option name="project" value="LOCAL" />
+      <updated>1687259840018</updated>
+    </task>
+    <option name="localTasksCounter" value="334" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -522,15 +527,13 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Implemented fifty move rule check" />
-    <MESSAGE value="Stalemate check, implemented Team input in Game.update" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="implement toString() in BoardMap.java" />
     <MESSAGE value="update toString() in BoardMap.java" />
     <MESSAGE value="print out a sample game in Main" />
     <MESSAGE value="remove old comments" />
     <MESSAGE value="formatting" />
     <MESSAGE value="initialize Maven support" />
-    <MESSAGE value="refactor" />
     <MESSAGE value="maven initialization" />
     <MESSAGE value="package name refactor" />
     <MESSAGE value="update pom.xml to contain sonarqube" />
@@ -547,7 +550,10 @@
     <MESSAGE value="sprint init demo" />
     <MESSAGE value="template added" />
     <MESSAGE value="template" />
-    <option name="LAST_COMMIT_MESSAGE" value="template" />
+    <MESSAGE value="refactoring" />
+    <MESSAGE value="@ annotations in Piece class" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
