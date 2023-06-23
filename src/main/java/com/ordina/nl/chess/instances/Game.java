@@ -33,6 +33,7 @@ public class Game {
 
     private final Player blackPlayer;
 
+    // TODO : logic classes should be @Autowired objects in Controller instead of Object?
     @Autowired
     private final MoveFinder moveFinder = new MoveFinder();
 
