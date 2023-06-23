@@ -21,7 +21,7 @@ public class Player {
     private long id;
 
     @ManyToOne
-    private final Game game;
+    private Game game;
 
     @ManyToMany
     @JoinTable(
@@ -31,7 +31,7 @@ public class Player {
     private List<Move> moveHistory = new ArrayList<>();
 
     @Column(nullable = false)
-    private final Team team;
+    private Team team;
 
     @OneToMany(mappedBy = "player", orphanRemoval = true)
     private Set<Piece> pieces = new HashSet<>();
