@@ -38,8 +38,9 @@ public class Move {
     @Column
     private final boolean promoted;
 
-    @ManyToMany(mappedBy = "moveHistory")
-    private List<Player> players = new ArrayList<>();
+    public Move() {
+
+    }
 
     public Move(Piece piece, Coordinate squareFrom, Coordinate squareTo, Piece takenPiece, CastleType castleType,
                 boolean promoted) {
