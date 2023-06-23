@@ -10,21 +10,20 @@ import com.ordina.nl.chess.structures.BoardMap;
 import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.structures.GameState;
 import com.ordina.nl.chess.structures.Team;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+@Entity
 public class Game {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
+    @Enumerated
+    @Column(name = "state")
     private GameState state;
 
     private final BoardMap board;
