@@ -103,4 +103,13 @@ public class Player {
             }
         }
     }
+
+    // TODO: getKing without attribute here
+    public King getKingNew() {
+        for (Piece piece : pieces) {
+            if (piece instanceof King)
+                return (King) piece;
+        }
+        return null;
+    }
 }
