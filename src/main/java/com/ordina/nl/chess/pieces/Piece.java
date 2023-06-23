@@ -3,8 +3,7 @@ package com.ordina.nl.chess.pieces;
 import com.ordina.nl.chess.instances.Player;
 import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.structures.MovementType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,10 +13,15 @@ import java.util.Set;
 @Entity
 public abstract class Piece {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
     @Column
     private Coordinate position;
 
     @Column
+    @ManyToOne
     private Player player;
 
     private List<Coordinate> movableSquares = new ArrayList<>();
