@@ -26,8 +26,6 @@ public class Game {
     @Column(name = "state")
     private GameState state;
 
-    private final BoardMap board;
-
     // TODO: one to one OR one to many? Replace with a Player[] array of size 2?
     private final Player whitePlayer;
 
@@ -41,12 +39,12 @@ public class Game {
     private final MoveMaker moveMaker = new MoveMaker();
 
     // TODO : update all empty constructors
-
     public Game() {
+
+    }
+    public Game(int i) {
         whitePlayer = new Player(this, Team.WHITE);
         blackPlayer = new Player(this, Team.BLACK);
-
-        board = new BoardMap(this);
     }
 
     /**

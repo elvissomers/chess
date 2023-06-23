@@ -43,6 +43,10 @@ public class Player {
     // TODO: just get it from pieces whenever needed
     private King king;
 
+    public Player() {
+
+    }
+
     public Player(Game game, Team team) {
         this.game = game;
         this.team = team;

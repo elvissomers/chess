@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Player and piece repositories">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="@ annotations">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/pieces/Piece.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +28,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -43,28 +49,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/eso13215/IdeaProjects/chess",
+    "onboarding.tips.debug.path": "C:/Users/eso13215/IdeaProjects/chess/src/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "com.haulmont.jpb.viewMode"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -164,48 +170,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00292" summary="empty out allattackedsquares before setting it">
-      <created>1685954506510</created>
-      <option name="number" value="00292" />
-      <option name="presentableId" value="LOCAL-00292" />
-      <option name="project" value="LOCAL" />
-      <updated>1685954506510</updated>
-    </task>
-    <task id="LOCAL-00293" summary="remove old //TODO comments">
-      <created>1685955670829</created>
-      <option name="number" value="00293" />
-      <option name="presentableId" value="LOCAL-00293" />
-      <option name="project" value="LOCAL" />
-      <updated>1685955670829</updated>
-    </task>
-    <task id="LOCAL-00294" summary="saving moves to moveHistory">
-      <created>1685955904071</created>
-      <option name="number" value="00294" />
-      <option name="presentableId" value="LOCAL-00294" />
-      <option name="project" value="LOCAL" />
-      <updated>1685955904071</updated>
-    </task>
-    <task id="LOCAL-00295" summary="refactor">
-      <created>1685956729826</created>
-      <option name="number" value="00295" />
-      <option name="presentableId" value="LOCAL-00295" />
-      <option name="project" value="LOCAL" />
-      <updated>1685956729826</updated>
-    </task>
-    <task id="LOCAL-00296" summary="Added &quot;GameState&quot; (draw/white/blackwins/ongoing)">
-      <created>1685956985385</created>
-      <option name="number" value="00296" />
-      <option name="presentableId" value="LOCAL-00296" />
-      <option name="project" value="LOCAL" />
-      <updated>1685956985385</updated>
-    </task>
-    <task id="LOCAL-00297" summary="Added allMovableSquares attribute to Player.java">
-      <created>1685957627827</created>
-      <option name="number" value="00297" />
-      <option name="presentableId" value="LOCAL-00297" />
-      <option name="project" value="LOCAL" />
-      <updated>1685957627827</updated>
     </task>
     <task id="LOCAL-00298" summary="Overwrite equals() and hashCode() in Move.java">
       <created>1685964121657</created>
@@ -508,7 +472,49 @@
       <option name="project" value="LOCAL" />
       <updated>1687340274245</updated>
     </task>
-    <option name="localTasksCounter" value="341" />
+    <task id="LOCAL-00341" summary="Update jakarta annotations">
+      <created>1687348234531</created>
+      <option name="number" value="00341" />
+      <option name="presentableId" value="LOCAL-00341" />
+      <option name="project" value="LOCAL" />
+      <updated>1687348234531</updated>
+    </task>
+    <task id="LOCAL-00342" summary="Update jakarta annotations">
+      <created>1687348415361</created>
+      <option name="number" value="00342" />
+      <option name="presentableId" value="LOCAL-00342" />
+      <option name="project" value="LOCAL" />
+      <updated>1687348415361</updated>
+    </task>
+    <task id="LOCAL-00343" summary="application.properties">
+      <created>1687349268690</created>
+      <option name="number" value="00343" />
+      <option name="presentableId" value="LOCAL-00343" />
+      <option name="project" value="LOCAL" />
+      <updated>1687349268690</updated>
+    </task>
+    <task id="LOCAL-00344" summary="new getking method">
+      <created>1687503400181</created>
+      <option name="number" value="00344" />
+      <option name="presentableId" value="LOCAL-00344" />
+      <option name="project" value="LOCAL" />
+      <updated>1687503400181</updated>
+    </task>
+    <task id="LOCAL-00345" summary="TODO">
+      <created>1687503406184</created>
+      <option name="number" value="00345" />
+      <option name="presentableId" value="LOCAL-00345" />
+      <option name="project" value="LOCAL" />
+      <updated>1687503406184</updated>
+    </task>
+    <task id="LOCAL-00346" summary="@ annotations">
+      <created>1687508959017</created>
+      <option name="number" value="00346" />
+      <option name="presentableId" value="LOCAL-00346" />
+      <option name="project" value="LOCAL" />
+      <updated>1687508959018</updated>
+    </task>
+    <option name="localTasksCounter" value="347" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -526,11 +532,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="maven initialization" />
-    <MESSAGE value="package name refactor" />
-    <MESSAGE value="update pom.xml to contain sonarqube" />
-    <MESSAGE value="set piece constructors to protected" />
-    <MESSAGE value="set board size as &quot;static&quot;" />
     <MESSAGE value="Made game and coordinateArray &quot;transient&quot;" />
     <MESSAGE value="Replace Boolean with boolean" />
     <MESSAGE value="Setup get method in PlayGame.java (will be setup as Spring controller later)" />
@@ -551,7 +552,12 @@
     <MESSAGE value="many to many relation between player and move" />
     <MESSAGE value="MoveRepository.java" />
     <MESSAGE value="Player and piece repositories" />
-    <option name="LAST_COMMIT_MESSAGE" value="Player and piece repositories" />
+    <MESSAGE value="Update jakarta annotations" />
+    <MESSAGE value="application.properties" />
+    <MESSAGE value="new getking method" />
+    <MESSAGE value="TODO" />
+    <MESSAGE value="@ annotations" />
+    <option name="LAST_COMMIT_MESSAGE" value="@ annotations" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

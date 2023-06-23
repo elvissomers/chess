@@ -34,6 +34,10 @@ public abstract class Piece {
         this.player = player;
     }
 
+    // TODO
+    protected Piece() {
+
+    }
     protected Piece(Piece other) {
         if (other == null){
             throw new IllegalArgumentException("Cannot copy a null Piece");
