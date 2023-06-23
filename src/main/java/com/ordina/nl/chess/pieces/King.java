@@ -9,6 +9,7 @@ import java.util.Set;
 
 public class King extends Piece {
 
+    // TODO: have optional fields present in Piece (but null in pieces that don't have it)?
     private boolean hasMoved;
 
     private boolean inCheck;
