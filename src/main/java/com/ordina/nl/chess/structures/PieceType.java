@@ -1,23 +1,48 @@
 package com.ordina.nl.chess.structures;
 
-import classes.pieces.*;
 import com.ordina.nl.chess.pieces.*;
 
+import java.util.Set;
+
+// TODO: replace all instanceof statements with type == PieceType.{}
+
 public enum PieceType {
-    PAWN(Pawn.class),
-    KNIGHT(Knight.class),
-    BISHOP(Bishop.class),
-    ROOK(Rook.class),
-    QUEEN(Queen.class),
-    KING(King.class);
+    PAWN {
+        @Override
+        public Set<MovementType> getMovementTypes() {
+            return Set.of(MovementType.PAWN);
+        }
+    },
+    KNIGHT {
+        @Override
+        public Set<MovementType> getMovementTypes() {
+            return Set.of(MovementType.LSHAPED);
+        }
+    },
+    BISHOP {
+        @Override
+        public Set<MovementType> getMovementTypes() {
+            return Set.of(MovementType.DIAGONAL);
+        }
+    },
+    ROOK {
+        @Override
+        public Set<MovementType> getMovementTypes() {
+            return Set.of(MovementType.HORIZONTAL, MovementType.VERTICAL);
+        }
+    },
+    QUEEN {
+        @Override
+        public Set<MovementType> getMovementTypes() {
+            return Set.of(MovementType.HORIZONTAL, MovementType.VERTICAL, MovementType.DIAGONAL);
+        }
+    },
+    KING {
+        @Override
+        public Set<MovementType> getMovementTypes() {
+            return Set.of(MovementType.KING);
+        }
+    };
 
-    private final Class<? extends Piece> pieceImplementation;
-
-    PieceType(final Class<? extends Piece> pieceImplementation) {
-        this.pieceImplementation = pieceImplementation;
-    }
-
-    public Class<? extends Piece> getPieceImplementation() {
-        return pieceImplementation;
-    }
+    public abstract Set<MovementType> getMovementTypes();
 }
