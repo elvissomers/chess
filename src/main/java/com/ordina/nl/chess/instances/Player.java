@@ -6,6 +6,7 @@ import com.ordina.nl.chess.pieces.King;
 import com.ordina.nl.chess.pieces.Pawn;
 import com.ordina.nl.chess.pieces.Piece;
 import com.ordina.nl.chess.repository.MoveRepository;
+import com.ordina.nl.chess.structures.BoardMap;
 import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.structures.Team;
 import jakarta.persistence.*;
@@ -91,9 +92,19 @@ public class Player {
         this.king = king;
     }
 
-    /**
-     * Also sets all movable squares for all the pieces
-     */
+    public void setAllAttackedSquares(BoardMap board) {
+        allAttackedSquares = new HashSet<>();
+        for (Piece piece : this.pieces){
+            if (piece instanceof Pawn pawn) {
+                pawn.setAttackedSquares(board);
+                allAttackedSquares.addAll(pawn.getAttackedSquares());
+            } else {
+                piece.setMovableSquares(board);
+                allAttackedSquares.addAll(piece.getMovableSquares());
+            }
+        }
+    }
+
     public void setAllAttackedAndMovableSquares() {
         allAttackedSquares = new HashSet<>();
         allMovableSquares = new HashSet<>();
