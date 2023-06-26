@@ -123,7 +123,7 @@ public class Move {
         String moveChar = (takenPiece == null) ? "-" : "x";
         Coordinate squareFrom = new Coordinate(horizontalFrom, verticalFrom);
         Coordinate squareTo = new Coordinate(horizontalTo, verticalTo);
-        return piece.toString() + squareFrom.toString() + moveChar + squareTo.toString();
+        return piece.toString() + squareFrom + moveChar + squareTo;
     }
 
     @Override

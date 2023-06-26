@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="removal of old code">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PieceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PieceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PlayGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PlayGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/structures/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/structures/GameState.java" afterDir="false" />
-    </list>
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="makeMove endpoint setup" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -172,55 +165,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00339" summary="MoveRepository.java">
-      <created>1687340031165</created>
-      <option name="number" value="00339" />
-      <option name="presentableId" value="LOCAL-00339" />
-      <option name="project" value="LOCAL" />
-      <updated>1687340031166</updated>
-    </task>
-    <task id="LOCAL-00340" summary="Player and piece repositories">
-      <created>1687340274245</created>
-      <option name="number" value="00340" />
-      <option name="presentableId" value="LOCAL-00340" />
-      <option name="project" value="LOCAL" />
-      <updated>1687340274245</updated>
-    </task>
-    <task id="LOCAL-00341" summary="Update jakarta annotations">
-      <created>1687348234531</created>
-      <option name="number" value="00341" />
-      <option name="presentableId" value="LOCAL-00341" />
-      <option name="project" value="LOCAL" />
-      <updated>1687348234531</updated>
-    </task>
-    <task id="LOCAL-00342" summary="Update jakarta annotations">
-      <created>1687348415361</created>
-      <option name="number" value="00342" />
-      <option name="presentableId" value="LOCAL-00342" />
-      <option name="project" value="LOCAL" />
-      <updated>1687348415361</updated>
-    </task>
-    <task id="LOCAL-00343" summary="application.properties">
-      <created>1687349268690</created>
-      <option name="number" value="00343" />
-      <option name="presentableId" value="LOCAL-00343" />
-      <option name="project" value="LOCAL" />
-      <updated>1687349268690</updated>
-    </task>
-    <task id="LOCAL-00344" summary="new getking method">
-      <created>1687503400181</created>
-      <option name="number" value="00344" />
-      <option name="presentableId" value="LOCAL-00344" />
-      <option name="project" value="LOCAL" />
-      <updated>1687503400181</updated>
-    </task>
-    <task id="LOCAL-00345" summary="TODO">
-      <created>1687503406184</created>
-      <option name="number" value="00345" />
-      <option name="presentableId" value="LOCAL-00345" />
-      <option name="project" value="LOCAL" />
-      <updated>1687503406184</updated>
     </task>
     <task id="LOCAL-00346" summary="@ annotations">
       <created>1687508959017</created>
@@ -516,7 +460,56 @@
       <option name="project" value="LOCAL" />
       <updated>1687776355141</updated>
     </task>
-    <option name="localTasksCounter" value="388" />
+    <task id="LOCAL-00388" summary="added super long query">
+      <created>1687778066484</created>
+      <option name="number" value="00388" />
+      <option name="presentableId" value="LOCAL-00388" />
+      <option name="project" value="LOCAL" />
+      <updated>1687778066484</updated>
+    </task>
+    <task id="LOCAL-00389" summary="comment out some old code">
+      <created>1687778076029</created>
+      <option name="number" value="00389" />
+      <option name="presentableId" value="LOCAL-00389" />
+      <option name="project" value="LOCAL" />
+      <updated>1687778076029</updated>
+    </task>
+    <task id="LOCAL-00390" summary="updated setters &amp; toString for x &amp; y style">
+      <created>1687778861607</created>
+      <option name="number" value="00390" />
+      <option name="presentableId" value="LOCAL-00390" />
+      <option name="project" value="LOCAL" />
+      <updated>1687778861607</updated>
+    </task>
+    <task id="LOCAL-00391" summary="added getNumberOfMoves">
+      <created>1687778877586</created>
+      <option name="number" value="00391" />
+      <option name="presentableId" value="LOCAL-00391" />
+      <option name="project" value="LOCAL" />
+      <updated>1687778877586</updated>
+    </task>
+    <task id="LOCAL-00392" summary="changed game.update() functionality">
+      <created>1687778907438</created>
+      <option name="number" value="00392" />
+      <option name="presentableId" value="LOCAL-00392" />
+      <option name="project" value="LOCAL" />
+      <updated>1687778907438</updated>
+    </task>
+    <task id="LOCAL-00393" summary="changed gamestates to include white / black turn">
+      <created>1687778920985</created>
+      <option name="number" value="00393" />
+      <option name="presentableId" value="LOCAL-00393" />
+      <option name="project" value="LOCAL" />
+      <updated>1687778920985</updated>
+    </task>
+    <task id="LOCAL-00394" summary="makeMove endpoint setup">
+      <created>1687778934707</created>
+      <option name="number" value="00394" />
+      <option name="presentableId" value="LOCAL-00394" />
+      <option name="project" value="LOCAL" />
+      <updated>1687778934707</updated>
+    </task>
+    <option name="localTasksCounter" value="395" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -534,13 +527,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="remove final tags" />
-    <MESSAGE value="coordinate attribute -&gt; x &amp; y" />
-    <MESSAGE value="new boardmap constructor (Set from pieces)" />
-    <MESSAGE value="position -&gt; x &amp; y for pieces" />
-    <MESSAGE value="controller setup" />
-    <MESSAGE value="move getters added to player (all, last , last N)" />
-    <MESSAGE value="move number getter &amp; setter" />
     <MESSAGE value="update Move further to x&amp;y instead of coordinate" />
     <MESSAGE value="nullable annotations" />
     <MESSAGE value="x &amp; y instead of coordinate" />
@@ -559,7 +545,14 @@
     <MESSAGE value="implemented PieceType enum in pieces" />
     <MESSAGE value="updated getplayer moves to give moves in order" />
     <MESSAGE value="removal of old code" />
-    <option name="LAST_COMMIT_MESSAGE" value="removal of old code" />
+    <MESSAGE value="added super long query" />
+    <MESSAGE value="comment out some old code" />
+    <MESSAGE value="updated setters &amp; toString for x &amp; y style" />
+    <MESSAGE value="added getNumberOfMoves" />
+    <MESSAGE value="changed game.update() functionality" />
+    <MESSAGE value="changed gamestates to include white / black turn" />
+    <MESSAGE value="makeMove endpoint setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="makeMove endpoint setup" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
