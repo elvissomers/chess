@@ -94,25 +94,6 @@ public class Player {
         }
     }
 
-    // TODO: can be removed
-    public void setAllAttackedAndMovableSquares() {
-        allAttackedSquares = new HashSet<>();
-        allMovableSquares = new HashSet<>();
-        for (Piece piece : this.pieces){
-            if (piece instanceof Pawn pawn) {
-                pawn.setAttackedSquares(game.getBoard());
-                pawn.setMovableSquares();
-                allMovableSquares.addAll(pawn.getMovableSquares());
-                allAttackedSquares.addAll(pawn.getAttackedSquares());
-            } else {
-                piece.setMovableSquares();
-                allMovableSquares.addAll(piece.getMovableSquares());
-                allAttackedSquares.addAll(piece.getMovableSquares());
-            }
-        }
-    }
-
-    // TODO: getKing without attribute here
     public King getKing() {
         for (Piece piece : pieces) {
             if (piece instanceof King)
