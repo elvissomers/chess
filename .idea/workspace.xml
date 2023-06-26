@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="makeMove endpoint setup" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="remove unused code">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PieceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PieceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/repository/PieceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/repository/PieceRepository.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -165,69 +169,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00346" summary="@ annotations">
-      <created>1687508959017</created>
-      <option name="number" value="00346" />
-      <option name="presentableId" value="LOCAL-00346" />
-      <option name="project" value="LOCAL" />
-      <updated>1687508959018</updated>
-    </task>
-    <task id="LOCAL-00347" summary="update piecetype structure">
-      <created>1687514091988</created>
-      <option name="number" value="00347" />
-      <option name="presentableId" value="LOCAL-00347" />
-      <option name="project" value="LOCAL" />
-      <updated>1687514091988</updated>
-    </task>
-    <task id="LOCAL-00348" summary="@s">
-      <created>1687514102657</created>
-      <option name="number" value="00348" />
-      <option name="presentableId" value="LOCAL-00348" />
-      <option name="project" value="LOCAL" />
-      <updated>1687514102657</updated>
-    </task>
-    <task id="LOCAL-00349" summary="todo comment">
-      <created>1687514112064</created>
-      <option name="number" value="00349" />
-      <option name="presentableId" value="LOCAL-00349" />
-      <option name="project" value="LOCAL" />
-      <updated>1687514112064</updated>
-    </task>
-    <task id="LOCAL-00350" summary="added empty constructors">
-      <created>1687514340886</created>
-      <option name="number" value="00350" />
-      <option name="presentableId" value="LOCAL-00350" />
-      <option name="project" value="LOCAL" />
-      <updated>1687514340886</updated>
-    </task>
-    <task id="LOCAL-00351" summary="added empty constructors">
-      <created>1687514400484</created>
-      <option name="number" value="00351" />
-      <option name="presentableId" value="LOCAL-00351" />
-      <option name="project" value="LOCAL" />
-      <updated>1687514400484</updated>
-    </task>
-    <task id="LOCAL-00352" summary="remove final tags">
-      <created>1687520336659</created>
-      <option name="number" value="00352" />
-      <option name="presentableId" value="LOCAL-00352" />
-      <option name="project" value="LOCAL" />
-      <updated>1687520336659</updated>
-    </task>
-    <task id="LOCAL-00353" summary="remove final tags">
-      <created>1687520349729</created>
-      <option name="number" value="00353" />
-      <option name="presentableId" value="LOCAL-00353" />
-      <option name="project" value="LOCAL" />
-      <updated>1687520349729</updated>
-    </task>
-    <task id="LOCAL-00354" summary="coordinate attribute -&gt; x &amp; y">
-      <created>1687763336561</created>
-      <option name="number" value="00354" />
-      <option name="presentableId" value="LOCAL-00354" />
-      <option name="project" value="LOCAL" />
-      <updated>1687763336561</updated>
     </task>
     <task id="LOCAL-00355" summary="coordinate attribute -&gt; x &amp; y">
       <created>1687764335891</created>
@@ -509,7 +450,70 @@
       <option name="project" value="LOCAL" />
       <updated>1687778934707</updated>
     </task>
-    <option name="localTasksCounter" value="395" />
+    <task id="LOCAL-00395" summary="tostring">
+      <created>1687778966358</created>
+      <option name="number" value="00395" />
+      <option name="presentableId" value="LOCAL-00395" />
+      <option name="project" value="LOCAL" />
+      <updated>1687778966358</updated>
+    </task>
+    <task id="LOCAL-00396" summary="added player in turn update to game.checkState">
+      <created>1687779076668</created>
+      <option name="number" value="00396" />
+      <option name="presentableId" value="LOCAL-00396" />
+      <option name="project" value="LOCAL" />
+      <updated>1687779076668</updated>
+    </task>
+    <task id="LOCAL-00397" summary="old code commented out (for now)">
+      <created>1687779569248</created>
+      <option name="number" value="00397" />
+      <option name="presentableId" value="LOCAL-00397" />
+      <option name="project" value="LOCAL" />
+      <updated>1687779569248</updated>
+    </task>
+    <task id="LOCAL-00398" summary="update inCheck to not be an attribute">
+      <created>1687779585331</created>
+      <option name="number" value="00398" />
+      <option name="presentableId" value="LOCAL-00398" />
+      <option name="project" value="LOCAL" />
+      <updated>1687779585331</updated>
+    </task>
+    <task id="LOCAL-00399" summary="todo">
+      <created>1687779593327</created>
+      <option name="number" value="00399" />
+      <option name="presentableId" value="LOCAL-00399" />
+      <option name="project" value="LOCAL" />
+      <updated>1687779593327</updated>
+    </task>
+    <task id="LOCAL-00400" summary="castletype setter">
+      <created>1687783322464</created>
+      <option name="number" value="00400" />
+      <option name="presentableId" value="LOCAL-00400" />
+      <option name="project" value="LOCAL" />
+      <updated>1687783322464</updated>
+    </task>
+    <task id="LOCAL-00401" summary="added castling method">
+      <created>1687783329283</created>
+      <option name="number" value="00401" />
+      <option name="presentableId" value="LOCAL-00401" />
+      <option name="project" value="LOCAL" />
+      <updated>1687783329284</updated>
+    </task>
+    <task id="LOCAL-00402" summary="comment out unused test">
+      <created>1687783355706</created>
+      <option name="number" value="00402" />
+      <option name="presentableId" value="LOCAL-00402" />
+      <option name="project" value="LOCAL" />
+      <updated>1687783355706</updated>
+    </task>
+    <task id="LOCAL-00403" summary="remove unused code">
+      <created>1687783398232</created>
+      <option name="number" value="00403" />
+      <option name="presentableId" value="LOCAL-00403" />
+      <option name="project" value="LOCAL" />
+      <updated>1687783398232</updated>
+    </task>
+    <option name="localTasksCounter" value="404" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -527,15 +531,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update Move further to x&amp;y instead of coordinate" />
-    <MESSAGE value="nullable annotations" />
-    <MESSAGE value="x &amp; y instead of coordinate" />
-    <MESSAGE value="en passant logic separation" />
-    <MESSAGE value="setallattackedsquares method - takes a board as input. Doesn't do anything to pieces movable squares" />
-    <MESSAGE value="Changed white &amp; black player from separate attributes to an array - good idea? Not sure" />
-    <MESSAGE value="checkcheck takes game as input" />
-    <MESSAGE value="set movable squares takes board as input" />
-    <MESSAGE value="back to white &amp; black player (instead of player array)" />
     <MESSAGE value="updated getking method" />
     <MESSAGE value="Updating logic to use temporary boardMap" />
     <MESSAGE value="no argument constructors added" />
@@ -552,7 +547,16 @@
     <MESSAGE value="changed game.update() functionality" />
     <MESSAGE value="changed gamestates to include white / black turn" />
     <MESSAGE value="makeMove endpoint setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="makeMove endpoint setup" />
+    <MESSAGE value="tostring" />
+    <MESSAGE value="added player in turn update to game.checkState" />
+    <MESSAGE value="old code commented out (for now)" />
+    <MESSAGE value="update inCheck to not be an attribute" />
+    <MESSAGE value="todo" />
+    <MESSAGE value="castletype setter" />
+    <MESSAGE value="added castling method" />
+    <MESSAGE value="comment out unused test" />
+    <MESSAGE value="remove unused code" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove unused code" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
