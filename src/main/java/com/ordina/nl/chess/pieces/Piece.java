@@ -64,10 +64,6 @@ public abstract class Piece {
         return moveRules;
     }
 
-    public Coordinate getPosition() {
-        return position;
-    }
-
     public int getHorizontalPosition() {
         return horizontalPosition;
     }
@@ -82,10 +78,6 @@ public abstract class Piece {
 
     public void setVerticalPosition(int verticalPosition) {
         this.verticalPosition = verticalPosition;
-    }
-
-    public void setPosition(Coordinate position) {
-        this.position = position;
     }
 
     public abstract Piece copy();
