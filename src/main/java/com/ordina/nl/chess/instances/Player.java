@@ -1,7 +1,7 @@
 package com.ordina.nl.chess.instances;
 
 import com.ordina.nl.chess.game.Move;
-import com.ordina.nl.chess.movement.MoveMaker;
+import com.ordina.nl.chess.movement.MoveFinder;
 import com.ordina.nl.chess.pieces.King;
 import com.ordina.nl.chess.pieces.Pawn;
 import com.ordina.nl.chess.pieces.Piece;
@@ -38,11 +38,12 @@ public class Player {
     private Set<Piece> pieces = new HashSet<>();
 
     private Set<Coordinate> allAttackedSquares = new HashSet<>();
-    
-    private Set<Coordinate> allMovableSquares = new HashSet<>();
 
     @Autowired
     private MoveRepository moveRepository;
+
+    @Autowired
+    private MoveFinder moveFinder;
 
     public Player() {
 
@@ -73,12 +74,15 @@ public class Player {
         return allAttackedSquares;
     }
 
-    public Set<Coordinate> getAllMovableSquares() {
-        return allMovableSquares;
-    }
-
-    public MoveMaker getMoveMaker() {
-        return game.getMoveMaker();
+    //TODO : use canPlayerMove in game
+    public boolean canMove() {
+        BoardMap board = moveFinder.setBoardMap(game);
+        for (Piece piece : pieces) {
+            game.setMovableSquaresForPiece(piece, board);
+            if (!piece.getLegalMovableSquares().isEmpty())
+                return true;
+        }
+        return false;
     }
 
     public void setAllAttackedSquares(BoardMap board) {

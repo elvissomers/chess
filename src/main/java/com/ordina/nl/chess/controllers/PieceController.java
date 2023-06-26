@@ -2,6 +2,7 @@ package com.ordina.nl.chess.controllers;
 
 import com.ordina.nl.chess.game.Move;
 import com.ordina.nl.chess.instances.Game;
+import com.ordina.nl.chess.movement.MoveFinder;
 import com.ordina.nl.chess.pieces.King;
 import com.ordina.nl.chess.pieces.Pawn;
 import com.ordina.nl.chess.pieces.Piece;
@@ -10,10 +11,7 @@ import com.ordina.nl.chess.repository.GameRepository;
 import com.ordina.nl.chess.repository.MoveRepository;
 import com.ordina.nl.chess.repository.PieceRepository;
 import com.ordina.nl.chess.repository.PlayerRepository;
-import com.ordina.nl.chess.structures.CastleType;
-import com.ordina.nl.chess.structures.Coordinate;
-import com.ordina.nl.chess.structures.GameState;
-import com.ordina.nl.chess.structures.Team;
+import com.ordina.nl.chess.structures.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -35,6 +33,9 @@ public class PieceController {
     @Autowired
     private PlayerRepository playerRepository;
 
+    @Autowired
+    private MoveFinder moveFinder;
+
     // This is a get mapping, it should not change anything
     public List<Coordinate> getMovableSquares(long gameId, int xPos, int yPos) {
         Optional<Game> optionalGame = gameRepository.findById(gameId);
@@ -43,7 +44,8 @@ public class PieceController {
 
         if (optionalGame.isEmpty() || optionalPiece.isEmpty())
             return null;
-        optionalGame.get().setMovableSquaresForPiece(optionalPiece.get());
+        BoardMap board = moveFinder.setBoardMap(optionalGame.get());
+        optionalGame.get().setMovableSquaresForPiece(optionalPiece.get(), board);
 
         // TODO: to DTO
         return optionalPiece.get().getLegalMovableSquares();
@@ -61,7 +63,8 @@ public class PieceController {
         if (optionalGame.isEmpty() || optionalPiece.isEmpty())
             return; // TODO
         Piece piece = optionalPiece.get();
-        optionalGame.get().setMovableSquaresForPiece(piece);
+        BoardMap board = moveFinder.setBoardMap(optionalGame.get());
+        optionalGame.get().setMovableSquaresForPiece(piece, board);
 
         GameState neededGameState = (piece.getPlayer().getTeam() == Team.WHITE) ? GameState.WHITE_TURN
                 : GameState.BLACK_TURN;

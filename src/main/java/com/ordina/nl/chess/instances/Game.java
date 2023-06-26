@@ -115,8 +115,7 @@ public class Game {
         this.state = state;
     }
 
-    public void setMovableSquaresForPiece(Piece piece) {
-        BoardMap board = moveFinder.setBoardMap(this);
+    public void setMovableSquaresForPiece(Piece piece, BoardMap board) {
         moveFinder.setAllAttackedSquaresForEnemyPlayer(piece.getPlayer().getTeam(), board, this);
 
         piece.setMovableSquares(board);
@@ -125,10 +124,12 @@ public class Game {
 
     public void checkState(Team teamTurn) {
         Player currentPlayer = (teamTurn == Team.WHITE) ? whitePlayer : blackPlayer;
-        if (currentPlayer.getKing().isInCheck() && currentPlayer.getAllMovableSquares().isEmpty())
+        boolean canPlayerMove = currentPlayer.canMove();
+
+        if (currentPlayer.getKing().isInCheck() && !canPlayerMove)
             state = (teamTurn == Team.WHITE) ? GameState.BLACK_WINS : GameState.WHITE_WINS;
 
-        else if (currentPlayer.getAllMovableSquares().isEmpty() && !currentPlayer.getKing().isInCheck())
+        else if (!canPlayerMove && !currentPlayer.getKing().isInCheck())
             state = GameState.DRAW;
 
         else if (checkThreefoldRepetition() || checkFiftyMoveRule())
