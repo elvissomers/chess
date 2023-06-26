@@ -21,10 +21,16 @@ public class Move {
     private Piece piece;
 
     @Column(nullable = false)
-    private Coordinate squareFrom;
+    private int horizontalFrom;
 
     @Column(nullable = false)
-    private Coordinate squareTo;
+    private int verticalFrom;
+
+    @Column(nullable = false)
+    private int horizontalTo;
+
+    @Column(nullable = false)
+    private int verticalTo;
 
     @Column
     private Piece takenPiece;
@@ -42,8 +48,10 @@ public class Move {
     public Move(Piece piece, Coordinate squareFrom, Coordinate squareTo, Piece takenPiece, CastleType castleType,
                 boolean promoted) {
         this.piece = piece;
-        this.squareFrom = squareFrom;
-        this.squareTo = squareTo;
+        this.horizontalFrom = squareFrom.getX();
+        this.verticalFrom = squareFrom.getY();
+        this.horizontalTo = squareTo.getX();
+        this.verticalTo = squareTo.getY();
         this.takenPiece = takenPiece;
         this.castleType = castleType;
         this.promoted = promoted;
@@ -51,14 +59,6 @@ public class Move {
 
     public Piece getPiece() {
         return piece;
-    }
-
-    public Coordinate getSquareFrom() {
-        return squareFrom;
-    }
-
-    public Coordinate getSquareTo() {
-        return squareTo;
     }
 
     public Piece getTakenPiece() {
@@ -102,15 +102,16 @@ public class Move {
         }
         Move move = (Move) obj;
 
-        return (Objects.equals(piece, move.piece)) && (Objects.equals(squareFrom, move.squareFrom))
-                && (Objects.equals(squareTo, move.squareTo));
+        return (Objects.equals(piece, move.piece) && horizontalFrom == move.horizontalFrom &&
+                horizontalTo == move.horizontalTo && verticalFrom == move.verticalFrom &&
+                verticalTo == move.verticalTo);
     }
 
     @Override
     public int hashCode() {
         int result = piece != null ? piece.hashCode() : 0;
-        result = 31 * result + (squareFrom != null ? squareFrom.hashCode() : 0);
-        result = 31 * result + (squareTo != null ? squareTo.hashCode() : 0);
+        result = 31 * result + 3 * (horizontalFrom + 9 * horizontalTo);
+        result = 31 * result + 5 * (verticalFrom + 11 * verticalTo);
         return result;
     }
 
