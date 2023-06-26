@@ -44,7 +44,6 @@ public abstract class Piece {
         this.player = player;
     }
 
-    // TODO
     protected Piece() {
 
     }
@@ -108,7 +107,6 @@ public abstract class Piece {
         return player;
     }
 
-    // TODO: could use final instead, with two-argument copy constructor
     public void setPlayer(Player player) {
         this.player = player;
     }

@@ -3,9 +3,9 @@ package com.ordina.nl.chess.instances;
 import com.ordina.nl.chess.game.Move;
 import com.ordina.nl.chess.movement.MoveFinder;
 import com.ordina.nl.chess.movement.MoveMaker;
-import com.ordina.nl.chess.pieces.King;
-import com.ordina.nl.chess.pieces.Pawn;
-import com.ordina.nl.chess.pieces.Piece;
+import com.ordina.nl.chess.pieces.*;
+import com.ordina.nl.chess.repository.PieceRepository;
+import com.ordina.nl.chess.repository.PlayerRepository;
 import com.ordina.nl.chess.structures.BoardMap;
 import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.structures.GameState;
@@ -33,52 +33,63 @@ public class Game {
     @OneToOne(mappedBy = "game")
     private Player blackPlayer;
 
-    // TODO : logic classes should be @Autowired objects in Controller instead of Object?
     @Autowired
     private MoveFinder moveFinder;
 
     @Autowired
     private MoveMaker moveMaker;
 
+    @Autowired
+    private PieceRepository pieceRepository;
+
+    @Autowired
+    private PlayerRepository playerRepository;
+
     // TODO : update all empty constructors
     public Game() {
 
     }
-    public Game(int i) {
-        whitePlayer = new Player(this, Team.WHITE);
-        blackPlayer = new Player(this, Team.BLACK);
-    }
 
-    public Game(Game other){
+    public void setStandardStartingGame() {
+        int horizontalSize = 8;
         state = GameState.ONGOING;
         whitePlayer = new Player(this, Team.WHITE);
+        playerRepository.save(whitePlayer);
         blackPlayer = new Player(this, Team.BLACK);
-        Coordinate[][] coordinateArray = other.getBoard().getCoordinateArray(); // Reference, no copy
-        board = new BoardMap(other, coordinateArray);
+        playerRepository.save(blackPlayer);
 
-        for (int i = 0; i < 8; i++){
-            for (int j = 0; j < 8; j++) {
-                Piece currentPiece = other.getBoard().get(coordinateArray[i][j]);
-                Piece copyPiece = (currentPiece != null) ? currentPiece.copy() : null; // New instance, actual copy
+        for (Player player : Set.of(whitePlayer, blackPlayer)) {
+            Piece[] piecesInOrder = new Piece[]{
+                    new Rook(), new Knight(), new Bishop(), new Queen(), new King(),
+                    new Bishop(), new Knight(), new Rook()
+            };
+            int yForMajorPieces = (player.getTeam() == Team.WHITE) ? 0 : 7;
+            int yForPawns = (player.getTeam() == Team.WHITE) ? 1 : 6;
 
-                board.put(coordinateArray[i][j],copyPiece);
-                if (copyPiece != null) {
-                    Player player = (copyPiece.getPlayer().getTeam() == Team.WHITE) ? whitePlayer : blackPlayer;
-                    copyPiece.setPlayer(player);
-                    player.getPieces().add(copyPiece);
-                    if (copyPiece instanceof King king)
-                        player.setKing(king);
-                }
+            for (int xPos = 0; xPos < horizontalSize; xPos++) {
+                Piece piece = piecesInOrder[xPos];
+                piece.setHorizontalPosition(xPos);
+                piece.setVerticalPosition(yForMajorPieces);
+
+                piece.setPlayer(player);
+                player.getPieces().add(piece);
+                pieceRepository.save(piece);
+            }
+
+            for (int xPos = 0; xPos < horizontalSize; xPos++) {
+                Pawn pawn = new Pawn();
+                pawn.setHorizontalPosition(xPos);
+                pawn.setVerticalPosition(yForPawns);
+
+                pawn.setPlayer(player);
+                player.getPieces().add(pawn);
+                pieceRepository.save(pawn);
             }
         }
     }
 
     public long getId() {
         return id;
-    }
-
-    public BoardMap getBoard() {
-        return board;
     }
 
     public Player getWhitePlayer() {
