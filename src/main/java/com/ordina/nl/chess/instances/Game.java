@@ -108,6 +108,12 @@ public class Game {
         for (Player player : players) {
             board.setPiecesToBoard(player.getPieces());
         }
+
+        Player enemyPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? getBlackPlayer() : getWhitePlayer();
+        enemyPlayer.setAllAttackedSquares(board);
+        piece.setMovableSquares(board);
+        // TODO!
+        piece.setLegalMovableSquares();
     }
 
     public void update(Team teamTurn) {
