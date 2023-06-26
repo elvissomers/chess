@@ -145,30 +145,30 @@ public class MoveFinder {
                 pawn.addMovableSquare(squareTwoInFront);
             }
         }
+    }
+
+    public void setPawnEnPassantMoves(Piece pawn, BoardMap board, Game game) {
+        int xPos = pawn.getHorizontalPosition();
+        int yPos = pawn.getVerticalPosition();
+
+        int yDirection = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : -1;
+        int startPos = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : 6;
 
         if (yPos == startPos + 3 * yDirection) {
             if (xPos > 0 && board.get(board.getCoordinateArray()[xPos - 1][yPos]) instanceof Pawn otherPawn &&
                     otherPawn.getPlayer().getTeam() != pawn.getPlayer().getTeam()) {
-                Player otherPlayer = (pawn.getPlayer().getTeam() == Team.WHITE) ? board.getGame().getBlackPlayer()
-                        : board.getGame().getWhitePlayer();
-                if (otherPlayer.getMoveHistory().get(otherPlayer.getMoveHistory().size() - 1).getPiece()
-                        == otherPawn && otherPlayer.getMoveHistory().get(otherPlayer.getMoveHistory().size() - 1)
-                        .getSquareFrom().getY() == ((pawn.getPlayer().getTeam() == Team.BLACK) ? 1 : 6)
-                ) {
+                if (pawnCanBeEnPassawnedByPawn(otherPawn, (Pawn) pawn, game)) {
                     Coordinate squareInFrontLeft = board.getCoordinateArray()[xPos - 1][yPos + yDirection];
                     pawn.addMovableSquare(squareInFrontLeft);
                 }
             }
             if (xPos + 1 < xSize && board.get(board.getCoordinateArray()[xPos + 1][yPos]) instanceof Pawn otherPawn &&
                     otherPawn.getPlayer().getTeam() != pawn.getPlayer().getTeam()) {
-                Player otherPlayer = (pawn.getPlayer().getTeam() == Team.WHITE) ? board.getGame().getBlackPlayer()
-                        : board.getGame().getWhitePlayer();
-                if (otherPlayer.getMoveHistory().get(otherPlayer.getMoveHistory().size() - 1).getPiece()
-                        == otherPawn && otherPlayer.getMoveHistory().get(otherPlayer.getMoveHistory().size() - 1)
-                        .getSquareFrom().getY() == ((pawn.getPlayer().getTeam() == Team.BLACK) ? 1 : 6)
-                ) {
-                    Coordinate squareInFrontRight = board.getCoordinateArray()[xPos + 1][yPos + yDirection];
-                    pawn.addMovableSquare(squareInFrontRight);
+                if (pawnCanBeEnPassawnedByPawn(otherPawn, (Pawn) pawn, game)) {
+                    {
+                        Coordinate squareInFrontRight = board.getCoordinateArray()[xPos + 1][yPos + yDirection];
+                        pawn.addMovableSquare(squareInFrontRight);
+                    }
                 }
             }
         }
@@ -254,5 +254,12 @@ public class MoveFinder {
         copyOfCurrentPlayer.getKing().setInCheck();
         if (!copyOfCurrentPlayer.getKing().isInCheck())
             piece.getLegalMovableSquares().add(move.getSquareTo());
+    }
+
+    public boolean pawnCanBeEnPassawnedByPawn(Pawn targetPawn, Pawn attackingPawn, Game game) {
+        Player otherPlayer = (targetPawn.getPlayer().getTeam() == Team.WHITE) ? game.getBlackPlayer()
+                : game.getWhitePlayer();
+        return (otherPlayer.getLastMove().getPiece() == targetPawn && otherPlayer.getLastMove().getVerticalFrom()
+                == ((attackingPawn.getPlayer().getTeam() == Team.BLACK) ? 1 : 6));
     }
 }
