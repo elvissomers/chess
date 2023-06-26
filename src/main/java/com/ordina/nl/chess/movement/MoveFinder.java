@@ -22,8 +22,8 @@ public class MoveFinder {
     private static final int ySize = 8;
 
     public void setHorizontalMoves(Piece piece, BoardMap board){
-        int xPos = piece.getPosition().getX();
-        int yPos = piece.getPosition().getY();
+        int xPos = piece.getHorizontalPosition();
+        int yPos = piece.getVerticalPosition();
 
         for (int direction = -1; direction <= 1; direction += 2) {
             for (int x = xPos + direction; (direction > 0 ? x < xSize : x > 0); x += direction) {
@@ -40,8 +40,8 @@ public class MoveFinder {
     }
 
     public void setVerticalMoves(Piece piece, BoardMap board){
-        int xPos = piece.getPosition().getX();
-        int yPos = piece.getPosition().getY();
+        int xPos = piece.getHorizontalPosition();
+        int yPos = piece.getVerticalPosition();
 
         for (int direction = -1; direction <= 1; direction += 2) {
             for (int y = yPos + direction; (direction > 0 ? y < ySize : y > 0); y += direction) {
@@ -58,8 +58,8 @@ public class MoveFinder {
     }
 
     public void setDiagonalMoves(Piece piece, BoardMap board){
-        int xPos = piece.getPosition().getX();
-        int yPos = piece.getPosition().getY();
+        int xPos = piece.getHorizontalPosition();
+        int yPos = piece.getVerticalPosition();
 
         for (int xDirection = -1; xDirection <= 1; xDirection += 2) {
             for (int yDirection = -1; yDirection <= 1; yDirection += 2) {
@@ -83,8 +83,8 @@ public class MoveFinder {
     }
 
     public void setLShapedMoves(Piece piece, BoardMap board){
-        int xPos = piece.getPosition().getX();
-        int yPos = piece.getPosition().getY();
+        int xPos = piece.getHorizontalPosition();
+        int yPos = piece.getVerticalPosition();
 
         for (int xDirection = -1; xDirection <= 1; xDirection += 2) {
             for (int yRelativeDirection = -1; yRelativeDirection <= 1; yRelativeDirection += 2) {
@@ -112,8 +112,8 @@ public class MoveFinder {
 
 
     public void setPawnMoves(Piece pawn, BoardMap board) {
-        int xPos = pawn.getPosition().getX();
-        int yPos = pawn.getPosition().getY();
+        int xPos = pawn.getHorizontalPosition();
+        int yPos = pawn.getVerticalPosition();
 
         int yDirection = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : -1;
         int startPos = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : 6;
@@ -175,8 +175,8 @@ public class MoveFinder {
     }
 
     public void setKingBasicMoves(Piece king, BoardMap board){
-        int xPos = king.getPosition().getX();
-        int yPos = king.getPosition().getY();
+        int xPos = king.getHorizontalPosition();
+        int yPos = king.getVerticalPosition();
 
         for (int x = -1; x <= 1; x++) {
             for (int y = -1; y <= 1; y++) {
@@ -198,8 +198,8 @@ public class MoveFinder {
             return;
         }
 
-        int xPos = king.getPosition().getX();
-        int yPos = king.getPosition().getY();
+        int xPos = king.getHorizontalPosition();
+        int yPos = king.getVerticalPosition();
         Team team = king.getPlayer().getTeam();
 
         if (board.getPieceByPos(xPos+1,yPos) == null &&
@@ -235,8 +235,8 @@ public class MoveFinder {
             for (Piece piece : player.getPieces()){
                 for (Coordinate moveOption : piece.getMovableSquares()){
                     Game copyGame = new Game(game);
-                    Piece copyPiece = copyGame.getBoard().getPieceByPos(piece.getPosition().getX(),
-                            piece.getPosition().getY());
+                    Piece copyPiece = copyGame.getBoard().getPieceByPos(piece.getHorizontalPosition(),
+                            piece.getVerticalPosition());
                     Move moveToCheck = moveMaker.getMove(copyGame, copyPiece, moveOption);
                     pruneSelfCheckMove(piece, moveToCheck, moveMaker, copyGame);
                 }
