@@ -14,6 +14,7 @@ import jakarta.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Game {
@@ -26,7 +27,11 @@ public class Game {
     @Column(name = "state")
     private GameState state;
 
-    private Player[] players;
+    @OneToOne(mappedBy = "game")
+    private Player whitePlayer;
+
+    @OneToOne(mappedBy = "game")
+    private Player blackPlayer;
 
     // TODO : logic classes should be @Autowired objects in Controller instead of Object?
     @Autowired
@@ -77,19 +82,19 @@ public class Game {
     }
 
     public Player getWhitePlayer() {
-        for (Player player : players) {
-            if (player.getTeam() == Team.WHITE)
-                return player;
-        }
-        return null;
+        return whitePlayer;
+    }
+
+    public void setWhitePlayer(Player whitePlayer) {
+        this.whitePlayer = whitePlayer;
     }
 
     public Player getBlackPlayer() {
-        for (Player player : players) {
-            if (player.getTeam() == Team.BLACK)
-                return player;
-        }
-        return null;
+        return blackPlayer;
+    }
+
+    public void setBlackPlayer(Player blackPlayer) {
+        this.blackPlayer = blackPlayer;
     }
 
     public MoveMaker getMoveMaker() {
@@ -110,7 +115,7 @@ public class Game {
 
     public void setMovableSquaresForPiece(Piece piece) {
         BoardMap board = new BoardMap();
-        for (Player player : players) {
+        for (Player player : Set.of(whitePlayer, blackPlayer)) {
             board.setPiecesToBoard(player.getPieces());
         }
 

@@ -21,7 +21,7 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
+    @OneToOne
     private Game game;
 
     @ManyToMany
