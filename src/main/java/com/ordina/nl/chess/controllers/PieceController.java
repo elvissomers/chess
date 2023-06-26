@@ -1,10 +1,15 @@
 package com.ordina.nl.chess.controllers;
 
+import com.ordina.nl.chess.game.Move;
 import com.ordina.nl.chess.instances.Game;
 import com.ordina.nl.chess.pieces.Piece;
 import com.ordina.nl.chess.repository.GameRepository;
+import com.ordina.nl.chess.repository.MoveRepository;
 import com.ordina.nl.chess.repository.PieceRepository;
+import com.ordina.nl.chess.repository.PlayerRepository;
 import com.ordina.nl.chess.structures.Coordinate;
+import com.ordina.nl.chess.structures.GameState;
+import com.ordina.nl.chess.structures.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -17,9 +22,15 @@ public class PieceController {
 
     @Autowired
     private GameRepository gameRepository;
+    
+    @Autowired
+    private MoveRepository moveRepository;
+    
+    @Autowired
+    private PlayerRepository playerRepository;
 
     // This is a get mapping, it should not change anything
-    public List<Coordinate> getMovableSquares(long gameId, int xPos, int yPos){
+    public List<Coordinate> getMovableSquares(long gameId, int xPos, int yPos) {
         Optional<Game> optionalGame = gameRepository.findById(gameId);
         Optional<Piece> optionalPiece = pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
                 xPos, yPos, gameId);
@@ -30,5 +41,52 @@ public class PieceController {
 
         // TODO: to DTO
         return optionalPiece.get().getLegalMovableSquares();
+    }
+
+    // This is a put mapping, it should update the game to make a move
+    public void makeMove(long gameId, int xFrom, int yFrom, int xTo, int yTo) {
+        // TODO: return a status repsponse DTO instead of void
+        Optional<Game> optionalGame = gameRepository.findById(gameId);
+        Optional<Piece> optionalPiece = pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
+                xFrom, yFrom, gameId);
+
+        if (optionalGame.isEmpty() || optionalPiece.isEmpty())
+            return; // TODO
+        Piece piece = optionalPiece.get();
+        optionalGame.get().setMovableSquaresForPiece(piece);
+
+        GameState neededGameState = (piece.getPlayer().getTeam() == Team.WHITE) ? GameState.WHITE_TURN
+                : GameState.BLACK_TURN;
+        Coordinate destination = new Coordinate(xTo, yTo);
+        if (optionalGame.get().getState() != neededGameState || !piece
+                .getLegalMovableSquares().contains(destination))
+            return; // TODO
+
+        piece.setHorizontalPosition(xTo); piece.setVerticalPosition(yTo);
+        pieceRepository.save(piece); // Is this needed? I am not sure?
+        
+        saveMoveToRepository(piece, xFrom, yFrom, xTo, yTo);
+        // TODO: change game state!
+        optionalGame.get().checkState(piece.getPlayer().getTeam());
+        gameRepository.save(optionalGame.get());
+    }
+    
+    public void saveMoveToRepository(Piece piece, int xFrom, int yFrom, int xTo, int yTo) {
+        int moveNumber = piece.getPlayer().getNumberOfMoves() + 1;
+        Optional<Move> optionalMove = moveRepository.findByNumberAndHorizontalFromAndHorizontalToAndVerticalFromAndVerticalTo(
+                moveNumber, xFrom, xTo, yFrom, yTo);
+        if (optionalMove.isPresent()) {
+            piece.getPlayer().getMoveHistory().add(optionalMove.get());
+            playerRepository.save(piece.getPlayer());
+        } else {
+            Move madeMove = new Move();
+            madeMove.setNumber(moveNumber);
+            madeMove.setHorizontalFrom(xFrom); madeMove.setHorizontalTo(xTo);
+            madeMove.setVerticalFrom(yFrom); madeMove.setVerticalTo(yTo);
+            piece.getPlayer().getMoveHistory().add(madeMove);
+            playerRepository.save(piece.getPlayer());
+            moveRepository.save(madeMove);
+            // TODO: taken piece, promoted, et cetera
+        }
     }
 }
