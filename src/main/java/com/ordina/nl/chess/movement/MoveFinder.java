@@ -174,7 +174,7 @@ public class MoveFinder {
         }
     }
 
-    public void setKingBasicMoves(Piece king, BoardMap board){
+    public void setKingBasicMoves(Piece king, BoardMap board, Game game){
         int xPos = king.getHorizontalPosition();
         int yPos = king.getVerticalPosition();
 
@@ -183,7 +183,8 @@ public class MoveFinder {
                 if (0 <= xPos + x && xPos + x < xSize && 0 <= yPos + y && yPos + y < ySize) {
                     Piece currentPiece = board.get(board.getCoordinateArray()[xPos + x][yPos + y]);
                     if (currentPiece == null || currentPiece.getPlayer().getTeam() != king.getPlayer().getTeam()) {
-                        if (!checkCheck(board.getCoordinateByPos(xPos+x,yPos+y), board, king.getPlayer().getTeam())) {
+                        if (!checkCheck(board.getCoordinateByPos(xPos+x,yPos+y), board,
+                                king.getPlayer().getTeam(), game)) {
                             king.addMovableSquare(board.getCoordinateByPos(xPos+x,yPos+y));
                         }
                     }
@@ -192,7 +193,7 @@ public class MoveFinder {
         }
     }
 
-    public void setKingCastlingMoves(Piece king, BoardMap board){
+    public void setKingCastlingMoves(Piece king, BoardMap board, Game game){
         King kingKing = (King) king;
         if (kingKing.isInCheck() || kingKing.isHasMoved()){
             return;
@@ -203,9 +204,9 @@ public class MoveFinder {
         Team team = king.getPlayer().getTeam();
 
         if (board.getPieceByPos(xPos+1,yPos) == null &&
-                !checkCheck(board.getCoordinateByPos(xPos+1, yPos), board, team) &&
+                !checkCheck(board.getCoordinateByPos(xPos+1, yPos), board, team, game) &&
                 board.getPieceByPos(xPos+2, yPos) == null &&
-                !checkCheck(board.getCoordinateByPos(xPos+2, yPos), board, team) &&
+                !checkCheck(board.getCoordinateByPos(xPos+2, yPos), board, team, game) &&
                 board.getPieceByPos(xPos+3, yPos) instanceof Rook rook &&
                 !rook.isHasMoved()) {
             king.addMovableSquare(board.getCoordinateByPos(xPos+2, yPos));
@@ -213,9 +214,9 @@ public class MoveFinder {
 
         // Long castling from here
         if (board.getPieceByPos(xPos-1, yPos) == null &&
-                !checkCheck(board.getCoordinateByPos(xPos-1, yPos), board, team) &&
+                !checkCheck(board.getCoordinateByPos(xPos-1, yPos), board, team, game) &&
                 board.getPieceByPos(xPos-2, yPos) == null &&
-                !checkCheck(board.getCoordinateByPos(xPos-2, yPos), board, team) &&
+                !checkCheck(board.getCoordinateByPos(xPos-2, yPos), board, team, game) &&
                 board.getPieceByPos(xPos-3, yPos) == null &&
                 board.getPieceByPos(xPos-4, yPos) instanceof Rook rook &&
                 !rook.isHasMoved()) {
@@ -223,13 +224,16 @@ public class MoveFinder {
         }
     }
 
-    public boolean checkCheck(Coordinate position, BoardMap board, Team team) {
-        Player attackingPlayer = (team == Team.WHITE) ? board.getGame().getBlackPlayer() :
-                board.getGame().getWhitePlayer();
+    public boolean checkCheck(Coordinate position, BoardMap board, Team team, Game game) {
+        Player attackingPlayer = (team == Team.WHITE) ? game.getBlackPlayer() :
+                game.getWhitePlayer();
+        // TODO -> get this here instead of saving it as an attribute?
         Set<Coordinate> squaresUnderAttack = attackingPlayer.getAllAttackedSquares();
         return squaresUnderAttack.contains(position);
     }
 
+
+    // TODO : prune checking moves!
     public void pruneSelfCheckMoves(Game game, MoveMaker moveMaker){
         for (Player player : new Player[]{game.getWhitePlayer(), game.getBlackPlayer()}){
             for (Piece piece : player.getPieces()){
