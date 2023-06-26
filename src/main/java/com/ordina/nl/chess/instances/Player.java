@@ -5,14 +5,14 @@ import com.ordina.nl.chess.movement.MoveMaker;
 import com.ordina.nl.chess.pieces.King;
 import com.ordina.nl.chess.pieces.Pawn;
 import com.ordina.nl.chess.pieces.Piece;
+import com.ordina.nl.chess.repository.MoveRepository;
 import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.structures.Team;
 import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Player {
 
@@ -42,6 +42,9 @@ public class Player {
 
     // TODO: just get it from pieces whenever needed
     private King king;
+
+    @Autowired
+    MoveRepository moveRepository;
 
     public Player() {
 
@@ -116,4 +119,24 @@ public class Player {
         }
         return null;
     }
+
+    public List<Move> getPlayerMoves() {
+        return moveRepository.findByPlayers_IdContaining(id);
+    }
+
+    public Move getLastMove() {
+        List<Move> playerMoves = moveRepository.findByPlayers_IdContaining(id);
+        return playerMoves.stream()
+                .max(Comparator.comparingInt(Move::getNumber))
+                .orElse(null);
+    }
+
+    public List<Move> getLastNMoves(int n) {
+        List<Move> playerMoves = moveRepository.findByPlayers_IdContaining(id);
+        return playerMoves.stream()
+                .sorted(Comparator.comparingInt(Move::getNumber).reversed())
+                .limit(n)
+                .collect(Collectors.toList());
+    }
+
 }
