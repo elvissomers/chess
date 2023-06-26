@@ -81,6 +81,22 @@ public class Move {
         return promoted;
     }
 
+    public int getHorizontalFrom() {
+        return horizontalFrom;
+    }
+
+    public int getVerticalFrom() {
+        return verticalFrom;
+    }
+
+    public int getHorizontalTo() {
+        return horizontalTo;
+    }
+
+    public int getVerticalTo() {
+        return verticalTo;
+    }
+
     @Override
     public String toString(){
         if (castleType == CastleType.SHORT)
