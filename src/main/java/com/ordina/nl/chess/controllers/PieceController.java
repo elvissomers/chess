@@ -49,11 +49,13 @@ public class PieceController {
 
     // This is a put mapping, it should update the game to make a move
     public void makeMove(long gameId, int xFrom, int yFrom, int xTo, int yTo) {
-        // TODO: this does not take castling into account!
         // TODO: return a status repsponse DTO instead of void
+        // TODO: take the removal of a taken piece into account!
         Optional<Game> optionalGame = gameRepository.findById(gameId);
         Optional<Piece> optionalPiece = pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
                 xFrom, yFrom, gameId);
+        Optional<Piece> optionalTakenPiece = pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
+                xTo, yTo, gameId);
 
         if (optionalGame.isEmpty() || optionalPiece.isEmpty())
             return; // TODO
@@ -72,11 +74,12 @@ public class PieceController {
             return;
         }
 
+        optionalTakenPiece.ifPresent(pieceRepository::delete);
+
         piece.setHorizontalPosition(xTo); piece.setVerticalPosition(yTo);
         pieceRepository.save(piece); // Is this needed? I am not sure?
         
         saveMoveToRepository(piece, xFrom, yFrom, xTo, yTo, null);
-        // TODO: change game state!
         optionalGame.get().checkState(piece.getPlayer().getTeam());
         gameRepository.save(optionalGame.get());
     }
@@ -97,7 +100,7 @@ public class PieceController {
             piece.getPlayer().getMoveHistory().add(madeMove);
             playerRepository.save(piece.getPlayer());
             moveRepository.save(madeMove);
-            // TODO: taken piece, promoted, et cetera
+            // TODO: taken piece, promoted, check, checkmate
         }
     }
     
