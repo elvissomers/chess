@@ -2,12 +2,10 @@ package com.ordina.nl.chess.instances;
 
 import com.ordina.nl.chess.game.Move;
 import com.ordina.nl.chess.movement.MoveFinder;
-import com.ordina.nl.chess.movement.MoveMaker;
 import com.ordina.nl.chess.pieces.*;
 import com.ordina.nl.chess.repository.PieceRepository;
 import com.ordina.nl.chess.repository.PlayerRepository;
 import com.ordina.nl.chess.structures.BoardMap;
-import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.structures.GameState;
 import com.ordina.nl.chess.structures.Team;
 import jakarta.persistence.*;
@@ -35,9 +33,6 @@ public class Game {
 
     @Autowired
     private MoveFinder moveFinder;
-
-    @Autowired
-    private MoveMaker moveMaker;
 
     @Autowired
     private PieceRepository pieceRepository;
@@ -106,10 +101,6 @@ public class Game {
 
     public void setBlackPlayer(Player blackPlayer) {
         this.blackPlayer = blackPlayer;
-    }
-
-    public MoveMaker getMoveMaker() {
-        return moveMaker;
     }
 
     public MoveFinder getMoveFinder() {
