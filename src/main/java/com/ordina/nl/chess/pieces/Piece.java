@@ -47,7 +47,8 @@ public abstract class Piece {
             throw new IllegalArgumentException("Cannot copy a null Piece");
         }
         this.player = other.getPlayer(); // Will be set in set method, overwriting this original player
-        this.position = other.getPosition();
+        this.horizontalPosition = other.getHorizontalPosition();
+        this.verticalPosition = other.getVerticalPosition();
         this.moveRules = other.getMoveRules();
     }
 
@@ -65,6 +66,22 @@ public abstract class Piece {
 
     public Coordinate getPosition() {
         return position;
+    }
+
+    public int getHorizontalPosition() {
+        return horizontalPosition;
+    }
+
+    public void setHorizontalPosition(int horizontalPosition) {
+        this.horizontalPosition = horizontalPosition;
+    }
+
+    public int getVerticalPosition() {
+        return verticalPosition;
+    }
+
+    public void setVerticalPosition(int verticalPosition) {
+        this.verticalPosition = verticalPosition;
     }
 
     public void setPosition(Coordinate position) {
