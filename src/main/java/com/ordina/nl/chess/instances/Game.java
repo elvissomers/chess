@@ -105,7 +105,9 @@ public class Game {
 
     public void setMovableSquaresForPiece(Piece piece) {
         BoardMap board = new BoardMap();
-
+        for (Player player : players) {
+            board.setPiecesToBoard(player.getPieces());
+        }
     }
 
     public void update(Team teamTurn) {
