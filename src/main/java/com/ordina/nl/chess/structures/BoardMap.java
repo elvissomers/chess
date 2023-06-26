@@ -8,8 +8,6 @@ import java.util.Set;
 
 public class BoardMap extends HashMap<Coordinate, Piece> {
 
-    private transient Game game;
-
     private final transient Coordinate[][] coordinateArray;
 
     public Coordinate[][] getCoordinateArray() {
@@ -31,10 +29,6 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
             put(getCoordinateByPos(piece.getHorizontalPosition(), piece.getVerticalPosition()),
                     piece);
         }
-    }
-
-    public Game getGame() {
-        return game;
     }
 
     public Piece getPieceByPos(int xPos, int yPos){
