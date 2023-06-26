@@ -18,12 +18,16 @@ public abstract class Piece {
     private long id;
 
     @Column
-    private Coordinate position;
+    private int horizontalPosition;
+
+    @Column
+    private int verticalPosition;
 
     @Column
     @ManyToOne
     private Player player;
 
+    @Transient
     private List<Coordinate> movableSquares = new ArrayList<>();
 
     private List<Coordinate> legalMovableSquares = new ArrayList<>();
