@@ -2,11 +2,13 @@ package com.ordina.nl.chess.controllers;
 
 import com.ordina.nl.chess.game.Move;
 import com.ordina.nl.chess.instances.Game;
+import com.ordina.nl.chess.pieces.King;
 import com.ordina.nl.chess.pieces.Piece;
 import com.ordina.nl.chess.repository.GameRepository;
 import com.ordina.nl.chess.repository.MoveRepository;
 import com.ordina.nl.chess.repository.PieceRepository;
 import com.ordina.nl.chess.repository.PlayerRepository;
+import com.ordina.nl.chess.structures.CastleType;
 import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.structures.GameState;
 import com.ordina.nl.chess.structures.Team;
@@ -14,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Optional;
+
+import static java.lang.Math.abs;
 
 public class PieceController {
 
@@ -62,17 +66,22 @@ public class PieceController {
         if (optionalGame.get().getState() != neededGameState || !piece
                 .getLegalMovableSquares().contains(destination))
             return; // TODO
+        
+        if (piece instanceof King king && abs(xFrom-xTo) == 2) {
+            castle(king, xTo, yTo, optionalGame.get());
+            return;
+        }
 
         piece.setHorizontalPosition(xTo); piece.setVerticalPosition(yTo);
         pieceRepository.save(piece); // Is this needed? I am not sure?
         
-        saveMoveToRepository(piece, xFrom, yFrom, xTo, yTo);
+        saveMoveToRepository(piece, xFrom, yFrom, xTo, yTo, null);
         // TODO: change game state!
         optionalGame.get().checkState(piece.getPlayer().getTeam());
         gameRepository.save(optionalGame.get());
     }
     
-    public void saveMoveToRepository(Piece piece, int xFrom, int yFrom, int xTo, int yTo) {
+    public void saveMoveToRepository(Piece piece, int xFrom, int yFrom, int xTo, int yTo, CastleType castleType) {
         int moveNumber = piece.getPlayer().getNumberOfMoves() + 1;
         Optional<Move> optionalMove = moveRepository.findByNumberAndHorizontalFromAndHorizontalToAndVerticalFromAndVerticalTo(
                 moveNumber, xFrom, xTo, yFrom, yTo);
@@ -84,10 +93,46 @@ public class PieceController {
             madeMove.setNumber(moveNumber);
             madeMove.setHorizontalFrom(xFrom); madeMove.setHorizontalTo(xTo);
             madeMove.setVerticalFrom(yFrom); madeMove.setVerticalTo(yTo);
+            madeMove.setCastleType(castleType);
             piece.getPlayer().getMoveHistory().add(madeMove);
             playerRepository.save(piece.getPlayer());
             moveRepository.save(madeMove);
             // TODO: taken piece, promoted, et cetera
         }
+    }
+    
+    public void castle(King king, int xTo, int yTo, Game game) {
+        CastleType castleType;
+
+        if (xTo > king.getHorizontalPosition()) {
+            castleType = CastleType.SHORT;
+            Optional<Piece> optionalRook = king.getPlayer().getPieces().stream().filter(
+                    piece -> piece.getVerticalPosition() == yTo && piece.getHorizontalPosition() == 7
+            ).findFirst();
+
+            if (optionalRook.isPresent()) {
+                Piece rook = optionalRook.get();
+                rook.setHorizontalPosition(xTo - 1);
+                pieceRepository.save(rook);
+            }
+        }
+        else {
+            castleType = CastleType.LONG;
+            Optional<Piece> optionalRook = king.getPlayer().getPieces().stream().filter(
+                    piece -> piece.getVerticalPosition() == yTo && piece.getHorizontalPosition() == 0
+            ).findFirst();
+
+            if (optionalRook.isPresent()) {
+                Piece rook = optionalRook.get();
+                rook.setHorizontalPosition(xTo + 1);
+                pieceRepository.save(rook);
+            }
+        }
+        saveMoveToRepository(king, king.getHorizontalPosition(), king.getVerticalPosition(), xTo, yTo, castleType);
+        king.setHorizontalPosition(xTo); king.setVerticalPosition(yTo);
+        pieceRepository.save(king);
+
+        game.checkState(king.getPlayer().getTeam());
+        gameRepository.save(game);
     }
 }
