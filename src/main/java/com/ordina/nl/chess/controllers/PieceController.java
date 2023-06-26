@@ -3,7 +3,9 @@ package com.ordina.nl.chess.controllers;
 import com.ordina.nl.chess.game.Move;
 import com.ordina.nl.chess.instances.Game;
 import com.ordina.nl.chess.pieces.King;
+import com.ordina.nl.chess.pieces.Pawn;
 import com.ordina.nl.chess.pieces.Piece;
+import com.ordina.nl.chess.pieces.Queen;
 import com.ordina.nl.chess.repository.GameRepository;
 import com.ordina.nl.chess.repository.MoveRepository;
 import com.ordina.nl.chess.repository.PieceRepository;
@@ -50,7 +52,6 @@ public class PieceController {
     // This is a put mapping, it should update the game to make a move
     public void makeMove(long gameId, int xFrom, int yFrom, int xTo, int yTo) {
         // TODO: return a status repsponse DTO instead of void
-        // TODO: take the removal of a taken piece into account!
         Optional<Game> optionalGame = gameRepository.findById(gameId);
         Optional<Piece> optionalPiece = pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
                 xFrom, yFrom, gameId);
@@ -69,8 +70,17 @@ public class PieceController {
                 .getLegalMovableSquares().contains(destination))
             return; // TODO
         
-        if (piece instanceof King king && abs(xFrom-xTo) == 2) {
-            castle(king, xTo, yTo, optionalGame.get());
+        if (piece instanceof King king) {
+            king.setHasMoved(true);
+            if (abs(xFrom-xTo) == 2) {
+                castle(king, xTo, yTo, optionalGame.get());
+                return;
+            }
+        }
+
+        int promotionRank = (piece.getPlayer().getTeam() == Team.WHITE) ? 7 : 0;
+        if (piece instanceof Pawn pawn && yTo == promotionRank) {
+            promote(pawn, xTo, yTo);
             return;
         }
 
@@ -103,9 +113,21 @@ public class PieceController {
             // TODO: taken piece, promoted, check, checkmate
         }
     }
+
+    public void promote(Pawn pawn, int xTo, int yTo) {
+        // TODO: promotion! Player should be able to choose!
+        pieceRepository.delete(pawn);
+        Queen queen = new Queen();
+        queen.setPlayer(pawn.getPlayer());
+        queen.setHorizontalPosition(xTo);
+        queen.setVerticalPosition(yTo);
+        pieceRepository.save(queen);
+        saveMoveToRepository(pawn, pawn.getHorizontalPosition(), pawn.getVerticalPosition(), xTo, yTo, null);
+    }
     
     public void castle(King king, int xTo, int yTo, Game game) {
         CastleType castleType;
+        // TODO: set has Moved attribute of rook
 
         if (xTo > king.getHorizontalPosition()) {
             castleType = CastleType.SHORT;
