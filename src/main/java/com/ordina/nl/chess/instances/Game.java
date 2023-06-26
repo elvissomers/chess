@@ -137,11 +137,14 @@ public class Game {
         if (currentPlayer.getKing().isInCheck() && currentPlayer.getAllMovableSquares().isEmpty())
             state = (teamTurn == Team.WHITE) ? GameState.BLACK_WINS : GameState.WHITE_WINS;
 
-        if (currentPlayer.getAllMovableSquares().isEmpty() && !currentPlayer.getKing().isInCheck())
+        else if (currentPlayer.getAllMovableSquares().isEmpty() && !currentPlayer.getKing().isInCheck())
             state = GameState.DRAW;
 
-        if (checkThreefoldRepetition() || checkFiftyMoveRule())
+        else if (checkThreefoldRepetition() || checkFiftyMoveRule())
             state = GameState.DRAW;
+
+        else
+            state = (teamTurn == Team.WHITE) ? GameState.BLACK_TURN : GameState.WHITE_TURN;
     }
 
     private boolean checkThreefoldRepetition() {
