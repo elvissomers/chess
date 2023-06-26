@@ -7,12 +7,10 @@ import com.ordina.nl.chess.repository.PieceRepository;
 import com.ordina.nl.chess.structures.Coordinate;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
-public class MovableSquaresController {
+public class PieceController {
 
     @Autowired
     private PieceRepository pieceRepository;
