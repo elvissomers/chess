@@ -26,10 +26,7 @@ public class Game {
     @Column(name = "state")
     private GameState state;
 
-    // TODO: one to one OR one to many? Replace with a Player[] array of size 2?
-    private Player whitePlayer;
-
-    private Player blackPlayer;
+    private Player[] players;
 
     // TODO : logic classes should be @Autowired objects in Controller instead of Object?
     @Autowired
@@ -80,11 +77,19 @@ public class Game {
     }
 
     public Player getWhitePlayer() {
-        return whitePlayer;
+        for (Player player : players) {
+            if (player.getTeam() == Team.WHITE)
+                return player;
+        }
+        return null;
     }
 
     public Player getBlackPlayer() {
-        return blackPlayer;
+        for (Player player : players) {
+            if (player.getTeam() == Team.BLACK)
+                return player;
+        }
+        return null;
     }
 
     public MoveMaker getMoveMaker() {
