@@ -251,31 +251,31 @@ public class MoveFinder {
         }
     }
 
-    public void pruneSelfCheckMoves(Game game, MoveMaker moveMaker){
-        for (Player player : new Player[]{game.getWhitePlayer(), game.getBlackPlayer()}){
-            for (Piece piece : player.getPieces()){
-                for (Coordinate moveOption : piece.getMovableSquares()){
-                    Game copyGame = new Game(game);
-                    Piece copyPiece = copyGame.getBoard().getPieceByPos(piece.getHorizontalPosition(),
-                            piece.getVerticalPosition());
-                    Move moveToCheck = moveMaker.getMove(copyGame, copyPiece, moveOption);
-                    pruneSelfCheckMove(piece, moveToCheck, moveMaker, copyGame);
-                }
-            }
-        }
-    }
-
-    public void pruneSelfCheckMove(Piece piece, Move move, MoveMaker moveMaker, Game game){
-        moveMaker.makeMove(game, move);
-        Player copyOfCurrentPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? game.getWhitePlayer() :
-                game.getBlackPlayer();
-        Player copyOfOpponentPlayer = (copyOfCurrentPlayer.getTeam() == Team.WHITE) ? game.getBlackPlayer() :
-                game.getWhitePlayer();
-        copyOfOpponentPlayer.setAllAttackedAndMovableSquares();
-        copyOfCurrentPlayer.getKing().setInCheck();
-        if (!copyOfCurrentPlayer.getKing().isInCheck())
-            piece.getLegalMovableSquares().add(move.getSquareTo());
-    }
+//    public void pruneSelfCheckMoves(Game game, MoveMaker moveMaker){
+//        for (Player player : new Player[]{game.getWhitePlayer(), game.getBlackPlayer()}){
+//            for (Piece piece : player.getPieces()){
+//                for (Coordinate moveOption : piece.getMovableSquares()){
+//                    Game copyGame = new Game(game);
+//                    Piece copyPiece = copyGame.getBoard().getPieceByPos(piece.getHorizontalPosition(),
+//                            piece.getVerticalPosition());
+//                    Move moveToCheck = moveMaker.getMove(copyGame, copyPiece, moveOption);
+//                    pruneSelfCheckMove(piece, moveToCheck, moveMaker, copyGame);
+//                }
+//            }
+//        }
+//    }
+//
+//    public void pruneSelfCheckMove(Piece piece, Move move, MoveMaker moveMaker, Game game){
+//        moveMaker.makeMove(game, move);
+//        Player copyOfCurrentPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? game.getWhitePlayer() :
+//                game.getBlackPlayer();
+//        Player copyOfOpponentPlayer = (copyOfCurrentPlayer.getTeam() == Team.WHITE) ? game.getBlackPlayer() :
+//                game.getWhitePlayer();
+//        copyOfOpponentPlayer.setAllAttackedAndMovableSquares();
+//        copyOfCurrentPlayer.getKing().setInCheck();
+//        if (!copyOfCurrentPlayer.getKing().isInCheck())
+//            piece.getLegalMovableSquares().add(move.getSquareTo());
+//    }
 
     public boolean pawnCanBeEnPassawnedByPawn(Pawn targetPawn, Pawn attackingPawn, Game game) {
         Player otherPlayer = (targetPawn.getPlayer().getTeam() == Team.WHITE) ? game.getBlackPlayer()
