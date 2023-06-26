@@ -7,6 +7,10 @@ import java.util.Set;
 
 public class Bishop extends Piece {
 
+    public Bishop() {
+        super();
+    }
+
     public Bishop(Player player){
         super(player);
         this.setMoveRules(Set.of(MovementType.DIAGONAL));

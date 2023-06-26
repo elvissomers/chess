@@ -7,6 +7,10 @@ import java.util.Set;
 
 public class Knight extends Piece {
 
+    public Knight() {
+        super();
+    }
+
     public Knight(Player player){
         super(player);
         this.setMoveRules(Set.of(MovementType.LSHAPED));

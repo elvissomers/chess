@@ -7,6 +7,10 @@ import java.util.Set;
 
 public class Queen extends Piece{
 
+    public Queen() {
+        super();
+    }
+
     public Queen(Player player){
         super(player);
         this.setMoveRules(Set.of(MovementType.HORIZONTAL, MovementType.VERTICAL, MovementType.DIAGONAL));

@@ -9,6 +9,10 @@ public class Rook extends Piece {
 
     private boolean hasMoved;
 
+    public Rook() {
+        super();
+    }
+
     public Rook(Player player) {
         super(player);
         this.setMoveRules(Set.of(MovementType.HORIZONTAL, MovementType.VERTICAL));

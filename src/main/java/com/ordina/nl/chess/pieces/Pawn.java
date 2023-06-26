@@ -11,6 +11,10 @@ import java.util.Set;
 
 public class Pawn extends Piece {
 
+    public Pawn() {
+        super();
+    }
+
     public Pawn(Player player){
         super(player);
         this.setMoveRules(Set.of(MovementType.PAWN));
