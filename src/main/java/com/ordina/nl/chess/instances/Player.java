@@ -104,6 +104,10 @@ public class Player {
         return new King(this);
     }
 
+    public int getNumberOfMoves() {
+        return getLastMove().getNumber();
+    }
+
     public List<Move> getPlayerMovesInOrder() {
         List<Move> playerMoves = moveRepository.findByPlayers_IdContaining(id);
         return playerMoves.stream()
