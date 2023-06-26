@@ -14,7 +14,7 @@ public class Move {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
+    @Column(nullable = false)
     private int number;
 
     @Column(nullable = false)
@@ -32,7 +32,7 @@ public class Move {
     @Column(nullable = false)
     private int verticalTo;
 
-    @Column
+    @Column(nullable = true)
     private Piece takenPiece;
 
     @Column(nullable = true)
