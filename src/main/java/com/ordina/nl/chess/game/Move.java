@@ -104,15 +104,12 @@ public class Move {
 
         return (Objects.equals(piece, move.piece) && horizontalFrom == move.horizontalFrom &&
                 horizontalTo == move.horizontalTo && verticalFrom == move.verticalFrom &&
-                verticalTo == move.verticalTo);
+                verticalTo == move.verticalTo && number == move.number);
     }
 
     @Override
     public int hashCode() {
-        int result = piece != null ? piece.hashCode() : 0;
-        result = 31 * result + 3 * (horizontalFrom + 9 * horizontalTo);
-        result = 31 * result + 5 * (verticalFrom + 11 * verticalTo);
-        return result;
+        return Objects.hash(piece, horizontalFrom, horizontalTo, verticalFrom, verticalTo, number);
     }
 
 }
