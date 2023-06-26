@@ -41,11 +41,8 @@ public class Player {
     
     private Set<Coordinate> allMovableSquares = new HashSet<>();
 
-    // TODO: just get it from pieces whenever needed
-    private King king;
-
     @Autowired
-    MoveRepository moveRepository;
+    private MoveRepository moveRepository;
 
     public Player() {
 
@@ -72,10 +69,6 @@ public class Player {
         return pieces;
     }
 
-    public King getKing() {
-        return king;
-    }
-
     public Set<Coordinate> getAllAttackedSquares() {
         return allAttackedSquares;
     }
@@ -86,10 +79,6 @@ public class Player {
 
     public MoveMaker getMoveMaker() {
         return game.getMoveMaker();
-    }
-
-    public void setKing(King king) {
-        this.king = king;
     }
 
     public void setAllAttackedSquares(BoardMap board) {
@@ -123,7 +112,7 @@ public class Player {
     }
 
     // TODO: getKing without attribute here
-    public King getKingNew() {
+    public King getKing() {
         for (Piece piece : pieces) {
             if (piece instanceof King)
                 return (King) piece;
