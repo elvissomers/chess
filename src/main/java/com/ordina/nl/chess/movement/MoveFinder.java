@@ -193,9 +193,9 @@ public class MoveFinder {
         }
     }
 
-    public void setKingCastlingMoves(Piece king, BoardMap board, Game game){
-        King kingKing = (King) king;
-        if (kingKing.isInCheck() || kingKing.isHasMoved()){
+    public void setKingCastlingMoves(Piece piece, BoardMap board, Game game){
+        King king = (King) piece;
+        if (king.isInCheck() || king.isHasMoved()){
             return;
         }
 
@@ -206,7 +206,6 @@ public class MoveFinder {
         if (board.getPieceByPos(xPos+1,yPos) == null &&
                 !checkCheck(board.getCoordinateByPos(xPos+1, yPos), board, team, game) &&
                 board.getPieceByPos(xPos+2, yPos) == null &&
-                !checkCheck(board.getCoordinateByPos(xPos+2, yPos), board, team, game) &&
                 board.getPieceByPos(xPos+3, yPos) instanceof Rook rook &&
                 !rook.isHasMoved()) {
             king.addMovableSquare(board.getCoordinateByPos(xPos+2, yPos));
@@ -216,7 +215,6 @@ public class MoveFinder {
         if (board.getPieceByPos(xPos-1, yPos) == null &&
                 !checkCheck(board.getCoordinateByPos(xPos-1, yPos), board, team, game) &&
                 board.getPieceByPos(xPos-2, yPos) == null &&
-                !checkCheck(board.getCoordinateByPos(xPos-2, yPos), board, team, game) &&
                 board.getPieceByPos(xPos-3, yPos) == null &&
                 board.getPieceByPos(xPos-4, yPos) instanceof Rook rook &&
                 !rook.isHasMoved()) {
@@ -227,13 +225,32 @@ public class MoveFinder {
     public boolean checkCheck(Coordinate position, BoardMap board, Team team, Game game) {
         Player attackingPlayer = (team == Team.WHITE) ? game.getBlackPlayer() :
                 game.getWhitePlayer();
-        // TODO -> get this here instead of saving it as an attribute?
+        attackingPlayer.setAllAttackedSquares(board);
         Set<Coordinate> squaresUnderAttack = attackingPlayer.getAllAttackedSquares();
         return squaresUnderAttack.contains(position);
     }
 
 
     // TODO : prune checking moves!
+    public void pruneSelfCheckMovesForPiece(Piece piece, Game game) {
+        for (Coordinate moveOption : piece.getMovableSquares()){
+            // TODO: this copyPiece should not be saved to the database
+            Piece copyPiece = piece.copy();
+            copyPiece.setHorizontalPosition(moveOption.getX());
+            copyPiece.setVerticalPosition(moveOption.getY());
+
+            BoardMap copyBoard = setBoardMapForCopiedPiece(piece, copyPiece, game);
+            setAllAttackedSquaresForEnemyPlayer(piece.getPlayer().getTeam(), copyBoard, game);
+            Coordinate kingCoordinate = new Coordinate(piece.getPlayer().getKing().getHorizontalPosition(),
+                    piece.getPlayer().getKing().getVerticalPosition());
+            if (checkCheck(kingCoordinate, copyBoard, piece.getPlayer().getTeam(), game)) {
+                continue;
+            }
+
+            piece.getLegalMovableSquares().add(moveOption);
+        }
+    }
+
     public void pruneSelfCheckMoves(Game game, MoveMaker moveMaker){
         for (Player player : new Player[]{game.getWhitePlayer(), game.getBlackPlayer()}){
             for (Piece piece : player.getPieces()){
@@ -265,5 +282,29 @@ public class MoveFinder {
                 : game.getWhitePlayer();
         return (otherPlayer.getLastMove().getPiece() == targetPawn && otherPlayer.getLastMove().getVerticalFrom()
                 == ((attackingPawn.getPlayer().getTeam() == Team.BLACK) ? 1 : 6));
+    }
+
+    public BoardMap setBoardMap(Game game) {
+        BoardMap board = new BoardMap();
+        for (Player player : Set.of(game.getWhitePlayer(), game.getBlackPlayer())) {
+            board.setPiecesToBoard(player.getPieces());
+        }
+        return board;
+    }
+    
+    public BoardMap setBoardMapForCopiedPiece(Piece originalPiece, Piece copyPiece, Game game) {
+        BoardMap board = new BoardMap();
+        for (Player player : Set.of(game.getWhitePlayer(), game.getBlackPlayer())) {
+            board.setPiecesToBoard(player.getPieces());
+        }
+        board.put(board.getCoordinateByPos(originalPiece.getHorizontalPosition(), originalPiece.getVerticalPosition()), null);
+        board.put(board.getCoordinateByPos(copyPiece.getHorizontalPosition(), copyPiece.getVerticalPosition()), copyPiece);
+        
+        return board;
+    }
+    
+    public void setAllAttackedSquaresForEnemyPlayer(Team team, BoardMap board, Game game) {
+        Player enemyPlayer = (team == Team.WHITE) ? game.getBlackPlayer() : game.getWhitePlayer();
+        enemyPlayer.setAllAttackedSquares(board);
     }
 }

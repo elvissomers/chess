@@ -94,6 +94,7 @@ public class Player {
         }
     }
 
+    // TODO: can be removed
     public void setAllAttackedAndMovableSquares() {
         allAttackedSquares = new HashSet<>();
         allMovableSquares = new HashSet<>();

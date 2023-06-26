@@ -35,10 +35,10 @@ public class Game {
 
     // TODO : logic classes should be @Autowired objects in Controller instead of Object?
     @Autowired
-    private final MoveFinder moveFinder = new MoveFinder();
+    private MoveFinder moveFinder;
 
     @Autowired
-    private final MoveMaker moveMaker = new MoveMaker();
+    private MoveMaker moveMaker;
 
     // TODO : update all empty constructors
     public Game() {
@@ -114,15 +114,10 @@ public class Game {
     }
 
     public void setMovableSquaresForPiece(Piece piece) {
-        BoardMap board = new BoardMap();
-        for (Player player : Set.of(whitePlayer, blackPlayer)) {
-            board.setPiecesToBoard(player.getPieces());
-        }
+        BoardMap board = moveFinder.setBoardMap(this);
+        moveFinder.setAllAttackedSquaresForEnemyPlayer(piece.getPlayer().getTeam(), board, this);
 
-        Player enemyPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? getBlackPlayer() : getWhitePlayer();
-        enemyPlayer.setAllAttackedSquares(board);
         piece.setMovableSquares(board);
-        // TODO!
         piece.setLegalMovableSquares();
     }
 

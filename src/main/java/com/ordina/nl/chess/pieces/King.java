@@ -44,6 +44,7 @@ public class King extends Piece {
         return "K";
     }
 
+    // TODO: this might be redundant? The whole "check" attribute?
     public void setInCheck(){
         Player attackingPlayer = (getPlayer().getTeam() == Team.WHITE) ? getPlayer().getGame().getBlackPlayer() :
                 getPlayer().getGame().getWhitePlayer();

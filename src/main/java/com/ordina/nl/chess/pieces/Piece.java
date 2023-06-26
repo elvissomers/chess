@@ -1,10 +1,12 @@
 package com.ordina.nl.chess.pieces;
 
 import com.ordina.nl.chess.instances.Player;
+import com.ordina.nl.chess.movement.MoveFinder;
 import com.ordina.nl.chess.structures.BoardMap;
 import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.structures.MovementType;
 import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -34,6 +36,9 @@ public abstract class Piece {
     private List<Coordinate> legalMovableSquares = new ArrayList<>();
 
     private Set<MovementType> moveRules = new HashSet<>();
+
+    @Autowired
+    private MoveFinder moveFinder;
 
     protected Piece(Player player) {
         this.player = player;
@@ -83,21 +88,16 @@ public abstract class Piece {
 
     public abstract Piece copy();
 
-    public void removePreviousMovableSquares(){
-        /*
-         * Every implementation of setMovableSquares should call this
-         * method, so that we clean out all previous movable squares
-         * before setting new ones.
-         */
+    public void setMovableSquares(BoardMap board) {
         movableSquares = new ArrayList<>();
-        legalMovableSquares = new ArrayList<>();
+        for (MovementType moveRule : moveRules){
+            moveRule.setMoves(this, board, moveFinder, player.getGame());
+        }
     }
 
-    public void setMovableSquares(BoardMap board){
-        removePreviousMovableSquares();
-        for (MovementType moveRule : moveRules){
-            moveRule.setMoves(this, board, player.getGame().getMoveFinder());
-        }
+    public void setLegalMovableSquares() {
+        legalMovableSquares = new ArrayList<>();
+        moveFinder.pruneSelfCheckMovesForPiece(this, player.getGame());
     }
 
     public void addMovableSquare(Coordinate coordinate){

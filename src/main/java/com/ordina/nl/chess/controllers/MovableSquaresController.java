@@ -8,31 +8,29 @@ import com.ordina.nl.chess.structures.Coordinate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 public class MovableSquaresController {
 
     @Autowired
-    PieceRepository pieceRepository;
+    private PieceRepository pieceRepository;
 
     @Autowired
-    GameRepository gameRepository;
+    private GameRepository gameRepository;
 
-    public Set<Coordinate> getMovableSquares(long gameId, int xPos, int yPos){
+    // This is a get mapping, it should not change anything
+    public List<Coordinate> getMovableSquares(long gameId, int xPos, int yPos){
         Optional<Game> optionalGame = gameRepository.findById(gameId);
         Optional<Piece> optionalPiece = pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
                 xPos, yPos, gameId);
 
         if (optionalGame.isEmpty() || optionalPiece.isEmpty())
             return null;
-
-        // TODO!
         optionalGame.get().setMovableSquaresForPiece(optionalPiece.get());
 
-        Set<Coordinate> movableSquares = optionalPiece.get().getLegalMovableSquares();
         // TODO: to DTO
-
-        return movableSquares;
+        return optionalPiece.get().getLegalMovableSquares();
     }
 }

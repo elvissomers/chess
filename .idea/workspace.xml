@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="@ annotations">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="updated getking method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/MovableSquaresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/MovableSquaresController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/movement/MoveFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/movement/MoveFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/pieces/King.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/pieces/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/structures/MovementType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/structures/MovementType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +24,8 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -49,28 +53,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/eso13215/IdeaProjects/chess",
-    "onboarding.tips.debug.path": "C:/Users/eso13215/IdeaProjects/chess/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "com.haulmont.jpb.viewMode"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/eso13215/IdeaProjects/aoc_2022&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -170,216 +174,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00298" summary="Overwrite equals() and hashCode() in Move.java">
-      <created>1685964121657</created>
-      <option name="number" value="00298" />
-      <option name="presentableId" value="LOCAL-00298" />
-      <option name="project" value="LOCAL" />
-      <updated>1685964121657</updated>
-    </task>
-    <task id="LOCAL-00299" summary="Implemented three fold repetition check">
-      <created>1685964364254</created>
-      <option name="number" value="00299" />
-      <option name="presentableId" value="LOCAL-00299" />
-      <option name="project" value="LOCAL" />
-      <updated>1685964364254</updated>
-    </task>
-    <task id="LOCAL-00300" summary="Implemented fifty move rule check">
-      <created>1685964947456</created>
-      <option name="number" value="00300" />
-      <option name="presentableId" value="LOCAL-00300" />
-      <option name="project" value="LOCAL" />
-      <updated>1685964947456</updated>
-    </task>
-    <task id="LOCAL-00301" summary="Stalemate check, implemented Team input in Game.update">
-      <created>1685965319170</created>
-      <option name="number" value="00301" />
-      <option name="presentableId" value="LOCAL-00301" />
-      <option name="project" value="LOCAL" />
-      <updated>1685965319170</updated>
-    </task>
-    <task id="LOCAL-00302" summary="implement toString() in BoardMap.java">
-      <created>1685965997662</created>
-      <option name="number" value="00302" />
-      <option name="presentableId" value="LOCAL-00302" />
-      <option name="project" value="LOCAL" />
-      <updated>1685965997662</updated>
-    </task>
-    <task id="LOCAL-00303" summary="update toString() in BoardMap.java">
-      <created>1685966349264</created>
-      <option name="number" value="00303" />
-      <option name="presentableId" value="LOCAL-00303" />
-      <option name="project" value="LOCAL" />
-      <updated>1685966349264</updated>
-    </task>
-    <task id="LOCAL-00304" summary="print out a sample game in Main">
-      <created>1685966360546</created>
-      <option name="number" value="00304" />
-      <option name="presentableId" value="LOCAL-00304" />
-      <option name="project" value="LOCAL" />
-      <updated>1685966360546</updated>
-    </task>
-    <task id="LOCAL-00305" summary="remove old comments">
-      <created>1685967247837</created>
-      <option name="number" value="00305" />
-      <option name="presentableId" value="LOCAL-00305" />
-      <option name="project" value="LOCAL" />
-      <updated>1685967247837</updated>
-    </task>
-    <task id="LOCAL-00306" summary="formatting">
-      <created>1685967281028</created>
-      <option name="number" value="00306" />
-      <option name="presentableId" value="LOCAL-00306" />
-      <option name="project" value="LOCAL" />
-      <updated>1685967281028</updated>
-    </task>
-    <task id="LOCAL-00307" summary="initialize Maven support">
-      <created>1685972228633</created>
-      <option name="number" value="00307" />
-      <option name="presentableId" value="LOCAL-00307" />
-      <option name="project" value="LOCAL" />
-      <updated>1685972228633</updated>
-    </task>
-    <task id="LOCAL-00308" summary="refactor">
-      <created>1685972472051</created>
-      <option name="number" value="00308" />
-      <option name="presentableId" value="LOCAL-00308" />
-      <option name="project" value="LOCAL" />
-      <updated>1685972472051</updated>
-    </task>
-    <task id="LOCAL-00309" summary="maven initialization">
-      <created>1685977057620</created>
-      <option name="number" value="00309" />
-      <option name="presentableId" value="LOCAL-00309" />
-      <option name="project" value="LOCAL" />
-      <updated>1685977057620</updated>
-    </task>
-    <task id="LOCAL-00310" summary="package name refactor">
-      <created>1686052258511</created>
-      <option name="number" value="00310" />
-      <option name="presentableId" value="LOCAL-00310" />
-      <option name="project" value="LOCAL" />
-      <updated>1686052258512</updated>
-    </task>
-    <task id="LOCAL-00311" summary="package name refactor">
-      <created>1686052382355</created>
-      <option name="number" value="00311" />
-      <option name="presentableId" value="LOCAL-00311" />
-      <option name="project" value="LOCAL" />
-      <updated>1686052382355</updated>
-    </task>
-    <task id="LOCAL-00312" summary="update pom.xml to contain sonarqube">
-      <created>1686055954466</created>
-      <option name="number" value="00312" />
-      <option name="presentableId" value="LOCAL-00312" />
-      <option name="project" value="LOCAL" />
-      <updated>1686055954466</updated>
-    </task>
-    <task id="LOCAL-00313" summary="set piece constructors to protected">
-      <created>1686060875196</created>
-      <option name="number" value="00313" />
-      <option name="presentableId" value="LOCAL-00313" />
-      <option name="project" value="LOCAL" />
-      <updated>1686060875196</updated>
-    </task>
-    <task id="LOCAL-00314" summary="set board size as &quot;static&quot;">
-      <created>1686061471921</created>
-      <option name="number" value="00314" />
-      <option name="presentableId" value="LOCAL-00314" />
-      <option name="project" value="LOCAL" />
-      <updated>1686061471921</updated>
-    </task>
-    <task id="LOCAL-00315" summary="Made game and coordinateArray &quot;transient&quot;">
-      <created>1686061968949</created>
-      <option name="number" value="00315" />
-      <option name="presentableId" value="LOCAL-00315" />
-      <option name="project" value="LOCAL" />
-      <updated>1686061968949</updated>
-    </task>
-    <task id="LOCAL-00316" summary="Replace Boolean with boolean">
-      <created>1686147331009</created>
-      <option name="number" value="00316" />
-      <option name="presentableId" value="LOCAL-00316" />
-      <option name="project" value="LOCAL" />
-      <updated>1686147331009</updated>
-    </task>
-    <task id="LOCAL-00317" summary="Replace Boolean with boolean">
-      <created>1686147358215</created>
-      <option name="number" value="00317" />
-      <option name="presentableId" value="LOCAL-00317" />
-      <option name="project" value="LOCAL" />
-      <updated>1686147358215</updated>
-    </task>
-    <task id="LOCAL-00318" summary="Setup get method in PlayGame.java (will be setup as Spring controller later)">
-      <created>1686236753771</created>
-      <option name="number" value="00318" />
-      <option name="presentableId" value="LOCAL-00318" />
-      <option name="project" value="LOCAL" />
-      <updated>1686236753771</updated>
-    </task>
-    <task id="LOCAL-00319" summary="unversioned files">
-      <created>1686292291732</created>
-      <option name="number" value="00319" />
-      <option name="presentableId" value="LOCAL-00319" />
-      <option name="project" value="LOCAL" />
-      <updated>1686292291732</updated>
-    </task>
-    <task id="LOCAL-00320" summary="playgame dummy method movePiece">
-      <created>1686292387399</created>
-      <option name="number" value="00320" />
-      <option name="presentableId" value="LOCAL-00320" />
-      <option name="project" value="LOCAL" />
-      <updated>1686292387399</updated>
-    </task>
-    <task id="LOCAL-00321" summary="playgame dummy method movePiece">
-      <created>1686292515708</created>
-      <option name="number" value="00321" />
-      <option name="presentableId" value="LOCAL-00321" />
-      <option name="project" value="LOCAL" />
-      <updated>1686292515708</updated>
-    </task>
-    <task id="LOCAL-00322" summary="small reformat (method paramater order)">
-      <created>1686292530941</created>
-      <option name="number" value="00322" />
-      <option name="presentableId" value="LOCAL-00322" />
-      <option name="project" value="LOCAL" />
-      <updated>1686292530941</updated>
-    </task>
-    <task id="LOCAL-00323" summary="small reformat (method paramater order)">
-      <created>1686293187139</created>
-      <option name="number" value="00323" />
-      <option name="presentableId" value="LOCAL-00323" />
-      <option name="project" value="LOCAL" />
-      <updated>1686293187139</updated>
-    </task>
-    <task id="LOCAL-00324" summary="Added DTO for piece moving">
-      <created>1686293351071</created>
-      <option name="number" value="00324" />
-      <option name="presentableId" value="LOCAL-00324" />
-      <option name="project" value="LOCAL" />
-      <updated>1686293351071</updated>
-    </task>
-    <task id="LOCAL-00325" summary="ordering of inputs in moveMaker.makeMove">
-      <created>1686818988015</created>
-      <option name="number" value="00325" />
-      <option name="presentableId" value="LOCAL-00325" />
-      <option name="project" value="LOCAL" />
-      <updated>1686818988016</updated>
-    </task>
-    <task id="LOCAL-00326" summary="sprint init demo">
-      <created>1687247566005</created>
-      <option name="number" value="00326" />
-      <option name="presentableId" value="LOCAL-00326" />
-      <option name="project" value="LOCAL" />
-      <updated>1687247566005</updated>
-    </task>
-    <task id="LOCAL-00327" summary="template added">
-      <created>1687248984493</created>
-      <option name="number" value="00327" />
-      <option name="presentableId" value="LOCAL-00327" />
-      <option name="project" value="LOCAL" />
-      <updated>1687248984493</updated>
     </task>
     <task id="LOCAL-00328" summary="template">
       <created>1687249371143</created>
@@ -514,7 +308,217 @@
       <option name="project" value="LOCAL" />
       <updated>1687508959018</updated>
     </task>
-    <option name="localTasksCounter" value="347" />
+    <task id="LOCAL-00347" summary="update piecetype structure">
+      <created>1687514091988</created>
+      <option name="number" value="00347" />
+      <option name="presentableId" value="LOCAL-00347" />
+      <option name="project" value="LOCAL" />
+      <updated>1687514091988</updated>
+    </task>
+    <task id="LOCAL-00348" summary="@s">
+      <created>1687514102657</created>
+      <option name="number" value="00348" />
+      <option name="presentableId" value="LOCAL-00348" />
+      <option name="project" value="LOCAL" />
+      <updated>1687514102657</updated>
+    </task>
+    <task id="LOCAL-00349" summary="todo comment">
+      <created>1687514112064</created>
+      <option name="number" value="00349" />
+      <option name="presentableId" value="LOCAL-00349" />
+      <option name="project" value="LOCAL" />
+      <updated>1687514112064</updated>
+    </task>
+    <task id="LOCAL-00350" summary="added empty constructors">
+      <created>1687514340886</created>
+      <option name="number" value="00350" />
+      <option name="presentableId" value="LOCAL-00350" />
+      <option name="project" value="LOCAL" />
+      <updated>1687514340886</updated>
+    </task>
+    <task id="LOCAL-00351" summary="added empty constructors">
+      <created>1687514400484</created>
+      <option name="number" value="00351" />
+      <option name="presentableId" value="LOCAL-00351" />
+      <option name="project" value="LOCAL" />
+      <updated>1687514400484</updated>
+    </task>
+    <task id="LOCAL-00352" summary="remove final tags">
+      <created>1687520336659</created>
+      <option name="number" value="00352" />
+      <option name="presentableId" value="LOCAL-00352" />
+      <option name="project" value="LOCAL" />
+      <updated>1687520336659</updated>
+    </task>
+    <task id="LOCAL-00353" summary="remove final tags">
+      <created>1687520349729</created>
+      <option name="number" value="00353" />
+      <option name="presentableId" value="LOCAL-00353" />
+      <option name="project" value="LOCAL" />
+      <updated>1687520349729</updated>
+    </task>
+    <task id="LOCAL-00354" summary="coordinate attribute -&gt; x &amp; y">
+      <created>1687763336561</created>
+      <option name="number" value="00354" />
+      <option name="presentableId" value="LOCAL-00354" />
+      <option name="project" value="LOCAL" />
+      <updated>1687763336561</updated>
+    </task>
+    <task id="LOCAL-00355" summary="coordinate attribute -&gt; x &amp; y">
+      <created>1687764335891</created>
+      <option name="number" value="00355" />
+      <option name="presentableId" value="LOCAL-00355" />
+      <option name="project" value="LOCAL" />
+      <updated>1687764335891</updated>
+    </task>
+    <task id="LOCAL-00356" summary="coordinate attribute -&gt; x &amp; y">
+      <created>1687764428147</created>
+      <option name="number" value="00356" />
+      <option name="presentableId" value="LOCAL-00356" />
+      <option name="project" value="LOCAL" />
+      <updated>1687764428147</updated>
+    </task>
+    <task id="LOCAL-00357" summary="coordinate attribute -&gt; x &amp; y">
+      <created>1687764748979</created>
+      <option name="number" value="00357" />
+      <option name="presentableId" value="LOCAL-00357" />
+      <option name="project" value="LOCAL" />
+      <updated>1687764748979</updated>
+    </task>
+    <task id="LOCAL-00358" summary="new boardmap constructor (Set from pieces)">
+      <created>1687764760157</created>
+      <option name="number" value="00358" />
+      <option name="presentableId" value="LOCAL-00358" />
+      <option name="project" value="LOCAL" />
+      <updated>1687764760157</updated>
+    </task>
+    <task id="LOCAL-00359" summary="position -&gt; x &amp; y for pieces">
+      <created>1687764846013</created>
+      <option name="number" value="00359" />
+      <option name="presentableId" value="LOCAL-00359" />
+      <option name="project" value="LOCAL" />
+      <updated>1687764846013</updated>
+    </task>
+    <task id="LOCAL-00360" summary="controller setup">
+      <created>1687765619065</created>
+      <option name="number" value="00360" />
+      <option name="presentableId" value="LOCAL-00360" />
+      <option name="project" value="LOCAL" />
+      <updated>1687765619065</updated>
+    </task>
+    <task id="LOCAL-00361" summary="controller setup">
+      <created>1687765798344</created>
+      <option name="number" value="00361" />
+      <option name="presentableId" value="LOCAL-00361" />
+      <option name="project" value="LOCAL" />
+      <updated>1687765798345</updated>
+    </task>
+    <task id="LOCAL-00362" summary="move getters added to player (all, last , last N)">
+      <created>1687767559158</created>
+      <option name="number" value="00362" />
+      <option name="presentableId" value="LOCAL-00362" />
+      <option name="project" value="LOCAL" />
+      <updated>1687767559158</updated>
+    </task>
+    <task id="LOCAL-00363" summary="move number getter &amp; setter">
+      <created>1687767573977</created>
+      <option name="number" value="00363" />
+      <option name="presentableId" value="LOCAL-00363" />
+      <option name="project" value="LOCAL" />
+      <updated>1687767573977</updated>
+    </task>
+    <task id="LOCAL-00364" summary="update Move further to x&amp;y instead of coordinate">
+      <created>1687768506063</created>
+      <option name="number" value="00364" />
+      <option name="presentableId" value="LOCAL-00364" />
+      <option name="project" value="LOCAL" />
+      <updated>1687768506063</updated>
+    </task>
+    <task id="LOCAL-00365" summary="update Move further to x&amp;y instead of coordinate">
+      <created>1687768820622</created>
+      <option name="number" value="00365" />
+      <option name="presentableId" value="LOCAL-00365" />
+      <option name="project" value="LOCAL" />
+      <updated>1687768820622</updated>
+    </task>
+    <task id="LOCAL-00366" summary="nullable annotations">
+      <created>1687768864171</created>
+      <option name="number" value="00366" />
+      <option name="presentableId" value="LOCAL-00366" />
+      <option name="project" value="LOCAL" />
+      <updated>1687768864171</updated>
+    </task>
+    <task id="LOCAL-00367" summary="x &amp; y instead of coordinate">
+      <created>1687768916077</created>
+      <option name="number" value="00367" />
+      <option name="presentableId" value="LOCAL-00367" />
+      <option name="project" value="LOCAL" />
+      <updated>1687768916077</updated>
+    </task>
+    <task id="LOCAL-00368" summary="en passant logic separation">
+      <created>1687769203947</created>
+      <option name="number" value="00368" />
+      <option name="presentableId" value="LOCAL-00368" />
+      <option name="project" value="LOCAL" />
+      <updated>1687769203947</updated>
+    </task>
+    <task id="LOCAL-00369" summary="setallattackedsquares method - takes a board as input. Doesn't do anything to pieces movable squares">
+      <created>1687769952921</created>
+      <option name="number" value="00369" />
+      <option name="presentableId" value="LOCAL-00369" />
+      <option name="project" value="LOCAL" />
+      <updated>1687769952921</updated>
+    </task>
+    <task id="LOCAL-00370" summary="setallattackedsquares method - takes a board as input. Doesn't do anything to pieces movable squares">
+      <created>1687770024622</created>
+      <option name="number" value="00370" />
+      <option name="presentableId" value="LOCAL-00370" />
+      <option name="project" value="LOCAL" />
+      <updated>1687770024622</updated>
+    </task>
+    <task id="LOCAL-00371" summary="Changed white &amp; black player from separate attributes to an array - good idea? Not sure">
+      <created>1687770065047</created>
+      <option name="number" value="00371" />
+      <option name="presentableId" value="LOCAL-00371" />
+      <option name="project" value="LOCAL" />
+      <updated>1687770065048</updated>
+    </task>
+    <task id="LOCAL-00372" summary="checkcheck takes game as input">
+      <created>1687770083764</created>
+      <option name="number" value="00372" />
+      <option name="presentableId" value="LOCAL-00372" />
+      <option name="project" value="LOCAL" />
+      <updated>1687770083764</updated>
+    </task>
+    <task id="LOCAL-00373" summary="set movable squares takes board as input">
+      <created>1687770106658</created>
+      <option name="number" value="00373" />
+      <option name="presentableId" value="LOCAL-00373" />
+      <option name="project" value="LOCAL" />
+      <updated>1687770106658</updated>
+    </task>
+    <task id="LOCAL-00374" summary="back to white &amp; black player (instead of player array)">
+      <created>1687770311468</created>
+      <option name="number" value="00374" />
+      <option name="presentableId" value="LOCAL-00374" />
+      <option name="project" value="LOCAL" />
+      <updated>1687770311468</updated>
+    </task>
+    <task id="LOCAL-00375" summary="updated getking method">
+      <created>1687770991331</created>
+      <option name="number" value="00375" />
+      <option name="presentableId" value="LOCAL-00375" />
+      <option name="project" value="LOCAL" />
+      <updated>1687770991331</updated>
+    </task>
+    <task id="LOCAL-00376" summary="updated getking method">
+      <created>1687771180655</created>
+      <option name="number" value="00376" />
+      <option name="presentableId" value="LOCAL-00376" />
+      <option name="project" value="LOCAL" />
+      <updated>1687771180655</updated>
+    </task>
+    <option name="localTasksCounter" value="377" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,32 +536,32 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Made game and coordinateArray &quot;transient&quot;" />
-    <MESSAGE value="Replace Boolean with boolean" />
-    <MESSAGE value="Setup get method in PlayGame.java (will be setup as Spring controller later)" />
-    <MESSAGE value="unversioned files" />
-    <MESSAGE value="playgame dummy method movePiece" />
-    <MESSAGE value="small reformat (method paramater order)" />
-    <MESSAGE value="Added DTO for piece moving" />
-    <MESSAGE value="ordering of inputs in moveMaker.makeMove" />
-    <MESSAGE value="sprint init demo" />
-    <MESSAGE value="template added" />
-    <MESSAGE value="template" />
-    <MESSAGE value="refactoring" />
-    <MESSAGE value="@ annotations in Piece class" />
-    <MESSAGE value="refactor" />
-    <MESSAGE value="added repositories" />
-    <MESSAGE value="added IDs" />
-    <MESSAGE value="added IDs and anootations" />
-    <MESSAGE value="many to many relation between player and move" />
-    <MESSAGE value="MoveRepository.java" />
-    <MESSAGE value="Player and piece repositories" />
-    <MESSAGE value="Update jakarta annotations" />
     <MESSAGE value="application.properties" />
     <MESSAGE value="new getking method" />
     <MESSAGE value="TODO" />
     <MESSAGE value="@ annotations" />
-    <option name="LAST_COMMIT_MESSAGE" value="@ annotations" />
+    <MESSAGE value="update piecetype structure" />
+    <MESSAGE value="@s" />
+    <MESSAGE value="todo comment" />
+    <MESSAGE value="added empty constructors" />
+    <MESSAGE value="remove final tags" />
+    <MESSAGE value="coordinate attribute -&gt; x &amp; y" />
+    <MESSAGE value="new boardmap constructor (Set from pieces)" />
+    <MESSAGE value="position -&gt; x &amp; y for pieces" />
+    <MESSAGE value="controller setup" />
+    <MESSAGE value="move getters added to player (all, last , last N)" />
+    <MESSAGE value="move number getter &amp; setter" />
+    <MESSAGE value="update Move further to x&amp;y instead of coordinate" />
+    <MESSAGE value="nullable annotations" />
+    <MESSAGE value="x &amp; y instead of coordinate" />
+    <MESSAGE value="en passant logic separation" />
+    <MESSAGE value="setallattackedsquares method - takes a board as input. Doesn't do anything to pieces movable squares" />
+    <MESSAGE value="Changed white &amp; black player from separate attributes to an array - good idea? Not sure" />
+    <MESSAGE value="checkcheck takes game as input" />
+    <MESSAGE value="set movable squares takes board as input" />
+    <MESSAGE value="back to white &amp; black player (instead of player array)" />
+    <MESSAGE value="updated getking method" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated getking method" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
