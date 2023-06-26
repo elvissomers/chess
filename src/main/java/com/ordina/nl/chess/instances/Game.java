@@ -143,29 +143,27 @@ public class Game {
         return hasThreefoldRepetition(whitePlayer) && hasThreefoldRepetition(blackPlayer);
     }
 
+    private boolean checkFiftyMoveRule() {
+        return checkFiftyMoveRuleForPlayer(whitePlayer) && checkFiftyMoveRuleForPlayer(blackPlayer);
+    }
+
+    // TODO!
     private boolean hasThreefoldRepetition(Player player) {
         int historySize = player.getMoveHistory().size();
         if (historySize < 3)
             return false;
 
-        Move lastMove = player.getMoveHistory().get(historySize - 1);
-        return lastMove.equals(player.getMoveHistory().get(historySize - 3))
-                && lastMove.equals(player.getMoveHistory().get(historySize - 2));
+        List<Move> lastThreeMoves = player.getLastNMoves(3);
+        return false; // TODO!
     }
 
-    private boolean checkFiftyMoveRule() {
-        List<Move> whiteHistory = whitePlayer.getMoveHistory();
-        List<Move> blackHistory = blackPlayer.getMoveHistory();
-        if (blackHistory.size() < 50)
+    private boolean checkFiftyMoveRuleForPlayer(Player player) {
+        if (player.getMoveHistory().size() < 50)
             return false;
 
-        for (int i = 0; i < 50; i++) {
-            Move whiteMove = whiteHistory.get(whiteHistory.size() - 1 - i);
-            if (whiteMove.getPiece() instanceof Pawn || whiteMove.getTakenPiece() != null) {
-                return false;
-            }
-            Move blackMove = blackHistory.get(blackHistory.size() - 1 - i);
-            if (blackMove.getPiece() instanceof Pawn || blackMove.getTakenPiece() != null) {
+        List<Move> lastFiftyMoves = player.getLastNMoves(50);
+        for (Move move : lastFiftyMoves) {
+            if (move.getPiece() instanceof Pawn || move.getTakenPiece() != null) {
                 return false;
             }
         }

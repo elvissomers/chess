@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="added taken piece removing to controller">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PieceControllerClean.java" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="implemented &quot;canMove&quot; instead of all movable squares in player">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PieceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PieceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,34 +168,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00357" summary="coordinate attribute -&gt; x &amp; y">
-      <created>1687764748979</created>
-      <option name="number" value="00357" />
-      <option name="presentableId" value="LOCAL-00357" />
-      <option name="project" value="LOCAL" />
-      <updated>1687764748979</updated>
-    </task>
-    <task id="LOCAL-00358" summary="new boardmap constructor (Set from pieces)">
-      <created>1687764760157</created>
-      <option name="number" value="00358" />
-      <option name="presentableId" value="LOCAL-00358" />
-      <option name="project" value="LOCAL" />
-      <updated>1687764760157</updated>
-    </task>
-    <task id="LOCAL-00359" summary="position -&gt; x &amp; y for pieces">
-      <created>1687764846013</created>
-      <option name="number" value="00359" />
-      <option name="presentableId" value="LOCAL-00359" />
-      <option name="project" value="LOCAL" />
-      <updated>1687764846013</updated>
-    </task>
-    <task id="LOCAL-00360" summary="controller setup">
-      <created>1687765619065</created>
-      <option name="number" value="00360" />
-      <option name="presentableId" value="LOCAL-00360" />
-      <option name="project" value="LOCAL" />
-      <updated>1687765619065</updated>
     </task>
     <task id="LOCAL-00361" summary="controller setup">
       <created>1687765798344</created>
@@ -513,7 +484,35 @@
       <option name="project" value="LOCAL" />
       <updated>1687784022412</updated>
     </task>
-    <option name="localTasksCounter" value="406" />
+    <task id="LOCAL-00406" summary="added custom exceptions">
+      <created>1687785495308</created>
+      <option name="number" value="00406" />
+      <option name="presentableId" value="LOCAL-00406" />
+      <option name="project" value="LOCAL" />
+      <updated>1687785495308</updated>
+    </task>
+    <task id="LOCAL-00407" summary="clean code experiment">
+      <created>1687785744539</created>
+      <option name="number" value="00407" />
+      <option name="presentableId" value="LOCAL-00407" />
+      <option name="project" value="LOCAL" />
+      <updated>1687785744539</updated>
+    </task>
+    <task id="LOCAL-00408" summary="promotion added">
+      <created>1687785752681</created>
+      <option name="number" value="00408" />
+      <option name="presentableId" value="LOCAL-00408" />
+      <option name="project" value="LOCAL" />
+      <updated>1687785752681</updated>
+    </task>
+    <task id="LOCAL-00409" summary="implemented &quot;canMove&quot; instead of all movable squares in player">
+      <created>1687786488107</created>
+      <option name="number" value="00409" />
+      <option name="presentableId" value="LOCAL-00409" />
+      <option name="project" value="LOCAL" />
+      <updated>1687786488107</updated>
+    </task>
+    <option name="localTasksCounter" value="410" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -531,10 +530,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Updating logic to use temporary boardMap" />
-    <MESSAGE value="no argument constructors added" />
-    <MESSAGE value="reworked new game setup" />
-    <MESSAGE value="refactor" />
     <MESSAGE value="create GameController.java" />
     <MESSAGE value="implemented PieceType enum in pieces" />
     <MESSAGE value="updated getplayer moves to give moves in order" />
@@ -556,7 +551,11 @@
     <MESSAGE value="comment out unused test" />
     <MESSAGE value="remove unused code" />
     <MESSAGE value="added taken piece removing to controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="added taken piece removing to controller" />
+    <MESSAGE value="added custom exceptions" />
+    <MESSAGE value="clean code experiment" />
+    <MESSAGE value="promotion added" />
+    <MESSAGE value="implemented &quot;canMove&quot; instead of all movable squares in player" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented &quot;canMove&quot; instead of all movable squares in player" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
