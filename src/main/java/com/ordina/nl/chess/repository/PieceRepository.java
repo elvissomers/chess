@@ -9,5 +9,6 @@ import java.util.Optional;
 
 public interface PieceRepository extends JpaRepository<Piece, Long> {
 
-    Optional<Piece> findByPlayerAndCoordinate(Player player, Coordinate coordinate);
+    Optional<Piece> findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
+            int xPos, int yPos, long id);
 }
