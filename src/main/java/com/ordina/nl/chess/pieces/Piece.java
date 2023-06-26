@@ -1,6 +1,7 @@
 package com.ordina.nl.chess.pieces;
 
 import com.ordina.nl.chess.instances.Player;
+import com.ordina.nl.chess.structures.BoardMap;
 import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.structures.MovementType;
 import jakarta.persistence.*;
@@ -92,10 +93,10 @@ public abstract class Piece {
         legalMovableSquares = new ArrayList<>();
     }
 
-    public void setMovableSquares(){
+    public void setMovableSquares(BoardMap board){
         removePreviousMovableSquares();
         for (MovementType moveRule : moveRules){
-            moveRule.setMoves(this, player.getGame().getBoard(), player.getGame().getMoveFinder());
+            moveRule.setMoves(this, board, player.getGame().getMoveFinder());
         }
     }
 
