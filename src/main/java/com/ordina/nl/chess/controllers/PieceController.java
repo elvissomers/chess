@@ -45,6 +45,7 @@ public class PieceController {
 
     // This is a put mapping, it should update the game to make a move
     public void makeMove(long gameId, int xFrom, int yFrom, int xTo, int yTo) {
+        // TODO: this does not take castling into account!
         // TODO: return a status repsponse DTO instead of void
         Optional<Game> optionalGame = gameRepository.findById(gameId);
         Optional<Piece> optionalPiece = pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
