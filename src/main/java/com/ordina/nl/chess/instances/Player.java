@@ -117,7 +117,9 @@ public class Player {
             if (piece instanceof King)
                 return (King) piece;
         }
-        return null;
+        // Note: This should never be used! A player should always have a King!
+        // TODO: replace this by throws KingNotFoundException
+        return new King(this);
     }
 
     public List<Move> getPlayerMoves() {
