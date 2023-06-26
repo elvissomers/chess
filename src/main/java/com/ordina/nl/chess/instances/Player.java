@@ -123,8 +123,11 @@ public class Player {
         return new King(this);
     }
 
-    public List<Move> getPlayerMoves() {
-        return moveRepository.findByPlayers_IdContaining(id);
+    public List<Move> getPlayerMovesInOrder() {
+        List<Move> playerMoves = moveRepository.findByPlayers_IdContaining(id);
+        return playerMoves.stream()
+                .sorted(Comparator.comparingInt(Move::getNumber))
+                .collect(Collectors.toList());
     }
 
     public Move getLastMove() {
