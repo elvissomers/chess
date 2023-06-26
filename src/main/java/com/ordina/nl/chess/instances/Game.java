@@ -52,7 +52,7 @@ public class Game {
 
     public void setStandardStartingGame() {
         int horizontalSize = 8;
-        state = GameState.ONGOING;
+        state = GameState.WHITE_TURN;
         whitePlayer = new Player(this, Team.WHITE);
         playerRepository.save(whitePlayer);
         blackPlayer = new Player(this, Team.BLACK);
@@ -132,21 +132,10 @@ public class Game {
         piece.setLegalMovableSquares();
     }
 
-    public void update(Team teamTurn) {
-        // TODO: have this take a player in turn as input and use that to do less computation?
-        whitePlayer.setAllAttackedAndMovableSquares();
-        blackPlayer.setAllAttackedAndMovableSquares();
-
-        whitePlayer.getKing().setInCheck();
-        blackPlayer.getKing().setInCheck();
-        moveFinder.pruneSelfCheckMoves(this, moveMaker);
-        checkState(teamTurn);
-    }
-
     public void checkState(Team teamTurn) {
         Player currentPlayer = (teamTurn == Team.WHITE) ? whitePlayer : blackPlayer;
         if (currentPlayer.getKing().isInCheck() && currentPlayer.getAllMovableSquares().isEmpty())
-            state = (teamTurn == Team.WHITE) ? GameState.BLACKWINS : GameState.WHITEWINS;
+            state = (teamTurn == Team.WHITE) ? GameState.BLACK_WINS : GameState.WHITE_WINS;
 
         if (currentPlayer.getAllMovableSquares().isEmpty() && !currentPlayer.getKing().isInCheck())
             state = GameState.DRAW;
