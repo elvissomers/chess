@@ -69,6 +69,10 @@ public class Move {
         return castleType;
     }
 
+    public void setCastleType(CastleType castleType) {
+        this.castleType = castleType;
+    }
+
     public int getNumber() {
         return number;
     }
