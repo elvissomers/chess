@@ -8,33 +8,38 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class BoardMap extends HashMap<Coordinate, Piece> {
-    /**
-     * Note: BoardMap creates new Pieces. Therefore, these should not be
-     * created in either Player or Game classes.
-     *
-     * Players are assumed to already exist when the BoardMap is created. Therefore,
-     * players should be created before BoardMap. Their PieceMap, however, should still be
-     * empty.
-     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private final transient Game game;
+    private transient Game game;
 
-    private final transient Coordinate[][] coordinateArray;
+    private transient Coordinate[][] coordinateArray;
 
     public Coordinate[][] getCoordinateArray() {
         return coordinateArray;
     }
 
-    /**
-     * Constructor for BoardMap is supposed to generate a starting Board according to the standard chess rules.
-     *
-     * @param game the game the Board belongs to
-     */
+    public BoardMap(){
+        coordinateArray = new Coordinate[8][8];
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                coordinateArray[i][j] = new Coordinate(i, j);
+                put(coordinateArray[i][j], null);
+            }
+        }
+    }
+
+    public void setPiecesToBoard(Set<Piece> pieces) {
+        for (Piece piece : pieces) {
+            put(getCoordinateByPos(piece.getHorizontalPosition(), piece.getVerticalPosition()),
+                    piece);
+        }
+    }
+
     public BoardMap(Game game){
         this.game = game;
         coordinateArray = new Coordinate[8][8];
