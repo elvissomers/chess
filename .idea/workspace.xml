@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Updating logic to use temporary boardMap">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="removal of old code">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PieceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PieceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PlayGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PlayGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/pieces/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/structures/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/structures/GameState.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,76 +172,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00329" summary="refactoring">
-      <created>1687254167035</created>
-      <option name="number" value="00329" />
-      <option name="presentableId" value="LOCAL-00329" />
-      <option name="project" value="LOCAL" />
-      <updated>1687254167035</updated>
-    </task>
-    <task id="LOCAL-00330" summary="refactoring">
-      <created>1687254368172</created>
-      <option name="number" value="00330" />
-      <option name="presentableId" value="LOCAL-00330" />
-      <option name="project" value="LOCAL" />
-      <updated>1687254368172</updated>
-    </task>
-    <task id="LOCAL-00331" summary="refactoring">
-      <created>1687254414927</created>
-      <option name="number" value="00331" />
-      <option name="presentableId" value="LOCAL-00331" />
-      <option name="project" value="LOCAL" />
-      <updated>1687254414927</updated>
-    </task>
-    <task id="LOCAL-00332" summary="@ annotations in Piece class">
-      <created>1687254470303</created>
-      <option name="number" value="00332" />
-      <option name="presentableId" value="LOCAL-00332" />
-      <option name="project" value="LOCAL" />
-      <updated>1687254470303</updated>
-    </task>
-    <task id="LOCAL-00333" summary="refactor">
-      <created>1687259840018</created>
-      <option name="number" value="00333" />
-      <option name="presentableId" value="LOCAL-00333" />
-      <option name="project" value="LOCAL" />
-      <updated>1687259840018</updated>
-    </task>
-    <task id="LOCAL-00334" summary="added repositories">
-      <created>1687338299848</created>
-      <option name="number" value="00334" />
-      <option name="presentableId" value="LOCAL-00334" />
-      <option name="project" value="LOCAL" />
-      <updated>1687338299848</updated>
-    </task>
-    <task id="LOCAL-00335" summary="added IDs">
-      <created>1687338311483</created>
-      <option name="number" value="00335" />
-      <option name="presentableId" value="LOCAL-00335" />
-      <option name="project" value="LOCAL" />
-      <updated>1687338311483</updated>
-    </task>
-    <task id="LOCAL-00336" summary="added IDs and anootations">
-      <created>1687339672639</created>
-      <option name="number" value="00336" />
-      <option name="presentableId" value="LOCAL-00336" />
-      <option name="project" value="LOCAL" />
-      <updated>1687339672639</updated>
-    </task>
-    <task id="LOCAL-00337" summary="many to many relation between player and move">
-      <created>1687340015382</created>
-      <option name="number" value="00337" />
-      <option name="presentableId" value="LOCAL-00337" />
-      <option name="project" value="LOCAL" />
-      <updated>1687340015382</updated>
-    </task>
-    <task id="LOCAL-00338" summary="MoveRepository.java">
-      <created>1687340026347</created>
-      <option name="number" value="00338" />
-      <option name="presentableId" value="LOCAL-00338" />
-      <option name="project" value="LOCAL" />
-      <updated>1687340026347</updated>
     </task>
     <task id="LOCAL-00339" summary="MoveRepository.java">
       <created>1687340031165</created>
@@ -512,7 +446,77 @@
       <option name="project" value="LOCAL" />
       <updated>1687774411251</updated>
     </task>
-    <option name="localTasksCounter" value="378" />
+    <task id="LOCAL-00378" summary="no argument constructors added">
+      <created>1687775031542</created>
+      <option name="number" value="00378" />
+      <option name="presentableId" value="LOCAL-00378" />
+      <option name="project" value="LOCAL" />
+      <updated>1687775031542</updated>
+    </task>
+    <task id="LOCAL-00379" summary="reworked new game setup">
+      <created>1687775341627</created>
+      <option name="number" value="00379" />
+      <option name="presentableId" value="LOCAL-00379" />
+      <option name="project" value="LOCAL" />
+      <updated>1687775341627</updated>
+    </task>
+    <task id="LOCAL-00380" summary="refactor">
+      <created>1687775385329</created>
+      <option name="number" value="00380" />
+      <option name="presentableId" value="LOCAL-00380" />
+      <option name="project" value="LOCAL" />
+      <updated>1687775385329</updated>
+    </task>
+    <task id="LOCAL-00381" summary="create GameController.java">
+      <created>1687775467421</created>
+      <option name="number" value="00381" />
+      <option name="presentableId" value="LOCAL-00381" />
+      <option name="project" value="LOCAL" />
+      <updated>1687775467421</updated>
+    </task>
+    <task id="LOCAL-00382" summary="implemented PieceType enum in pieces">
+      <created>1687775906656</created>
+      <option name="number" value="00382" />
+      <option name="presentableId" value="LOCAL-00382" />
+      <option name="project" value="LOCAL" />
+      <updated>1687775906656</updated>
+    </task>
+    <task id="LOCAL-00383" summary="updated getplayer moves to give moves in order">
+      <created>1687776023622</created>
+      <option name="number" value="00383" />
+      <option name="presentableId" value="LOCAL-00383" />
+      <option name="project" value="LOCAL" />
+      <updated>1687776023622</updated>
+    </task>
+    <task id="LOCAL-00384" summary="removal of old code">
+      <created>1687776089549</created>
+      <option name="number" value="00384" />
+      <option name="presentableId" value="LOCAL-00384" />
+      <option name="project" value="LOCAL" />
+      <updated>1687776089549</updated>
+    </task>
+    <task id="LOCAL-00385" summary="removal of old code">
+      <created>1687776314063</created>
+      <option name="number" value="00385" />
+      <option name="presentableId" value="LOCAL-00385" />
+      <option name="project" value="LOCAL" />
+      <updated>1687776314063</updated>
+    </task>
+    <task id="LOCAL-00386" summary="removal of old code">
+      <created>1687776323231</created>
+      <option name="number" value="00386" />
+      <option name="presentableId" value="LOCAL-00386" />
+      <option name="project" value="LOCAL" />
+      <updated>1687776323231</updated>
+    </task>
+    <task id="LOCAL-00387" summary="removal of old code">
+      <created>1687776355141</created>
+      <option name="number" value="00387" />
+      <option name="presentableId" value="LOCAL-00387" />
+      <option name="project" value="LOCAL" />
+      <updated>1687776355141</updated>
+    </task>
+    <option name="localTasksCounter" value="388" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -530,13 +534,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="new getking method" />
-    <MESSAGE value="TODO" />
-    <MESSAGE value="@ annotations" />
-    <MESSAGE value="update piecetype structure" />
-    <MESSAGE value="@s" />
-    <MESSAGE value="todo comment" />
-    <MESSAGE value="added empty constructors" />
     <MESSAGE value="remove final tags" />
     <MESSAGE value="coordinate attribute -&gt; x &amp; y" />
     <MESSAGE value="new boardmap constructor (Set from pieces)" />
@@ -555,7 +552,14 @@
     <MESSAGE value="back to white &amp; black player (instead of player array)" />
     <MESSAGE value="updated getking method" />
     <MESSAGE value="Updating logic to use temporary boardMap" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating logic to use temporary boardMap" />
+    <MESSAGE value="no argument constructors added" />
+    <MESSAGE value="reworked new game setup" />
+    <MESSAGE value="refactor" />
+    <MESSAGE value="create GameController.java" />
+    <MESSAGE value="implemented PieceType enum in pieces" />
+    <MESSAGE value="updated getplayer moves to give moves in order" />
+    <MESSAGE value="removal of old code" />
+    <option name="LAST_COMMIT_MESSAGE" value="removal of old code" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
