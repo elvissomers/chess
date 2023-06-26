@@ -2,6 +2,7 @@ package com.ordina.nl.chess.pieces;
 
 import com.ordina.nl.chess.instances.Player;
 import com.ordina.nl.chess.structures.MovementType;
+import com.ordina.nl.chess.structures.PieceType;
 
 import java.util.Set;
 
@@ -22,6 +23,11 @@ public class Queen extends Piece{
 
     public Queen copy(){
         return new Queen(this);
+    }
+
+    @Override
+    public void setCorrectPieceType() {
+        setPieceType(PieceType.QUEEN);
     }
 
     @Override

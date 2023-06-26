@@ -3,6 +3,7 @@ package com.ordina.nl.chess.pieces;
 import com.ordina.nl.chess.instances.Player;
 import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.structures.MovementType;
+import com.ordina.nl.chess.structures.PieceType;
 import com.ordina.nl.chess.structures.Team;
 
 import java.util.Set;
@@ -41,6 +42,11 @@ public class King extends Piece {
 
     public void setHasMoved(boolean hasMoved) {
         this.hasMoved = hasMoved;
+    }
+
+    @Override
+    public void setCorrectPieceType() {
+        setPieceType(PieceType.KING);
     }
 
     @Override

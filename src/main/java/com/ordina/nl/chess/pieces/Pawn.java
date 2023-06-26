@@ -1,10 +1,7 @@
 package com.ordina.nl.chess.pieces;
 
 import com.ordina.nl.chess.instances.Player;
-import com.ordina.nl.chess.structures.BoardMap;
-import com.ordina.nl.chess.structures.Coordinate;
-import com.ordina.nl.chess.structures.MovementType;
-import com.ordina.nl.chess.structures.Team;
+import com.ordina.nl.chess.structures.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -60,6 +57,11 @@ public class Pawn extends Piece {
 
     public Pawn copy(){
         return new Pawn(this);
+    }
+
+    @Override
+    public void setCorrectPieceType() {
+        setPieceType(PieceType.PAWN);
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.ordina.nl.chess.pieces;
 
 import com.ordina.nl.chess.instances.Player;
 import com.ordina.nl.chess.structures.MovementType;
+import com.ordina.nl.chess.structures.PieceType;
 
 import java.util.Set;
 
@@ -22,6 +23,11 @@ public class Knight extends Piece {
 
     public Knight copy(){
         return new Knight(this);
+    }
+
+    @Override
+    public void setCorrectPieceType() {
+        setPieceType(PieceType.KNIGHT);
     }
 
     @Override

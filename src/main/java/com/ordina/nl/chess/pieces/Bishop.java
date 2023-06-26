@@ -2,6 +2,7 @@ package com.ordina.nl.chess.pieces;
 
 import com.ordina.nl.chess.instances.Player;
 import com.ordina.nl.chess.structures.MovementType;
+import com.ordina.nl.chess.structures.PieceType;
 
 import java.util.Set;
 
@@ -23,6 +24,11 @@ public class Bishop extends Piece {
 
     public Bishop copy(){
         return new Bishop(this);
+    }
+
+    @Override
+    public void setCorrectPieceType() {
+        setPieceType(PieceType.BISHOP);
     }
 
     @Override

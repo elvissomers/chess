@@ -5,6 +5,7 @@ import com.ordina.nl.chess.movement.MoveFinder;
 import com.ordina.nl.chess.structures.BoardMap;
 import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.structures.MovementType;
+import com.ordina.nl.chess.structures.PieceType;
 import jakarta.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -29,6 +30,9 @@ public abstract class Piece {
     @Column
     @ManyToOne
     private Player player;
+
+    @Column
+    private PieceType pieceType;
 
     @Transient
     private List<Coordinate> movableSquares = new ArrayList<>();
@@ -87,6 +91,12 @@ public abstract class Piece {
 
     public abstract Piece copy();
 
+    public abstract void setCorrectPieceType();
+
+    public void setCorrectMoveRules() {
+        setMoveRules(getPieceType().getMovementTypes());
+    };
+
     public void setMovableSquares(BoardMap board) {
         movableSquares = new ArrayList<>();
         for (MovementType moveRule : moveRules){
@@ -107,8 +117,16 @@ public abstract class Piece {
         return player;
     }
 
+    public PieceType getPieceType() {
+        return pieceType;
+    }
+
     public void setPlayer(Player player) {
         this.player = player;
+    }
+
+    public void setPieceType(PieceType pieceType) {
+        this.pieceType = pieceType;
     }
 
     public void setMoveRules(Set<MovementType> moveRules) {
