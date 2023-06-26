@@ -97,6 +97,22 @@ public class Move {
         return verticalTo;
     }
 
+    public void setHorizontalFrom(int horizontalFrom) {
+        this.horizontalFrom = horizontalFrom;
+    }
+
+    public void setVerticalFrom(int verticalFrom) {
+        this.verticalFrom = verticalFrom;
+    }
+
+    public void setHorizontalTo(int horizontalTo) {
+        this.horizontalTo = horizontalTo;
+    }
+
+    public void setVerticalTo(int verticalTo) {
+        this.verticalTo = verticalTo;
+    }
+
     @Override
     public String toString(){
         if (castleType == CastleType.SHORT)
@@ -105,6 +121,8 @@ public class Move {
             return "0-0-0";
 
         String moveChar = (takenPiece == null) ? "-" : "x";
+        Coordinate squareFrom = new Coordinate(horizontalFrom, verticalFrom);
+        Coordinate squareTo = new Coordinate(horizontalTo, verticalTo);
         return piece.toString() + squareFrom.toString() + moveChar + squareTo.toString();
     }
 
