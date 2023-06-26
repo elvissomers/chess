@@ -27,9 +27,9 @@ public class Game {
     private GameState state;
 
     // TODO: one to one OR one to many? Replace with a Player[] array of size 2?
-    private final Player whitePlayer;
+    private Player whitePlayer;
 
-    private final Player blackPlayer;
+    private Player blackPlayer;
 
     // TODO : logic classes should be @Autowired objects in Controller instead of Object?
     @Autowired
@@ -47,10 +47,6 @@ public class Game {
         blackPlayer = new Player(this, Team.BLACK);
     }
 
-    /**
-     * Copy constructor for Game. Should ensure everything is copied properly.
-     * @param other the Game to copy.
-     */
     public Game(Game other){
         state = GameState.ONGOING;
         whitePlayer = new Player(this, Team.WHITE);
@@ -105,6 +101,11 @@ public class Game {
 
     public void setState(GameState state) {
         this.state = state;
+    }
+
+    public void setMovableSquaresForPiece(Piece piece) {
+        BoardMap board = new BoardMap();
+
     }
 
     public void update(Team teamTurn) {
