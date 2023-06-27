@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="implemented &quot;canMove&quot; instead of all movable squares in player">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="added takenPiece to Move saving (needed for fifty move rule check)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/dto/GetPieceDataDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PieceControllerClean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PieceControllerClean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/dto/MovePieceDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/dto/MovePieceDto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,28 +49,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/eso13215/IdeaProjects/aoc_2022&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/eso13215/IdeaProjects/chess",
+    "onboarding.tips.debug.path": "C:/Users/eso13215/IdeaProjects/chess/src/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -168,34 +170,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00361" summary="controller setup">
-      <created>1687765798344</created>
-      <option name="number" value="00361" />
-      <option name="presentableId" value="LOCAL-00361" />
-      <option name="project" value="LOCAL" />
-      <updated>1687765798345</updated>
-    </task>
-    <task id="LOCAL-00362" summary="move getters added to player (all, last , last N)">
-      <created>1687767559158</created>
-      <option name="number" value="00362" />
-      <option name="presentableId" value="LOCAL-00362" />
-      <option name="project" value="LOCAL" />
-      <updated>1687767559158</updated>
-    </task>
-    <task id="LOCAL-00363" summary="move number getter &amp; setter">
-      <created>1687767573977</created>
-      <option name="number" value="00363" />
-      <option name="presentableId" value="LOCAL-00363" />
-      <option name="project" value="LOCAL" />
-      <updated>1687767573977</updated>
-    </task>
-    <task id="LOCAL-00364" summary="update Move further to x&amp;y instead of coordinate">
-      <created>1687768506063</created>
-      <option name="number" value="00364" />
-      <option name="presentableId" value="LOCAL-00364" />
-      <option name="project" value="LOCAL" />
-      <updated>1687768506063</updated>
     </task>
     <task id="LOCAL-00365" summary="update Move further to x&amp;y instead of coordinate">
       <created>1687768820622</created>
@@ -512,7 +486,35 @@
       <option name="project" value="LOCAL" />
       <updated>1687786488107</updated>
     </task>
-    <option name="localTasksCounter" value="410" />
+    <task id="LOCAL-00410" summary="open work in progress">
+      <created>1687787972953</created>
+      <option name="number" value="00410" />
+      <option name="presentableId" value="LOCAL-00410" />
+      <option name="project" value="LOCAL" />
+      <updated>1687787972953</updated>
+    </task>
+    <task id="LOCAL-00411" summary="Added elementnotfoundexception to Player.getKing">
+      <created>1687851576830</created>
+      <option name="number" value="00411" />
+      <option name="presentableId" value="LOCAL-00411" />
+      <option name="project" value="LOCAL" />
+      <updated>1687851576830</updated>
+    </task>
+    <task id="LOCAL-00412" summary="remove unused code">
+      <created>1687851623094</created>
+      <option name="number" value="00412" />
+      <option name="presentableId" value="LOCAL-00412" />
+      <option name="project" value="LOCAL" />
+      <updated>1687851623094</updated>
+    </task>
+    <task id="LOCAL-00413" summary="added takenPiece to Move saving (needed for fifty move rule check)">
+      <created>1687851975477</created>
+      <option name="number" value="00413" />
+      <option name="presentableId" value="LOCAL-00413" />
+      <option name="project" value="LOCAL" />
+      <updated>1687851975477</updated>
+    </task>
+    <option name="localTasksCounter" value="414" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -530,9 +532,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="create GameController.java" />
-    <MESSAGE value="implemented PieceType enum in pieces" />
-    <MESSAGE value="updated getplayer moves to give moves in order" />
     <MESSAGE value="removal of old code" />
     <MESSAGE value="added super long query" />
     <MESSAGE value="comment out some old code" />
@@ -549,13 +548,16 @@
     <MESSAGE value="castletype setter" />
     <MESSAGE value="added castling method" />
     <MESSAGE value="comment out unused test" />
-    <MESSAGE value="remove unused code" />
     <MESSAGE value="added taken piece removing to controller" />
     <MESSAGE value="added custom exceptions" />
     <MESSAGE value="clean code experiment" />
     <MESSAGE value="promotion added" />
     <MESSAGE value="implemented &quot;canMove&quot; instead of all movable squares in player" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented &quot;canMove&quot; instead of all movable squares in player" />
+    <MESSAGE value="open work in progress" />
+    <MESSAGE value="Added elementnotfoundexception to Player.getKing" />
+    <MESSAGE value="remove unused code" />
+    <MESSAGE value="added takenPiece to Move saving (needed for fifty move rule check)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added takenPiece to Move saving (needed for fifty move rule check)" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
