@@ -1,6 +1,7 @@
 package com.ordina.nl.chess.controllers;
 
 import com.ordina.nl.chess.dto.GetPieceDataDto;
+import com.ordina.nl.chess.dto.MovableSquaresResponseDto;
 import com.ordina.nl.chess.game.Move;
 import com.ordina.nl.chess.instances.Game;
 import com.ordina.nl.chess.movement.MoveFinder;
@@ -38,18 +39,19 @@ public class PieceController {
     private MoveFinder moveFinder;
 
     // This is a get mapping, it should not change anything
-    public List<Coordinate> getMovableSquares(GetPieceDataDto dto) {
+    public MovableSquaresResponseDto getMovableSquares(GetPieceDataDto dto) {
         Optional<Game> optionalGame = gameRepository.findById(dto.getGameId());
         Optional<Piece> optionalPiece = pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
                 dto.getxPos(), dto.getyPos(), dto.getGameId());
 
         if (optionalGame.isEmpty() || optionalPiece.isEmpty())
-            return null;
+            return new MovableSquaresResponseDto("Error: invalid request!");
         BoardMap board = moveFinder.setBoardMap(optionalGame.get());
         optionalGame.get().setMovableSquaresForPiece(optionalPiece.get(), board);
 
-        // TODO: to DTO
-        return optionalPiece.get().getLegalMovableSquares();
+        MovableSquaresResponseDto responseDto = new MovableSquaresResponseDto("Request handled succesfully");
+        responseDto.setMovableSquares(optionalPiece.get().getLegalMovableSquares());
+        return responseDto;
     }
 
     // This is a put mapping, it should update the game to make a move
