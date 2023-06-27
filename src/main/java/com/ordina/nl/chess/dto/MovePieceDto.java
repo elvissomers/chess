@@ -2,13 +2,19 @@ package com.ordina.nl.chess.dto;
 
 public class MovePieceDto {
 
-    int xFrom;
+    private int gameId;
 
-    int yFrom;
+    private int xFrom;
 
-    int xTo;
+    private int yFrom;
 
-    int yTo;
+    private int xTo;
+
+    private int yTo;
+
+    public int getGameId() {
+        return gameId;
+    }
 
     public int getxFrom() {
         return xFrom;
