@@ -34,7 +34,6 @@ public abstract class Piece {
     @Column
     private PieceType pieceType;
 
-    @Transient
     private List<Coordinate> movableSquares = new ArrayList<>();
 
     private List<Coordinate> legalMovableSquares = new ArrayList<>();

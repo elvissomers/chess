@@ -49,10 +49,8 @@ public class Game {
     public void setStandardStartingGame() {
         int horizontalSize = 8;
         state = GameState.WHITE_TURN;
-        whitePlayer = new Player(this, Team.WHITE);
-        playerRepository.save(whitePlayer);
-        blackPlayer = new Player(this, Team.BLACK);
-        playerRepository.save(blackPlayer);
+        whitePlayer = new Player(this, Team.WHITE); playerRepository.save(whitePlayer);
+        blackPlayer = new Player(this, Team.BLACK); playerRepository.save(blackPlayer);
 
         for (Player player : Set.of(whitePlayer, blackPlayer)) {
             Piece[] piecesInOrder = new Piece[]{
@@ -64,21 +62,17 @@ public class Game {
 
             for (int xPos = 0; xPos < horizontalSize; xPos++) {
                 Piece piece = piecesInOrder[xPos];
-                piece.setHorizontalPosition(xPos);
-                piece.setVerticalPosition(yForMajorPieces);
+                piece.setHorizontalPosition(xPos); piece.setVerticalPosition(yForMajorPieces);
 
-                piece.setPlayer(player);
-                player.getPieces().add(piece);
+                piece.setPlayer(player); player.getPieces().add(piece);
                 pieceRepository.save(piece);
             }
 
             for (int xPos = 0; xPos < horizontalSize; xPos++) {
                 Pawn pawn = new Pawn();
-                pawn.setHorizontalPosition(xPos);
-                pawn.setVerticalPosition(yForPawns);
+                pawn.setHorizontalPosition(xPos); pawn.setVerticalPosition(yForPawns);
 
-                pawn.setPlayer(player);
-                player.getPieces().add(pawn);
+                pawn.setPlayer(player); player.getPieces().add(pawn);
                 pieceRepository.save(pawn);
             }
         }

@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="added takenPiece to Move saving (needed for fifty move rule check)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/dto/GetPieceDataDto.java" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="addded MovePieceDto dto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PieceControllerClean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PieceControllerClean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/dto/MovePieceDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/dto/MovePieceDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PieceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/controllers/PieceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/instances/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/pieces/Piece.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,62 +170,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00365" summary="update Move further to x&amp;y instead of coordinate">
-      <created>1687768820622</created>
-      <option name="number" value="00365" />
-      <option name="presentableId" value="LOCAL-00365" />
-      <option name="project" value="LOCAL" />
-      <updated>1687768820622</updated>
-    </task>
-    <task id="LOCAL-00366" summary="nullable annotations">
-      <created>1687768864171</created>
-      <option name="number" value="00366" />
-      <option name="presentableId" value="LOCAL-00366" />
-      <option name="project" value="LOCAL" />
-      <updated>1687768864171</updated>
-    </task>
-    <task id="LOCAL-00367" summary="x &amp; y instead of coordinate">
-      <created>1687768916077</created>
-      <option name="number" value="00367" />
-      <option name="presentableId" value="LOCAL-00367" />
-      <option name="project" value="LOCAL" />
-      <updated>1687768916077</updated>
-    </task>
-    <task id="LOCAL-00368" summary="en passant logic separation">
-      <created>1687769203947</created>
-      <option name="number" value="00368" />
-      <option name="presentableId" value="LOCAL-00368" />
-      <option name="project" value="LOCAL" />
-      <updated>1687769203947</updated>
-    </task>
-    <task id="LOCAL-00369" summary="setallattackedsquares method - takes a board as input. Doesn't do anything to pieces movable squares">
-      <created>1687769952921</created>
-      <option name="number" value="00369" />
-      <option name="presentableId" value="LOCAL-00369" />
-      <option name="project" value="LOCAL" />
-      <updated>1687769952921</updated>
-    </task>
-    <task id="LOCAL-00370" summary="setallattackedsquares method - takes a board as input. Doesn't do anything to pieces movable squares">
-      <created>1687770024622</created>
-      <option name="number" value="00370" />
-      <option name="presentableId" value="LOCAL-00370" />
-      <option name="project" value="LOCAL" />
-      <updated>1687770024622</updated>
-    </task>
-    <task id="LOCAL-00371" summary="Changed white &amp; black player from separate attributes to an array - good idea? Not sure">
-      <created>1687770065047</created>
-      <option name="number" value="00371" />
-      <option name="presentableId" value="LOCAL-00371" />
-      <option name="project" value="LOCAL" />
-      <updated>1687770065048</updated>
-    </task>
-    <task id="LOCAL-00372" summary="checkcheck takes game as input">
-      <created>1687770083764</created>
-      <option name="number" value="00372" />
-      <option name="presentableId" value="LOCAL-00372" />
-      <option name="project" value="LOCAL" />
-      <updated>1687770083764</updated>
     </task>
     <task id="LOCAL-00373" summary="set movable squares takes board as input">
       <created>1687770106658</created>
@@ -514,7 +458,63 @@
       <option name="project" value="LOCAL" />
       <updated>1687851975477</updated>
     </task>
-    <option name="localTasksCounter" value="414" />
+    <task id="LOCAL-00414" summary="Dto's for move controller">
+      <created>1687852251996</created>
+      <option name="number" value="00414" />
+      <option name="presentableId" value="LOCAL-00414" />
+      <option name="project" value="LOCAL" />
+      <updated>1687852252003</updated>
+    </task>
+    <task id="LOCAL-00415" summary="comment out old code">
+      <created>1687852262817</created>
+      <option name="number" value="00415" />
+      <option name="presentableId" value="LOCAL-00415" />
+      <option name="project" value="LOCAL" />
+      <updated>1687852262818</updated>
+    </task>
+    <task id="LOCAL-00416" summary="update dto">
+      <created>1687852409432</created>
+      <option name="number" value="00416" />
+      <option name="presentableId" value="LOCAL-00416" />
+      <option name="project" value="LOCAL" />
+      <updated>1687852409432</updated>
+    </task>
+    <task id="LOCAL-00417" summary="added dto">
+      <created>1687852450942</created>
+      <option name="number" value="00417" />
+      <option name="presentableId" value="LOCAL-00417" />
+      <option name="project" value="LOCAL" />
+      <updated>1687852450942</updated>
+    </task>
+    <task id="LOCAL-00418" summary="added GetPieceDataDto to controller">
+      <created>1687852590710</created>
+      <option name="number" value="00418" />
+      <option name="presentableId" value="LOCAL-00418" />
+      <option name="project" value="LOCAL" />
+      <updated>1687852590710</updated>
+    </task>
+    <task id="LOCAL-00419" summary="added MovableSquaresReponseDto to controller">
+      <created>1687852697223</created>
+      <option name="number" value="00419" />
+      <option name="presentableId" value="LOCAL-00419" />
+      <option name="project" value="LOCAL" />
+      <updated>1687852697223</updated>
+    </task>
+    <task id="LOCAL-00420" summary=" return a status repsponse DTO instead of void">
+      <created>1687852847433</created>
+      <option name="number" value="00420" />
+      <option name="presentableId" value="LOCAL-00420" />
+      <option name="project" value="LOCAL" />
+      <updated>1687852847433</updated>
+    </task>
+    <task id="LOCAL-00421" summary="addded MovePieceDto dto">
+      <created>1687852926470</created>
+      <option name="number" value="00421" />
+      <option name="presentableId" value="LOCAL-00421" />
+      <option name="project" value="LOCAL" />
+      <updated>1687852926470</updated>
+    </task>
+    <option name="localTasksCounter" value="422" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,14 +532,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="removal of old code" />
-    <MESSAGE value="added super long query" />
-    <MESSAGE value="comment out some old code" />
-    <MESSAGE value="updated setters &amp; toString for x &amp; y style" />
-    <MESSAGE value="added getNumberOfMoves" />
-    <MESSAGE value="changed game.update() functionality" />
-    <MESSAGE value="changed gamestates to include white / black turn" />
-    <MESSAGE value="makeMove endpoint setup" />
     <MESSAGE value="tostring" />
     <MESSAGE value="added player in turn update to game.checkState" />
     <MESSAGE value="old code commented out (for now)" />
@@ -557,7 +549,15 @@
     <MESSAGE value="Added elementnotfoundexception to Player.getKing" />
     <MESSAGE value="remove unused code" />
     <MESSAGE value="added takenPiece to Move saving (needed for fifty move rule check)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added takenPiece to Move saving (needed for fifty move rule check)" />
+    <MESSAGE value="Dto's for move controller" />
+    <MESSAGE value="comment out old code" />
+    <MESSAGE value="update dto" />
+    <MESSAGE value="added dto" />
+    <MESSAGE value="added GetPieceDataDto to controller" />
+    <MESSAGE value="added MovableSquaresReponseDto to controller" />
+    <MESSAGE value=" return a status repsponse DTO instead of void" />
+    <MESSAGE value="addded MovePieceDto dto" />
+    <option name="LAST_COMMIT_MESSAGE" value="addded MovePieceDto dto" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
