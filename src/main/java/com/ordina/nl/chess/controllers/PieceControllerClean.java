@@ -154,7 +154,7 @@ public class PieceControllerClean {
             pieceRepository.save(rook);
         }
 
-        saveMoveToRepository(king, king.getHorizontalPosition(), king.getVerticalPosition(), xTo, yTo, castleType);
+        saveMoveToRepository(king, king.getHorizontalPosition(), king.getVerticalPosition(), xTo, yTo, castleType, null);
         king.setHorizontalPosition(xTo);
         king.setVerticalPosition(yTo);
         pieceRepository.save(king);
@@ -168,7 +168,8 @@ public class PieceControllerClean {
         ).findFirst();
     }
 
-    public void saveMoveToRepository(Piece piece, int xFrom, int yFrom, int xTo, int yTo, CastleType castleType) {
+    public void saveMoveToRepository(Piece piece, int xFrom, int yFrom, int xTo, int yTo,
+                                     CastleType castleType, Piece takenPiece) {
         int moveNumber = piece.getPlayer().getNumberOfMoves() + 1;
         Optional<Move> optionalMove = moveRepository.findByNumberAndHorizontalFromAndHorizontalToAndVerticalFromAndVerticalTo(
                 moveNumber, xFrom, xTo, yFrom, yTo);
@@ -177,10 +178,11 @@ public class PieceControllerClean {
             playerRepository.save(piece.getPlayer());
         } else {
             Move madeMove = new Move();
-            madeMove.setNumber(moveNumber);
+            madeMove.setNumber(moveNumber); madeMove.setPiece(piece);
             madeMove.setHorizontalFrom(xFrom); madeMove.setHorizontalTo(xTo);
             madeMove.setVerticalFrom(yFrom); madeMove.setVerticalTo(yTo);
             madeMove.setCastleType(castleType);
+            madeMove.setTakenPiece(takenPiece);
             piece.getPlayer().getMoveHistory().add(madeMove);
             playerRepository.save(piece.getPlayer());
             moveRepository.save(madeMove);

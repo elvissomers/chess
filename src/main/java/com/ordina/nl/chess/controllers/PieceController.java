@@ -83,7 +83,7 @@ public class PieceController {
 
         int promotionRank = (piece.getPlayer().getTeam() == Team.WHITE) ? 7 : 0;
         if (piece instanceof Pawn pawn && yTo == promotionRank) {
-            promote(pawn, xTo, yTo);
+            promote(pawn, xTo, yTo, optionalTakenPiece.orElse(null));
             return;
         }
 
@@ -92,12 +92,13 @@ public class PieceController {
         piece.setHorizontalPosition(xTo); piece.setVerticalPosition(yTo);
         pieceRepository.save(piece); // Is this needed? I am not sure?
         
-        saveMoveToRepository(piece, xFrom, yFrom, xTo, yTo, null);
+        saveMoveToRepository(piece, xFrom, yFrom, xTo, yTo, null, optionalTakenPiece.orElse(null));
         optionalGame.get().checkState(piece.getPlayer().getTeam());
         gameRepository.save(optionalGame.get());
     }
     
-    public void saveMoveToRepository(Piece piece, int xFrom, int yFrom, int xTo, int yTo, CastleType castleType) {
+    public void saveMoveToRepository(Piece piece, int xFrom, int yFrom, int xTo, int yTo,
+                                     CastleType castleType, Piece takenPiece) {
         int moveNumber = piece.getPlayer().getNumberOfMoves() + 1;
         Optional<Move> optionalMove = moveRepository.findByNumberAndHorizontalFromAndHorizontalToAndVerticalFromAndVerticalTo(
                 moveNumber, xFrom, xTo, yFrom, yTo);
@@ -106,10 +107,11 @@ public class PieceController {
             playerRepository.save(piece.getPlayer());
         } else {
             Move madeMove = new Move();
-            madeMove.setNumber(moveNumber);
+            madeMove.setNumber(moveNumber); madeMove.setPiece(piece);
             madeMove.setHorizontalFrom(xFrom); madeMove.setHorizontalTo(xTo);
             madeMove.setVerticalFrom(yFrom); madeMove.setVerticalTo(yTo);
             madeMove.setCastleType(castleType);
+            madeMove.setTakenPiece(takenPiece);
             piece.getPlayer().getMoveHistory().add(madeMove);
             playerRepository.save(piece.getPlayer());
             moveRepository.save(madeMove);
@@ -117,7 +119,7 @@ public class PieceController {
         }
     }
 
-    public void promote(Pawn pawn, int xTo, int yTo) {
+    public void promote(Pawn pawn, int xTo, int yTo, Piece takenPiece) {
         // TODO: promotion! Player should be able to choose!
         pieceRepository.delete(pawn);
         Queen queen = new Queen();
@@ -125,7 +127,8 @@ public class PieceController {
         queen.setHorizontalPosition(xTo);
         queen.setVerticalPosition(yTo);
         pieceRepository.save(queen);
-        saveMoveToRepository(pawn, pawn.getHorizontalPosition(), pawn.getVerticalPosition(), xTo, yTo, null);
+        saveMoveToRepository(pawn, pawn.getHorizontalPosition(), pawn.getVerticalPosition(), xTo, yTo,
+                null, takenPiece);
     }
     
     public void castle(King king, int xTo, int yTo, Game game) {
@@ -156,7 +159,8 @@ public class PieceController {
                 pieceRepository.save(rook);
             }
         }
-        saveMoveToRepository(king, king.getHorizontalPosition(), king.getVerticalPosition(), xTo, yTo, castleType);
+        saveMoveToRepository(king, king.getHorizontalPosition(), king.getVerticalPosition(), xTo, yTo,
+                castleType, null);
         king.setHorizontalPosition(xTo); king.setVerticalPosition(yTo);
         pieceRepository.save(king);
 

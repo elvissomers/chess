@@ -81,6 +81,14 @@ public class Move {
         this.number = number;
     }
 
+    public void setPiece(Piece piece) {
+        this.piece = piece;
+    }
+
+    public void setTakenPiece(Piece takenPiece) {
+        this.takenPiece = takenPiece;
+    }
+
     public boolean isPromoted() {
         return promoted;
     }
