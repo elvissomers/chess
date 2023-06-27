@@ -15,8 +15,6 @@ import java.util.Set;
 
 public class MoveFinder {
 
-    // TODO: Use helper methods board.getCoordinate/PieceByPos in all methods
-
     private static final int xSize = 8;
 
     private static final int ySize = 8;
@@ -230,11 +228,8 @@ public class MoveFinder {
         return squaresUnderAttack.contains(position);
     }
 
-
-    // TODO : prune checking moves!
     public void pruneSelfCheckMovesForPiece(Piece piece, Game game) {
         for (Coordinate moveOption : piece.getMovableSquares()){
-            // TODO: this copyPiece should not be saved to the database
             Piece copyPiece = piece.copy();
             copyPiece.setHorizontalPosition(moveOption.getX());
             copyPiece.setVerticalPosition(moveOption.getY());
@@ -254,32 +249,6 @@ public class MoveFinder {
             piece.getLegalMovableSquares().add(moveOption);
         }
     }
-
-//    public void pruneSelfCheckMoves(Game game, MoveMaker moveMaker){
-//        for (Player player : new Player[]{game.getWhitePlayer(), game.getBlackPlayer()}){
-//            for (Piece piece : player.getPieces()){
-//                for (Coordinate moveOption : piece.getMovableSquares()){
-//                    Game copyGame = new Game(game);
-//                    Piece copyPiece = copyGame.getBoard().getPieceByPos(piece.getHorizontalPosition(),
-//                            piece.getVerticalPosition());
-//                    Move moveToCheck = moveMaker.getMove(copyGame, copyPiece, moveOption);
-//                    pruneSelfCheckMove(piece, moveToCheck, moveMaker, copyGame);
-//                }
-//            }
-//        }
-//    }
-//
-//    public void pruneSelfCheckMove(Piece piece, Move move, MoveMaker moveMaker, Game game){
-//        moveMaker.makeMove(game, move);
-//        Player copyOfCurrentPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? game.getWhitePlayer() :
-//                game.getBlackPlayer();
-//        Player copyOfOpponentPlayer = (copyOfCurrentPlayer.getTeam() == Team.WHITE) ? game.getBlackPlayer() :
-//                game.getWhitePlayer();
-//        copyOfOpponentPlayer.setAllAttackedAndMovableSquares();
-//        copyOfCurrentPlayer.getKing().setInCheck();
-//        if (!copyOfCurrentPlayer.getKing().isInCheck())
-//            piece.getLegalMovableSquares().add(move.getSquareTo());
-//    }
 
     public boolean pawnCanBeEnPassawnedByPawn(Pawn targetPawn, Pawn attackingPawn, Game game) {
         Player otherPlayer = (targetPawn.getPlayer().getTeam() == Team.WHITE) ? game.getBlackPlayer()
