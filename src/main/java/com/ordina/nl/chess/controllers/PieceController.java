@@ -2,6 +2,7 @@ package com.ordina.nl.chess.controllers;
 
 import com.ordina.nl.chess.dto.GetPieceDataDto;
 import com.ordina.nl.chess.dto.MovableSquaresResponseDto;
+import com.ordina.nl.chess.dto.MovePieceResponseDto;
 import com.ordina.nl.chess.game.Move;
 import com.ordina.nl.chess.instances.Game;
 import com.ordina.nl.chess.movement.MoveFinder;
@@ -49,14 +50,13 @@ public class PieceController {
         BoardMap board = moveFinder.setBoardMap(optionalGame.get());
         optionalGame.get().setMovableSquaresForPiece(optionalPiece.get(), board);
 
-        MovableSquaresResponseDto responseDto = new MovableSquaresResponseDto("Request handled succesfully");
+        MovableSquaresResponseDto responseDto = new MovableSquaresResponseDto("Request handled successfully");
         responseDto.setMovableSquares(optionalPiece.get().getLegalMovableSquares());
         return responseDto;
     }
 
     // This is a put mapping, it should update the game to make a move
-    public void makeMove(long gameId, int xFrom, int yFrom, int xTo, int yTo) {
-        // TODO: return a status repsponse DTO instead of void
+    public MovePieceResponseDto makeMove(long gameId, int xFrom, int yFrom, int xTo, int yTo) {
         Optional<Game> optionalGame = gameRepository.findById(gameId);
         Optional<Piece> optionalPiece = pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
                 xFrom, yFrom, gameId);
@@ -64,7 +64,7 @@ public class PieceController {
                 xTo, yTo, gameId);
 
         if (optionalGame.isEmpty() || optionalPiece.isEmpty())
-            return; // TODO
+            return new MovePieceResponseDto("Error: Not an existing piece or game!");
         Piece piece = optionalPiece.get();
         BoardMap board = moveFinder.setBoardMap(optionalGame.get());
         optionalGame.get().setMovableSquaresForPiece(piece, board);
@@ -74,20 +74,20 @@ public class PieceController {
         Coordinate destination = new Coordinate(xTo, yTo);
         if (optionalGame.get().getState() != neededGameState || !piece
                 .getLegalMovableSquares().contains(destination))
-            return; // TODO
+            return new MovePieceResponseDto("Error: Not a legal move or player is not in turn!");
         
         if (piece instanceof King king) {
             king.setHasMoved(true);
             if (abs(xFrom-xTo) == 2) {
                 castle(king, xTo, yTo, optionalGame.get());
-                return;
+                return new MovePieceResponseDto("Castled successfully");
             }
         }
 
         int promotionRank = (piece.getPlayer().getTeam() == Team.WHITE) ? 7 : 0;
         if (piece instanceof Pawn pawn && yTo == promotionRank) {
             promote(pawn, xTo, yTo, optionalTakenPiece.orElse(null));
-            return;
+            return new MovePieceResponseDto("Promoted successfully");
         }
 
         optionalTakenPiece.ifPresent(pieceRepository::delete);
@@ -98,6 +98,7 @@ public class PieceController {
         saveMoveToRepository(piece, xFrom, yFrom, xTo, yTo, null, optionalTakenPiece.orElse(null));
         optionalGame.get().checkState(piece.getPlayer().getTeam());
         gameRepository.save(optionalGame.get());
+        return new MovePieceResponseDto("Made move successfully");
     }
     
     public void saveMoveToRepository(Piece piece, int xFrom, int yFrom, int xTo, int yTo,
