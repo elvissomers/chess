@@ -14,11 +14,15 @@ import com.ordina.nl.chess.repository.PieceRepository;
 import com.ordina.nl.chess.repository.PlayerRepository;
 import com.ordina.nl.chess.structures.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 import static java.lang.Math.abs;
 
+@RestController
+@RequestMapping("piece")
+@CrossOrigin(maxAge = 3600)
 public class PieceController {
 
     @Autowired
@@ -36,8 +40,8 @@ public class PieceController {
     @Autowired
     private MoveFinder moveFinder;
 
-    // This is a get mapping, it should not change anything
-    public MovableSquaresResponseDto getMovableSquares(GetPieceDataDto dto) {
+    @GetMapping("get_movable_squares")
+    public MovableSquaresResponseDto getMovableSquares(@RequestBody GetPieceDataDto dto) {
         Optional<Game> optionalGame = gameRepository.findById(dto.getGameId());
         Optional<Piece> optionalPiece = pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
                 dto.getxPos(), dto.getyPos(), dto.getGameId());
@@ -52,8 +56,8 @@ public class PieceController {
         return responseDto;
     }
 
-    // This is a put mapping, it should update the game to make a move
-    public MovePieceResponseDto makeMove(MovePieceDto dto) {
+    @PutMapping("move")
+    public MovePieceResponseDto makeMove(@RequestBody MovePieceDto dto) {
         long gameId = dto.getGameId(); int xFrom = dto.getxFrom(); int yFrom = dto.getyFrom();
         int xTo = dto.getxTo(); int yTo = dto.getyTo();
         Optional<Game> optionalGame = gameRepository.findById(gameId);
