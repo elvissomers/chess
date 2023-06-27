@@ -35,8 +35,8 @@ public class Pawn extends Piece {
     public void setAttackedSquares(BoardMap board) {
         attackedSquares = new HashSet<>();
 
-        int xPos = this.getPosition().getX();
-        int yPos = this.getPosition().getY();
+        int xPos = this.getHorizontalPosition();
+        int yPos = this.getVerticalPosition();
         int xSize = 8;
         int yDirection = (this.getPlayer().getTeam() == Team.WHITE) ? 1 : -1;
 

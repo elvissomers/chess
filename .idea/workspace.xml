@@ -4,8 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="edit rook.hasMoved in PieceController">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/Main.java" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="setup get game endpoint">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/ChessApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/ChessApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/pieces/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/repository/CoordinateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/repository/CoordinateRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/repository/GameRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/repository/GameRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/repository/PieceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/repository/PieceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/repository/PlayerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/repository/PlayerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chess-app-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/controllers/PlayGame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/game/Move.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/instances/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/instances/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/movement/MoveFinder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/movement/MoveMaker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/pieces/Bishop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/pieces/King.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/pieces/Knight.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/pieces/Pawn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/pieces/Piece.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/pieces/Queen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/pieces/Rook.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/structures/BoardMap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/structures/CastleType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/structures/Coordinate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/structures/GameState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/structures/MovementType$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/structures/MovementType$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/structures/MovementType$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/structures/MovementType$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/structures/MovementType$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/structures/MovementType$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/structures/MovementType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/structures/PieceType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classes/structures/Team.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +114,20 @@
       <recent name="test.pieces" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.ChessApplication">
+    <configuration name="ChessApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ordina.nl.chess.ChessApplication" />
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ordina.nl.chess.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="chess-app" />
@@ -133,29 +182,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoveFinderTest.setAllMovableSquaresKingInCheckShouldPreventMovesNotResolvingCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test.controllers" />
-      <option name="MAIN_CLASS_NAME" value="test.controllers.MoveFinderTest" />
-      <option name="METHOD_NAME" value="setAllMovableSquaresKingInCheckShouldPreventMovesNotResolvingCheck" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ChessApplication" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.MoveFinderTest" />
         <item itemvalue="JUnit.MoveFinderTest.setAllMovableSquaresCheckPreventingMovesShouldBeAllowed" />
         <item itemvalue="JUnit.MoveFinderTest.setAllMovableSquaresCheckShouldNotPreventCheckingPlayerFromMoving" />
-        <item itemvalue="JUnit.MoveFinderTest.setAllMovableSquaresKingInCheckShouldPreventMovesNotResolvingCheck" />
       </list>
     </recent_temporary>
   </component>
@@ -167,27 +200,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00376" summary="updated getking method">
-      <created>1687771180655</created>
-      <option name="number" value="00376" />
-      <option name="presentableId" value="LOCAL-00376" />
-      <option name="project" value="LOCAL" />
-      <updated>1687771180655</updated>
-    </task>
-    <task id="LOCAL-00377" summary="Updating logic to use temporary boardMap">
-      <created>1687774411250</created>
-      <option name="number" value="00377" />
-      <option name="presentableId" value="LOCAL-00377" />
-      <option name="project" value="LOCAL" />
-      <updated>1687774411251</updated>
-    </task>
-    <task id="LOCAL-00378" summary="no argument constructors added">
-      <created>1687775031542</created>
-      <option name="number" value="00378" />
-      <option name="presentableId" value="LOCAL-00378" />
-      <option name="project" value="LOCAL" />
-      <updated>1687775031542</updated>
     </task>
     <task id="LOCAL-00379" summary="reworked new game setup">
       <created>1687775341627</created>
@@ -511,7 +523,28 @@
       <option name="project" value="LOCAL" />
       <updated>1687856137209</updated>
     </task>
-    <option name="localTasksCounter" value="425" />
+    <task id="LOCAL-00425" summary="edit main file to spring boot application">
+      <created>1687856251275</created>
+      <option name="number" value="00425" />
+      <option name="presentableId" value="LOCAL-00425" />
+      <option name="project" value="LOCAL" />
+      <updated>1687856251275</updated>
+    </task>
+    <task id="LOCAL-00426" summary="edit controllers to spring boot application">
+      <created>1687856485828</created>
+      <option name="number" value="00426" />
+      <option name="presentableId" value="LOCAL-00426" />
+      <option name="project" value="LOCAL" />
+      <updated>1687856485828</updated>
+    </task>
+    <task id="LOCAL-00427" summary="setup get game endpoint">
+      <created>1687856666137</created>
+      <option name="number" value="00427" />
+      <option name="presentableId" value="LOCAL-00427" />
+      <option name="project" value="LOCAL" />
+      <updated>1687856666137</updated>
+    </task>
+    <option name="localTasksCounter" value="428" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -529,9 +562,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update inCheck to not be an attribute" />
-    <MESSAGE value="todo" />
-    <MESSAGE value="castletype setter" />
     <MESSAGE value="added castling method" />
     <MESSAGE value="comment out unused test" />
     <MESSAGE value="added taken piece removing to controller" />
@@ -554,7 +584,10 @@
     <MESSAGE value="remove root password from 3306" />
     <MESSAGE value="formatting" />
     <MESSAGE value="edit rook.hasMoved in PieceController" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit rook.hasMoved in PieceController" />
+    <MESSAGE value="edit main file to spring boot application" />
+    <MESSAGE value="edit controllers to spring boot application" />
+    <MESSAGE value="setup get game endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="setup get game endpoint" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
