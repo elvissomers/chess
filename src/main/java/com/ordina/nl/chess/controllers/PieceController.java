@@ -7,10 +7,7 @@ import com.ordina.nl.chess.dto.MovePieceResponseDto;
 import com.ordina.nl.chess.game.Move;
 import com.ordina.nl.chess.instances.Game;
 import com.ordina.nl.chess.movement.MoveFinder;
-import com.ordina.nl.chess.pieces.King;
-import com.ordina.nl.chess.pieces.Pawn;
-import com.ordina.nl.chess.pieces.Piece;
-import com.ordina.nl.chess.pieces.Queen;
+import com.ordina.nl.chess.pieces.*;
 import com.ordina.nl.chess.repository.GameRepository;
 import com.ordina.nl.chess.repository.MoveRepository;
 import com.ordina.nl.chess.repository.PieceRepository;
@@ -18,7 +15,6 @@ import com.ordina.nl.chess.repository.PlayerRepository;
 import com.ordina.nl.chess.structures.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
 import java.util.Optional;
 
 import static java.lang.Math.abs;
@@ -96,7 +92,7 @@ public class PieceController {
         optionalTakenPiece.ifPresent(pieceRepository::delete);
 
         piece.setHorizontalPosition(xTo); piece.setVerticalPosition(yTo);
-        pieceRepository.save(piece); // Is this needed? I am not sure?
+        pieceRepository.save(piece);
         
         saveMoveToRepository(piece, xFrom, yFrom, xTo, yTo, null, optionalTakenPiece.orElse(null));
         optionalGame.get().checkState(piece.getPlayer().getTeam());
@@ -117,12 +113,11 @@ public class PieceController {
             madeMove.setNumber(moveNumber); madeMove.setPiece(piece);
             madeMove.setHorizontalFrom(xFrom); madeMove.setHorizontalTo(xTo);
             madeMove.setVerticalFrom(yFrom); madeMove.setVerticalTo(yTo);
-            madeMove.setCastleType(castleType);
-            madeMove.setTakenPiece(takenPiece);
+            madeMove.setCastleType(castleType);madeMove.setTakenPiece(takenPiece);
             piece.getPlayer().getMoveHistory().add(madeMove);
             playerRepository.save(piece.getPlayer());
             moveRepository.save(madeMove);
-            // TODO: taken piece, promoted, check, checkmate
+            // TODO: check, checkmate
         }
     }
 
@@ -149,8 +144,8 @@ public class PieceController {
             ).findFirst();
 
             if (optionalRook.isPresent()) {
-                Piece rook = optionalRook.get();
-                rook.setHorizontalPosition(xTo - 1);
+                Rook rook = (Rook) optionalRook.get();
+                rook.setHorizontalPosition(xTo - 1); rook.setHasMoved(true);
                 pieceRepository.save(rook);
             }
         }
@@ -161,8 +156,8 @@ public class PieceController {
             ).findFirst();
 
             if (optionalRook.isPresent()) {
-                Piece rook = optionalRook.get();
-                rook.setHorizontalPosition(xTo + 1);
+                Rook rook = (Rook) optionalRook.get();
+                rook.setHorizontalPosition(xTo + 1); rook.setHasMoved(true);
                 pieceRepository.save(rook);
             }
         }
