@@ -1,5 +1,6 @@
 package com.ordina.nl.chess.instances;
 
+import com.ordina.nl.chess.exception.ElementNotFoundException;
 import com.ordina.nl.chess.game.Move;
 import com.ordina.nl.chess.movement.MoveFinder;
 import com.ordina.nl.chess.pieces.*;
@@ -126,17 +127,21 @@ public class Game {
         Player currentPlayer = (teamTurn == Team.WHITE) ? whitePlayer : blackPlayer;
         boolean canPlayerMove = currentPlayer.canMove();
 
-        if (currentPlayer.getKing().isInCheck() && !canPlayerMove)
-            state = (teamTurn == Team.WHITE) ? GameState.BLACK_WINS : GameState.WHITE_WINS;
+        try {
+            if (currentPlayer.getKing().isInCheck() && !canPlayerMove)
+                state = (teamTurn == Team.WHITE) ? GameState.BLACK_WINS : GameState.WHITE_WINS;
 
-        else if (!canPlayerMove && !currentPlayer.getKing().isInCheck())
-            state = GameState.DRAW;
+            else if (!canPlayerMove && !currentPlayer.getKing().isInCheck())
+                state = GameState.DRAW;
 
-        else if (checkThreefoldRepetition() || checkFiftyMoveRule())
-            state = GameState.DRAW;
+            else if (checkThreefoldRepetition() || checkFiftyMoveRule())
+                state = GameState.DRAW;
 
-        else
-            state = (teamTurn == Team.WHITE) ? GameState.BLACK_TURN : GameState.WHITE_TURN;
+            else
+                state = (teamTurn == Team.WHITE) ? GameState.BLACK_TURN : GameState.WHITE_TURN;
+        } catch (ElementNotFoundException exception) {
+            exception.printStackTrace();
+        }
     }
 
     private boolean checkThreefoldRepetition() {

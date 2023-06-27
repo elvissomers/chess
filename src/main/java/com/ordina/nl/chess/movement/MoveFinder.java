@@ -1,8 +1,8 @@
 package com.ordina.nl.chess.movement;
 
+import com.ordina.nl.chess.exception.ElementNotFoundException;
 import com.ordina.nl.chess.instances.Game;
 import com.ordina.nl.chess.instances.Player;
-import com.ordina.nl.chess.game.Move;
 import com.ordina.nl.chess.pieces.King;
 import com.ordina.nl.chess.pieces.Pawn;
 import com.ordina.nl.chess.pieces.Piece;
@@ -241,10 +241,14 @@ public class MoveFinder {
 
             BoardMap copyBoard = setBoardMapForCopiedPiece(piece, copyPiece, game);
             setAllAttackedSquaresForEnemyPlayer(piece.getPlayer().getTeam(), copyBoard, game);
-            Coordinate kingCoordinate = new Coordinate(piece.getPlayer().getKing().getHorizontalPosition(),
-                    piece.getPlayer().getKing().getVerticalPosition());
-            if (checkCheck(kingCoordinate, copyBoard, piece.getPlayer().getTeam(), game)) {
-                continue;
+            try {
+                Coordinate kingCoordinate = new Coordinate(piece.getPlayer().getKing().getHorizontalPosition(),
+                        piece.getPlayer().getKing().getVerticalPosition());
+                if (checkCheck(kingCoordinate, copyBoard, piece.getPlayer().getTeam(), game)) {
+                    continue;
+                }
+            } catch (ElementNotFoundException exception) {
+                exception.printStackTrace();
             }
 
             piece.getLegalMovableSquares().add(moveOption);

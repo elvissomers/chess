@@ -1,5 +1,6 @@
 package com.ordina.nl.chess.instances;
 
+import com.ordina.nl.chess.exception.ElementNotFoundException;
 import com.ordina.nl.chess.game.Move;
 import com.ordina.nl.chess.movement.MoveFinder;
 import com.ordina.nl.chess.pieces.King;
@@ -98,14 +99,12 @@ public class Player {
         }
     }
 
-    public King getKing() {
+    public King getKing() throws ElementNotFoundException {
         for (Piece piece : pieces) {
             if (piece instanceof King)
                 return (King) piece;
         }
-        // Note: This should never be used! A player should always have a King!
-        // TODO: replace this by throws KingNotFoundException
-        return new King(this);
+        throw new ElementNotFoundException("Player's King not found!");
     }
 
     public int getNumberOfMoves() {
