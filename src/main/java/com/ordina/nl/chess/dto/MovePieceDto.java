@@ -2,7 +2,7 @@ package com.ordina.nl.chess.dto;
 
 public class MovePieceDto {
 
-    private int gameId;
+    private long gameId;
 
     private int xFrom;
 
@@ -12,7 +12,7 @@ public class MovePieceDto {
 
     private int yTo;
 
-    public int getGameId() {
+    public long getGameId() {
         return gameId;
     }
 

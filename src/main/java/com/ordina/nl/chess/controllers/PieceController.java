@@ -1,5 +1,6 @@
 package com.ordina.nl.chess.controllers;
 
+import com.ordina.nl.chess.dto.GetPieceDataDto;
 import com.ordina.nl.chess.game.Move;
 import com.ordina.nl.chess.instances.Game;
 import com.ordina.nl.chess.movement.MoveFinder;
@@ -37,10 +38,10 @@ public class PieceController {
     private MoveFinder moveFinder;
 
     // This is a get mapping, it should not change anything
-    public List<Coordinate> getMovableSquares(long gameId, int xPos, int yPos) {
-        Optional<Game> optionalGame = gameRepository.findById(gameId);
+    public List<Coordinate> getMovableSquares(GetPieceDataDto dto) {
+        Optional<Game> optionalGame = gameRepository.findById(dto.getGameId());
         Optional<Piece> optionalPiece = pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
-                xPos, yPos, gameId);
+                dto.getxPos(), dto.getyPos(), dto.getGameId());
 
         if (optionalGame.isEmpty() || optionalPiece.isEmpty())
             return null;

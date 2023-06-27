@@ -2,13 +2,13 @@ package com.ordina.nl.chess.dto;
 
 public class GetPieceDataDto {
 
-    private int gameId;
+    private long gameId;
 
     private int xPos;
 
     private int yPos;
 
-    public int getGameId() {
+    public long getGameId() {
         return gameId;
     }
 
