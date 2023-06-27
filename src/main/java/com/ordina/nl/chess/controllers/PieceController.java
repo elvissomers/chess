@@ -2,6 +2,7 @@ package com.ordina.nl.chess.controllers;
 
 import com.ordina.nl.chess.dto.GetPieceDataDto;
 import com.ordina.nl.chess.dto.MovableSquaresResponseDto;
+import com.ordina.nl.chess.dto.MovePieceDto;
 import com.ordina.nl.chess.dto.MovePieceResponseDto;
 import com.ordina.nl.chess.game.Move;
 import com.ordina.nl.chess.instances.Game;
@@ -56,7 +57,9 @@ public class PieceController {
     }
 
     // This is a put mapping, it should update the game to make a move
-    public MovePieceResponseDto makeMove(long gameId, int xFrom, int yFrom, int xTo, int yTo) {
+    public MovePieceResponseDto makeMove(MovePieceDto dto) {
+        long gameId = dto.getGameId(); int xFrom = dto.getxFrom(); int yFrom = dto.getyFrom();
+        int xTo = dto.getxTo(); int yTo = dto.getyTo();
         Optional<Game> optionalGame = gameRepository.findById(gameId);
         Optional<Piece> optionalPiece = pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
                 xFrom, yFrom, gameId);
