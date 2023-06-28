@@ -37,7 +37,7 @@ public class Player {
     private Team team;
 
     @OneToMany(mappedBy = "player", orphanRemoval = true)
-    private Set<Piece> pieces = new HashSet<>();
+    private List<Piece> pieces = new ArrayList<>();
 
     private Set<Coordinate> allAttackedSquares = new HashSet<>();
 
@@ -68,7 +68,7 @@ public class Player {
         return team;
     }
 
-    public Set<Piece> getPieces() {
+    public List<Piece> getPieces() {
         return pieces;
     }
 

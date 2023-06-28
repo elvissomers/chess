@@ -4,6 +4,7 @@ import com.ordina.nl.chess.instances.Game;
 import com.ordina.nl.chess.pieces.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
 public class BoardMap extends HashMap<Coordinate, Piece> {
@@ -24,7 +25,7 @@ public class BoardMap extends HashMap<Coordinate, Piece> {
         }
     }
 
-    public void setPiecesToBoard(Set<Piece> pieces) {
+    public void setPiecesToBoard(List<Piece> pieces) {
         for (Piece piece : pieces) {
             put(getCoordinateByPos(piece.getHorizontalPosition(), piece.getVerticalPosition()),
                     piece);

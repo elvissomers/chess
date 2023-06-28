@@ -27,7 +27,8 @@ public abstract class Piece {
     @Column
     private int verticalPosition;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "player_id")
     private Player player;
 
     @Column
