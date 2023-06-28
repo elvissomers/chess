@@ -1,6 +1,5 @@
 package com.ordina.nl.chess.pieces;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ordina.nl.chess.instances.Player;
 import com.ordina.nl.chess.movement.MoveFinder;
 import com.ordina.nl.chess.structures.BoardMap;
@@ -15,7 +14,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Entity
+@MappedSuperclass
 public abstract class Piece {
 
     @Id

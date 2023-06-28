@@ -5,9 +5,14 @@ import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.structures.MovementType;
 import com.ordina.nl.chess.structures.PieceType;
 import com.ordina.nl.chess.structures.Team;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 
 import java.util.Set;
 
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class King extends Piece {
 
     public King() {
