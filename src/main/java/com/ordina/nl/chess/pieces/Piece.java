@@ -27,7 +27,6 @@ public abstract class Piece {
     @Column
     private int verticalPosition;
 
-    @Column
     @ManyToOne
     private Player player;
 
