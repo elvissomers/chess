@@ -1,5 +1,6 @@
 package com.ordina.nl.chess.pieces;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ordina.nl.chess.instances.Player;
 import com.ordina.nl.chess.movement.MoveFinder;
 import com.ordina.nl.chess.structures.BoardMap;
@@ -34,13 +35,17 @@ public abstract class Piece {
     @Column
     private PieceType pieceType;
 
+    @Transient
     private List<Coordinate> movableSquares = new ArrayList<>();
 
+    @Transient
     private List<Coordinate> legalMovableSquares = new ArrayList<>();
 
+    @Transient
     private Set<MovementType> moveRules = new HashSet<>();
 
     @Autowired
+    @Transient
     private MoveFinder moveFinder;
 
     protected Piece(Player player) {
