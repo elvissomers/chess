@@ -13,7 +13,7 @@ import jakarta.persistence.InheritanceType;
 import java.util.Set;
 
 @Entity
-@DiscriminatorValue("BISHOP")
+@DiscriminatorValue("KING")
 public class King extends Piece {
 
     public King() {

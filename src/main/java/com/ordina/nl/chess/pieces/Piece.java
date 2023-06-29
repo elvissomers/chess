@@ -36,8 +36,7 @@ public abstract class Piece {
     @JoinColumn(name = "player_id")
     private Player player;
 
-    @Column
-    @Enumerated(EnumType.STRING)
+    @Transient
     private PieceType pieceTyperino;
 
     @Transient
