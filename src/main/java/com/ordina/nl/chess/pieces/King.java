@@ -5,6 +5,7 @@ import com.ordina.nl.chess.structures.Coordinate;
 import com.ordina.nl.chess.structures.MovementType;
 import com.ordina.nl.chess.structures.PieceType;
 import com.ordina.nl.chess.structures.Team;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
@@ -12,15 +13,12 @@ import jakarta.persistence.InheritanceType;
 import java.util.Set;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorValue("BISHOP")
 public class King extends Piece {
 
     public King() {
         super();
     }
-
-    // TODO: have optional fields present in Piece (but null in pieces that don't have it)?
-    private boolean hasMoved;
 
     public King(Player player){
         super(player);
@@ -33,14 +31,6 @@ public class King extends Piece {
 
     public King copy(){
         return new King(this);
-    }
-
-    public boolean isHasMoved() {
-        return hasMoved;
-    }
-
-    public void setHasMoved(boolean hasMoved) {
-        this.hasMoved = hasMoved;
     }
 
     @Override

@@ -2,15 +2,12 @@ package com.ordina.nl.chess.pieces;
 
 import com.ordina.nl.chess.instances.Player;
 import com.ordina.nl.chess.structures.*;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
+import jakarta.persistence.*;
 
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorValue("PAWN")
 public class Pawn extends Piece {
 
     public Pawn() {
@@ -32,14 +29,9 @@ public class Pawn extends Piece {
      * We need to keep track of these squares to be able to see if there are
      * checks, checkmates or stalemates.
      */
-    // TODO: implement this in a separate logic class, instead of in the object
-    private Set<Coordinate> attackedSquares = new HashSet<>();
     // TODO : promotion
 
-
     public void setAttackedSquares(BoardMap board) {
-        attackedSquares = new HashSet<>();
-
         int xPos = this.getHorizontalPosition();
         int yPos = this.getVerticalPosition();
         int xSize = 8;
@@ -47,18 +39,15 @@ public class Pawn extends Piece {
 
         if (xPos + 1 < xSize) {
             Coordinate squareInFrontRight = board.getCoordinateByPos(xPos + 1, yPos + yDirection);
-            this.attackedSquares.add(squareInFrontRight);
+            this.getAttackedSquares().add(squareInFrontRight);
         }
 
         if (xPos > 0) {
             Coordinate squareInFrontLeft = board.getCoordinateByPos(xPos - 1, yPos + yDirection);
-            this.attackedSquares.add(squareInFrontLeft);
+            this.getAttackedSquares().add(squareInFrontLeft);
         }
     }
 
-    public Set<Coordinate> getAttackedSquares() {
-        return attackedSquares;
-    }
 
     public Pawn copy(){
         return new Pawn(this);

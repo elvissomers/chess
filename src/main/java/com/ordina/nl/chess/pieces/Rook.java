@@ -3,6 +3,7 @@ package com.ordina.nl.chess.pieces;
 import com.ordina.nl.chess.instances.Player;
 import com.ordina.nl.chess.structures.MovementType;
 import com.ordina.nl.chess.structures.PieceType;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
@@ -10,10 +11,8 @@ import jakarta.persistence.InheritanceType;
 import java.util.Set;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorValue("ROOK")
 public class Rook extends Piece {
-
-    private boolean hasMoved;
 
     public Rook() {
         super();
@@ -26,14 +25,6 @@ public class Rook extends Piece {
 
     public Rook(Piece other){
         super(other);
-    }
-
-    public boolean isHasMoved() {
-        return hasMoved;
-    }
-
-    public void setHasMoved(boolean hasMoved) {
-        this.hasMoved = hasMoved;
     }
 
     public Rook copy(){

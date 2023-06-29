@@ -14,7 +14,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@MappedSuperclass
+@Entity(name="pieces")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "piece_type", discriminatorType = DiscriminatorType.STRING)
 public abstract class Piece {
 
     @Id
@@ -27,12 +29,16 @@ public abstract class Piece {
     @Column
     private int verticalPosition;
 
+    @Column(nullable = true)
+    private boolean hasMoved;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "player_id")
     private Player player;
 
     @Column
-    private PieceType pieceType;
+    @Enumerated(EnumType.STRING)
+    private PieceType pieceTyperino;
 
     @Transient
     private List<Coordinate> movableSquares = new ArrayList<>();
@@ -43,9 +49,10 @@ public abstract class Piece {
     @Transient
     private Set<MovementType> moveRules = new HashSet<>();
 
-    @Autowired
     @Transient
-    private MoveFinder moveFinder;
+    private Set<Coordinate> attackedSquares = new HashSet<>();
+
+//    private MoveFinder moveFinder;
 
     protected Piece(Player player) {
         this.player = player;
@@ -103,13 +110,14 @@ public abstract class Piece {
     public void setMovableSquares(BoardMap board) {
         movableSquares = new ArrayList<>();
         for (MovementType moveRule : moveRules){
-            moveRule.setMoves(this, board, moveFinder, player.getGame());
+//            moveRule.setMoves(this, board, moveFinder, player.getGame());
+            int b = 5;
         }
     }
 
     public void setLegalMovableSquares() {
         legalMovableSquares = new ArrayList<>();
-        moveFinder.pruneSelfCheckMovesForPiece(this, player.getGame());
+//        moveFinder.pruneSelfCheckMovesForPiece(this, player.getGame());
     }
 
     public void addMovableSquare(Coordinate coordinate){
@@ -121,18 +129,32 @@ public abstract class Piece {
     }
 
     public PieceType getPieceType() {
-        return pieceType;
+        return pieceTyperino;
     }
 
     public void setPlayer(Player player) {
         this.player = player;
     }
 
+
+
     public void setPieceType(PieceType pieceType) {
-        this.pieceType = pieceType;
+        this.pieceTyperino = pieceType;
     }
 
     public void setMoveRules(Set<MovementType> moveRules) {
         this.moveRules = moveRules;
+    }
+
+    public boolean isHasMoved() {
+        return hasMoved;
+    }
+
+    public void setHasMoved(boolean hasMoved) {
+        this.hasMoved = hasMoved;
+    }
+
+    public Set<Coordinate> getAttackedSquares() {
+        return attackedSquares;
     }
 }
