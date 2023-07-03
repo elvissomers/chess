@@ -1,9 +1,9 @@
 package com.ordina.nl.chess.controllers;
 
-import com.ordina.nl.chess.dto.GetPieceDataDto;
-import com.ordina.nl.chess.dto.MovableSquaresResponseDto;
-import com.ordina.nl.chess.dto.MovePieceDto;
-import com.ordina.nl.chess.dto.MovePieceResponseDto;
+import com.ordina.nl.chess.data.dto.GetPieceDataDto;
+import com.ordina.nl.chess.data.dto.MovableSquaresResponseDto;
+import com.ordina.nl.chess.data.dto.MovePieceDto;
+import com.ordina.nl.chess.data.dto.MovePieceResponseDto;
 import com.ordina.nl.chess.game.Move;
 import com.ordina.nl.chess.instances.Game;
 import com.ordina.nl.chess.movement.MoveFinder;

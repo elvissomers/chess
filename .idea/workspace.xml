@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="inheritance entities (work in progress)">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="trying to boot the application - work in progress">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/ChessApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/ChessApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/pieces/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/pieces/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ordina/nl/chess/pieces/Bishop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ordina/nl/chess/pieces/Bishop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ordina/nl/chess/pieces/King.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ordina/nl/chess/pieces/King.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ordina/nl/chess/pieces/Knight.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ordina/nl/chess/pieces/Knight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ordina/nl/chess/pieces/Pawn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ordina/nl/chess/pieces/Pawn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ordina/nl/chess/pieces/Piece.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ordina/nl/chess/pieces/Piece.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ordina/nl/chess/pieces/Queen.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ordina/nl/chess/pieces/Queen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ordina/nl/chess/pieces/Rook.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ordina/nl/chess/pieces/Rook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ordina/nl/chess/ChessApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ordina/nl/chess/ChessApplication.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,13 +166,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00390" summary="updated setters &amp; toString for x &amp; y style">
-      <created>1687778861607</created>
-      <option name="number" value="00390" />
-      <option name="presentableId" value="LOCAL-00390" />
-      <option name="project" value="LOCAL" />
-      <updated>1687778861607</updated>
     </task>
     <task id="LOCAL-00391" summary="added getNumberOfMoves">
       <created>1687778877586</created>
@@ -519,7 +503,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687964522437</updated>
     </task>
-    <option name="localTasksCounter" value="439" />
+    <task id="LOCAL-00439" summary="trying to boot the application - work in progress">
+      <created>1688044546930</created>
+      <option name="number" value="00439" />
+      <option name="presentableId" value="LOCAL-00439" />
+      <option name="project" value="LOCAL" />
+      <updated>1688044546930</updated>
+    </task>
+    <option name="localTasksCounter" value="440" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -537,7 +528,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="implemented &quot;canMove&quot; instead of all movable squares in player" />
     <MESSAGE value="open work in progress" />
     <MESSAGE value="Added elementnotfoundexception to Player.getKing" />
     <MESSAGE value="remove unused code" />
@@ -562,7 +552,8 @@
     <MESSAGE value="Added @Transient attribute to attributes that shouldnt be data absed" />
     <MESSAGE value="update application.properties" />
     <MESSAGE value="inheritance entities (work in progress)" />
-    <option name="LAST_COMMIT_MESSAGE" value="inheritance entities (work in progress)" />
+    <MESSAGE value="trying to boot the application - work in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying to boot the application - work in progress" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

@@ -1,6 +1,6 @@
 package com.ordina.nl.chess.controllers;
 
-import com.ordina.nl.chess.dto.GameDto;
+import com.ordina.nl.chess.data.dto.GameDto;
 import com.ordina.nl.chess.instances.Game;
 import com.ordina.nl.chess.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
