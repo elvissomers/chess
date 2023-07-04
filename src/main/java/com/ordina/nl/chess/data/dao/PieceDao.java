@@ -23,7 +23,30 @@ public class PieceDao {
     @JoinColumn(name = "player_id")
     private Player player;
 
-    @Transient
+    @Column
     private PieceType pieceType;
 
+    public long getId() {
+        return id;
+    }
+
+    public int getHorizontalPosition() {
+        return horizontalPosition;
+    }
+
+    public int getVerticalPosition() {
+        return verticalPosition;
+    }
+
+    public boolean isHasMoved() {
+        return hasMoved;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public PieceType getPieceType() {
+        return pieceType;
+    }
 }
