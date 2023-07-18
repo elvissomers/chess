@@ -6,12 +6,18 @@ import com.ordina.nl.chess.service.structures.Coordinate;
 import com.ordina.nl.chess.enums.MovementType;
 import com.ordina.nl.chess.enums.PieceType;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity(name="pieces")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "piece_type", discriminatorType = DiscriminatorType.STRING)
@@ -21,13 +27,9 @@ public abstract class Piece {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
     private int horizontalPosition;
-
-    @Column
     private int verticalPosition;
-
-    @Column(nullable = true)
+    // TODO: move back to king & rook
     private boolean hasMoved;
 
     @ManyToOne(optional = false)
@@ -35,7 +37,7 @@ public abstract class Piece {
     private Player player;
 
     @Transient
-    private PieceType pieceTyperino;
+    private PieceType pieceType;
 
     @Transient
     private List<Coordinate> movableSquares = new ArrayList<>();
@@ -44,7 +46,7 @@ public abstract class Piece {
     private List<Coordinate> legalMovableSquares = new ArrayList<>();
 
     @Transient
-    private Set<MovementType> moveRules = new HashSet<>();
+    private List<MovementType> movementTypes = new ArrayList<>();
 
     @Transient
     private Set<Coordinate> attackedSquares = new HashSet<>();
@@ -55,9 +57,6 @@ public abstract class Piece {
         this.player = player;
     }
 
-    protected Piece() {
-
-    }
     protected Piece(Piece other) {
         if (other == null){
             throw new IllegalArgumentException("Cannot copy a null Piece");
@@ -68,37 +67,7 @@ public abstract class Piece {
         this.moveRules = other.getMoveRules();
     }
 
-    public List<Coordinate> getMovableSquares() {
-        return movableSquares;
-    }
-
-    public List<Coordinate> getLegalMovableSquares() {
-        return legalMovableSquares;
-    }
-
-    public Set<MovementType> getMoveRules() {
-        return moveRules;
-    }
-
-    public int getHorizontalPosition() {
-        return horizontalPosition;
-    }
-
-    public void setHorizontalPosition(int horizontalPosition) {
-        this.horizontalPosition = horizontalPosition;
-    }
-
-    public int getVerticalPosition() {
-        return verticalPosition;
-    }
-
-    public void setVerticalPosition(int verticalPosition) {
-        this.verticalPosition = verticalPosition;
-    }
-
     public abstract Piece copy();
-
-    public abstract void setCorrectPieceType();
 
     public void setCorrectMoveRules() {
         setMoveRules(getPieceType().getMovementTypes());
@@ -106,7 +75,7 @@ public abstract class Piece {
 
     public void setMovableSquares(BoardMap board) {
         movableSquares = new ArrayList<>();
-        for (MovementType moveRule : moveRules){
+        for (MovementType movementType : movementTypes){
 //            moveRule.setMoves(this, board, moveFinder, player.getGame());
             int b = 5;
         }
@@ -119,39 +88,5 @@ public abstract class Piece {
 
     public void addMovableSquare(Coordinate coordinate){
         this.movableSquares.add(coordinate);
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public PieceType getPieceType() {
-        return pieceTyperino;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
-
-
-    public void setPieceType(PieceType pieceType) {
-        this.pieceTyperino = pieceType;
-    }
-
-    public void setMoveRules(Set<MovementType> moveRules) {
-        this.moveRules = moveRules;
-    }
-
-    public boolean isHasMoved() {
-        return hasMoved;
-    }
-
-    public void setHasMoved(boolean hasMoved) {
-        this.hasMoved = hasMoved;
-    }
-
-    public Set<Coordinate> getAttackedSquares() {
-        return attackedSquares;
     }
 }
