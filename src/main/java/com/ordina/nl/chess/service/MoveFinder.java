@@ -231,8 +231,8 @@ public class MoveFinder {
     public void pruneSelfCheckMovesForPiece(Piece piece, Game game) {
         for (Coordinate moveOption : piece.getMovableSquares()){
             Piece copyPiece = piece.copy();
-            copyPiece.setHorizontalPosition(moveOption.getX());
-            copyPiece.setVerticalPosition(moveOption.getY());
+            copyPiece.setHorizontalPosition(moveOption.getXPos());
+            copyPiece.setVerticalPosition(moveOption.getYPos());
 
             BoardMap copyBoard = setBoardMapForCopiedPiece(piece, copyPiece, game);
             setAllAttackedSquaresForEnemyPlayer(piece.getPlayer().getTeam(), copyBoard, game);
