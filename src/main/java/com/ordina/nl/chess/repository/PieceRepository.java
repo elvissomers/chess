@@ -1,7 +1,7 @@
 package com.ordina.nl.chess.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.ordina.nl.chess.pieces.Piece;
+import com.ordina.nl.chess.entity.pieces.Piece;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

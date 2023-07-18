@@ -1,6 +1,6 @@
 package com.ordina.nl.chess.service.structures;
 
-import com.ordina.nl.chess.pieces.*;
+import com.ordina.nl.chess.entity.pieces.*;
 
 import java.util.HashMap;
 import java.util.List;

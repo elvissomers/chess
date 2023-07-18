@@ -1,6 +1,6 @@
-package com.ordina.nl.chess.pieces;
+package com.ordina.nl.chess.entity.pieces;
 
-import com.ordina.nl.chess.instances.Player;
+import com.ordina.nl.chess.entity.Player;
 import com.ordina.nl.chess.service.structures.Coordinate;
 import com.ordina.nl.chess.enums.MovementType;
 import com.ordina.nl.chess.enums.PieceType;

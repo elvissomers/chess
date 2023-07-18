@@ -1,12 +1,12 @@
 package com.ordina.nl.chess.service;
 
 import com.ordina.nl.chess.exception.ElementNotFoundException;
-import com.ordina.nl.chess.instances.Game;
-import com.ordina.nl.chess.instances.Player;
-import com.ordina.nl.chess.pieces.King;
-import com.ordina.nl.chess.pieces.Pawn;
-import com.ordina.nl.chess.pieces.Piece;
-import com.ordina.nl.chess.pieces.Rook;
+import com.ordina.nl.chess.entity.Game;
+import com.ordina.nl.chess.entity.Player;
+import com.ordina.nl.chess.entity.pieces.King;
+import com.ordina.nl.chess.entity.pieces.Pawn;
+import com.ordina.nl.chess.entity.pieces.Piece;
+import com.ordina.nl.chess.entity.pieces.Rook;
 import com.ordina.nl.chess.enums.Team;
 import com.ordina.nl.chess.service.structures.BoardMap;
 import com.ordina.nl.chess.service.structures.Coordinate;

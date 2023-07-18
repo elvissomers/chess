@@ -1,9 +1,9 @@
 package com.ordina.nl.chess.enums;
 
-import com.ordina.nl.chess.instances.Game;
+import com.ordina.nl.chess.entity.Game;
 import com.ordina.nl.chess.service.structures.BoardMap;
 import com.ordina.nl.chess.service.MoveFinder;
-import com.ordina.nl.chess.pieces.Piece;
+import com.ordina.nl.chess.entity.pieces.Piece;
 
 public enum MovementType {
     HORIZONTAL {

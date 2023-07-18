@@ -1,8 +1,8 @@
-package com.ordina.nl.chess.game;
+package com.ordina.nl.chess.entity;
 
 import com.ordina.nl.chess.enums.CastleType;
 import com.ordina.nl.chess.service.structures.Coordinate;
-import com.ordina.nl.chess.pieces.Piece;
+import com.ordina.nl.chess.entity.pieces.Piece;
 import jakarta.persistence.*;
 
 import java.util.Objects;

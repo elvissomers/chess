@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Delete old files">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Refactor - Moved BoardMap.java and Coordinate.java to service.structures" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,7 +58,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/eso13215/IdeaProjects/aoc_2022",
+    "last_opened_file_path": "C:/Users/eso13215/IdeaProjects/chess",
     "onboarding.tips.debug.path": "C:/Users/eso13215/IdeaProjects/chess/src/Main.java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
@@ -71,6 +69,10 @@
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.ordina.nl.chess.service.structures" />
+      <recent name="com.ordina.nl.chess.service" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="test.controllers" />
@@ -164,41 +166,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00396" summary="added player in turn update to game.checkState">
-      <created>1687779076668</created>
-      <option name="number" value="00396" />
-      <option name="presentableId" value="LOCAL-00396" />
-      <option name="project" value="LOCAL" />
-      <updated>1687779076668</updated>
-    </task>
-    <task id="LOCAL-00397" summary="old code commented out (for now)">
-      <created>1687779569248</created>
-      <option name="number" value="00397" />
-      <option name="presentableId" value="LOCAL-00397" />
-      <option name="project" value="LOCAL" />
-      <updated>1687779569248</updated>
-    </task>
-    <task id="LOCAL-00398" summary="update inCheck to not be an attribute">
-      <created>1687779585331</created>
-      <option name="number" value="00398" />
-      <option name="presentableId" value="LOCAL-00398" />
-      <option name="project" value="LOCAL" />
-      <updated>1687779585331</updated>
-    </task>
-    <task id="LOCAL-00399" summary="todo">
-      <created>1687779593327</created>
-      <option name="number" value="00399" />
-      <option name="presentableId" value="LOCAL-00399" />
-      <option name="project" value="LOCAL" />
-      <updated>1687779593327</updated>
-    </task>
-    <task id="LOCAL-00400" summary="castletype setter">
-      <created>1687783322464</created>
-      <option name="number" value="00400" />
-      <option name="presentableId" value="LOCAL-00400" />
-      <option name="project" value="LOCAL" />
-      <updated>1687783322464</updated>
     </task>
     <task id="LOCAL-00401" summary="added castling method">
       <created>1687783329283</created>
@@ -508,7 +475,42 @@
       <option name="project" value="LOCAL" />
       <updated>1689585307590</updated>
     </task>
-    <option name="localTasksCounter" value="445" />
+    <task id="LOCAL-00445" summary="Refactor (name change)">
+      <created>1689678961967</created>
+      <option name="number" value="00445" />
+      <option name="presentableId" value="LOCAL-00445" />
+      <option name="project" value="LOCAL" />
+      <updated>1689678961967</updated>
+    </task>
+    <task id="LOCAL-00446" summary="Refactor (name change)">
+      <created>1689679012966</created>
+      <option name="number" value="00446" />
+      <option name="presentableId" value="LOCAL-00446" />
+      <option name="project" value="LOCAL" />
+      <updated>1689679012967</updated>
+    </task>
+    <task id="LOCAL-00447" summary="Refactor (moved BoardMap.java and Coordinate.java to service)">
+      <created>1689679078255</created>
+      <option name="number" value="00447" />
+      <option name="presentableId" value="LOCAL-00447" />
+      <option name="project" value="LOCAL" />
+      <updated>1689679078255</updated>
+    </task>
+    <task id="LOCAL-00448" summary="Initialize GameService.java and PieceService.java">
+      <created>1689679329898</created>
+      <option name="number" value="00448" />
+      <option name="presentableId" value="LOCAL-00448" />
+      <option name="project" value="LOCAL" />
+      <updated>1689679329898</updated>
+    </task>
+    <task id="LOCAL-00449" summary="Refactor - Moved BoardMap.java and Coordinate.java to service.structures">
+      <created>1689679354498</created>
+      <option name="number" value="00449" />
+      <option name="presentableId" value="LOCAL-00449" />
+      <option name="project" value="LOCAL" />
+      <updated>1689679354498</updated>
+    </task>
+    <option name="localTasksCounter" value="450" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -526,10 +528,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Dto's for move controller" />
-    <MESSAGE value="comment out old code" />
-    <MESSAGE value="update dto" />
-    <MESSAGE value="added dto" />
     <MESSAGE value="added GetPieceDataDto to controller" />
     <MESSAGE value="added MovableSquaresReponseDto to controller" />
     <MESSAGE value=" return a status repsponse DTO instead of void" />
@@ -551,7 +549,11 @@
     <MESSAGE value="mapper class for piece dao" />
     <MESSAGE value="update piecedao with getters and piecetype" />
     <MESSAGE value="Delete old files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete old files" />
+    <MESSAGE value="Refactor (name change)" />
+    <MESSAGE value="Refactor (moved BoardMap.java and Coordinate.java to service)" />
+    <MESSAGE value="Initialize GameService.java and PieceService.java" />
+    <MESSAGE value="Refactor - Moved BoardMap.java and Coordinate.java to service.structures" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor - Moved BoardMap.java and Coordinate.java to service.structures" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

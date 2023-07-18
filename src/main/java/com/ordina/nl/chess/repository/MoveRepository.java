@@ -1,6 +1,6 @@
 package com.ordina.nl.chess.repository;
 
-import com.ordina.nl.chess.game.Move;
+import com.ordina.nl.chess.entity.Move;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

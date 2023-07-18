@@ -1,7 +1,7 @@
 package com.ordina.nl.chess.data.dao.mapper;
 
 import com.ordina.nl.chess.data.dao.PieceDao;
-import com.ordina.nl.chess.pieces.*;
+import com.ordina.nl.chess.entity.pieces.*;
 
 public class PieceDaoMapper {
 

@@ -1,4 +1,4 @@
-package com.ordina.nl.chess.pieces;
+package com.ordina.nl.chess.entity.pieces;
 
 import com.ordina.nl.chess.enums.PieceType;
 import jakarta.persistence.DiscriminatorValue;

@@ -1,9 +1,8 @@
-package com.ordina.nl.chess.instances;
+package com.ordina.nl.chess.entity;
 
 import com.ordina.nl.chess.exception.ElementNotFoundException;
-import com.ordina.nl.chess.game.Move;
 import com.ordina.nl.chess.service.MoveFinder;
-import com.ordina.nl.chess.pieces.*;
+import com.ordina.nl.chess.entity.pieces.*;
 import com.ordina.nl.chess.repository.PieceRepository;
 import com.ordina.nl.chess.repository.PlayerRepository;
 import com.ordina.nl.chess.service.structures.BoardMap;

@@ -1,6 +1,6 @@
 package com.ordina.nl.chess.data.dao;
 
-import com.ordina.nl.chess.instances.Player;
+import com.ordina.nl.chess.entity.Player;
 import com.ordina.nl.chess.enums.PieceType;
 import jakarta.persistence.*;
 
