@@ -2,7 +2,6 @@ package com.ordina.nl.chess.service;
 
 import com.ordina.nl.chess.data.dto.GameDto;
 import com.ordina.nl.chess.data.dto.mapper.GameDtoMapper;
-import com.ordina.nl.chess.exception.ElementNotFoundException;
 import com.ordina.nl.chess.repository.GameRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,7 +14,7 @@ public class GameService {
 
     private final GameDtoMapper gameDtoMapper;
 
-    public GameDto getGame(long id) throws ElementNotFoundException {
+    public GameDto getGame(long id) {
         return gameRepository.findById(id)
                 .map(gameDtoMapper::gameToGameDto)
                 .orElse(null);
