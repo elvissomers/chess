@@ -1,14 +1,12 @@
 package com.ordina.nl.chess.pieces;
 
 import com.ordina.nl.chess.instances.Player;
-import com.ordina.nl.chess.structures.Coordinate;
-import com.ordina.nl.chess.structures.MovementType;
-import com.ordina.nl.chess.structures.PieceType;
-import com.ordina.nl.chess.structures.Team;
+import com.ordina.nl.chess.enums.Coordinate;
+import com.ordina.nl.chess.enums.MovementType;
+import com.ordina.nl.chess.enums.PieceType;
+import com.ordina.nl.chess.enums.Team;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
 
 import java.util.Set;
 

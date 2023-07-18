@@ -1,10 +1,10 @@
 package com.ordina.nl.chess.pieces;
 
 import com.ordina.nl.chess.instances.Player;
-import com.ordina.nl.chess.structures.BoardMap;
-import com.ordina.nl.chess.structures.Coordinate;
-import com.ordina.nl.chess.structures.MovementType;
-import com.ordina.nl.chess.structures.PieceType;
+import com.ordina.nl.chess.enums.BoardMap;
+import com.ordina.nl.chess.enums.Coordinate;
+import com.ordina.nl.chess.enums.MovementType;
+import com.ordina.nl.chess.enums.PieceType;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;

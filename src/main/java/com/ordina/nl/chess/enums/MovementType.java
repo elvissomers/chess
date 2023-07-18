@@ -1,4 +1,4 @@
-package com.ordina.nl.chess.structures;
+package com.ordina.nl.chess.enums;
 
 import com.ordina.nl.chess.instances.Game;
 import com.ordina.nl.chess.service.MoveFinder;

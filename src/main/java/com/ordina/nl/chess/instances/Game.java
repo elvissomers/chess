@@ -6,9 +6,9 @@ import com.ordina.nl.chess.service.MoveFinder;
 import com.ordina.nl.chess.pieces.*;
 import com.ordina.nl.chess.repository.PieceRepository;
 import com.ordina.nl.chess.repository.PlayerRepository;
-import com.ordina.nl.chess.structures.BoardMap;
-import com.ordina.nl.chess.structures.GameState;
-import com.ordina.nl.chess.structures.Team;
+import com.ordina.nl.chess.enums.BoardMap;
+import com.ordina.nl.chess.enums.GameState;
+import com.ordina.nl.chess.enums.Team;
 import jakarta.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
 

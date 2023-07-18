@@ -1,11 +1,9 @@
-package com.ordina.nl.chess.structures;
+package com.ordina.nl.chess.enums;
 
-import com.ordina.nl.chess.instances.Game;
 import com.ordina.nl.chess.pieces.*;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 
 public class BoardMap extends HashMap<Coordinate, Piece> {
 

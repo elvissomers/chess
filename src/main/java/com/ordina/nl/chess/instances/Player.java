@@ -7,9 +7,9 @@ import com.ordina.nl.chess.pieces.King;
 import com.ordina.nl.chess.pieces.Pawn;
 import com.ordina.nl.chess.pieces.Piece;
 import com.ordina.nl.chess.repository.MoveRepository;
-import com.ordina.nl.chess.structures.BoardMap;
-import com.ordina.nl.chess.structures.Coordinate;
-import com.ordina.nl.chess.structures.Team;
+import com.ordina.nl.chess.enums.BoardMap;
+import com.ordina.nl.chess.enums.Coordinate;
+import com.ordina.nl.chess.enums.Team;
 import jakarta.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
 

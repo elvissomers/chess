@@ -1,4 +1,4 @@
-package com.ordina.nl.chess.structures;
+package com.ordina.nl.chess.enums;
 
 public class Coordinate {
 

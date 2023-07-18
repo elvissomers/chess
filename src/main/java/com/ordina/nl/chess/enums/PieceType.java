@@ -1,6 +1,4 @@
-package com.ordina.nl.chess.structures;
-
-import com.ordina.nl.chess.pieces.*;
+package com.ordina.nl.chess.enums;
 
 import java.util.Set;
 

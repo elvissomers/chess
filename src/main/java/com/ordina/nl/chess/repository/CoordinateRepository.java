@@ -1,6 +1,6 @@
 package com.ordina.nl.chess.repository;
 
-import com.ordina.nl.chess.structures.Coordinate;
+import com.ordina.nl.chess.enums.Coordinate;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
