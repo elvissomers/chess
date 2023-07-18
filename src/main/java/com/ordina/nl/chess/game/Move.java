@@ -1,7 +1,7 @@
 package com.ordina.nl.chess.game;
 
 import com.ordina.nl.chess.enums.CastleType;
-import com.ordina.nl.chess.enums.Coordinate;
+import com.ordina.nl.chess.service.Coordinate;
 import com.ordina.nl.chess.pieces.Piece;
 import jakarta.persistence.*;
 

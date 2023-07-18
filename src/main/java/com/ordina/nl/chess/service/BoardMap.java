@@ -1,4 +1,4 @@
-package com.ordina.nl.chess.enums;
+package com.ordina.nl.chess.service;
 
 import com.ordina.nl.chess.pieces.*;
 

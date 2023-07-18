@@ -7,8 +7,6 @@ import com.ordina.nl.chess.pieces.King;
 import com.ordina.nl.chess.pieces.Pawn;
 import com.ordina.nl.chess.pieces.Piece;
 import com.ordina.nl.chess.pieces.Rook;
-import com.ordina.nl.chess.enums.BoardMap;
-import com.ordina.nl.chess.enums.Coordinate;
 import com.ordina.nl.chess.enums.Team;
 
 import java.util.Set;

@@ -2,6 +2,8 @@ package com.ordina.nl.chess.pieces;
 
 import com.ordina.nl.chess.instances.Player;
 import com.ordina.nl.chess.enums.*;
+import com.ordina.nl.chess.service.BoardMap;
+import com.ordina.nl.chess.service.Coordinate;
 import jakarta.persistence.*;
 
 import java.util.Set;

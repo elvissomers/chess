@@ -1,6 +1,6 @@
 package com.ordina.nl.chess.data.dto;
 
-import com.ordina.nl.chess.enums.Coordinate;
+import com.ordina.nl.chess.service.Coordinate;
 
 import java.util.List;
 

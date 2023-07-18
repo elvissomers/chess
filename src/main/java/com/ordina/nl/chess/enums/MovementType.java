@@ -1,6 +1,7 @@
 package com.ordina.nl.chess.enums;
 
 import com.ordina.nl.chess.instances.Game;
+import com.ordina.nl.chess.service.BoardMap;
 import com.ordina.nl.chess.service.MoveFinder;
 import com.ordina.nl.chess.pieces.Piece;
 

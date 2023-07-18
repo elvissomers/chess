@@ -1,8 +1,8 @@
 package com.ordina.nl.chess.pieces;
 
 import com.ordina.nl.chess.instances.Player;
-import com.ordina.nl.chess.enums.BoardMap;
-import com.ordina.nl.chess.enums.Coordinate;
+import com.ordina.nl.chess.service.BoardMap;
+import com.ordina.nl.chess.service.Coordinate;
 import com.ordina.nl.chess.enums.MovementType;
 import com.ordina.nl.chess.enums.PieceType;
 import jakarta.persistence.*;
