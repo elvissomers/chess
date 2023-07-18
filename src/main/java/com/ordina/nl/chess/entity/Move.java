@@ -4,9 +4,15 @@ import com.ordina.nl.chess.enums.CastleType;
 import com.ordina.nl.chess.service.structures.Coordinate;
 import com.ordina.nl.chess.entity.pieces.Piece;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.Objects;
 
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Move {
 
@@ -32,98 +38,9 @@ public class Move {
     @Column(nullable = false)
     private int verticalTo;
 
-    @Column(nullable = true)
     private Piece takenPiece;
-
-    @Column(nullable = true)
     private CastleType castleType;
-
-    // TODO: piece or piecetype here?
-    @Column
     private boolean promoted;
-
-    public Move() {
-    }
-
-    public Move(Piece piece, Coordinate squareFrom, Coordinate squareTo, Piece takenPiece, CastleType castleType,
-                boolean promoted) {
-        this.piece = piece;
-        this.horizontalFrom = squareFrom.getX();
-        this.verticalFrom = squareFrom.getY();
-        this.horizontalTo = squareTo.getX();
-        this.verticalTo = squareTo.getY();
-        this.takenPiece = takenPiece;
-        this.castleType = castleType;
-        this.promoted = promoted;
-    }
-
-    public Piece getPiece() {
-        return piece;
-    }
-
-    public Piece getTakenPiece() {
-        return takenPiece;
-    }
-
-    public CastleType getCastleType() {
-        return castleType;
-    }
-
-    public void setCastleType(CastleType castleType) {
-        this.castleType = castleType;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-    public void setPiece(Piece piece) {
-        this.piece = piece;
-    }
-
-    public void setTakenPiece(Piece takenPiece) {
-        this.takenPiece = takenPiece;
-    }
-
-    public boolean isPromoted() {
-        return promoted;
-    }
-
-    public int getHorizontalFrom() {
-        return horizontalFrom;
-    }
-
-    public int getVerticalFrom() {
-        return verticalFrom;
-    }
-
-    public int getHorizontalTo() {
-        return horizontalTo;
-    }
-
-    public int getVerticalTo() {
-        return verticalTo;
-    }
-
-    public void setHorizontalFrom(int horizontalFrom) {
-        this.horizontalFrom = horizontalFrom;
-    }
-
-    public void setVerticalFrom(int verticalFrom) {
-        this.verticalFrom = verticalFrom;
-    }
-
-    public void setHorizontalTo(int horizontalTo) {
-        this.horizontalTo = horizontalTo;
-    }
-
-    public void setVerticalTo(int verticalTo) {
-        this.verticalTo = verticalTo;
-    }
 
     @Override
     public String toString(){
