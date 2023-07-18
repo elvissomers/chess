@@ -1,23 +1,18 @@
 package com.ordina.nl.chess.service.structures;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Coordinate {
 
     int xPos;
-
     int yPos;
-
-    public Coordinate(int xPos, int yPos){
-        this.xPos = xPos;
-        this.yPos = yPos;
-    }
-
-    public int getX() {
-        return xPos;
-    }
-
-    public int getY() {
-        return yPos;
-    }
 
     @Override
     public String toString(){
