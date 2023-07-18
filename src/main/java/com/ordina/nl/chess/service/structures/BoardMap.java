@@ -1,4 +1,4 @@
-package com.ordina.nl.chess.service;
+package com.ordina.nl.chess.service.structures;
 
 import com.ordina.nl.chess.pieces.*;
 
