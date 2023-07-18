@@ -1,4 +1,4 @@
-package com.ordina.nl.chess.movement;
+package com.ordina.nl.chess.service;
 
 import com.ordina.nl.chess.exception.ElementNotFoundException;
 import com.ordina.nl.chess.instances.Game;

@@ -2,7 +2,7 @@ package com.ordina.nl.chess.instances;
 
 import com.ordina.nl.chess.exception.ElementNotFoundException;
 import com.ordina.nl.chess.game.Move;
-import com.ordina.nl.chess.movement.MoveFinder;
+import com.ordina.nl.chess.service.MoveFinder;
 import com.ordina.nl.chess.pieces.*;
 import com.ordina.nl.chess.repository.PieceRepository;
 import com.ordina.nl.chess.repository.PlayerRepository;

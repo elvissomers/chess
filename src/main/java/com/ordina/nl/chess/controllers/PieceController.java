@@ -6,7 +6,7 @@ import com.ordina.nl.chess.data.dto.MovePieceDto;
 import com.ordina.nl.chess.data.dto.MovePieceResponseDto;
 import com.ordina.nl.chess.game.Move;
 import com.ordina.nl.chess.instances.Game;
-import com.ordina.nl.chess.movement.MoveFinder;
+import com.ordina.nl.chess.service.MoveFinder;
 import com.ordina.nl.chess.pieces.*;
 import com.ordina.nl.chess.repository.GameRepository;
 import com.ordina.nl.chess.repository.MoveRepository;

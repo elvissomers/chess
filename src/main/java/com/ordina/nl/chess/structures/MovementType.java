@@ -1,7 +1,7 @@
 package com.ordina.nl.chess.structures;
 
 import com.ordina.nl.chess.instances.Game;
-import com.ordina.nl.chess.movement.MoveFinder;
+import com.ordina.nl.chess.service.MoveFinder;
 import com.ordina.nl.chess.pieces.Piece;
 
 public enum MovementType {

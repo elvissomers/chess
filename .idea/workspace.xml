@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="update piecedao with getters and piecetype">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Delete old files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,13 +164,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00395" summary="tostring">
-      <created>1687778966358</created>
-      <option name="number" value="00395" />
-      <option name="presentableId" value="LOCAL-00395" />
-      <option name="project" value="LOCAL" />
-      <updated>1687778966358</updated>
     </task>
     <task id="LOCAL-00396" summary="added player in turn update to game.checkState">
       <created>1687779076668</created>
@@ -508,7 +501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688478647442</updated>
     </task>
-    <option name="localTasksCounter" value="444" />
+    <task id="LOCAL-00444" summary="Delete old files">
+      <created>1689585307589</created>
+      <option name="number" value="00444" />
+      <option name="presentableId" value="LOCAL-00444" />
+      <option name="project" value="LOCAL" />
+      <updated>1689585307590</updated>
+    </task>
+    <option name="localTasksCounter" value="445" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -526,7 +526,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added takenPiece to Move saving (needed for fifty move rule check)" />
     <MESSAGE value="Dto's for move controller" />
     <MESSAGE value="comment out old code" />
     <MESSAGE value="update dto" />
@@ -551,7 +550,8 @@
     <MESSAGE value="refactor" />
     <MESSAGE value="mapper class for piece dao" />
     <MESSAGE value="update piecedao with getters and piecetype" />
-    <option name="LAST_COMMIT_MESSAGE" value="update piecedao with getters and piecetype" />
+    <MESSAGE value="Delete old files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete old files" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
