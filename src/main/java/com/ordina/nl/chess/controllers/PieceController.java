@@ -1,7 +1,7 @@
 package com.ordina.nl.chess.controllers;
 
 import com.ordina.nl.chess.data.dto.GetPieceDataDto;
-import com.ordina.nl.chess.data.dto.MovableSquaresResponseDto;
+import com.ordina.nl.chess.data.dto.MovableSquaresDto;
 import com.ordina.nl.chess.data.dto.MovePieceDto;
 import com.ordina.nl.chess.data.dto.MovePieceResponseDto;
 import com.ordina.nl.chess.entity.Move;
@@ -43,19 +43,17 @@ public class PieceController {
     private MoveFinder moveFinder;
 
     @GetMapping("get_movable_squares")
-    public MovableSquaresResponseDto getMovableSquares(@RequestBody GetPieceDataDto dto) {
+    public MovableSquaresDto getMovableSquares(@RequestBody GetPieceDataDto dto) {
         Optional<Game> optionalGame = gameRepository.findById(dto.getGameId());
         Optional<Piece> optionalPiece = pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
                 dto.getxPos(), dto.getyPos(), dto.getGameId());
 
         if (optionalGame.isEmpty() || optionalPiece.isEmpty())
-            return new MovableSquaresResponseDto("Error: invalid request!");
+            return new MovableSquaresDto(null);
         BoardMap board = moveFinder.setBoardMap(optionalGame.get());
         optionalGame.get().setMovableSquaresForPiece(optionalPiece.get(), board);
 
-        MovableSquaresResponseDto responseDto = new MovableSquaresResponseDto("Request handled successfully");
-        responseDto.setMovableSquares(optionalPiece.get().getLegalMovableSquares());
-        return responseDto;
+        return new MovableSquaresDto(optionalPiece.get().getLegalMovableSquares());
     }
 
     @PutMapping("move")
