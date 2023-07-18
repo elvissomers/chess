@@ -39,6 +39,7 @@ public class Player {
     private List<Move> moveHistory = new ArrayList<>();
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Team team;
 
     @OneToMany(mappedBy = "player", orphanRemoval = true)

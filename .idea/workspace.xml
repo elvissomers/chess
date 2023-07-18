@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Setup gameDto &amp; converter">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/constants/BoardSize.java" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Setup Dto's for Player &amp; Piece - mappers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/entity/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/entity/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/entity/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/entity/pieces/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/BoardService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/GameService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/PlayerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/PawnService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/PawnService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,76 +172,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00414" summary="Dto's for move controller">
-      <created>1687852251996</created>
-      <option name="number" value="00414" />
-      <option name="presentableId" value="LOCAL-00414" />
-      <option name="project" value="LOCAL" />
-      <updated>1687852252003</updated>
-    </task>
-    <task id="LOCAL-00415" summary="comment out old code">
-      <created>1687852262817</created>
-      <option name="number" value="00415" />
-      <option name="presentableId" value="LOCAL-00415" />
-      <option name="project" value="LOCAL" />
-      <updated>1687852262818</updated>
-    </task>
-    <task id="LOCAL-00416" summary="update dto">
-      <created>1687852409432</created>
-      <option name="number" value="00416" />
-      <option name="presentableId" value="LOCAL-00416" />
-      <option name="project" value="LOCAL" />
-      <updated>1687852409432</updated>
-    </task>
-    <task id="LOCAL-00417" summary="added dto">
-      <created>1687852450942</created>
-      <option name="number" value="00417" />
-      <option name="presentableId" value="LOCAL-00417" />
-      <option name="project" value="LOCAL" />
-      <updated>1687852450942</updated>
-    </task>
-    <task id="LOCAL-00418" summary="added GetPieceDataDto to controller">
-      <created>1687852590710</created>
-      <option name="number" value="00418" />
-      <option name="presentableId" value="LOCAL-00418" />
-      <option name="project" value="LOCAL" />
-      <updated>1687852590710</updated>
-    </task>
-    <task id="LOCAL-00419" summary="added MovableSquaresReponseDto to controller">
-      <created>1687852697223</created>
-      <option name="number" value="00419" />
-      <option name="presentableId" value="LOCAL-00419" />
-      <option name="project" value="LOCAL" />
-      <updated>1687852697223</updated>
-    </task>
-    <task id="LOCAL-00420" summary=" return a status repsponse DTO instead of void">
-      <created>1687852847433</created>
-      <option name="number" value="00420" />
-      <option name="presentableId" value="LOCAL-00420" />
-      <option name="project" value="LOCAL" />
-      <updated>1687852847433</updated>
-    </task>
-    <task id="LOCAL-00421" summary="addded MovePieceDto dto">
-      <created>1687852926470</created>
-      <option name="number" value="00421" />
-      <option name="presentableId" value="LOCAL-00421" />
-      <option name="project" value="LOCAL" />
-      <updated>1687852926470</updated>
-    </task>
-    <task id="LOCAL-00422" summary="remove root password from 3306">
-      <created>1687856090663</created>
-      <option name="number" value="00422" />
-      <option name="presentableId" value="LOCAL-00422" />
-      <option name="project" value="LOCAL" />
-      <updated>1687856090663</updated>
-    </task>
-    <task id="LOCAL-00423" summary="formatting">
-      <created>1687856117884</created>
-      <option name="number" value="00423" />
-      <option name="presentableId" value="LOCAL-00423" />
-      <option name="project" value="LOCAL" />
-      <updated>1687856117884</updated>
     </task>
     <task id="LOCAL-00424" summary="edit rook.hasMoved in PieceController">
       <created>1687856137209</created>
@@ -522,7 +446,77 @@
       <option name="project" value="LOCAL" />
       <updated>1689686628256</updated>
     </task>
-    <option name="localTasksCounter" value="463" />
+    <task id="LOCAL-00463" summary="Setup pawn service with movefinder method (WIP)">
+      <created>1689687564294</created>
+      <option name="number" value="00463" />
+      <option name="presentableId" value="LOCAL-00463" />
+      <option name="project" value="LOCAL" />
+      <updated>1689687564294</updated>
+    </task>
+    <task id="LOCAL-00464" summary="set BoardSize.java to contain global constants">
+      <created>1689687576976</created>
+      <option name="number" value="00464" />
+      <option name="presentableId" value="LOCAL-00464" />
+      <option name="project" value="LOCAL" />
+      <updated>1689687576976</updated>
+    </task>
+    <task id="LOCAL-00465" summary="Refactor Piece class with Lombok annotations (work in prgoress)">
+      <created>1689687594417</created>
+      <option name="number" value="00465" />
+      <option name="presentableId" value="LOCAL-00465" />
+      <option name="project" value="LOCAL" />
+      <updated>1689687594417</updated>
+    </task>
+    <task id="LOCAL-00466" summary="Refactor Game class with Lombok annotations (work in prgoress)">
+      <created>1689687603408</created>
+      <option name="number" value="00466" />
+      <option name="presentableId" value="LOCAL-00466" />
+      <option name="project" value="LOCAL" />
+      <updated>1689687603408</updated>
+    </task>
+    <task id="LOCAL-00467" summary="Refactor Player class with Lombok annotations (work in prgoress)">
+      <created>1689687612347</created>
+      <option name="number" value="00467" />
+      <option name="presentableId" value="LOCAL-00467" />
+      <option name="project" value="LOCAL" />
+      <updated>1689687612347</updated>
+    </task>
+    <task id="LOCAL-00468" summary="Setup services to actually do stuff">
+      <created>1689687631559</created>
+      <option name="number" value="00468" />
+      <option name="presentableId" value="LOCAL-00468" />
+      <option name="project" value="LOCAL" />
+      <updated>1689687631559</updated>
+    </task>
+    <task id="LOCAL-00469" summary="Setting up BoardService.java">
+      <created>1689690033174</created>
+      <option name="number" value="00469" />
+      <option name="presentableId" value="LOCAL-00469" />
+      <option name="project" value="LOCAL" />
+      <updated>1689690033174</updated>
+    </task>
+    <task id="LOCAL-00470" summary="Setup Dto's for Player &amp; Piece">
+      <created>1689690300680</created>
+      <option name="number" value="00470" />
+      <option name="presentableId" value="LOCAL-00470" />
+      <option name="project" value="LOCAL" />
+      <updated>1689690300680</updated>
+    </task>
+    <task id="LOCAL-00471" summary="Setup Dto's for Player &amp; Piece">
+      <created>1689690369350</created>
+      <option name="number" value="00471" />
+      <option name="presentableId" value="LOCAL-00471" />
+      <option name="project" value="LOCAL" />
+      <updated>1689690369350</updated>
+    </task>
+    <task id="LOCAL-00472" summary="Setup Dto's for Player &amp; Piece - mappers">
+      <created>1689690715424</created>
+      <option name="number" value="00472" />
+      <option name="presentableId" value="LOCAL-00472" />
+      <option name="project" value="LOCAL" />
+      <updated>1689690715424</updated>
+    </task>
+    <option name="localTasksCounter" value="473" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -540,15 +534,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added @Transient attribute to attributes that shouldnt be data absed" />
-    <MESSAGE value="update application.properties" />
-    <MESSAGE value="inheritance entities (work in progress)" />
-    <MESSAGE value="trying to boot the application - work in progress" />
-    <MESSAGE value="refactor" />
-    <MESSAGE value="mapper class for piece dao" />
-    <MESSAGE value="update piecedao with getters and piecetype" />
-    <MESSAGE value="Delete old files" />
-    <MESSAGE value="Refactor (name change)" />
     <MESSAGE value="Refactor (moved BoardMap.java and Coordinate.java to service)" />
     <MESSAGE value="Initialize GameService.java and PieceService.java" />
     <MESSAGE value="Refactor - Moved BoardMap.java and Coordinate.java to service.structures" />
@@ -565,7 +550,16 @@
     <MESSAGE value="Add setMovementTypeForPiece method to PieceService.java" />
     <MESSAGE value="Setup Service classes for pieces of all types" />
     <MESSAGE value="Setup gameDto &amp; converter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup gameDto &amp; converter" />
+    <MESSAGE value="Setup pawn service with movefinder method (WIP)" />
+    <MESSAGE value="set BoardSize.java to contain global constants" />
+    <MESSAGE value="Refactor Piece class with Lombok annotations (work in prgoress)" />
+    <MESSAGE value="Refactor Game class with Lombok annotations (work in prgoress)" />
+    <MESSAGE value="Refactor Player class with Lombok annotations (work in prgoress)" />
+    <MESSAGE value="Setup services to actually do stuff" />
+    <MESSAGE value="Setting up BoardService.java" />
+    <MESSAGE value="Setup Dto's for Player &amp; Piece" />
+    <MESSAGE value="Setup Dto's for Player &amp; Piece - mappers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Setup Dto's for Player &amp; Piece - mappers" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
