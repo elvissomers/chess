@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Remove old TODO comment">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Add setMovementTypeForPiece method to PieceService.java">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/BishopService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/KingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/KnightService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/PawnService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/QueenService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/RookService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/entity/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/entity/pieces/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/PieceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/PieceService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +81,7 @@
       <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.ordina.nl.chess.service.pieces" />
       <recent name="com.ordina.nl.chess.entity" />
       <recent name="com.ordina.nl.chess.service.structures" />
       <recent name="com.ordina.nl.chess.service" />
@@ -170,48 +178,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00406" summary="added custom exceptions">
-      <created>1687785495308</created>
-      <option name="number" value="00406" />
-      <option name="presentableId" value="LOCAL-00406" />
-      <option name="project" value="LOCAL" />
-      <updated>1687785495308</updated>
-    </task>
-    <task id="LOCAL-00407" summary="clean code experiment">
-      <created>1687785744539</created>
-      <option name="number" value="00407" />
-      <option name="presentableId" value="LOCAL-00407" />
-      <option name="project" value="LOCAL" />
-      <updated>1687785744539</updated>
-    </task>
-    <task id="LOCAL-00408" summary="promotion added">
-      <created>1687785752681</created>
-      <option name="number" value="00408" />
-      <option name="presentableId" value="LOCAL-00408" />
-      <option name="project" value="LOCAL" />
-      <updated>1687785752681</updated>
-    </task>
-    <task id="LOCAL-00409" summary="implemented &quot;canMove&quot; instead of all movable squares in player">
-      <created>1687786488107</created>
-      <option name="number" value="00409" />
-      <option name="presentableId" value="LOCAL-00409" />
-      <option name="project" value="LOCAL" />
-      <updated>1687786488107</updated>
-    </task>
-    <task id="LOCAL-00410" summary="open work in progress">
-      <created>1687787972953</created>
-      <option name="number" value="00410" />
-      <option name="presentableId" value="LOCAL-00410" />
-      <option name="project" value="LOCAL" />
-      <updated>1687787972953</updated>
-    </task>
-    <task id="LOCAL-00411" summary="Added elementnotfoundexception to Player.getKing">
-      <created>1687851576830</created>
-      <option name="number" value="00411" />
-      <option name="presentableId" value="LOCAL-00411" />
-      <option name="project" value="LOCAL" />
-      <updated>1687851576830</updated>
     </task>
     <task id="LOCAL-00412" summary="remove unused code">
       <created>1687851623094</created>
@@ -514,7 +480,49 @@
       <option name="project" value="LOCAL" />
       <updated>1689680331170</updated>
     </task>
-    <option name="localTasksCounter" value="455" />
+    <task id="LOCAL-00455" summary="User lombok annotations for getter, setter &amp; constructor">
+      <created>1689682996001</created>
+      <option name="number" value="00455" />
+      <option name="presentableId" value="LOCAL-00455" />
+      <option name="project" value="LOCAL" />
+      <updated>1689682996001</updated>
+    </task>
+    <task id="LOCAL-00456" summary="Refactored MovableSquaresResponseDto.java with Lombok">
+      <created>1689683128361</created>
+      <option name="number" value="00456" />
+      <option name="presentableId" value="LOCAL-00456" />
+      <option name="project" value="LOCAL" />
+      <updated>1689683128361</updated>
+    </task>
+    <task id="LOCAL-00457" summary="Initialize BoardService.java">
+      <created>1689683259589</created>
+      <option name="number" value="00457" />
+      <option name="presentableId" value="LOCAL-00457" />
+      <option name="project" value="LOCAL" />
+      <updated>1689683259589</updated>
+    </task>
+    <task id="LOCAL-00458" summary="Update Move.java to use Lombok annotations for getter/setter/constructor">
+      <created>1689683677588</created>
+      <option name="number" value="00458" />
+      <option name="presentableId" value="LOCAL-00458" />
+      <option name="project" value="LOCAL" />
+      <updated>1689683677588</updated>
+    </task>
+    <task id="LOCAL-00459" summary="Update Coordinate.java to use Lombok annotations for getter/setter/constructor">
+      <created>1689683945880</created>
+      <option name="number" value="00459" />
+      <option name="presentableId" value="LOCAL-00459" />
+      <option name="project" value="LOCAL" />
+      <updated>1689683945880</updated>
+    </task>
+    <task id="LOCAL-00460" summary="Add setMovementTypeForPiece method to PieceService.java">
+      <created>1689685020911</created>
+      <option name="number" value="00460" />
+      <option name="presentableId" value="LOCAL-00460" />
+      <option name="project" value="LOCAL" />
+      <updated>1689685020911</updated>
+    </task>
+    <option name="localTasksCounter" value="461" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,12 +540,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="formatting" />
-    <MESSAGE value="edit rook.hasMoved in PieceController" />
-    <MESSAGE value="edit main file to spring boot application" />
-    <MESSAGE value="edit controllers to spring boot application" />
-    <MESSAGE value="setup get game endpoint" />
-    <MESSAGE value="fighting with spring boot" />
     <MESSAGE value="changed annotations" />
     <MESSAGE value="Update pieces attribute in player from set to list" />
     <MESSAGE value="Added @Transient attribute to attributes that shouldnt be data absed" />
@@ -557,7 +559,13 @@
     <MESSAGE value="Update formatting" />
     <MESSAGE value="Initialize MoveService.java" />
     <MESSAGE value="Remove old TODO comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove old TODO comment" />
+    <MESSAGE value="User lombok annotations for getter, setter &amp; constructor" />
+    <MESSAGE value="Refactored MovableSquaresResponseDto.java with Lombok" />
+    <MESSAGE value="Initialize BoardService.java" />
+    <MESSAGE value="Update Move.java to use Lombok annotations for getter/setter/constructor" />
+    <MESSAGE value="Update Coordinate.java to use Lombok annotations for getter/setter/constructor" />
+    <MESSAGE value="Add setMovementTypeForPiece method to PieceService.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add setMovementTypeForPiece method to PieceService.java" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
