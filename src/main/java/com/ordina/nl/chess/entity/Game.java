@@ -9,11 +9,17 @@ import com.ordina.nl.chess.service.structures.BoardMap;
 import com.ordina.nl.chess.enums.GameState;
 import com.ordina.nl.chess.enums.Team;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Set;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 public class Game {
 
@@ -21,9 +27,9 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     @Column(name = "state")
-    private GameState state;
+    private GameState gameState;
 
     @OneToOne(mappedBy = "game")
     private Player whitePlayer;
@@ -39,11 +45,6 @@ public class Game {
 
     @Autowired
     private PlayerRepository playerRepository;
-
-    // TODO : update all empty constructors
-    public Game() {
-
-    }
 
     public void setStandardStartingGame() {
         int horizontalSize = 8;
@@ -77,37 +78,7 @@ public class Game {
         }
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public Player getWhitePlayer() {
-        return whitePlayer;
-    }
-
-    public void setWhitePlayer(Player whitePlayer) {
-        this.whitePlayer = whitePlayer;
-    }
-
-    public Player getBlackPlayer() {
-        return blackPlayer;
-    }
-
-    public void setBlackPlayer(Player blackPlayer) {
-        this.blackPlayer = blackPlayer;
-    }
-
-    public MoveFinder getMoveFinder() {
-        return moveFinder;
-    }
-
-    public GameState getState() {
-        return state;
-    }
-
-    public void setState(GameState state) {
-        this.state = state;
-    }
 
     public void setMovableSquaresForPiece(Piece piece, BoardMap board) {
         moveFinder.setAllAttackedSquaresForEnemyPlayer(piece.getPlayer().getTeam(), board, this);
