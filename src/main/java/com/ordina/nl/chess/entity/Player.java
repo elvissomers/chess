@@ -10,11 +10,17 @@ import com.ordina.nl.chess.service.structures.BoardMap;
 import com.ordina.nl.chess.service.structures.Coordinate;
 import com.ordina.nl.chess.enums.Team;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 public class Player {
 
@@ -46,33 +52,9 @@ public class Player {
     @Autowired
     private MoveFinder moveFinder;
 
-    public Player() {
-
-    }
-
     public Player(Game game, Team team) {
         this.game = game;
         this.team = team;
-    }
-
-    public Game getGame() {
-        return game;
-    }
-
-    public List<Move> getMoveHistory() {
-        return moveHistory;
-    }
-
-    public Team getTeam() {
-        return team;
-    }
-
-    public List<Piece> getPieces() {
-        return pieces;
-    }
-
-    public Set<Coordinate> getAllAttackedSquares() {
-        return allAttackedSquares;
     }
 
     //TODO : use canPlayerMove in game
