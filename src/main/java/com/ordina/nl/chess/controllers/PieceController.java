@@ -60,8 +60,12 @@ public class PieceController {
 
     @PutMapping("move")
     public MovePieceResponseDto makeMove(@RequestBody MovePieceDto dto) {
-        long gameId = dto.getGameId(); int xFrom = dto.getxFrom(); int yFrom = dto.getyFrom();
-        int xTo = dto.getxTo(); int yTo = dto.getyTo();
+        long gameId = dto.getGameId();
+        int xFrom = dto.getxFrom();
+        int yFrom = dto.getyFrom();
+        int xTo = dto.getxTo();
+        int yTo = dto.getyTo();
+
         Optional<Game> optionalGame = gameRepository.findById(gameId);
         Optional<Piece> optionalPiece = pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
                 xFrom, yFrom, gameId);
@@ -97,7 +101,8 @@ public class PieceController {
 
         optionalTakenPiece.ifPresent(pieceRepository::delete);
 
-        piece.setHorizontalPosition(xTo); piece.setVerticalPosition(yTo);
+        piece.setHorizontalPosition(xTo);
+        piece.setVerticalPosition(yTo);
         pieceRepository.save(piece);
         
         saveMoveToRepository(piece, xFrom, yFrom, xTo, yTo, null, optionalTakenPiece.orElse(null));
@@ -116,10 +121,14 @@ public class PieceController {
             playerRepository.save(piece.getPlayer());
         } else {
             Move madeMove = new Move();
-            madeMove.setNumber(moveNumber); madeMove.setPiece(piece);
-            madeMove.setHorizontalFrom(xFrom); madeMove.setHorizontalTo(xTo);
-            madeMove.setVerticalFrom(yFrom); madeMove.setVerticalTo(yTo);
-            madeMove.setCastleType(castleType);madeMove.setTakenPiece(takenPiece);
+            madeMove.setNumber(moveNumber);
+            madeMove.setPiece(piece);
+            madeMove.setHorizontalFrom(xFrom);
+            madeMove.setHorizontalTo(xTo);
+            madeMove.setVerticalFrom(yFrom);
+            madeMove.setVerticalTo(yTo);
+            madeMove.setCastleType(castleType);
+            madeMove.setTakenPiece(takenPiece);
             piece.getPlayer().getMoveHistory().add(madeMove);
             playerRepository.save(piece.getPlayer());
             moveRepository.save(madeMove);
@@ -145,31 +154,37 @@ public class PieceController {
 
         if (xTo > king.getHorizontalPosition()) {
             castleType = CastleType.SHORT;
-            Optional<Piece> optionalRook = king.getPlayer().getPieces().stream().filter(
-                    piece -> piece.getVerticalPosition() == yTo && piece.getHorizontalPosition() == 7
-            ).findFirst();
+            Optional<Piece> optionalRook = king.getPlayer().getPieces().stream()
+                    .filter(piece ->
+                            piece.getVerticalPosition() == yTo && piece.getHorizontalPosition() == 7)
+                    .findFirst();
 
             if (optionalRook.isPresent()) {
                 Rook rook = (Rook) optionalRook.get();
-                rook.setHorizontalPosition(xTo - 1); rook.setHasMoved(true);
+                rook.setHorizontalPosition(xTo - 1);
+                rook.setHasMoved(true);
                 pieceRepository.save(rook);
             }
         }
         else {
             castleType = CastleType.LONG;
-            Optional<Piece> optionalRook = king.getPlayer().getPieces().stream().filter(
-                    piece -> piece.getVerticalPosition() == yTo && piece.getHorizontalPosition() == 0
-            ).findFirst();
+            Optional<Piece> optionalRook = king.getPlayer().getPieces().stream()
+                    .filter(piece ->
+                            piece.getVerticalPosition() == yTo && piece.getHorizontalPosition() == 0)
+                    .findFirst();
 
             if (optionalRook.isPresent()) {
                 Rook rook = (Rook) optionalRook.get();
-                rook.setHorizontalPosition(xTo + 1); rook.setHasMoved(true);
+                rook.setHorizontalPosition(xTo + 1);
+                rook.setHasMoved(true);
                 pieceRepository.save(rook);
             }
         }
         saveMoveToRepository(king, king.getHorizontalPosition(), king.getVerticalPosition(), xTo, yTo,
                 castleType, null);
-        king.setHorizontalPosition(xTo); king.setVerticalPosition(yTo);
+
+        king.setHorizontalPosition(xTo);
+        king.setVerticalPosition(yTo);
         pieceRepository.save(king);
 
         game.checkState(king.getPlayer().getTeam());
