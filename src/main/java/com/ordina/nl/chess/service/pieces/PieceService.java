@@ -1,5 +1,7 @@
 package com.ordina.nl.chess.service.pieces;
 
+import com.ordina.nl.chess.data.dto.PieceDto;
+import com.ordina.nl.chess.data.dto.mapper.PieceDtoMapper;
 import com.ordina.nl.chess.entity.Player;
 import com.ordina.nl.chess.entity.pieces.*;
 import com.ordina.nl.chess.enums.MovementType;
@@ -22,6 +24,21 @@ public class PieceService {
     private final KingService kingService;
 
     private final PieceRepository pieceRepository;
+
+    private final PieceDtoMapper pieceDtoMapper;
+
+    public Piece getPiece(long id) {
+        return pieceRepository.findById(id)
+                .orElse(null);
+        // TODO: .orElseThrow(ElementNotFoundException)
+    }
+
+    public PieceDto getPieceDto(long id) {
+        return pieceRepository.findById(id)
+                .map(pieceDtoMapper::pieceToPieceDto)
+                .orElse(null);
+        // TODO: .orElseThrow(ElementNotFoundException)
+    }
 
     public Piece createPiece(PieceType pieceType, Player player, int horizontalPosition, int verticalPosition) {
         Piece piece = null;

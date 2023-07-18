@@ -1,9 +1,11 @@
 package com.ordina.nl.chess.service;
 
 import com.ordina.nl.chess.data.dto.GameDto;
+import com.ordina.nl.chess.data.dto.PieceDto;
 import com.ordina.nl.chess.entity.Game;
 import com.ordina.nl.chess.entity.pieces.Piece;
 import com.ordina.nl.chess.repository.GameRepository;
+import com.ordina.nl.chess.service.pieces.PieceService;
 import com.ordina.nl.chess.service.structures.BoardMap;
 import com.ordina.nl.chess.service.structures.Coordinate;
 import lombok.AllArgsConstructor;
@@ -23,6 +25,7 @@ public class BoardService {
 
     private final GameService gameService;
     private final PlayerService playerService;
+    private final PieceService pieceService;
 
     public BoardMap getBoardMapForGame(GameDto gameDto) {
         BoardMap boardMap = getEmptyBoardMap();
@@ -32,8 +35,8 @@ public class BoardService {
 //                .orElseThrow(() -> new ElementNotFoundException("Requested game ID does not correspond to an existing game!"));
 
         if (game != null) {
-            List<Piece> pieces = Stream.concat(game.getWhitePlayer().getPieces().stream(),
-                            game.getBlackPlayer().getPieces().stream())
+            List<PieceDto> pieces = Stream.concat(playerService.getPlayerDto(gameDto.getWhitePlayerId()).getPlayerPiecesDto().getPieces().stream(),
+                            playerService.getPlayerDto(gameDto.getBlackPlayerId()).getPlayerPiecesDto().getPieces().stream())
                     .toList();
             addPiecesToBoard(pieces, boardMap);
         }
@@ -62,8 +65,9 @@ public class BoardService {
         return coordinateArray;
     }
 
-    private void addPiecesToBoard(List<Piece> pieces, BoardMap boardMap) {
-        for (Piece piece : pieces) {
+    private void addPiecesToBoard(List<PieceDto> pieces, BoardMap boardMap) {
+        for (PieceDto pieceDto : pieces) {
+            Piece piece = pieceService.getPiece(pieceDto.getId());
             boardMap.put(boardMap.getCoordinateByPos(piece.getHorizontalPosition(), piece.getVerticalPosition()),
                     piece);
         }

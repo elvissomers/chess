@@ -24,7 +24,14 @@ public class PlayerService {
 
     private PlayerDtoMapper playerDtoMapper;
 
-    public PlayerDto getPlayer(long id) {
+    public Player getPlayer(long id) {
+        return playerRepository.findById(id)
+                .orElse(null);
+        // TODO; when BaseExceptionHandler is put up:
+//                .orElseThrow(() -> new ElementNotFoundException("!"));
+    }
+
+    public PlayerDto getPlayerDto(long id) {
         return playerRepository.findById(id)
                 .map(playerDtoMapper::playerToPlayerDto)
                 .orElse(null);
