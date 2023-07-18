@@ -1,27 +1,19 @@
 package com.ordina.nl.chess.service.structures;
 
 import com.ordina.nl.chess.entity.pieces.*;
+import lombok.*;
 
 import java.util.HashMap;
 import java.util.List;
 
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class BoardMap extends HashMap<Coordinate, Piece> {
 
     private final transient Coordinate[][] coordinateArray;
-
-    public Coordinate[][] getCoordinateArray() {
-        return coordinateArray;
-    }
-
-    public BoardMap(){
-        coordinateArray = new Coordinate[8][8];
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                coordinateArray[i][j] = new Coordinate(i, j);
-                put(coordinateArray[i][j], null);
-            }
-        }
-    }
 
     public void setPiecesToBoard(List<Piece> pieces) {
         for (Piece piece : pieces) {
