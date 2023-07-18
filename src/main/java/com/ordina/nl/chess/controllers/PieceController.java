@@ -150,7 +150,6 @@ public class PieceController {
     
     public void castle(King king, int xTo, int yTo, Game game) {
         CastleType castleType;
-        // TODO: set has Moved attribute of rook
 
         if (xTo > king.getHorizontalPosition()) {
             castleType = CastleType.SHORT;
