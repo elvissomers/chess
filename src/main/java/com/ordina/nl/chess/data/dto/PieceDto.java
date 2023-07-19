@@ -13,6 +13,10 @@ import lombok.*;
 public class PieceDto {
 
     private long id;
+    private long playerId;
+
+    private int horizontalPosition;
+    private int verticalPosition;
     @Enumerated(EnumType.STRING)
     private PieceType pieceType;
 }
