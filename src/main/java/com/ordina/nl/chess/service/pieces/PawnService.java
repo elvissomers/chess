@@ -1,5 +1,7 @@
 package com.ordina.nl.chess.service.pieces;
 
+import com.ordina.nl.chess.data.dto.PieceDto;
+import com.ordina.nl.chess.data.dto.SquaresDto;
 import com.ordina.nl.chess.entity.Game;
 import com.ordina.nl.chess.entity.Player;
 import com.ordina.nl.chess.entity.pieces.Pawn;
@@ -24,7 +26,13 @@ public class PawnService {
     private final GameService gameService;
     private final BoardService boardService;
 
-
+    public SquaresDto getAttackedSquares(PieceDto pieceDto) {
+        return SquaresDto.builder().squares(
+                pieceRepository.findById(pieceDto.getId())
+                        .map(Piece::getAttackedSquares)
+                        .orElse(null))
+                .build();
+    }
     
     public void setPawnBasicMoves(Piece pawn, BoardMap board) {
         int xPos = pawn.getHorizontalPosition();

@@ -59,6 +59,10 @@ public class PieceService {
                 .build();
     }
 
+    public SquaresDto getAttackedSquaresForPawn(PieceDto pieceDto) {
+        return pawnService.getAttackedSquares(pieceDto);
+    }
+
     public Piece createPiece(PieceType pieceType, Player player, int horizontalPosition, int verticalPosition) {
         Piece piece = null;
         switch(pieceType) {

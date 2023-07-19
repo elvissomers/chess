@@ -49,7 +49,7 @@ public abstract class Piece {
     private List<MovementType> movementTypes = new ArrayList<>();
 
     @Transient
-    private Set<Coordinate> attackedSquares = new HashSet<>();
+    private List<Coordinate> attackedSquares = new ArrayList<>();
 
 //    private MoveFinder moveFinder;
 
