@@ -3,6 +3,7 @@ package com.ordina.nl.chess.service;
 import com.ordina.nl.chess.data.dto.GameDto;
 import com.ordina.nl.chess.data.dto.PieceDto;
 import com.ordina.nl.chess.entity.Game;
+import com.ordina.nl.chess.entity.Player;
 import com.ordina.nl.chess.entity.pieces.Piece;
 import com.ordina.nl.chess.repository.GameRepository;
 import com.ordina.nl.chess.service.pieces.PieceService;
@@ -12,6 +13,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Stream;
 
 import static com.ordina.nl.chess.constants.BoardSize.horizontalSize;
@@ -71,5 +73,14 @@ public class BoardService {
             boardMap.put(boardMap.getCoordinateByPos(piece.getHorizontalPosition(), piece.getVerticalPosition()),
                     piece);
         }
+    }
+
+    public BoardMap setBoardMapForCopiedPiece(Piece originalPiece, Piece copyPiece, GameDto gameDto) {
+        BoardMap board = getBoardMapForGame(gameDto);
+
+        board.put(board.getCoordinateByPos(originalPiece.getHorizontalPosition(), originalPiece.getVerticalPosition()), null);
+        board.put(board.getCoordinateByPos(copyPiece.getHorizontalPosition(), copyPiece.getVerticalPosition()), copyPiece);
+
+        return board;
     }
 }

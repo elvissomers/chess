@@ -1,7 +1,7 @@
 package com.ordina.nl.chess.controllers;
 
 import com.ordina.nl.chess.data.dto.GetPieceDataDto;
-import com.ordina.nl.chess.data.dto.MovableSquaresDto;
+import com.ordina.nl.chess.data.dto.SquaresDto;
 import com.ordina.nl.chess.data.dto.MovePieceDto;
 import com.ordina.nl.chess.data.dto.MovePieceResponseDto;
 import com.ordina.nl.chess.entity.Move;
@@ -43,17 +43,17 @@ public class PieceController {
     private MoveFinder moveFinder;
 
     @GetMapping("get_movable_squares")
-    public MovableSquaresDto getMovableSquares(@RequestBody GetPieceDataDto dto) {
+    public SquaresDto getMovableSquares(@RequestBody GetPieceDataDto dto) {
         Optional<Game> optionalGame = gameRepository.findById(dto.getGameId());
         Optional<Piece> optionalPiece = pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
                 dto.getxPos(), dto.getyPos(), dto.getGameId());
 
         if (optionalGame.isEmpty() || optionalPiece.isEmpty())
-            return new MovableSquaresDto(null);
+            return new SquaresDto(null);
         BoardMap board = moveFinder.setBoardMap(optionalGame.get());
         optionalGame.get().setMovableSquaresForPiece(optionalPiece.get(), board);
 
-        return new MovableSquaresDto(optionalPiece.get().getLegalMovableSquares());
+        return new SquaresDto(optionalPiece.get().getLegalMovableSquares());
     }
 
     @PutMapping("move")

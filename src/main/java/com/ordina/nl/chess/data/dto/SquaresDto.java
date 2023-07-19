@@ -10,7 +10,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class MovableSquaresDto {
+public class SquaresDto {
 
-    private List<Coordinate> movableSquares;
+    private List<Coordinate> squares;
 }
