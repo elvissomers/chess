@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="update PieceDto">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Attacked / Movable squares functionality in service, work in progress">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/PlayerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/PieceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/PieceService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,13 +171,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00434" summary="Update pieces attribute in player from set to list">
-      <created>1687962512565</created>
-      <option name="number" value="00434" />
-      <option name="presentableId" value="LOCAL-00434" />
-      <option name="project" value="LOCAL" />
-      <updated>1687962512565</updated>
     </task>
     <task id="LOCAL-00435" summary="Added @Transient attribute to attributes that shouldnt be data absed">
       <created>1687962558682</created>
@@ -517,7 +508,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689766919328</updated>
     </task>
-    <option name="localTasksCounter" value="483" />
+    <task id="LOCAL-00483" summary="Attacked / Movable squares functionality in service, work in progress">
+      <created>1689767321274</created>
+      <option name="number" value="00483" />
+      <option name="presentableId" value="LOCAL-00483" />
+      <option name="project" value="LOCAL" />
+      <updated>1689767321274</updated>
+    </task>
+    <option name="localTasksCounter" value="484" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -535,7 +533,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Initialize BoardService.java" />
     <MESSAGE value="Update Move.java to use Lombok annotations for getter/setter/constructor" />
     <MESSAGE value="Update Coordinate.java to use Lombok annotations for getter/setter/constructor" />
     <MESSAGE value="Add setMovementTypeForPiece method to PieceService.java" />
@@ -560,7 +557,8 @@
     <MESSAGE value="Added movefinding to playerservice" />
     <MESSAGE value="Refactor MovableSquaresDto.java to SquaresDto.java" />
     <MESSAGE value="update PieceDto" />
-    <option name="LAST_COMMIT_MESSAGE" value="update PieceDto" />
+    <MESSAGE value="Attacked / Movable squares functionality in service, work in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="Attacked / Movable squares functionality in service, work in progress" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

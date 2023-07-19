@@ -27,6 +27,7 @@ public class PlayerService {
 
     private PieceService pieceService;
     private MoveService moveService;
+    private BoardService boardService;
 
     private PlayerRepository playerRepository;
 
@@ -80,11 +81,12 @@ public class PlayerService {
     }
 
     public void setAllAttackedAndMovableSquaresForPlayer(Player player) {
+        long gameId = player.getGame().getId();
         for (Piece piece : player.getPieces()) {
             if (piece.getPieceType() == PieceType.PAWN) {
-                pieceService.setAttackedSquaresForPawn(piece);
+                pieceService.setAttackedSquaresForPawn(piece, gameId);
             }
-            pieceService.setMovableSquaresForPiece(piece);
+            pieceService.setMovableSquaresForPiece(piece, gameId);
         }
     }
 

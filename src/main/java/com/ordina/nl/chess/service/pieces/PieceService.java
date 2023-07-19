@@ -63,9 +63,9 @@ public class PieceService {
         return pawnService.getAttackedSquares(pieceDto);
     }
 
-    public void setMovableSquaresForPiece(Piece piece) {
+    public void setMovableSquaresForPiece(Piece piece, long gameId) {
         switch(piece.getPieceType()) {
-            case PAWN -> pawnService.setMovableSquares(piece);
+            case PAWN -> pawnService.setMovableSquares(piece, gameId);
             case KNIGHT -> knightService.setMovableSquares(piece);
             case BISHOP -> bishopService.setMovableSquares(piece);
             case ROOK -> rookService.setMovableSquares(piece);

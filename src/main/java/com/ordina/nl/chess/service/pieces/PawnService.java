@@ -16,15 +16,21 @@ import com.ordina.nl.chess.service.structures.Coordinate;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import static com.ordina.nl.chess.constants.BoardSize.horizontalSize;
+
 @AllArgsConstructor
 @Service
 public class PawnService {
 
     private final PieceRepository pieceRepository;
-    private final GameRepository gameRepository;
 
     private final GameService gameService;
     private final BoardService boardService;
+
+    private int xPos;
+    private int yPos;
+    private int startPos;
+    private int yDirection;
 
     public SquaresDto getAttackedSquares(PieceDto pieceDto) {
         return SquaresDto.builder().squares(
@@ -34,23 +40,21 @@ public class PawnService {
                 .build();
     }
 
-    public void setMovableSquares(Piece piece) {
-
+    public void setMovableSquares(Piece piece, long gameId) {
+        setPawnBasicMoves(piece, gameId);
+        setPawnEnPassantMoves(piece, gameId);
     }
     
-    public void setPawnBasicMoves(Piece pawn, BoardMap board) {
-        int xPos = pawn.getHorizontalPosition();
-        int yPos = pawn.getVerticalPosition();
-
-        int yDirection = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : -1;
-        int startPos = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : 6;
+    public void setPawnBasicMoves(Piece pawn, long gameId) {
+        BoardMap board = boardService.getBoardMapForGame(gameId);
+        obtainPawnPosition(pawn);
 
         Coordinate squareInFront = board.getCoordinateArray()[xPos][yPos + yDirection];
         if (board.get(squareInFront) == null) {
             pawn.addMovableSquare(squareInFront);
         }
 
-        if (xPos + 1 < xSize) {
+        if (xPos + 1 < horizontalSize) {
             Coordinate squareInFrontRight = board.getCoordinateArray()[xPos + 1][yPos + yDirection];
             if (board.get(squareInFrontRight) != null && board.get(squareInFrontRight).
                     getPlayer().getTeam() != pawn.getPlayer().getTeam()) {
@@ -74,12 +78,18 @@ public class PawnService {
         }
     }
 
-    public void setPawnEnPassantMoves(Piece pawn, BoardMap board, Game game) {
-        int xPos = pawn.getHorizontalPosition();
-        int yPos = pawn.getVerticalPosition();
+    private void obtainPawnPosition(Piece pawn) {
+        xPos = pawn.getHorizontalPosition();
+        yPos = pawn.getVerticalPosition();
 
-        int yDirection = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : -1;
-        int startPos = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : 6;
+        yDirection = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : -1;
+        startPos = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : 6;
+    }
+
+    public void setPawnEnPassantMoves(Piece pawn, long gameId) {
+        BoardMap board = boardService.getBoardMapForGame(gameId);
+        Game game = gameService.getGame(gameId);
+        obtainPawnPosition(pawn);
 
         if (yPos == startPos + 3 * yDirection) {
             if (xPos > 0 && board.get(board.getCoordinateArray()[xPos - 1][yPos]) instanceof Pawn otherPawn &&
@@ -89,7 +99,7 @@ public class PawnService {
                     pawn.addMovableSquare(squareInFrontLeft);
                 }
             }
-            if (xPos + 1 < xSize && board.get(board.getCoordinateArray()[xPos + 1][yPos]) instanceof Pawn otherPawn &&
+            if (xPos + 1 < horizontalSize && board.get(board.getCoordinateArray()[xPos + 1][yPos]) instanceof Pawn otherPawn &&
                     otherPawn.getPlayer().getTeam() != pawn.getPlayer().getTeam()) {
                 if (pawnCanBeTakenEnPassantByPawn(otherPawn, (Pawn) pawn, game)) {
                     {
@@ -101,7 +111,7 @@ public class PawnService {
         }
     }
 
-    public boolean pawnCanBeTakenEnPassantByPawn(Pawn targetPawn, Pawn attackingPawn, Game game) {
+    private boolean pawnCanBeTakenEnPassantByPawn(Pawn targetPawn, Pawn attackingPawn, Game game) {
         Player otherPlayer = (targetPawn.getPlayer().getTeam() == Team.WHITE) ? game.getBlackPlayer()
                 : game.getWhitePlayer();
         return (otherPlayer.getLastMove().getPiece() == targetPawn && otherPlayer.getLastMove().getVerticalFrom()
