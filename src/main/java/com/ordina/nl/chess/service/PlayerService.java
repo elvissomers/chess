@@ -1,8 +1,10 @@
 package com.ordina.nl.chess.service;
 
 import com.ordina.nl.chess.data.dto.GameDto;
+import com.ordina.nl.chess.data.dto.MoveDto;
 import com.ordina.nl.chess.data.dto.PlayerDto;
 import com.ordina.nl.chess.data.dto.mapper.PlayerDtoMapper;
+import com.ordina.nl.chess.entity.Move;
 import com.ordina.nl.chess.entity.Player;
 import com.ordina.nl.chess.entity.pieces.*;
 import com.ordina.nl.chess.enums.PieceType;
@@ -12,6 +14,8 @@ import com.ordina.nl.chess.service.pieces.PieceService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
+import java.util.List;
 import static com.ordina.nl.chess.constants.BoardSize.horizontalSize;
 
 @AllArgsConstructor
@@ -19,6 +23,7 @@ import static com.ordina.nl.chess.constants.BoardSize.horizontalSize;
 public class PlayerService {
 
     private PieceService pieceService;
+    private MoveService moveService;
 
     private PlayerRepository playerRepository;
 
@@ -58,5 +63,27 @@ public class PlayerService {
                     xPos, yForPawns)
             );
         }
+    }
+
+    public List<MoveDto> getPlayerMovesInOrder(PlayerDto playerDto) {
+        List<MoveDto> playerMoves = moveService.getMovesFromPlayerId(playerDto.getId());
+        return playerMoves.stream()
+                .sorted(Comparator.comparingInt(MoveDto::getNumber))
+                .toList();
+    }
+
+    public MoveDto getLastMove(PlayerDto playerDto) {
+        List<MoveDto> playerMoves = moveService.getMovesFromPlayerId(playerDto.getId());
+        return playerMoves.stream()
+                .max(Comparator.comparingInt(MoveDto::getNumber))
+                .orElse(null);
+    }
+
+    public List<MoveDto> getLastNMoves(int n, PlayerDto playerDto) {
+        List<MoveDto> playerMoves = moveService.getMovesFromPlayerId(playerDto.getId());
+        return playerMoves.stream()
+                .sorted(Comparator.comparingInt(MoveDto::getNumber).reversed())
+                .limit(n)
+                .toList();
     }
 }

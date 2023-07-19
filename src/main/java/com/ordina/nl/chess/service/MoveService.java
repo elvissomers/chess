@@ -7,6 +7,8 @@ import com.ordina.nl.chess.repository.MoveRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @AllArgsConstructor
 @Service
 public class MoveService {
@@ -26,5 +28,11 @@ public class MoveService {
                 .map(moveDtoMapper::MoveToMoveDto)
                 .orElse(null);
         // TODO .orElseThrow(ElementNotFoundException)
+    }
+
+    public List<MoveDto> getMovesFromPlayerId(long id) {
+        return moveRepository.findByPlayers_IdContaining(id).stream()
+                .map(moveDtoMapper::MoveToMoveDto)
+                .toList();
     }
 }
