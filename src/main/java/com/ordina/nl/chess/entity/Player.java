@@ -69,19 +69,6 @@ public class Player {
         return false;
     }
 
-    public void setAllAttackedSquares(BoardMap board) {
-        allAttackedSquares = new HashSet<>();
-        for (Piece piece : this.pieces){
-            if (piece instanceof Pawn pawn) {
-                pawn.setAttackedSquares(board);
-                allAttackedSquares.addAll(pawn.getAttackedSquares());
-            } else {
-                piece.setMovableSquares(board);
-                allAttackedSquares.addAll(piece.getMovableSquares());
-            }
-        }
-    }
-
     public King getKing() throws ElementNotFoundException {
         for (Piece piece : pieces) {
             if (piece instanceof King)

@@ -1,9 +1,8 @@
 package com.ordina.nl.chess.service;
 
-import com.ordina.nl.chess.data.dto.GameDto;
-import com.ordina.nl.chess.data.dto.MoveDto;
-import com.ordina.nl.chess.data.dto.PlayerDto;
+import com.ordina.nl.chess.data.dto.*;
 import com.ordina.nl.chess.data.dto.mapper.PlayerDtoMapper;
+import com.ordina.nl.chess.entity.Game;
 import com.ordina.nl.chess.entity.Move;
 import com.ordina.nl.chess.entity.Player;
 import com.ordina.nl.chess.entity.pieces.*;
@@ -11,10 +10,14 @@ import com.ordina.nl.chess.enums.PieceType;
 import com.ordina.nl.chess.enums.Team;
 import com.ordina.nl.chess.repository.PlayerRepository;
 import com.ordina.nl.chess.service.pieces.PieceService;
+import com.ordina.nl.chess.service.structures.BoardMap;
+import com.ordina.nl.chess.service.structures.Coordinate;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import static com.ordina.nl.chess.constants.BoardSize.horizontalSize;
 
@@ -63,6 +66,32 @@ public class PlayerService {
                     xPos, yForPawns)
             );
         }
+    }
+
+    public SquaresDto getAllAttackedSquaresForPlayer(PlayerDto player) {
+        List<Coordinate> attackedSquares = new ArrayList<>();
+        for (PieceDto piece : player.getPlayerPiecesDto().getPieces()) {
+            attackedSquares.addAll(pieceService.getMovableSquaresForPiece(piece).getSquares());
+        }
+        return SquaresDto.builder().squares(attackedSquares).build();
+    }
+
+    public void setAllAttackedSquares(BoardMap board) {
+        allAttackedSquares = new HashSet<>();
+        for (Piece piece : this.pieces){
+            if (piece instanceof Pawn pawn) {
+                pawn.setAttackedSquares(board);
+                allAttackedSquares.addAll(pawn.getAttackedSquares());
+            } else {
+                piece.setMovableSquares(board);
+                allAttackedSquares.addAll(piece.getMovableSquares());
+            }
+        }
+    }
+
+    public void setAllAttackedSquaresForEnemyPlayer(Team team, BoardMap board, Game game) {
+        Player enemyPlayer = (team == Team.WHITE) ? game.getBlackPlayer() : game.getWhitePlayer();
+        enemyPlayer.setAllAttackedSquares(board);
     }
 
     public List<MoveDto> getPlayerMovesInOrder(PlayerDto playerDto) {

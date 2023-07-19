@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Setup Dto's for Player &amp; Piece - mappers">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="update PieceDto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/PlayerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/PieceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/PieceService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,28 +49,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/eso13215/IdeaProjects/chess",
-    "onboarding.tips.debug.path": "C:/Users/eso13215/IdeaProjects/chess/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -172,76 +173,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00424" summary="edit rook.hasMoved in PieceController">
-      <created>1687856137209</created>
-      <option name="number" value="00424" />
-      <option name="presentableId" value="LOCAL-00424" />
-      <option name="project" value="LOCAL" />
-      <updated>1687856137209</updated>
-    </task>
-    <task id="LOCAL-00425" summary="edit main file to spring boot application">
-      <created>1687856251275</created>
-      <option name="number" value="00425" />
-      <option name="presentableId" value="LOCAL-00425" />
-      <option name="project" value="LOCAL" />
-      <updated>1687856251275</updated>
-    </task>
-    <task id="LOCAL-00426" summary="edit controllers to spring boot application">
-      <created>1687856485828</created>
-      <option name="number" value="00426" />
-      <option name="presentableId" value="LOCAL-00426" />
-      <option name="project" value="LOCAL" />
-      <updated>1687856485828</updated>
-    </task>
-    <task id="LOCAL-00427" summary="setup get game endpoint">
-      <created>1687856666137</created>
-      <option name="number" value="00427" />
-      <option name="presentableId" value="LOCAL-00427" />
-      <option name="project" value="LOCAL" />
-      <updated>1687856666137</updated>
-    </task>
-    <task id="LOCAL-00428" summary="fighting with spring boot">
-      <created>1687861298007</created>
-      <option name="number" value="00428" />
-      <option name="presentableId" value="LOCAL-00428" />
-      <option name="project" value="LOCAL" />
-      <updated>1687861298007</updated>
-    </task>
-    <task id="LOCAL-00429" summary="fighting with spring boot">
-      <created>1687861306272</created>
-      <option name="number" value="00429" />
-      <option name="presentableId" value="LOCAL-00429" />
-      <option name="project" value="LOCAL" />
-      <updated>1687861306272</updated>
-    </task>
-    <task id="LOCAL-00430" summary="fighting with spring boot">
-      <created>1687861310401</created>
-      <option name="number" value="00430" />
-      <option name="presentableId" value="LOCAL-00430" />
-      <option name="project" value="LOCAL" />
-      <updated>1687861310401</updated>
-    </task>
-    <task id="LOCAL-00431" summary="changed annotations">
-      <created>1687962061535</created>
-      <option name="number" value="00431" />
-      <option name="presentableId" value="LOCAL-00431" />
-      <option name="project" value="LOCAL" />
-      <updated>1687962061535</updated>
-    </task>
-    <task id="LOCAL-00432" summary="changed annotations">
-      <created>1687962131612</created>
-      <option name="number" value="00432" />
-      <option name="presentableId" value="LOCAL-00432" />
-      <option name="project" value="LOCAL" />
-      <updated>1687962131612</updated>
-    </task>
-    <task id="LOCAL-00433" summary="Update pieces attribute in player from set to list">
-      <created>1687962292523</created>
-      <option name="number" value="00433" />
-      <option name="presentableId" value="LOCAL-00433" />
-      <option name="project" value="LOCAL" />
-      <updated>1687962292523</updated>
     </task>
     <task id="LOCAL-00434" summary="Update pieces attribute in player from set to list">
       <created>1687962512565</created>
@@ -516,7 +447,77 @@
       <option name="project" value="LOCAL" />
       <updated>1689690715424</updated>
     </task>
-    <option name="localTasksCounter" value="473" />
+    <task id="LOCAL-00473" summary="add find player method in PlayerService.java">
+      <created>1689690815019</created>
+      <option name="number" value="00473" />
+      <option name="presentableId" value="LOCAL-00473" />
+      <option name="project" value="LOCAL" />
+      <updated>1689690815019</updated>
+    </task>
+    <task id="LOCAL-00474" summary="/Update enumerated annotation">
+      <created>1689690829219</created>
+      <option name="number" value="00474" />
+      <option name="presentableId" value="LOCAL-00474" />
+      <option name="project" value="LOCAL" />
+      <updated>1689690829219</updated>
+    </task>
+    <task id="LOCAL-00475" summary="Updated services to have get methods for both DTO's and entities">
+      <created>1689691392513</created>
+      <option name="number" value="00475" />
+      <option name="presentableId" value="LOCAL-00475" />
+      <option name="project" value="LOCAL" />
+      <updated>1689691392513</updated>
+    </task>
+    <task id="LOCAL-00476" summary="Created MoveDto.java &amp; MoveDtoMapper.java">
+      <created>1689764885735</created>
+      <option name="number" value="00476" />
+      <option name="presentableId" value="LOCAL-00476" />
+      <option name="project" value="LOCAL" />
+      <updated>1689764885736</updated>
+    </task>
+    <task id="LOCAL-00477" summary="Update MoveDto.java &amp; MoveDtoMapper.java">
+      <created>1689765127234</created>
+      <option name="number" value="00477" />
+      <option name="presentableId" value="LOCAL-00477" />
+      <option name="project" value="LOCAL" />
+      <updated>1689765127234</updated>
+    </task>
+    <task id="LOCAL-00478" summary="Repository search in MoveService.java">
+      <created>1689765151185</created>
+      <option name="number" value="00478" />
+      <option name="presentableId" value="LOCAL-00478" />
+      <option name="project" value="LOCAL" />
+      <updated>1689765151185</updated>
+    </task>
+    <task id="LOCAL-00479" summary="Update movedto">
+      <created>1689765890344</created>
+      <option name="number" value="00479" />
+      <option name="presentableId" value="LOCAL-00479" />
+      <option name="project" value="LOCAL" />
+      <updated>1689765890344</updated>
+    </task>
+    <task id="LOCAL-00480" summary="Added movefinding to playerservice">
+      <created>1689765904024</created>
+      <option name="number" value="00480" />
+      <option name="presentableId" value="LOCAL-00480" />
+      <option name="project" value="LOCAL" />
+      <updated>1689765904024</updated>
+    </task>
+    <task id="LOCAL-00481" summary="Refactor MovableSquaresDto.java to SquaresDto.java">
+      <created>1689766681333</created>
+      <option name="number" value="00481" />
+      <option name="presentableId" value="LOCAL-00481" />
+      <option name="project" value="LOCAL" />
+      <updated>1689766681333</updated>
+    </task>
+    <task id="LOCAL-00482" summary="update PieceDto">
+      <created>1689766919328</created>
+      <option name="number" value="00482" />
+      <option name="presentableId" value="LOCAL-00482" />
+      <option name="project" value="LOCAL" />
+      <updated>1689766919328</updated>
+    </task>
+    <option name="localTasksCounter" value="483" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -534,16 +535,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Refactor (moved BoardMap.java and Coordinate.java to service)" />
-    <MESSAGE value="Initialize GameService.java and PieceService.java" />
-    <MESSAGE value="Refactor - Moved BoardMap.java and Coordinate.java to service.structures" />
-    <MESSAGE value="Refactor - Moved Move, Game, Player and pieces to entity" />
-    <MESSAGE value="Initalize PlayerService.java" />
-    <MESSAGE value="Update formatting" />
-    <MESSAGE value="Initialize MoveService.java" />
-    <MESSAGE value="Remove old TODO comment" />
-    <MESSAGE value="User lombok annotations for getter, setter &amp; constructor" />
-    <MESSAGE value="Refactored MovableSquaresResponseDto.java with Lombok" />
     <MESSAGE value="Initialize BoardService.java" />
     <MESSAGE value="Update Move.java to use Lombok annotations for getter/setter/constructor" />
     <MESSAGE value="Update Coordinate.java to use Lombok annotations for getter/setter/constructor" />
@@ -559,7 +550,17 @@
     <MESSAGE value="Setting up BoardService.java" />
     <MESSAGE value="Setup Dto's for Player &amp; Piece" />
     <MESSAGE value="Setup Dto's for Player &amp; Piece - mappers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup Dto's for Player &amp; Piece - mappers" />
+    <MESSAGE value="add find player method in PlayerService.java" />
+    <MESSAGE value="/Update enumerated annotation" />
+    <MESSAGE value="Updated services to have get methods for both DTO's and entities" />
+    <MESSAGE value="Created MoveDto.java &amp; MoveDtoMapper.java" />
+    <MESSAGE value="Update MoveDto.java &amp; MoveDtoMapper.java" />
+    <MESSAGE value="Repository search in MoveService.java" />
+    <MESSAGE value="Update movedto" />
+    <MESSAGE value="Added movefinding to playerservice" />
+    <MESSAGE value="Refactor MovableSquaresDto.java to SquaresDto.java" />
+    <MESSAGE value="update PieceDto" />
+    <option name="LAST_COMMIT_MESSAGE" value="update PieceDto" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

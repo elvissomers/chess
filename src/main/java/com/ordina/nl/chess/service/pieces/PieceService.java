@@ -1,20 +1,31 @@
 package com.ordina.nl.chess.service.pieces;
 
+import com.ordina.nl.chess.data.dto.GameDto;
 import com.ordina.nl.chess.data.dto.PieceDto;
+import com.ordina.nl.chess.data.dto.SquaresDto;
 import com.ordina.nl.chess.data.dto.mapper.PieceDtoMapper;
+import com.ordina.nl.chess.entity.Game;
 import com.ordina.nl.chess.entity.Player;
 import com.ordina.nl.chess.entity.pieces.*;
 import com.ordina.nl.chess.enums.MovementType;
 import com.ordina.nl.chess.enums.PieceType;
+import com.ordina.nl.chess.enums.Team;
+import com.ordina.nl.chess.exception.ElementNotFoundException;
 import com.ordina.nl.chess.repository.PieceRepository;
+import com.ordina.nl.chess.service.BoardService;
+import com.ordina.nl.chess.service.structures.BoardMap;
+import com.ordina.nl.chess.service.structures.Coordinate;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @Service
 public class PieceService {
+
+    private final BoardService boardService;
 
     private final PawnService pawnService;
     private final KnightService knightService;
@@ -38,6 +49,14 @@ public class PieceService {
                 .map(pieceDtoMapper::pieceToPieceDto)
                 .orElse(null);
         // TODO: .orElseThrow(ElementNotFoundException)
+    }
+
+    public SquaresDto getMovableSquaresForPiece(PieceDto pieceDto) {
+        return SquaresDto.builder().squares(
+                pieceRepository.findById(pieceDto.getId())
+                .map(Piece::getMovableSquares)
+                .orElse(null)) // TODO: .orElseThrow
+                .build();
     }
 
     public Piece createPiece(PieceType pieceType, Player player, int horizontalPosition, int verticalPosition) {
@@ -76,4 +95,28 @@ public class PieceService {
             }
         }
     }
+
+    public void pruneSelfCheckMovesForPieceInGame(Piece piece, GameDto game) {
+        for (Coordinate moveOption : piece.getMovableSquares()){
+            Piece copyPiece = piece.copy();
+            copyPiece.setHorizontalPosition(moveOption.getXPos());
+            copyPiece.setVerticalPosition(moveOption.getYPos());
+
+            BoardMap copyBoard = boardService.setBoardMapForCopiedPiece(piece, copyPiece, game);
+            setAllAttackedSquaresForEnemyPlayer(piece.getPlayer().getTeam(), copyBoard, game);
+            try {
+                Coordinate kingCoordinate = new Coordinate(piece.getPlayer().getKing().getHorizontalPosition(),
+                        piece.getPlayer().getKing().getVerticalPosition());
+                if (checkCheck(kingCoordinate, copyBoard, piece.getPlayer().getTeam(), game)) {
+                    continue;
+                }
+            } catch (ElementNotFoundException exception) {
+                exception.printStackTrace();
+            }
+
+            piece.getLegalMovableSquares().add(moveOption);
+        }
+    }
+
+
 }
