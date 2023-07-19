@@ -14,6 +14,7 @@ public class MoveDto {
 
     private long id;
     private long pieceId;
+    private int number;
 
     private int horizontalFrom;
     private int verticalFrom;
