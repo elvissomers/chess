@@ -30,7 +30,7 @@ public class PawnService {
         return SquaresDto.builder().squares(
                 pieceRepository.findById(pieceDto.getId())
                         .map(Piece::getAttackedSquares)
-                        .orElse(null))
+                        .orElse(null)) // TODO: .orElseThrow
                 .build();
     }
     

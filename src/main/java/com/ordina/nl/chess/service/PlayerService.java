@@ -71,8 +71,10 @@ public class PlayerService {
     public SquaresDto getAllAttackedSquaresForPlayer(PlayerDto player) {
         List<Coordinate> attackedSquares = new ArrayList<>();
         for (PieceDto piece : player.getPlayerPiecesDto().getPieces()) {
-            (piece.getPieceType() == PieceType.PAWN) ? attackedSquares.addAll(pieceService.getMovableSquaresForPiece(piece).getSquares())
-                : attackedSquares.addAll(pieceService.getAttackedSquaresForPawn(piece));
+            if (piece.getPieceType() == PieceType.PAWN)
+                attackedSquares.addAll(pieceService.getAttackedSquaresForPawn(piece).getSquares());
+            else
+                attackedSquares.addAll(pieceService.getMovableSquaresForPiece(piece).getSquares());
         }
         return SquaresDto.builder().squares(attackedSquares).build();
     }
