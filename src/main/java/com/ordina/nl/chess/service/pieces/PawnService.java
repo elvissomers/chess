@@ -7,7 +7,6 @@ import com.ordina.nl.chess.entity.Player;
 import com.ordina.nl.chess.entity.pieces.Pawn;
 import com.ordina.nl.chess.entity.pieces.Piece;
 import com.ordina.nl.chess.enums.Team;
-import com.ordina.nl.chess.repository.GameRepository;
 import com.ordina.nl.chess.repository.PieceRepository;
 import com.ordina.nl.chess.service.BoardService;
 import com.ordina.nl.chess.service.GameService;
@@ -40,56 +39,64 @@ public class PawnService {
                 .build();
     }
 
-    public void setMovableSquares(Piece piece, long gameId) {
-        setPawnBasicMoves(piece, gameId);
-        setPawnEnPassantMoves(piece, gameId);
-    }
-    
-    public void setPawnBasicMoves(Piece pawn, long gameId) {
+    public void setMovableSquares(Piece pawn, long gameId) {
         BoardMap board = boardService.getBoardMapForGame(gameId);
-        obtainPawnPosition(pawn);
+        obtainPosition(pawn);
 
-        Coordinate squareInFront = board.getCoordinateArray()[xPos][yPos + yDirection];
+        addSquareInFrontToMovableSquares(pawn, board);
+        addStartingMoveToMovableSquares(pawn, board);
+        addPieceTakingMovesToMovableSquares(pawn, board);
+        addPawnEnPassantMovesToMovableSquares(pawn, board, gameId);
+    }
+
+    private void obtainPosition(Piece pawn) {
+        xPos = pawn.getHorizontalPosition();
+        yPos = pawn.getVerticalPosition();
+        yDirection = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : -1;
+        startPos = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : 6;
+    }
+
+    private void addSquareInFrontToMovableSquares(Piece pawn, BoardMap board) {
+        Coordinate squareInFront = board.getCoordinateByPos(xPos, yPos + yDirection);
         if (board.get(squareInFront) == null) {
             pawn.addMovableSquare(squareInFront);
         }
+    }
 
-        if (xPos + 1 < horizontalSize) {
-            Coordinate squareInFrontRight = board.getCoordinateArray()[xPos + 1][yPos + yDirection];
-            if (board.get(squareInFrontRight) != null && board.get(squareInFrontRight).
-                    getPlayer().getTeam() != pawn.getPlayer().getTeam()) {
-                pawn.addMovableSquare(squareInFrontRight);
-            }
+    private void addPieceTakingMovesToMovableSquares(Piece pawn, BoardMap board) {
+        if (xPos + 1 < horizontalSize)
+            addRightTakingMoveToMovableSquares(pawn, board);
+        if (xPos > 0)
+            addLeftTakingMoveToMovableSquares(pawn, board);
+    }
+
+    private void addRightTakingMoveToMovableSquares(Piece pawn, BoardMap board) {
+        Coordinate squareInFrontRight = board.getCoordinateByPos(xPos + 1,yPos + yDirection);
+        if (board.get(squareInFrontRight) != null && board.get(squareInFrontRight).
+                getPlayer().getTeam() != pawn.getPlayer().getTeam()) {
+            pawn.addMovableSquare(squareInFrontRight);
         }
+    }
 
-        if (xPos > 0) {
-            Coordinate squareInFrontLeft = board.getCoordinateArray()[xPos - 1][yPos + yDirection];
-            if (board.get(squareInFrontLeft) != null && board.get(squareInFrontLeft).
-                    getPlayer().getTeam() != pawn.getPlayer().getTeam()) {
-                pawn.addMovableSquare(squareInFrontLeft);
-            }
+    private void addLeftTakingMoveToMovableSquares(Piece pawn, BoardMap board) {
+        Coordinate squareInFrontLeft = board.getCoordinateByPos(xPos - 1,yPos + yDirection);
+        if (board.get(squareInFrontLeft) != null && board.get(squareInFrontLeft).
+                getPlayer().getTeam() != pawn.getPlayer().getTeam()) {
+            pawn.addMovableSquare(squareInFrontLeft);
         }
+    }
 
+    private void addStartingMoveToMovableSquares(Piece pawn, BoardMap board) {
         if (yPos == startPos) {
-            Coordinate squareTwoInFront = board.getCoordinateArray()[xPos][yPos + 2 * yDirection];
+            Coordinate squareTwoInFront = board.getCoordinateByPos(xPos,yPos + 2 * yDirection);
             if (board.get(squareTwoInFront) == null) {
                 pawn.addMovableSquare(squareTwoInFront);
             }
         }
     }
 
-    private void obtainPawnPosition(Piece pawn) {
-        xPos = pawn.getHorizontalPosition();
-        yPos = pawn.getVerticalPosition();
-
-        yDirection = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : -1;
-        startPos = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : 6;
-    }
-
-    public void setPawnEnPassantMoves(Piece pawn, long gameId) {
-        BoardMap board = boardService.getBoardMapForGame(gameId);
+    public void addPawnEnPassantMovesToMovableSquares(Piece pawn, BoardMap board, long gameId) {
         Game game = gameService.getGame(gameId);
-        obtainPawnPosition(pawn);
 
         if (yPos == startPos + 3 * yDirection) {
             if (xPos > 0 && board.get(board.getCoordinateArray()[xPos - 1][yPos]) instanceof Pawn otherPawn &&

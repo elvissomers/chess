@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Attacked / Movable squares functionality in service, work in progress">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="setting pawn moves in service layer- work in progress">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/PlayerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/PawnService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/PawnService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,48 +171,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00435" summary="Added @Transient attribute to attributes that shouldnt be data absed">
-      <created>1687962558682</created>
-      <option name="number" value="00435" />
-      <option name="presentableId" value="LOCAL-00435" />
-      <option name="project" value="LOCAL" />
-      <updated>1687962558682</updated>
-    </task>
-    <task id="LOCAL-00436" summary="update application.properties">
-      <created>1687964451524</created>
-      <option name="number" value="00436" />
-      <option name="presentableId" value="LOCAL-00436" />
-      <option name="project" value="LOCAL" />
-      <updated>1687964451526</updated>
-    </task>
-    <task id="LOCAL-00437" summary="inheritance entities (work in progress)">
-      <created>1687964473343</created>
-      <option name="number" value="00437" />
-      <option name="presentableId" value="LOCAL-00437" />
-      <option name="project" value="LOCAL" />
-      <updated>1687964473343</updated>
-    </task>
-    <task id="LOCAL-00438" summary="inheritance entities (work in progress)">
-      <created>1687964522436</created>
-      <option name="number" value="00438" />
-      <option name="presentableId" value="LOCAL-00438" />
-      <option name="project" value="LOCAL" />
-      <updated>1687964522437</updated>
-    </task>
-    <task id="LOCAL-00439" summary="trying to boot the application - work in progress">
-      <created>1688044546930</created>
-      <option name="number" value="00439" />
-      <option name="presentableId" value="LOCAL-00439" />
-      <option name="project" value="LOCAL" />
-      <updated>1688044546930</updated>
-    </task>
-    <task id="LOCAL-00440" summary="trying to boot the application - work in progress">
-      <created>1688389960571</created>
-      <option name="number" value="00440" />
-      <option name="presentableId" value="LOCAL-00440" />
-      <option name="project" value="LOCAL" />
-      <updated>1688389960572</updated>
     </task>
     <task id="LOCAL-00441" summary="refactor">
       <created>1688389970504</created>
@@ -515,7 +473,49 @@
       <option name="project" value="LOCAL" />
       <updated>1689767321274</updated>
     </task>
-    <option name="localTasksCounter" value="484" />
+    <task id="LOCAL-00484" summary="Attacked / Movable squares functionality in service, work in progress">
+      <created>1689770238035</created>
+      <option name="number" value="00484" />
+      <option name="presentableId" value="LOCAL-00484" />
+      <option name="project" value="LOCAL" />
+      <updated>1689770238035</updated>
+    </task>
+    <task id="LOCAL-00485" summary="formatting">
+      <created>1689770259088</created>
+      <option name="number" value="00485" />
+      <option name="presentableId" value="LOCAL-00485" />
+      <option name="project" value="LOCAL" />
+      <updated>1689770259088</updated>
+    </task>
+    <task id="LOCAL-00486" summary="get attacked squares for pawn; work in progress for movable square getting/setting in service layer">
+      <created>1689770361705</created>
+      <option name="number" value="00486" />
+      <option name="presentableId" value="LOCAL-00486" />
+      <option name="project" value="LOCAL" />
+      <updated>1689770361705</updated>
+    </task>
+    <task id="LOCAL-00487" summary="Basic switch statement setup for setting pieces movable squares">
+      <created>1689770705761</created>
+      <option name="number" value="00487" />
+      <option name="presentableId" value="LOCAL-00487" />
+      <option name="project" value="LOCAL" />
+      <updated>1689770705761</updated>
+    </task>
+    <task id="LOCAL-00488" summary="Update BoardService.java - board creating uses game Id instead of game Dto">
+      <created>1689771092272</created>
+      <option name="number" value="00488" />
+      <option name="presentableId" value="LOCAL-00488" />
+      <option name="project" value="LOCAL" />
+      <updated>1689771092273</updated>
+    </task>
+    <task id="LOCAL-00489" summary="setting pawn moves in service layer- work in progress">
+      <created>1689771720128</created>
+      <option name="number" value="00489" />
+      <option name="presentableId" value="LOCAL-00489" />
+      <option name="project" value="LOCAL" />
+      <updated>1689771720128</updated>
+    </task>
+    <option name="localTasksCounter" value="490" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -533,11 +533,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update Move.java to use Lombok annotations for getter/setter/constructor" />
-    <MESSAGE value="Update Coordinate.java to use Lombok annotations for getter/setter/constructor" />
-    <MESSAGE value="Add setMovementTypeForPiece method to PieceService.java" />
-    <MESSAGE value="Setup Service classes for pieces of all types" />
-    <MESSAGE value="Setup gameDto &amp; converter" />
     <MESSAGE value="Setup pawn service with movefinder method (WIP)" />
     <MESSAGE value="set BoardSize.java to contain global constants" />
     <MESSAGE value="Refactor Piece class with Lombok annotations (work in prgoress)" />
@@ -558,7 +553,12 @@
     <MESSAGE value="Refactor MovableSquaresDto.java to SquaresDto.java" />
     <MESSAGE value="update PieceDto" />
     <MESSAGE value="Attacked / Movable squares functionality in service, work in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="Attacked / Movable squares functionality in service, work in progress" />
+    <MESSAGE value="formatting" />
+    <MESSAGE value="get attacked squares for pawn; work in progress for movable square getting/setting in service layer" />
+    <MESSAGE value="Basic switch statement setup for setting pieces movable squares" />
+    <MESSAGE value="Update BoardService.java - board creating uses game Id instead of game Dto" />
+    <MESSAGE value="setting pawn moves in service layer- work in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="setting pawn moves in service layer- work in progress" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
