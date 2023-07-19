@@ -54,8 +54,8 @@ public class PieceService {
     public SquaresDto getMovableSquaresForPiece(PieceDto pieceDto) {
         return SquaresDto.builder().squares(
                 pieceRepository.findById(pieceDto.getId())
-                .map(Piece::getMovableSquares)
-                .orElse(null)) // TODO: .orElseThrow
+                        .map(Piece::getMovableSquares)
+                        .orElse(null)) // TODO: .orElseThrow
                 .build();
     }
 
