@@ -33,6 +33,10 @@ public class PawnService {
                         .orElse(null)) // TODO: .orElseThrow
                 .build();
     }
+
+    public void setMovableSquares(Piece piece) {
+
+    }
     
     public void setPawnBasicMoves(Piece pawn, BoardMap board) {
         int xPos = pawn.getHorizontalPosition();

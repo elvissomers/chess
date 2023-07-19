@@ -63,6 +63,17 @@ public class PieceService {
         return pawnService.getAttackedSquares(pieceDto);
     }
 
+    public void setMovableSquaresForPiece(Piece piece) {
+        switch(piece.getPieceType()) {
+            case PAWN -> pawnService.setMovableSquares(piece);
+            case KNIGHT -> knightService.setMovableSquares(piece);
+            case BISHOP -> bishopService.setMovableSquares(piece);
+            case ROOK -> rookService.setMovableSquares(piece);
+            case QUEEN -> queenService.setMovableSquares(piece);
+            case KING -> kingService.setMovableSquares(piece);
+        }
+    };
+
     public Piece createPiece(PieceType pieceType, Player player, int horizontalPosition, int verticalPosition) {
         Piece piece = null;
         switch(pieceType) {
