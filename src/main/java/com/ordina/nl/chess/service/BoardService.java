@@ -29,16 +29,14 @@ public class BoardService {
     private final PlayerService playerService;
     private final PieceService pieceService;
 
-    public BoardMap getBoardMapForGame(GameDto gameDto) {
+    public BoardMap getBoardMapForGame(long gameId) {
         BoardMap boardMap = getEmptyBoardMap();
-        Game game = gameRepository.findById(gameDto.getId())
-                .orElse(null);
-        // TODO; when BaseExceptionHandler is put up:
-//                .orElseThrow(() -> new ElementNotFoundException("Requested game ID does not correspond to an existing game!"));
+        Game game = gameRepository.findById(gameId)
+                .orElse(null); // TODO: orElseThrow...
 
         if (game != null) {
-            List<PieceDto> pieces = Stream.concat(playerService.getPlayerDto(gameDto.getWhitePlayerId()).getPlayerPiecesDto().getPieces().stream(),
-                            playerService.getPlayerDto(gameDto.getBlackPlayerId()).getPlayerPiecesDto().getPieces().stream())
+            List<Piece> pieces = Stream.concat(game.getWhitePlayer().getPieces().stream(),
+                            game.getBlackPlayer().getPieces().stream())
                     .toList();
             addPiecesToBoard(pieces, boardMap);
         }
@@ -67,16 +65,15 @@ public class BoardService {
         return coordinateArray;
     }
 
-    private void addPiecesToBoard(List<PieceDto> pieces, BoardMap boardMap) {
-        for (PieceDto pieceDto : pieces) {
-            Piece piece = pieceService.getPiece(pieceDto.getId());
+    private void addPiecesToBoard(List<Piece> pieces, BoardMap boardMap) {
+        for (Piece piece : pieces) {
             boardMap.put(boardMap.getCoordinateByPos(piece.getHorizontalPosition(), piece.getVerticalPosition()),
                     piece);
         }
     }
 
-    public BoardMap setBoardMapForCopiedPiece(Piece originalPiece, Piece copyPiece, GameDto gameDto) {
-        BoardMap board = getBoardMapForGame(gameDto);
+    public BoardMap setBoardMapForCopiedPiece(Piece originalPiece, Piece copyPiece, long gameId) {
+        BoardMap board = getBoardMapForGame(gameId);
 
         board.put(board.getCoordinateByPos(originalPiece.getHorizontalPosition(), originalPiece.getVerticalPosition()), null);
         board.put(board.getCoordinateByPos(copyPiece.getHorizontalPosition(), copyPiece.getVerticalPosition()), copyPiece);

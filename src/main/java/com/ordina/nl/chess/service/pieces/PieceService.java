@@ -111,13 +111,13 @@ public class PieceService {
         }
     }
 
-    public void pruneSelfCheckMovesForPieceInGame(Piece piece, GameDto game) {
+    public void pruneSelfCheckMovesForPieceInGame(Piece piece, long gameId) {
         for (Coordinate moveOption : piece.getMovableSquares()){
             Piece copyPiece = piece.copy();
             copyPiece.setHorizontalPosition(moveOption.getXPos());
             copyPiece.setVerticalPosition(moveOption.getYPos());
 
-            BoardMap copyBoard = boardService.setBoardMapForCopiedPiece(piece, copyPiece, game);
+            BoardMap copyBoard = boardService.setBoardMapForCopiedPiece(piece, copyPiece, gameId);
             setAllAttackedSquaresForEnemyPlayer(piece.getPlayer().getTeam(), copyBoard, game);
             try {
                 Coordinate kingCoordinate = new Coordinate(piece.getPlayer().getKing().getHorizontalPosition(),
