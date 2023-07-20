@@ -9,19 +9,19 @@ public enum MovementType {
     HORIZONTAL {
         @Override
         public void setMoves(Piece piece, BoardMap board, MoveOptionService moveFinder, Game game) {
-            moveFinder.setHorizontalMoves(piece, board);
+            moveFinder.addHorizontalMoves(piece, board);
         }
     },
     VERTICAL {
         @Override
         public void setMoves(Piece piece, BoardMap board, MoveOptionService moveFinder, Game game) {
-            moveFinder.setVerticalMoves(piece, board);
+            moveFinder.addVerticalMoves(piece, board);
         }
     },
     DIAGONAL {
         @Override
         public void setMoves(Piece piece, BoardMap board, MoveOptionService moveFinder, Game game) {
-            moveFinder.setDiagonalMoves(piece, board);
+            moveFinder.addDiagonalMoves(piece, board);
         }
     },
     LSHAPED {

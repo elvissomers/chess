@@ -22,35 +22,43 @@ public class MoveOptionService {
     private int yPos;
     private final int[] directions = {-1, 1};
 
-    public void setHorizontalMoves(Piece piece, BoardMap board){
+    public void addHorizontalMoves(Piece piece, BoardMap board){
         getPosition(piece);
 
         for (int direction : directions) {
-            int x = xPos;
-            while (withinBoard(x, yPos)) {
-                addMovableSquareIfEmptyOrEnemy(x, yPos, piece, board);
-                if (hasPiece(x, yPos, board))
-                    break;
-                x += direction;
-            }
+            addHorizontalMovesForDirection(direction, piece, board);
         }
     }
 
-    public void setVerticalMoves(Piece piece, BoardMap board){
+    private void addHorizontalMovesForDirection(int direction, Piece piece, BoardMap board) {
+        int x = xPos + direction;
+        while (withinBoard(x, yPos)) {
+            addMovableSquareIfEmptyOrEnemy(x, yPos, piece, board);
+            if (hasPiece(x, yPos, board))
+                break;
+            x += direction;
+        }
+    }
+
+    public void addVerticalMoves(Piece piece, BoardMap board){
         getPosition(piece);
 
         for (int direction : directions) {
-            int y = yPos;
-            while (withinBoard(xPos, y)) {
-                addMovableSquareIfEmptyOrEnemy(xPos, y, piece, board);
-                if (hasPiece(xPos, y, board))
-                    break;
-                y += direction;
-            }
+            addVerticalMovesForDirection(direction, piece, board);
         }
     }
 
-    public void setDiagonalMoves(Piece piece, BoardMap board){
+    private void addVerticalMovesForDirection(int direction, Piece piece, BoardMap board) {
+        int y = yPos + direction;
+        while (withinBoard(xPos, y)) {
+            addMovableSquareIfEmptyOrEnemy(xPos, y, piece, board);
+            if (hasPiece(xPos, y, board))
+                break;
+            y += direction;
+        }
+    }
+
+    public void addDiagonalMoves(Piece piece, BoardMap board){
         getPosition(piece);
 
         for (int xDirection : directions) {

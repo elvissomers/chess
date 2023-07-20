@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="refactoring MoveOptionService.java">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="setup BishopService.java">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/enums/MovementType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/enums/MovementType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/MoveOptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/MoveOptionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/BishopService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/BishopService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/PieceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/PieceService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,27 +172,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00445" summary="Refactor (name change)">
-      <created>1689678961967</created>
-      <option name="number" value="00445" />
-      <option name="presentableId" value="LOCAL-00445" />
-      <option name="project" value="LOCAL" />
-      <updated>1689678961967</updated>
-    </task>
-    <task id="LOCAL-00446" summary="Refactor (name change)">
-      <created>1689679012966</created>
-      <option name="number" value="00446" />
-      <option name="presentableId" value="LOCAL-00446" />
-      <option name="project" value="LOCAL" />
-      <updated>1689679012967</updated>
-    </task>
-    <task id="LOCAL-00447" summary="Refactor (moved BoardMap.java and Coordinate.java to service)">
-      <created>1689679078255</created>
-      <option name="number" value="00447" />
-      <option name="presentableId" value="LOCAL-00447" />
-      <option name="project" value="LOCAL" />
-      <updated>1689679078255</updated>
     </task>
     <task id="LOCAL-00448" summary="Initialize GameService.java and PieceService.java">
       <created>1689679329898</created>
@@ -516,7 +495,28 @@
       <option name="project" value="LOCAL" />
       <updated>1689844597848</updated>
     </task>
-    <option name="localTasksCounter" value="494" />
+    <task id="LOCAL-00494" summary="refactoring MoveOptionService.java">
+      <created>1689846200582</created>
+      <option name="number" value="00494" />
+      <option name="presentableId" value="LOCAL-00494" />
+      <option name="project" value="LOCAL" />
+      <updated>1689846200582</updated>
+    </task>
+    <task id="LOCAL-00495" summary="More PieceService refactoring">
+      <created>1689846223813</created>
+      <option name="number" value="00495" />
+      <option name="presentableId" value="LOCAL-00495" />
+      <option name="project" value="LOCAL" />
+      <updated>1689846223813</updated>
+    </task>
+    <task id="LOCAL-00496" summary="setup BishopService.java">
+      <created>1689846234047</created>
+      <option name="number" value="00496" />
+      <option name="presentableId" value="LOCAL-00496" />
+      <option name="project" value="LOCAL" />
+      <updated>1689846234047</updated>
+    </task>
+    <option name="localTasksCounter" value="497" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -534,8 +534,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Refactor Player class with Lombok annotations (work in prgoress)" />
-    <MESSAGE value="Setup services to actually do stuff" />
     <MESSAGE value="Setting up BoardService.java" />
     <MESSAGE value="Setup Dto's for Player &amp; Piece" />
     <MESSAGE value="Setup Dto's for Player &amp; Piece - mappers" />
@@ -559,7 +557,9 @@
     <MESSAGE value="setting knight moves in KnightService.java" />
     <MESSAGE value="Refactor MoveFinder -&gt; MoveOptionService.java" />
     <MESSAGE value="refactoring MoveOptionService.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring MoveOptionService.java" />
+    <MESSAGE value="More PieceService refactoring" />
+    <MESSAGE value="setup BishopService.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="setup BishopService.java" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
