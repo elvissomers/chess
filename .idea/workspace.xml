@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="setup BishopService.java">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/enums/MovementType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/enums/MovementType.java" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Setup Queen &amp; Rook service">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/entity/pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/entity/pieces/Pawn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/MoveOptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/MoveOptionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/BishopService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/BishopService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/PlayerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/KingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/KingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/PawnService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/PawnService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/PieceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/PieceService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +21,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -172,27 +175,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00448" summary="Initialize GameService.java and PieceService.java">
-      <created>1689679329898</created>
-      <option name="number" value="00448" />
-      <option name="presentableId" value="LOCAL-00448" />
-      <option name="project" value="LOCAL" />
-      <updated>1689679329898</updated>
-    </task>
-    <task id="LOCAL-00449" summary="Refactor - Moved BoardMap.java and Coordinate.java to service.structures">
-      <created>1689679354498</created>
-      <option name="number" value="00449" />
-      <option name="presentableId" value="LOCAL-00449" />
-      <option name="project" value="LOCAL" />
-      <updated>1689679354498</updated>
-    </task>
-    <task id="LOCAL-00450" summary="Refactor - Moved Move, Game, Player and pieces to entity">
-      <created>1689679558161</created>
-      <option name="number" value="00450" />
-      <option name="presentableId" value="LOCAL-00450" />
-      <option name="project" value="LOCAL" />
-      <updated>1689679558161</updated>
     </task>
     <task id="LOCAL-00451" summary="Initalize PlayerService.java">
       <created>1689679653540</created>
@@ -516,7 +498,28 @@
       <option name="project" value="LOCAL" />
       <updated>1689846234047</updated>
     </task>
-    <option name="localTasksCounter" value="497" />
+    <task id="LOCAL-00497" summary="refactor MoveOptionService.java">
+      <created>1689863537921</created>
+      <option name="number" value="00497" />
+      <option name="presentableId" value="LOCAL-00497" />
+      <option name="project" value="LOCAL" />
+      <updated>1689863537921</updated>
+    </task>
+    <task id="LOCAL-00498" summary="Finish BishopService.java">
+      <created>1689863547560</created>
+      <option name="number" value="00498" />
+      <option name="presentableId" value="LOCAL-00498" />
+      <option name="project" value="LOCAL" />
+      <updated>1689863547560</updated>
+    </task>
+    <task id="LOCAL-00499" summary="Setup Queen &amp; Rook service">
+      <created>1689863656887</created>
+      <option name="number" value="00499" />
+      <option name="presentableId" value="LOCAL-00499" />
+      <option name="project" value="LOCAL" />
+      <updated>1689863656887</updated>
+    </task>
+    <option name="localTasksCounter" value="500" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -534,9 +537,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Setting up BoardService.java" />
-    <MESSAGE value="Setup Dto's for Player &amp; Piece" />
-    <MESSAGE value="Setup Dto's for Player &amp; Piece - mappers" />
     <MESSAGE value="add find player method in PlayerService.java" />
     <MESSAGE value="/Update enumerated annotation" />
     <MESSAGE value="Updated services to have get methods for both DTO's and entities" />
@@ -559,7 +559,10 @@
     <MESSAGE value="refactoring MoveOptionService.java" />
     <MESSAGE value="More PieceService refactoring" />
     <MESSAGE value="setup BishopService.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="setup BishopService.java" />
+    <MESSAGE value="refactor MoveOptionService.java" />
+    <MESSAGE value="Finish BishopService.java" />
+    <MESSAGE value="Setup Queen &amp; Rook service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Setup Queen &amp; Rook service" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

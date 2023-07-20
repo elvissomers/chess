@@ -50,6 +50,10 @@ public class Pawn extends Piece {
         }
     }
 
+    public void addAttackedSquare(Coordinate square) {
+        getAttackedSquares().add(square);
+    }
+
 
     public Pawn copy(){
         return new Pawn(this);

@@ -9,6 +9,7 @@ import com.ordina.nl.chess.entity.pieces.*;
 import com.ordina.nl.chess.enums.PieceType;
 import com.ordina.nl.chess.enums.Team;
 import com.ordina.nl.chess.repository.PlayerRepository;
+import com.ordina.nl.chess.service.pieces.PawnService;
 import com.ordina.nl.chess.service.pieces.PieceService;
 import com.ordina.nl.chess.service.structures.BoardMap;
 import com.ordina.nl.chess.service.structures.Coordinate;
@@ -26,6 +27,7 @@ import static com.ordina.nl.chess.constants.BoardSize.horizontalSize;
 public class PlayerService {
 
     private PieceService pieceService;
+    private PawnService pawnService;
     private MoveService moveService;
     private BoardService boardService;
 
@@ -84,22 +86,9 @@ public class PlayerService {
         long gameId = player.getGame().getId();
         for (Piece piece : player.getPieces()) {
             if (piece.getPieceType() == PieceType.PAWN) {
-                pieceService.setAttackedSquaresForPawn(piece, gameId);
+                pawnService.setAttackedSquares((Pawn) piece, gameId);
             }
             pieceService.setMovableSquaresForPiece(piece, gameId);
-        }
-    }
-
-    public void setAllAttackedSquares(BoardMap board) {
-        allAttackedSquares = new HashSet<>();
-        for (Piece piece : this.pieces){
-            if (piece instanceof Pawn pawn) {
-                pawn.setAttackedSquares(board);
-                allAttackedSquares.addAll(pawn.getAttackedSquares());
-            } else {
-                piece.setMovableSquares(board);
-                allAttackedSquares.addAll(piece.getMovableSquares());
-            }
         }
     }
 

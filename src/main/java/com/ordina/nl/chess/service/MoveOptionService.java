@@ -86,11 +86,11 @@ public class MoveOptionService {
         }
     }
 
-    private boolean withinBoard(int x, int y) {
+    public boolean withinBoard(int x, int y) {
         return (x >= 0 && x < horizontalSize) && (y >= 0 && y < verticalSize);
     }
 
-    private void addMovableSquareIfEmptyOrEnemy(int x, int y, Piece piece, BoardMap board) {
+    public void addMovableSquareIfEmptyOrEnemy(int x, int y, Piece piece, BoardMap board) {
         Piece otherPiece = board.getPieceByPos(x, y);
         if (otherPiece == null || otherPiece.getPlayer().getTeam() != piece.getPlayer().getTeam()) {
             piece.addMovableSquare(board.getCoordinateByPos(x, y));

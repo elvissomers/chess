@@ -49,6 +49,16 @@ public class PawnService {
         addPawnEnPassantMovesToMovableSquares(pawn, board, gameId);
     }
 
+    public void setAttackedSquares(Pawn pawn, long gameId) {
+        BoardMap board = boardService.getBoardMapForGame(gameId);
+        obtainPosition(pawn);
+
+        if (xPos + 1 < horizontalSize)
+            pawn.addAttackedSquare(board.getCoordinateByPos(xPos + 1, yPos + 1))
+        if (xPos > 0)
+            pawn.addAttackedSquare(board.getCoordinateByPos(xPos - 1, yPos + 1));
+    }
+
     private void obtainPosition(Piece pawn) {
         xPos = pawn.getHorizontalPosition();
         yPos = pawn.getVerticalPosition();
