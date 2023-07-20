@@ -18,10 +18,14 @@ public class MoveOptionService {
     private static final int xSize = 8;
 
     private static final int ySize = 8;
+    
+    private int xPos;
+    private int yPos;
+    private final int[] directions = {-1, 1};
 
     public void setHorizontalMoves(Piece piece, BoardMap board){
-        int xPos = piece.getHorizontalPosition();
-        int yPos = piece.getVerticalPosition();
+        xPos = piece.getHorizontalPosition();
+        yPos = piece.getVerticalPosition();
 
         for (int direction = -1; direction <= 1; direction += 2) {
             for (int x = xPos + direction; (direction > 0 ? x < xSize : x > 0); x += direction) {
@@ -38,8 +42,8 @@ public class MoveOptionService {
     }
 
     public void setVerticalMoves(Piece piece, BoardMap board){
-        int xPos = piece.getHorizontalPosition();
-        int yPos = piece.getVerticalPosition();
+        xPos = piece.getHorizontalPosition();
+        yPos = piece.getVerticalPosition();
 
         for (int direction = -1; direction <= 1; direction += 2) {
             for (int y = yPos + direction; (direction > 0 ? y < ySize : y > 0); y += direction) {
@@ -56,15 +60,14 @@ public class MoveOptionService {
     }
 
     public void setDiagonalMoves(Piece piece, BoardMap board){
-        int xPos = piece.getHorizontalPosition();
-        int yPos = piece.getVerticalPosition();
+        getPosition(piece);
 
-        for (int xDirection = -1; xDirection <= 1; xDirection += 2) {
-            for (int yDirection = -1; yDirection <= 1; yDirection += 2) {
+        for (int xDirection : directions) {
+            for (int yDirection : directions) {
                 int x = xPos + xDirection;
                 int y = yPos + yDirection;
 
-                while ((x >= 0 && x < xSize) && (y >= 0 && y < ySize)) {
+                while (withinBoard(x, y)) {
                     Piece possiblePiece = board.get(board.getCoordinateArray()[x][y]);
                     if (possiblePiece != null) {
                         if (possiblePiece.getPlayer().getTeam() != piece.getPlayer().getTeam()) {
@@ -80,12 +83,21 @@ public class MoveOptionService {
         }
     }
 
-    public void setLShapedMoves(Piece piece, BoardMap board){
-        int xPos = piece.getHorizontalPosition();
-        int yPos = piece.getVerticalPosition();
+    private void getPosition(Piece piece) {
+        xPos = piece.getHorizontalPosition();
+        yPos = piece.getVerticalPosition();
+    }
 
-        for (int xDirection = -1; xDirection <= 1; xDirection += 2) {
-            for (int yRelativeDirection = -1; yRelativeDirection <= 1; yRelativeDirection += 2) {
+    private boolean withinBoard(int x, int y) {
+        return (x >= 0 && x < xSize) && (y >= 0 && y < ySize);
+    }
+
+    public void setLShapedMoves(Piece piece, BoardMap board){
+        xPos = piece.getHorizontalPosition();
+        yPos = piece.getVerticalPosition();
+
+        for (int xDirection : directions) {
+            for (int yRelativeDirection : directions) {
                 int x1 = xPos + xDirection;
                 int x2 = xPos + 2 * xDirection;
                 int y1 = yPos + 2 * xDirection * yRelativeDirection;
@@ -110,8 +122,8 @@ public class MoveOptionService {
 
 
     public void setPawnMoves(Piece pawn, BoardMap board) {
-        int xPos = pawn.getHorizontalPosition();
-        int yPos = pawn.getVerticalPosition();
+        xPos = pawn.getHorizontalPosition();
+        yPos = pawn.getVerticalPosition();
 
         int yDirection = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : -1;
         int startPos = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : 6;
@@ -146,8 +158,8 @@ public class MoveOptionService {
     }
 
     public void setPawnEnPassantMoves(Piece pawn, BoardMap board, Game game) {
-        int xPos = pawn.getHorizontalPosition();
-        int yPos = pawn.getVerticalPosition();
+        xPos = pawn.getHorizontalPosition();
+        yPos = pawn.getVerticalPosition();
 
         int yDirection = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : -1;
         int startPos = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : 6;
@@ -173,8 +185,8 @@ public class MoveOptionService {
     }
 
     public void setKingBasicMoves(Piece king, BoardMap board, Game game){
-        int xPos = king.getHorizontalPosition();
-        int yPos = king.getVerticalPosition();
+        xPos = king.getHorizontalPosition();
+        yPos = king.getVerticalPosition();
 
         for (int x = -1; x <= 1; x++) {
             for (int y = -1; y <= 1; y++) {
@@ -197,8 +209,8 @@ public class MoveOptionService {
             return;
         }
 
-        int xPos = king.getHorizontalPosition();
-        int yPos = king.getVerticalPosition();
+        xPos = king.getHorizontalPosition();
+        yPos = king.getVerticalPosition();
         Team team = king.getPlayer().getTeam();
 
         if (board.getPieceByPos(xPos+1,yPos) == null &&
