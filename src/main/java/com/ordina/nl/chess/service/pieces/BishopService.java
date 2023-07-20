@@ -14,11 +14,8 @@ public class BishopService {
     private final BoardService boardService;
     private final MoveOptionService moveOptionService;
 
-    private int xPos;
-    private int yPos;
-
     public void setMovableSquares(Piece piece, long gameId) {
         BoardMap board = boardService.getBoardMapForGame(gameId);
-        moveOptionService.setDiagonalMoves(piece, board);
+        moveOptionService.addDiagonalMoves(piece, board);
     }
 }
