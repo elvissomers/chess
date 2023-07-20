@@ -1,7 +1,7 @@
 package com.ordina.nl.chess.entity;
 
 import com.ordina.nl.chess.exception.ElementNotFoundException;
-import com.ordina.nl.chess.service.MoveFinder;
+import com.ordina.nl.chess.service.MoveOptionService;
 import com.ordina.nl.chess.entity.pieces.*;
 import com.ordina.nl.chess.repository.PieceRepository;
 import com.ordina.nl.chess.repository.PlayerRepository;
@@ -38,7 +38,7 @@ public class Game {
     private Player blackPlayer;
 
     @Autowired
-    private MoveFinder moveFinder;
+    private MoveOptionService moveFinder;
 
     @Autowired
     private PieceRepository pieceRepository;

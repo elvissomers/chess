@@ -1,9 +1,8 @@
 package com.ordina.nl.chess.entity;
 
 import com.ordina.nl.chess.exception.ElementNotFoundException;
-import com.ordina.nl.chess.service.MoveFinder;
+import com.ordina.nl.chess.service.MoveOptionService;
 import com.ordina.nl.chess.entity.pieces.King;
-import com.ordina.nl.chess.entity.pieces.Pawn;
 import com.ordina.nl.chess.entity.pieces.Piece;
 import com.ordina.nl.chess.repository.MoveRepository;
 import com.ordina.nl.chess.service.structures.BoardMap;
@@ -51,7 +50,7 @@ public class Player {
     private MoveRepository moveRepository;
 
     @Autowired
-    private MoveFinder moveFinder;
+    private MoveOptionService moveFinder;
 
     public Player(Game game, Team team) {
         this.game = game;

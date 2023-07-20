@@ -8,7 +8,7 @@ import com.ordina.nl.chess.entity.Move;
 import com.ordina.nl.chess.entity.Game;
 import com.ordina.nl.chess.service.structures.BoardMap;
 import com.ordina.nl.chess.service.structures.Coordinate;
-import com.ordina.nl.chess.service.MoveFinder;
+import com.ordina.nl.chess.service.MoveOptionService;
 import com.ordina.nl.chess.entity.pieces.*;
 import com.ordina.nl.chess.repository.GameRepository;
 import com.ordina.nl.chess.repository.MoveRepository;
@@ -40,7 +40,7 @@ public class PieceController {
     private PlayerRepository playerRepository;
 
     @Autowired
-    private MoveFinder moveFinder;
+    private MoveOptionService moveFinder;
 
     @GetMapping("get_movable_squares")
     public SquaresDto getMovableSquares(@RequestBody GetPieceDataDto dto) {

@@ -13,7 +13,7 @@ import com.ordina.nl.chess.service.structures.Coordinate;
 
 import java.util.Set;
 
-public class MoveFinder {
+public class MoveOptionService {
 
     private static final int xSize = 8;
 
