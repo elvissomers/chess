@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="setting pawn moves in service layer- work in progress">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="setting pawn moves in service layer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/PawnService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/PawnService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/KnightService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordina/nl/chess/service/pieces/KnightService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,13 +171,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00441" summary="refactor">
-      <created>1688389970504</created>
-      <option name="number" value="00441" />
-      <option name="presentableId" value="LOCAL-00441" />
-      <option name="project" value="LOCAL" />
-      <updated>1688389970505</updated>
     </task>
     <task id="LOCAL-00442" summary="mapper class for piece dao">
       <created>1688478633757</created>
@@ -515,7 +508,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689771720128</updated>
     </task>
-    <option name="localTasksCounter" value="490" />
+    <task id="LOCAL-00490" summary="setting pawn moves in service layer">
+      <created>1689778019613</created>
+      <option name="number" value="00490" />
+      <option name="presentableId" value="LOCAL-00490" />
+      <option name="project" value="LOCAL" />
+      <updated>1689778019613</updated>
+    </task>
+    <option name="localTasksCounter" value="491" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -533,7 +533,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Setup pawn service with movefinder method (WIP)" />
     <MESSAGE value="set BoardSize.java to contain global constants" />
     <MESSAGE value="Refactor Piece class with Lombok annotations (work in prgoress)" />
     <MESSAGE value="Refactor Game class with Lombok annotations (work in prgoress)" />
@@ -558,7 +557,8 @@
     <MESSAGE value="Basic switch statement setup for setting pieces movable squares" />
     <MESSAGE value="Update BoardService.java - board creating uses game Id instead of game Dto" />
     <MESSAGE value="setting pawn moves in service layer- work in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="setting pawn moves in service layer- work in progress" />
+    <MESSAGE value="setting pawn moves in service layer" />
+    <option name="LAST_COMMIT_MESSAGE" value="setting pawn moves in service layer" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
