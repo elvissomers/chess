@@ -68,8 +68,8 @@ public class PieceService {
             case PAWN -> pawnService.setMovableSquares(piece, gameId);
             case KNIGHT -> knightService.setMovableSquares(piece, gameId);
             case BISHOP -> bishopService.setMovableSquares(piece, gameId);
-            case ROOK -> rookService.setMovableSquares(piece);
-            case QUEEN -> queenService.setMovableSquares(piece);
+            case ROOK -> rookService.setMovableSquares(piece, gameId);
+            case QUEEN -> queenService.setMovableSquares(piece, gameId);
             case KING -> kingService.setMovableSquares(piece);
         }
     };
