@@ -13,48 +13,39 @@ import com.ordina.nl.chess.service.structures.Coordinate;
 
 import java.util.Set;
 
+import static com.ordina.nl.chess.constants.BoardSize.horizontalSize;
+import static com.ordina.nl.chess.constants.BoardSize.verticalSize;
+
 public class MoveOptionService {
-
-    private static final int xSize = 8;
-
-    private static final int ySize = 8;
     
     private int xPos;
     private int yPos;
     private final int[] directions = {-1, 1};
 
     public void setHorizontalMoves(Piece piece, BoardMap board){
-        xPos = piece.getHorizontalPosition();
-        yPos = piece.getVerticalPosition();
+        getPosition(piece);
 
-        for (int direction = -1; direction <= 1; direction += 2) {
-            for (int x = xPos + direction; (direction > 0 ? x < xSize : x > 0); x += direction) {
-                Piece possiblePiece = board.get(board.getCoordinateArray()[x][yPos]);
-                if (possiblePiece != null) {
-                    if (possiblePiece.getPlayer().getTeam() != piece.getPlayer().getTeam()) {
-                        piece.addMovableSquare(board.getCoordinateArray()[x][yPos]);
-                    }
+        for (int direction : directions) {
+            int x = xPos;
+            while (withinBoard(x, yPos)) {
+                addMovableSquareIfEmptyOrEnemy(x, yPos, piece, board);
+                if (hasPiece(x, yPos, board))
                     break;
-                }
-                piece.addMovableSquare(board.getCoordinateArray()[x][yPos]);
+                x += direction;
             }
         }
     }
 
     public void setVerticalMoves(Piece piece, BoardMap board){
-        xPos = piece.getHorizontalPosition();
-        yPos = piece.getVerticalPosition();
+        getPosition(piece);
 
-        for (int direction = -1; direction <= 1; direction += 2) {
-            for (int y = yPos + direction; (direction > 0 ? y < ySize : y > 0); y += direction) {
-                Piece possiblePiece = board.get(board.getCoordinateArray()[xPos][y]);
-                if (possiblePiece != null) {
-                    if (possiblePiece.getPlayer().getTeam() != piece.getPlayer().getTeam()) {
-                        piece.addMovableSquare(board.getCoordinateArray()[xPos][y]);
-                    }
+        for (int direction : directions) {
+            int y = yPos;
+            while (withinBoard(xPos, y)) {
+                addMovableSquareIfEmptyOrEnemy(xPos, y, piece, board);
+                if (hasPiece(xPos, y, board))
                     break;
-                }
-                piece.addMovableSquare(board.getCoordinateArray()[xPos][y]);
+                y += direction;
             }
         }
     }
@@ -64,21 +55,7 @@ public class MoveOptionService {
 
         for (int xDirection : directions) {
             for (int yDirection : directions) {
-                int x = xPos + xDirection;
-                int y = yPos + yDirection;
-
-                while (withinBoard(x, y)) {
-                    Piece possiblePiece = board.get(board.getCoordinateArray()[x][y]);
-                    if (possiblePiece != null) {
-                        if (possiblePiece.getPlayer().getTeam() != piece.getPlayer().getTeam()) {
-                            piece.addMovableSquare(board.getCoordinateArray()[x][y]);
-                        }
-                        break;
-                    }
-                    piece.addMovableSquare(board.getCoordinateArray()[x][y]);
-                    x += xDirection;
-                    y += yDirection;
-                }
+                addDiagonalMovesForDirection(xDirection, yDirection, piece, board);
             }
         }
     }
@@ -87,9 +64,33 @@ public class MoveOptionService {
         xPos = piece.getHorizontalPosition();
         yPos = piece.getVerticalPosition();
     }
+    
+    private void addDiagonalMovesForDirection(int xDirection, int yDirection, Piece piece, BoardMap board) {
+        int x = xPos + xDirection;
+        int y = yPos + yDirection;
+        
+        while (withinBoard(x, y)) {
+            addMovableSquareIfEmptyOrEnemy(x, y, piece, board);
+            if (hasPiece(x, y, board))
+                break;
+            x += xDirection;
+            y += yDirection;
+        }
+    }
 
     private boolean withinBoard(int x, int y) {
-        return (x >= 0 && x < xSize) && (y >= 0 && y < ySize);
+        return (x >= 0 && x < horizontalSize) && (y >= 0 && y < verticalSize);
+    }
+
+    private void addMovableSquareIfEmptyOrEnemy(int x, int y, Piece piece, BoardMap board) {
+        Piece otherPiece = board.getPieceByPos(x, y);
+        if (otherPiece == null || otherPiece.getPlayer().getTeam() != piece.getPlayer().getTeam()) {
+            piece.addMovableSquare(board.getCoordinateByPos(x, y));
+        }
+    }
+    
+    private boolean hasPiece(int x, int y, BoardMap board) {
+        return (board.getPieceByPos(x, y) != null);
     }
 
     public void setLShapedMoves(Piece piece, BoardMap board){
@@ -103,14 +104,14 @@ public class MoveOptionService {
                 int y1 = yPos + 2 * xDirection * yRelativeDirection;
                 int y2 = yPos + xDirection * yRelativeDirection;
 
-                if (0 <= x1 && x1 < xSize && 0 <= y1 && y1 < ySize){
-                    Piece otherPiece = board.get(board.getCoordinateArray()[x1][y1]);
+                if (0 <= x1 && x1 < horizontalSize && 0 <= y1 && y1 < verticalSize){
+                    Piece otherPiece = board.getPieceByPos(x1, y1);
                     if (otherPiece == null || otherPiece.getPlayer().getTeam() != piece.getPlayer().getTeam()) {
                         piece.addMovableSquare(board.getCoordinateArray()[x1][y1]);
                     }
                 }
-                if (0 <= x2 && x2 < xSize && 0 <= y2 && y2 < ySize){
-                    Piece otherPiece = board.get(board.getCoordinateArray()[x2][y2]);
+                if (0 <= x2 && x2 < horizontalSize && 0 <= y2 && y2 < verticalSize){
+                    Piece otherPiece = board.getPieceByPos(x2, y2);
                     if (otherPiece == null || otherPiece.getPlayer().getTeam() != piece.getPlayer().getTeam()) {
                         piece.addMovableSquare(board.getCoordinateArray()[x2][y2]);
                     }
@@ -133,7 +134,7 @@ public class MoveOptionService {
             pawn.addMovableSquare(squareInFront);
         }
 
-        if (xPos + 1 < xSize) {
+        if (xPos + 1 < horizontalSize) {
             Coordinate squareInFrontRight = board.getCoordinateArray()[xPos + 1][yPos + yDirection];
             if (board.get(squareInFrontRight) != null && board.get(squareInFrontRight).
                     getPlayer().getTeam() != pawn.getPlayer().getTeam()) {
@@ -165,14 +166,14 @@ public class MoveOptionService {
         int startPos = (pawn.getPlayer().getTeam() == Team.WHITE) ? 1 : 6;
 
         if (yPos == startPos + 3 * yDirection) {
-            if (xPos > 0 && board.get(board.getCoordinateArray()[xPos - 1][yPos]) instanceof Pawn otherPawn &&
+            if (xPos > 0 && board.getPieceByPos(xPos - 1, yPos) instanceof Pawn otherPawn &&
                     otherPawn.getPlayer().getTeam() != pawn.getPlayer().getTeam()) {
                 if (pawnCanBeEnPassawnedByPawn(otherPawn, (Pawn) pawn, game)) {
                     Coordinate squareInFrontLeft = board.getCoordinateArray()[xPos - 1][yPos + yDirection];
                     pawn.addMovableSquare(squareInFrontLeft);
                 }
             }
-            if (xPos + 1 < xSize && board.get(board.getCoordinateArray()[xPos + 1][yPos]) instanceof Pawn otherPawn &&
+            if (xPos + 1 < horizontalSize && board.getPieceByPos(xPos + 1, yPos) instanceof Pawn otherPawn &&
                     otherPawn.getPlayer().getTeam() != pawn.getPlayer().getTeam()) {
                 if (pawnCanBeEnPassawnedByPawn(otherPawn, (Pawn) pawn, game)) {
                     {
@@ -190,8 +191,8 @@ public class MoveOptionService {
 
         for (int x = -1; x <= 1; x++) {
             for (int y = -1; y <= 1; y++) {
-                if (0 <= xPos + x && xPos + x < xSize && 0 <= yPos + y && yPos + y < ySize) {
-                    Piece currentPiece = board.get(board.getCoordinateArray()[xPos + x][yPos + y]);
+                if (0 <= xPos + x && xPos + x < horizontalSize && 0 <= yPos + y && yPos + y < verticalSize) {
+                    Piece currentPiece = board.getPieceByPos(xPos + x, yPos + y);
                     if (currentPiece == null || currentPiece.getPlayer().getTeam() != king.getPlayer().getTeam()) {
                         if (!checkCheck(board.getCoordinateByPos(xPos+x,yPos+y), board,
                                 king.getPlayer().getTeam(), game)) {
