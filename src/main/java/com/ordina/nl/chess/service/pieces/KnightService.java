@@ -34,18 +34,22 @@ public class KnightService {
     public void setLShapedMoves(Piece piece, BoardMap board){
         for (int xDirection = -1; xDirection <= 1; xDirection += 2) {
             for (int yRelativeDirection = -1; yRelativeDirection <= 1; yRelativeDirection += 2) {
-                int x1 = xPos + xDirection;
-                int x2 = xPos + 2 * xDirection;
-                int y1 = yPos + 2 * xDirection * yRelativeDirection;
-                int y2 = yPos + xDirection * yRelativeDirection;
-
-                if (0 <= x1 && x1 < horizontalSize && 0 <= y1 && y1 < verticalSize){
-                    addMovableSquareIfEmptyOrEnemy(x1, y1, piece, board);
-                }
-                if (0 <= x2 && x2 < horizontalSize && 0 <= y2 && y2 < verticalSize){
-                    addMovableSquareIfEmptyOrEnemy(x2, y2, piece, board);
-                }
+                setLShapedMovesForDirection(xDirection, yRelativeDirection, piece, board);
             }
+        }
+    }
+
+    private void setLShapedMovesForDirection(int xDirection, int yRelativeDirection, Piece piece, BoardMap board) {
+        int x1 = xPos + xDirection;
+        int x2 = xPos + 2 * xDirection;
+        int y1 = yPos + 2 * xDirection * yRelativeDirection;
+        int y2 = yPos + xDirection * yRelativeDirection;
+
+        if (0 <= x1 && x1 < horizontalSize && 0 <= y1 && y1 < verticalSize){
+            addMovableSquareIfEmptyOrEnemy(x1, y1, piece, board);
+        }
+        if (0 <= x2 && x2 < horizontalSize && 0 <= y2 && y2 < verticalSize){
+            addMovableSquareIfEmptyOrEnemy(x2, y2, piece, board);
         }
     }
     

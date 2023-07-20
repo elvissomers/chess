@@ -66,8 +66,8 @@ public class PieceService {
     public void setMovableSquaresForPiece(Piece piece, long gameId) {
         switch(piece.getPieceType()) {
             case PAWN -> pawnService.setMovableSquares(piece, gameId);
-            case KNIGHT -> knightService.setMovableSquares(piece);
-            case BISHOP -> bishopService.setMovableSquares(piece);
+            case KNIGHT -> knightService.setMovableSquares(piece, gameId);
+            case BISHOP -> bishopService.setMovableSquares(piece, gameId);
             case ROOK -> rookService.setMovableSquares(piece);
             case QUEEN -> queenService.setMovableSquares(piece);
             case KING -> kingService.setMovableSquares(piece);
