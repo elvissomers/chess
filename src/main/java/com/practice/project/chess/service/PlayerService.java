@@ -96,11 +96,6 @@ public class PlayerService {
         }
     }
 
-    public void setAllAttackedSquaresForEnemyPlayer(Team team, BoardMap board, Game game) {
-        Player enemyPlayer = (team == Team.WHITE) ? game.getBlackPlayer() : game.getWhitePlayer();
-        enemyPlayer.setAllAttackedSquares(board);
-    }
-
     public List<MoveDto> getPlayerMovesInOrder(PlayerDto playerDto) {
         List<MoveDto> playerMoves = moveService.getMovesFromPlayerId(playerDto.getId());
         return playerMoves.stream()
