@@ -30,9 +30,9 @@ public class PawnService {
     private int startPos;
     private int yDirection;
 
-    public SquaresDto getAttackedSquares(PieceDto pieceDto) {
+    public SquaresDto getAttackedSquares(long pieceId) {
         return SquaresDto.builder().squares(
-                pieceRepository.findById(pieceDto.getId())
+                pieceRepository.findById(pieceId)
                         .map(Piece::getAttackedSquares)
                         .orElse(null)) // TODO: .orElseThrow
                 .build();

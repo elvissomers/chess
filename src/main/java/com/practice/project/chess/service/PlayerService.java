@@ -75,13 +75,13 @@ public class PlayerService {
         }
     }
 
-    public SquaresDto getAllAttackedSquaresForPlayer(PlayerDto player) {
+    public SquaresDto getAllAttackedSquaresForPlayer(Player player) {
         List<Coordinate> attackedSquares = new ArrayList<>();
-        for (PieceDto piece : player.getPlayerPiecesDto().getPieces()) {
+        for (Piece piece : player.getPieces()) {
             if (piece.getPieceType() == PieceType.PAWN)
-                attackedSquares.addAll(pieceService.getAttackedSquaresForPawn(piece).getSquares());
+                attackedSquares.addAll(pieceService.getAttackedSquaresForPawn(piece.getId()).getSquares());
             else
-                attackedSquares.addAll(pieceService.getMovableSquaresForPiece(piece).getSquares());
+                attackedSquares.addAll(pieceService.getMovableSquaresForPiece(piece.getId()).getSquares());
         }
         return SquaresDto.builder().squares(attackedSquares).build();
     }

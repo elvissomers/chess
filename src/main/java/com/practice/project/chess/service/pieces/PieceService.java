@@ -48,16 +48,16 @@ public class PieceService {
         // TODO: .orElseThrow(ElementNotFoundException)
     }
 
-    public SquaresDto getMovableSquaresForPiece(PieceDto pieceDto) {
+    public SquaresDto getMovableSquaresForPiece(long id) {
         return SquaresDto.builder().squares(
-                pieceRepository.findById(pieceDto.getId())
+                pieceRepository.findById(id)
                         .map(Piece::getMovableSquares)
                         .orElse(null)) // TODO: .orElseThrow
                 .build();
     }
 
-    public SquaresDto getAttackedSquaresForPawn(PieceDto pieceDto) {
-        return pawnService.getAttackedSquares(pieceDto);
+    public SquaresDto getAttackedSquaresForPawn(long pieceId) {
+        return pawnService.getAttackedSquares(pieceId);
     }
 
     public void setMovableSquaresForPiece(Piece piece, long gameId) {
