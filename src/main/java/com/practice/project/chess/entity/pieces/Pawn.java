@@ -1,7 +1,6 @@
 package com.practice.project.chess.entity.pieces;
 
 import com.practice.project.chess.entity.Player;
-import com.ordina.nl.chess.enums.*;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.enums.MovementType;

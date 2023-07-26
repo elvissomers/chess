@@ -13,12 +13,10 @@ import com.practice.project.chess.enums.Team;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.service.MoveOptionService;
-import com.ordina.nl.chess.entity.pieces.*;
 import com.practice.project.chess.repository.GameRepository;
 import com.practice.project.chess.repository.MoveRepository;
 import com.practice.project.chess.repository.PieceRepository;
 import com.practice.project.chess.repository.PlayerRepository;
-import com.ordina.nl.chess.enums.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
