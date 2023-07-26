@@ -5,7 +5,6 @@ import com.practice.project.chess.data.dto.SquaresDto;
 import com.practice.project.chess.data.dto.mapper.PieceDtoMapper;
 import com.practice.project.chess.entity.Player;
 import com.ordina.nl.chess.entity.pieces.*;
-import com.practice.project.chess.enums.MovementType;
 import com.practice.project.chess.enums.PieceType;
 import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.PieceRepository;
@@ -15,8 +14,6 @@ import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.entity.pieces.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @AllArgsConstructor
 @Service
@@ -95,7 +92,7 @@ public class PieceService {
             copyPiece.setHorizontalPosition(moveOption.getXPos());
             copyPiece.setVerticalPosition(moveOption.getYPos());
 
-            BoardMap copyBoard = boardService.setBoardMapForCopiedPiece(piece, copyPiece, gameId);
+            BoardMap copyBoard = boardService.getBoardMapForCopiedPiece(piece, copyPiece, gameId);
             setAllAttackedSquaresForEnemyPlayer(piece.getPlayer().getTeam(), copyBoard, game);
             try {
                 Coordinate kingCoordinate = new Coordinate(piece.getPlayer().getKing().getHorizontalPosition(),

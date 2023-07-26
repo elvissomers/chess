@@ -66,7 +66,7 @@ public class BoardService {
         }
     }
 
-    public BoardMap setBoardMapForCopiedPiece(Piece originalPiece, Piece copyPiece, long gameId) {
+    public BoardMap getBoardMapForCopiedPiece(Piece originalPiece, Piece copyPiece, long gameId) {
         BoardMap board = getBoardMapForGame(gameId);
 
         board.put(board.getCoordinateByPos(originalPiece.getHorizontalPosition(), originalPiece.getVerticalPosition()), null);
