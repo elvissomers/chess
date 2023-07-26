@@ -89,25 +89,6 @@ public class PieceService {
         return pieceRepository.save(piece);
     }
 
-    public void setMovementTypesForPiece(Piece piece) {
-        List<MovementType> movementTypes = piece.getMovementTypes();
-        switch(piece.getPieceType()) {
-            case KNIGHT -> movementTypes.add(MovementType.LSHAPED);
-            case BISHOP -> movementTypes.add(MovementType.DIAGONAL);
-            case KING -> movementTypes.add(MovementType.KING);
-            case PAWN -> movementTypes.add(MovementType.PAWN);
-            case ROOK -> {
-                movementTypes.add(MovementType.HORIZONTAL);
-                movementTypes.add(MovementType.VERTICAL);
-            }
-            case QUEEN -> {
-                movementTypes.add(MovementType.DIAGONAL);
-                movementTypes.add(MovementType.HORIZONTAL);
-                movementTypes.add(MovementType.VERTICAL);
-            }
-        }
-    }
-
     public void pruneSelfCheckMovesForPieceInGame(Piece piece, long gameId) {
         for (Coordinate moveOption : piece.getMovableSquares()){
             Piece copyPiece = piece.copy();

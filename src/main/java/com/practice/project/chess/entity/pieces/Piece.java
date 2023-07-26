@@ -44,9 +44,6 @@ public abstract class Piece {
     private List<Coordinate> legalMovableSquares = new ArrayList<>();
 
     @Transient
-    private List<MovementType> movementTypes = new ArrayList<>();
-
-    @Transient
     private List<Coordinate> attackedSquares = new ArrayList<>();
 
 //    private MoveFinder moveFinder;
@@ -62,22 +59,9 @@ public abstract class Piece {
         this.player = other.getPlayer(); // Will be set in set method, overwriting this original player
         this.horizontalPosition = other.getHorizontalPosition();
         this.verticalPosition = other.getVerticalPosition();
-        this.moveRules = other.getMoveRules();
     }
 
     public abstract Piece copy();
-
-    public void setCorrectMoveRules() {
-        setMoveRules(getPieceType().getMovementTypes());
-    };
-
-    public void setMovableSquares(BoardMap board) {
-        movableSquares = new ArrayList<>();
-        for (MovementType movementType : movementTypes){
-//            moveRule.setMoves(this, board, moveFinder, player.getGame());
-            int b = 5;
-        }
-    }
 
     public void setLegalMovableSquares() {
         legalMovableSquares = new ArrayList<>();
