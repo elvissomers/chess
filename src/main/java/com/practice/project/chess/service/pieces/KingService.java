@@ -17,7 +17,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 
 @AllArgsConstructor
 @Service
@@ -39,6 +38,7 @@ public class KingService {
         setup(piece, gameId);
 
         setKingBasicMoves();
+        setKingCastlingMoves();
     }
 
     public void setup(Piece piece, long gameId) {
@@ -63,7 +63,7 @@ public class KingService {
         }
     }
 
-    public boolean checkCheck() {
+    public boolean isInCheck() {
         Player attackingPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? game.getBlackPlayer() :
                 game.getWhitePlayer();
         playerService.setAllAttackedAndMovableSquaresForPlayer(attackingPlayer);
@@ -71,7 +71,7 @@ public class KingService {
         return kingIsInSquares(attackedSquares);
     }
 
-    public boolean checkCheck(Coordinate position) {
+    public boolean isInCheck(Coordinate position) {
         Player attackingPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? game.getBlackPlayer() :
                 game.getWhitePlayer();
         playerService.setAllAttackedAndMovableSquaresForPlayer(attackingPlayer);
@@ -79,7 +79,7 @@ public class KingService {
         return attackedSquares.getSquares().contains(position);
     }
 
-    public boolean kingIsInSquares(SquaresDto squaresDto) {
+    private boolean kingIsInSquares(SquaresDto squaresDto) {
         List<Coordinate> squares = squaresDto.getSquares();
         for (Coordinate square : squares) {
             if (square.getXPos() == xPos && square.getYPos() == yPos) {
@@ -89,28 +89,33 @@ public class KingService {
         return false;
     }
 
-    public void setKingCastlingMoves(Piece piece, BoardMap board, Game game){
+    public void setKingCastlingMoves(){
         King king = (King) piece;
-        if (king.isInCheck() || king.isHasMoved()){
+        if (isInCheck() || king.isHasMoved())
             return;
-        }
-        Team team = king.getPlayer().getTeam();
 
-        if (board.getPieceByPos(xPos+1,yPos) == null &&
-                !checkCheck(board.getCoordinateByPos(xPos+1, yPos)) &&
+        if (canCastleShort())
+            king.addMovableSquare(board.getCoordinateByPos(xPos+2, yPos));
+
+        if (canCastleLong()) {
+            king.addMovableSquare(board.getCoordinateByPos(xPos-2, yPos));
+        }
+    }
+
+    private boolean canCastleShort() {
+        return board.getPieceByPos(xPos+1,yPos) == null &&
+                !isInCheck(board.getCoordinateByPos(xPos+1, yPos)) &&
                 board.getPieceByPos(xPos+2, yPos) == null &&
                 board.getPieceByPos(xPos+3, yPos) instanceof Rook rook &&
-                !rook.isHasMoved()) {
-            king.addMovableSquare(board.getCoordinateByPos(xPos+2, yPos));
-        }
+                !rook.isHasMoved();
+    }
 
-        if (board.getPieceByPos(xPos-1, yPos) == null &&
-                !checkCheck(board.getCoordinateByPos(xPos-1, yPos)) &&
+    private boolean canCastleLong() {
+        return board.getPieceByPos(xPos-1, yPos) == null &&
+                !isInCheck(board.getCoordinateByPos(xPos-1, yPos)) &&
                 board.getPieceByPos(xPos-2, yPos) == null &&
                 board.getPieceByPos(xPos-3, yPos) == null &&
                 board.getPieceByPos(xPos-4, yPos) instanceof Rook rook &&
-                !rook.isHasMoved()) {
-            king.addMovableSquare(board.getCoordinateByPos(xPos-2, yPos));
-        }
+                !rook.isHasMoved();
     }
 }
