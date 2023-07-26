@@ -89,7 +89,7 @@ public class PieceService {
         return pieceRepository.save(piece);
     }
 
-    public void pruneSelfCheckMovesForPieceInGame(Piece piece, long gameId) {
+    public void getLegalMovesForPiece(Piece piece, long gameId) {
         for (Coordinate moveOption : piece.getMovableSquares()){
             Piece copyPiece = piece.copy();
             copyPiece.setHorizontalPosition(moveOption.getXPos());
