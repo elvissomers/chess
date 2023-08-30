@@ -66,7 +66,17 @@ public class PieceService {
             case QUEEN -> queenService.setMovableSquares(piece, gameId);
             case KING -> kingService.setMovableSquares(piece, gameId);
         }
-    };
+    }
+
+    public void setLegalMovableSquaresForPiece(Piece piece, long gameId) {
+        for (Coordinate moveOption : piece.getMovableSquares()) {
+            Piece copyPiece = piece.copy();
+            copyPiece.setHorizontalPosition(moveOption.getXPos());
+            copyPiece.setVerticalPosition(moveOption.getYPos());
+
+            BoardMap copyBoard = boardService.getBoardMapForCopiedPiece(piece, copyPiece, gameId);
+        }
+    }
 
     public Piece createPiece(PieceType pieceType, Player player, int horizontalPosition, int verticalPosition) {
         Piece piece = null;
