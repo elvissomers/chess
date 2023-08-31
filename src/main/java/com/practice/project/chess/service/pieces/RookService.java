@@ -19,4 +19,9 @@ public class RookService {
         moveOptionService.addHorizontalMoves(piece, board);
         moveOptionService.addVerticalMoves(piece, board);
     }
+
+    public void setMovableSquaresWithBoard(Piece piece, BoardMap board) {
+        moveOptionService.addHorizontalMoves(piece, board);
+        moveOptionService.addVerticalMoves(piece, board);
+    }
 }
