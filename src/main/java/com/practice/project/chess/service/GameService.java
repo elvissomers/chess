@@ -21,7 +21,7 @@ public class GameService {
     public Game getGame(long id) throws ElementNotFoundException {
         return gameRepository.findById(id)
                 .orElseThrow(() -> new ElementNotFoundException(
-                        "Requested game ID does not correspond to an existing game!"));;
+                        "Requested game ID does not correspond to an existing game!"));
     }
 
     public GameDto getGameDto(long id) throws ElementNotFoundException {
