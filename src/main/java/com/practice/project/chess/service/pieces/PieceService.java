@@ -68,6 +68,17 @@ public class PieceService {
         }
     }
 
+    public void setAttackedSquaresForPieceWithBoard(Piece piece, BoardMap board) {
+        switch(piece.getPieceType()) {
+            case PAWN -> pawnService.setAttackedSquaresWithBoard(piece, board);
+            case KNIGHT -> knightService.setMovableSquaresWithBoard(piece, board);
+            case BISHOP -> bishopService.setMovableSquaresWithBoard(piece, board);
+            case ROOK -> rookService.setMovableSquaresWithBoard(piece, board);
+            case QUEEN -> queenService.setMovableSquaresWithBoard(piece, board);
+            case KING -> kingService.setMovableSquaresWithBoard(piece, board);
+        }
+    }
+
     public void setLegalMovableSquaresForPiece(Piece piece, long gameId) {
         for (Coordinate moveOption : piece.getMovableSquares()) {
             Piece copyPiece = piece.copy();
