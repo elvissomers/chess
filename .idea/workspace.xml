@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Updated castling in KingService.java" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="setMovableSquaresWithBoard method - for checking legal moves">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/pieces/BishopService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/pieces/BishopService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/pieces/KnightService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/pieces/KnightService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/pieces/PawnService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/pieces/PawnService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/pieces/QueenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/pieces/QueenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/pieces/RookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/pieces/RookService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,48 +175,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00460" summary="Add setMovementTypeForPiece method to PieceService.java">
-      <created>1689685020911</created>
-      <option name="number" value="00460" />
-      <option name="presentableId" value="LOCAL-00460" />
-      <option name="project" value="LOCAL" />
-      <updated>1689685020911</updated>
-    </task>
-    <task id="LOCAL-00461" summary="Setup Service classes for pieces of all types">
-      <created>1689685186426</created>
-      <option name="number" value="00461" />
-      <option name="presentableId" value="LOCAL-00461" />
-      <option name="project" value="LOCAL" />
-      <updated>1689685186427</updated>
-    </task>
-    <task id="LOCAL-00462" summary="Setup gameDto &amp; converter">
-      <created>1689686628256</created>
-      <option name="number" value="00462" />
-      <option name="presentableId" value="LOCAL-00462" />
-      <option name="project" value="LOCAL" />
-      <updated>1689686628256</updated>
-    </task>
-    <task id="LOCAL-00463" summary="Setup pawn service with movefinder method (WIP)">
-      <created>1689687564294</created>
-      <option name="number" value="00463" />
-      <option name="presentableId" value="LOCAL-00463" />
-      <option name="project" value="LOCAL" />
-      <updated>1689687564294</updated>
-    </task>
-    <task id="LOCAL-00464" summary="set BoardSize.java to contain global constants">
-      <created>1689687576976</created>
-      <option name="number" value="00464" />
-      <option name="presentableId" value="LOCAL-00464" />
-      <option name="project" value="LOCAL" />
-      <updated>1689687576976</updated>
-    </task>
-    <task id="LOCAL-00465" summary="Refactor Piece class with Lombok annotations (work in prgoress)">
-      <created>1689687594417</created>
-      <option name="number" value="00465" />
-      <option name="presentableId" value="LOCAL-00465" />
-      <option name="project" value="LOCAL" />
-      <updated>1689687594417</updated>
     </task>
     <task id="LOCAL-00466" summary="Refactor Game class with Lombok annotations (work in prgoress)">
       <created>1689687603408</created>
@@ -512,7 +477,49 @@
       <option name="project" value="LOCAL" />
       <updated>1690356851016</updated>
     </task>
-    <option name="localTasksCounter" value="509" />
+    <task id="LOCAL-00509" summary="Rename legal moves method">
+      <created>1690356991211</created>
+      <option name="number" value="00509" />
+      <option name="presentableId" value="LOCAL-00509" />
+      <option name="project" value="LOCAL" />
+      <updated>1690356991211</updated>
+    </task>
+    <task id="LOCAL-00510" summary="refactor getBoardMapForCopiedPiece">
+      <created>1690357767410</created>
+      <option name="number" value="00510" />
+      <option name="presentableId" value="LOCAL-00510" />
+      <option name="project" value="LOCAL" />
+      <updated>1690357767410</updated>
+    </task>
+    <task id="LOCAL-00511" summary="bugfix, added ;">
+      <created>1693391216869</created>
+      <option name="number" value="00511" />
+      <option name="presentableId" value="LOCAL-00511" />
+      <option name="project" value="LOCAL" />
+      <updated>1693391216870</updated>
+    </task>
+    <task id="LOCAL-00512" summary="setup LegalMoveService.java">
+      <created>1693391327806</created>
+      <option name="number" value="00512" />
+      <option name="presentableId" value="LOCAL-00512" />
+      <option name="project" value="LOCAL" />
+      <updated>1693391327806</updated>
+    </task>
+    <task id="LOCAL-00513" summary="starting new setLegalMovableSquares method">
+      <created>1693395146336</created>
+      <option name="number" value="00513" />
+      <option name="presentableId" value="LOCAL-00513" />
+      <option name="project" value="LOCAL" />
+      <updated>1693395146336</updated>
+    </task>
+    <task id="LOCAL-00514" summary="setMovableSquaresWithBoard method - for checking legal moves">
+      <created>1693478287978</created>
+      <option name="number" value="00514" />
+      <option name="presentableId" value="LOCAL-00514" />
+      <option name="project" value="LOCAL" />
+      <updated>1693478287978</updated>
+    </task>
+    <option name="localTasksCounter" value="515" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -530,12 +537,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update PieceDto" />
-    <MESSAGE value="Attacked / Movable squares functionality in service, work in progress" />
-    <MESSAGE value="formatting" />
-    <MESSAGE value="get attacked squares for pawn; work in progress for movable square getting/setting in service layer" />
-    <MESSAGE value="Basic switch statement setup for setting pieces movable squares" />
-    <MESSAGE value="Update BoardService.java - board creating uses game Id instead of game Dto" />
     <MESSAGE value="setting pawn moves in service layer- work in progress" />
     <MESSAGE value="setting pawn moves in service layer" />
     <MESSAGE value="setting knight moves in KnightService.java" />
@@ -555,7 +556,13 @@
     <MESSAGE value="Remove old imports" />
     <MESSAGE value="Remove MovementType - refactoring" />
     <MESSAGE value="Updated castling in KingService.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated castling in KingService.java" />
+    <MESSAGE value="Rename legal moves method" />
+    <MESSAGE value="refactor getBoardMapForCopiedPiece" />
+    <MESSAGE value="bugfix, added ;" />
+    <MESSAGE value="setup LegalMoveService.java" />
+    <MESSAGE value="starting new setLegalMovableSquares method" />
+    <MESSAGE value="setMovableSquaresWithBoard method - for checking legal moves" />
+    <option name="LAST_COMMIT_MESSAGE" value="setMovableSquaresWithBoard method - for checking legal moves" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

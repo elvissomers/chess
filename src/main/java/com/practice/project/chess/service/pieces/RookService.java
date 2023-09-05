@@ -16,8 +16,7 @@ public class RookService {
 
     public void setMovableSquares(Piece piece, long gameId) {
         BoardMap board = boardService.getBoardMapForGame(gameId);
-        moveOptionService.addHorizontalMoves(piece, board);
-        moveOptionService.addVerticalMoves(piece, board);
+        setMovableSquaresWithBoard(piece ,board);
     }
 
     public void setMovableSquaresWithBoard(Piece piece, BoardMap board) {

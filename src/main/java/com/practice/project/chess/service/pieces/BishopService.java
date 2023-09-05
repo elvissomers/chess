@@ -18,4 +18,8 @@ public class BishopService {
         BoardMap board = boardService.getBoardMapForGame(gameId);
         moveOptionService.addDiagonalMoves(piece, board);
     }
+
+    public void setMovableSquaresWithBoard(Piece piece, BoardMap board) {
+        moveOptionService.addDiagonalMoves(piece, board);
+    }
 }

@@ -16,6 +16,10 @@ public class QueenService {
 
     public void setMovableSquares(Piece piece, long gameId) {
         BoardMap board = boardService.getBoardMapForGame(gameId);
+        setMovableSquaresWithBoard(piece, board);
+    }
+
+    public void setMovableSquaresWithBoard(Piece piece, BoardMap board) {
         moveOptionService.addHorizontalMoves(piece, board);
         moveOptionService.addVerticalMoves(piece, board);
         moveOptionService.addDiagonalMoves(piece, board);

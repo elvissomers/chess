@@ -16,16 +16,19 @@ public class KnightService {
     private int xPos;
     private int yPos;
 
-    public void setMovableSquares(Piece knight, long gameId) {
+    public void setMovableSquares(Piece piece, long gameId) {
         BoardMap board = boardService.getBoardMapForGame(gameId);
-        obtainPosition(knight);
-        
-        setLShapedMoves(knight, board);
+        setMovableSquaresWithBoard(piece, board);
+    }
+    
+    public void setMovableSquaresWithBoard(Piece piece, BoardMap board) {
+        obtainPosition(piece);
+        setLShapedMoves(piece, board);
     }
 
-    private void obtainPosition(Piece knight) {
-        xPos = knight.getHorizontalPosition();
-        yPos = knight.getVerticalPosition();
+    private void obtainPosition(Piece piece) {
+        xPos = piece.getHorizontalPosition();
+        yPos = piece.getVerticalPosition();
     }
 
     public void setLShapedMoves(Piece piece, BoardMap board){
