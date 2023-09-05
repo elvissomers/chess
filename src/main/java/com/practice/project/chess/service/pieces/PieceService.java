@@ -54,11 +54,11 @@ public class PieceService {
                 .build();
     }
 
-    public SquaresDto getAttackedSquaresForPawn(long pieceId) {
+    public SquaresDto getAttackedSquaresForPawn(long pieceId) throws ElementNotFoundException {
         return pawnService.getAttackedSquares(pieceId);
     }
 
-    public void setMovableSquaresForPiece(Piece piece, long gameId) {
+    public void setMovableSquaresForPiece(Piece piece, long gameId) throws ElementNotFoundException {
         switch(piece.getPieceType()) {
             case PAWN -> pawnService.setMovableSquares(piece, gameId);
             case KNIGHT -> knightService.setMovableSquares(piece, gameId);

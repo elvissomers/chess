@@ -12,6 +12,7 @@ import com.practice.project.chess.entity.pieces.Pawn;
 import com.practice.project.chess.entity.pieces.Piece;
 import com.practice.project.chess.enums.PieceType;
 import com.practice.project.chess.enums.Team;
+import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.PlayerRepository;
 import com.practice.project.chess.service.pieces.PawnService;
 import com.practice.project.chess.service.pieces.PieceService;
@@ -75,7 +76,7 @@ public class PlayerService {
         }
     }
 
-    public SquaresDto getAllAttackedSquaresForPlayer(Player player) {
+    public SquaresDto getAllAttackedSquaresForPlayer(Player player) throws ElementNotFoundException {
         List<Coordinate> attackedSquares = new ArrayList<>();
         for (Piece piece : player.getPieces()) {
             if (piece.getPieceType() == PieceType.PAWN)
@@ -86,7 +87,7 @@ public class PlayerService {
         return SquaresDto.builder().squares(attackedSquares).build();
     }
 
-    public void setAllAttackedAndMovableSquaresForPlayer(Player player) {
+    public void setAllAttackedAndMovableSquaresForPlayer(Player player) throws ElementNotFoundException {
         long gameId = player.getGame().getId();
         for (Piece piece : player.getPieces()) {
             if (piece.getPieceType() == PieceType.PAWN) {

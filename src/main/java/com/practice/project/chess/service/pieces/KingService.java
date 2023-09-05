@@ -7,6 +7,7 @@ import com.practice.project.chess.entity.pieces.King;
 import com.practice.project.chess.entity.pieces.Piece;
 import com.practice.project.chess.entity.pieces.Rook;
 import com.practice.project.chess.enums.Team;
+import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.service.BoardService;
 import com.practice.project.chess.service.GameService;
 import com.practice.project.chess.service.MoveOptionService;
@@ -47,7 +48,7 @@ public class KingService {
         setKingBasicMoves();
     }
 
-    public void setup(Piece piece, long gameId) {
+    public void setup(Piece piece, long gameId) throws ElementNotFoundException {
         this.piece = piece;
         board = boardService.getBoardMapForGame(gameId);
         game = gameService.getGame(gameId);
@@ -69,7 +70,7 @@ public class KingService {
         }
     }
 
-    public boolean isInCheck() {
+    public boolean isInCheck() throws ElementNotFoundException {
         Player attackingPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? game.getBlackPlayer() :
                 game.getWhitePlayer();
         playerService.setAllAttackedAndMovableSquaresForPlayer(attackingPlayer);
@@ -77,7 +78,7 @@ public class KingService {
         return kingIsInSquares(attackedSquares);
     }
 
-    public boolean isInCheck(Coordinate position) {
+    public boolean isInCheck(Coordinate position) throws ElementNotFoundException {
         Player attackingPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? game.getBlackPlayer() :
                 game.getWhitePlayer();
         playerService.setAllAttackedAndMovableSquaresForPlayer(attackingPlayer);
@@ -95,7 +96,7 @@ public class KingService {
         return false;
     }
 
-    public void setKingCastlingMoves(){
+    public void setKingCastlingMoves() throws ElementNotFoundException {
         King king = (King) piece;
         if (isInCheck() || king.isHasMoved())
             return;
@@ -108,7 +109,7 @@ public class KingService {
         }
     }
 
-    private boolean canCastleShort() {
+    private boolean canCastleShort() throws ElementNotFoundException {
         return board.getPieceByPos(xPos+1,yPos) == null &&
                 !isInCheck(board.getCoordinateByPos(xPos+1, yPos)) &&
                 board.getPieceByPos(xPos+2, yPos) == null &&
@@ -116,7 +117,7 @@ public class KingService {
                 !rook.isHasMoved();
     }
 
-    private boolean canCastleLong() {
+    private boolean canCastleLong() throws ElementNotFoundException {
         return board.getPieceByPos(xPos-1, yPos) == null &&
                 !isInCheck(board.getCoordinateByPos(xPos-1, yPos)) &&
                 board.getPieceByPos(xPos-2, yPos) == null &&

@@ -7,6 +7,7 @@ import com.practice.project.chess.entity.Player;
 import com.practice.project.chess.entity.pieces.Pawn;
 import com.practice.project.chess.entity.pieces.Piece;
 import com.practice.project.chess.enums.Team;
+import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.PieceRepository;
 import com.practice.project.chess.service.BoardService;
 import com.practice.project.chess.service.GameService;
@@ -30,15 +31,15 @@ public class PawnService {
     private int startPos;
     private int yDirection;
 
-    public SquaresDto getAttackedSquares(long pieceId) {
+    public SquaresDto getAttackedSquares(long pieceId) throws ElementNotFoundException {
         return SquaresDto.builder().squares(
                 pieceRepository.findById(pieceId)
                         .map(Piece::getAttackedSquares)
-                        .orElse(null)) // TODO: .orElseThrow
+                        .orElseThrow(()-> new ElementNotFoundException("Piece not present in repository"))) // TODO: .orElseThrow
                 .build();
     }
 
-    public void setMovableSquares(Piece pawn, long gameId) {
+    public void setMovableSquares(Piece pawn, long gameId) throws ElementNotFoundException {
         BoardMap board = boardService.getBoardMapForGame(gameId);
         obtainPosition(pawn);
 
@@ -114,7 +115,7 @@ public class PawnService {
         }
     }
 
-    public void addPawnEnPassantMovesToMovableSquares(Piece pawn, BoardMap board, long gameId) {
+    public void addPawnEnPassantMovesToMovableSquares(Piece pawn, BoardMap board, long gameId) throws ElementNotFoundException {
         Game game = gameService.getGame(gameId);
 
         if (yPos == startPos + 3 * yDirection) {
