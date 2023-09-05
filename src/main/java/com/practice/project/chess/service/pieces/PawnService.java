@@ -58,7 +58,8 @@ public class PawnService {
             pawn.addAttackedSquare(board.getCoordinateByPos(xPos - 1, yPos + 1));
     }
 
-    public void setAttackedSquaresWithBoard(Pawn pawn, BoardMap board) {
+    public void setAttackedSquaresWithBoard(Piece piece, BoardMap board) {
+        Pawn pawn = (Pawn) piece;
         obtainPosition(pawn);
 
         if (xPos + 1 < BoardSize.horizontalSize)
