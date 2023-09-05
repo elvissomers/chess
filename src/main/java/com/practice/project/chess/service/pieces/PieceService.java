@@ -4,11 +4,11 @@ import com.practice.project.chess.data.dto.PieceDto;
 import com.practice.project.chess.data.dto.SquaresDto;
 import com.practice.project.chess.data.dto.mapper.PieceDtoMapper;
 import com.practice.project.chess.entity.Player;
-import com.ordina.nl.chess.entity.pieces.*;
 import com.practice.project.chess.enums.PieceType;
 import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.PieceRepository;
 import com.practice.project.chess.service.BoardService;
+import com.practice.project.chess.service.GameService;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.entity.pieces.*;
@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 public class PieceService {
 
     private final BoardService boardService;
+    private final GameService gameService;
 
     private final PawnService pawnService;
     private final KnightService knightService;
