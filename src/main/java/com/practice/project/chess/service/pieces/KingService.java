@@ -41,6 +41,12 @@ public class KingService {
         setKingCastlingMoves();
     }
 
+    public void setMovableSquaresWithBoard(Piece piece, BoardMap board) {
+        getPosition(piece);
+        this.board = board;
+        setKingBasicMoves();
+    }
+
     public void setup(Piece piece, long gameId) {
         this.piece = piece;
         board = boardService.getBoardMapForGame(gameId);
