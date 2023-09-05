@@ -14,7 +14,7 @@ public class BaseExceptionHandler {
     Logger log = LoggerFactory.getLogger(BaseExceptionHandler.class);
 
     @ExceptionHandler(ElementNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleException(Exception exception) {
+    public ResponseEntity<ErrorResponse> handleException(ElementNotFoundException exception) {
         log.error(exception.toString());
         var errorResponse = new ErrorResponse(INTERNAL_SERVER_ERROR, exception.getMessage());
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
