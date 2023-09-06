@@ -64,7 +64,6 @@ public abstract class Piece {
 
     public void setLegalMovableSquares() {
         legalMovableSquares = new ArrayList<>();
-//        moveFinder.pruneSelfCheckMovesForPiece(this, player.getGame());
     }
 
     public void addMovableSquare(Coordinate coordinate){
