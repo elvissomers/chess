@@ -37,4 +37,11 @@ public class GameService {
                         "Requested game ID does not correspond to an existing game!"));
         return (team == Team.WHITE) ? game.getWhitePlayer() : game.getBlackPlayer();
     }
+
+    public Player getOpponentPlayerForGameAndTeam(long gameId, Team team) throws ElementNotFoundException {
+        Game game = gameRepository.findById(gameId)
+                .orElseThrow(() -> new ElementNotFoundException(
+                        "Requested game ID does not correspond to an existing game!"));
+        return (team == Team.WHITE) ? game.getBlackPlayer() : game.getWhitePlayer();
+    }
 }
