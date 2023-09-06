@@ -6,13 +6,18 @@ import com.practice.project.chess.entity.Game;
 import com.practice.project.chess.entity.Player;
 import com.practice.project.chess.enums.Team;
 import com.practice.project.chess.exception.ElementNotFoundException;
+import com.practice.project.chess.exception.InvalidMoveException;
 import com.practice.project.chess.repository.GameRepository;
+import com.practice.project.chess.service.pieces.PieceService;
+import com.practice.project.chess.service.structures.Coordinate;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
 @Service
 public class GameService {
+
+    private final PieceService pieceService;
 
     private final GameRepository gameRepository;
 
@@ -44,4 +49,16 @@ public class GameService {
                         "Requested game ID does not correspond to an existing game!"));
         return (team == Team.WHITE) ? game.getBlackPlayer() : game.getWhitePlayer();
     }
+
+    public void makeMove(long gameId, long pieceId, Coordinate destination)
+            throws ElementNotFoundException, InvalidMoveException {
+        pieceService.checkMoveLegality(pieceId, destination);
+
+    }
+
+    private void checkIfPieceInTurn(long gameId, long pieceId) {
+
+    }
+
+
 }
