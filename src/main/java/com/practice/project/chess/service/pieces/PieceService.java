@@ -6,6 +6,7 @@ import com.practice.project.chess.data.dto.mapper.PieceDtoMapper;
 import com.practice.project.chess.entity.Player;
 import com.practice.project.chess.enums.PieceType;
 import com.practice.project.chess.exception.ElementNotFoundException;
+import com.practice.project.chess.exception.InvalidMoveException;
 import com.practice.project.chess.repository.PieceRepository;
 import com.practice.project.chess.service.BoardService;
 import com.practice.project.chess.service.GameService;
@@ -128,6 +129,14 @@ public class PieceService {
         }
 
         return attackedSquares;
+    }
+
+    public void checkMoveLegality(long pieceId, Coordinate destination)
+            throws InvalidMoveException, ElementNotFoundException {
+        Piece piece = getPiece(pieceId);
+        if (piece.getLegalMovableSquares().contains(destination))
+            return;
+        throw new InvalidMoveException("Illegal Move!");
     }
 
     public Piece createPiece(PieceType pieceType, Player player, int horizontalPosition, int verticalPosition) {
