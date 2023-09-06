@@ -30,25 +30,20 @@ public class PlayerService {
     private PieceService pieceService;
     private PawnService pawnService;
     private MoveService moveService;
-    private BoardService boardService;
 
     private PlayerRepository playerRepository;
 
     private PlayerDtoMapper playerDtoMapper;
 
-    public Player getPlayer(long id) {
+    public Player getPlayer(long id) throws ElementNotFoundException {
         return playerRepository.findById(id)
-                .orElse(null);
-        // TODO; when BaseExceptionHandler is put up:
-//                .orElseThrow(() -> new ElementNotFoundException("!"));
+                .orElseThrow(() -> new ElementNotFoundException("Player not found!"));
     }
 
-    public PlayerDto getPlayerDto(long id) {
+    public PlayerDto getPlayerDto(long id) throws ElementNotFoundException {
         return playerRepository.findById(id)
                 .map(playerDtoMapper::playerToPlayerDto)
-                .orElse(null);
-        // TODO; when BaseExceptionHandler is put up:
-//                .orElseThrow(() -> new ElementNotFoundException("!"));
+                .orElseThrow(() -> new ElementNotFoundException("Player not found!"));
     }
 
     public void setStartPiecesForPlayer(Player player) {
