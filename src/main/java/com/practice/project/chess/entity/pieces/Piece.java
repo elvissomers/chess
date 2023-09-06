@@ -1,9 +1,7 @@
 package com.practice.project.chess.entity.pieces;
 
 import com.practice.project.chess.entity.Player;
-import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
-import com.practice.project.chess.enums.MovementType;
 import com.practice.project.chess.enums.PieceType;
 import jakarta.persistence.*;
 import lombok.*;
@@ -46,8 +44,6 @@ public abstract class Piece {
     @Transient
     private List<Coordinate> attackedSquares = new ArrayList<>();
 
-//    private MoveFinder moveFinder;
-
     protected Piece(Player player) {
         this.player = player;
     }
@@ -59,6 +55,9 @@ public abstract class Piece {
         this.player = other.getPlayer(); // Will be set in set method, overwriting this original player
         this.horizontalPosition = other.getHorizontalPosition();
         this.verticalPosition = other.getVerticalPosition();
+        this.movableSquares = new ArrayList<>();
+        this.legalMovableSquares = new ArrayList<>();
+        this.attackedSquares = new ArrayList<>();
     }
 
     public abstract Piece copy();
