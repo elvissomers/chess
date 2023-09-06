@@ -15,6 +15,9 @@ import com.practice.project.chess.entity.pieces.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @AllArgsConstructor
 @Service
 public class PieceService {
@@ -58,6 +61,17 @@ public class PieceService {
         return pawnService.getAttackedSquares(pieceId);
     }
 
+    public SquaresDto getAttackedSquaresForPiece(long pieceId) throws ElementNotFoundException {
+        return (getPiece(pieceId).getPieceType() == PieceType.PAWN) ? getAttackedSquaresForPawn(pieceId)
+                : getMovableSquaresForPiece(pieceId);
+    }
+
+    private List<Coordinate> getAttackedSquaresForPiece(Piece piece) {
+        return (piece.getPieceType() == PieceType.PAWN) ? piece.getAttackedSquares()
+                : piece.getMovableSquares();
+        // TODO: make attacked squares be an attribute of pawn specifically?
+    }
+
     public void setMovableSquaresForPiece(Piece piece, long gameId) throws ElementNotFoundException {
         switch(piece.getPieceType()) {
             case PAWN -> pawnService.setMovableSquares(piece, gameId);
@@ -80,13 +94,24 @@ public class PieceService {
         }
     }
 
-    public void setLegalMovableSquaresForPiece(Piece piece, long gameId) {
+    public void setLegalMovableSquaresForPiece(Piece piece, long gameId) throws ElementNotFoundException {
         for (Coordinate moveOption : piece.getMovableSquares()) {
             Piece copyPiece = piece.copy();
             copyPiece.setHorizontalPosition(moveOption.getXPos());
             copyPiece.setVerticalPosition(moveOption.getYPos());
 
             BoardMap copyBoard = boardService.getBoardMapForCopiedPiece(piece, copyPiece, gameId);
+            Player opponentPlayer = gameService.getPlayerForGameAndTeam(gameId, piece.getPlayer().getTeam());
+
+            List<Coordinate> attackedSquares = new ArrayList<>();
+            for (Piece enemyPiece : opponentPlayer.getPieces()){
+                Piece enemyCopyPiece = enemyPiece.copy();
+                setAttackedSquaresForPieceWithBoard(enemyCopyPiece, copyBoard);
+                attackedSquares.addAll(getAttackedSquaresForPiece(enemyCopyPiece));
+            }
+            if (!attackedSquares.contains(moveOption)) {
+                piece.getLegalMovableSquares().add(moveOption);
+            }
         }
     }
 

@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="remove unused import">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/exception/BaseExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/exception/BaseExceptionHandler.java" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Remove unused imports">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/pieces/PieceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/pieces/PieceService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,27 +171,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00474" summary="/Update enumerated annotation">
-      <created>1689690829219</created>
-      <option name="number" value="00474" />
-      <option name="presentableId" value="LOCAL-00474" />
-      <option name="project" value="LOCAL" />
-      <updated>1689690829219</updated>
-    </task>
-    <task id="LOCAL-00475" summary="Updated services to have get methods for both DTO's and entities">
-      <created>1689691392513</created>
-      <option name="number" value="00475" />
-      <option name="presentableId" value="LOCAL-00475" />
-      <option name="project" value="LOCAL" />
-      <updated>1689691392513</updated>
-    </task>
-    <task id="LOCAL-00476" summary="Created MoveDto.java &amp; MoveDtoMapper.java">
-      <created>1689764885735</created>
-      <option name="number" value="00476" />
-      <option name="presentableId" value="LOCAL-00476" />
-      <option name="project" value="LOCAL" />
-      <updated>1689764885736</updated>
     </task>
     <task id="LOCAL-00477" summary="Update MoveDto.java &amp; MoveDtoMapper.java">
       <created>1689765127234</created>
@@ -514,7 +494,28 @@
       <option name="project" value="LOCAL" />
       <updated>1693920411885</updated>
     </task>
-    <option name="localTasksCounter" value="523" />
+    <task id="LOCAL-00523" summary="updated BaseExceptionHandler.java -&gt; takes ElementNotFoundException object as input instead of Exception">
+      <created>1693920526200</created>
+      <option name="number" value="00523" />
+      <option name="presentableId" value="LOCAL-00523" />
+      <option name="project" value="LOCAL" />
+      <updated>1693920526200</updated>
+    </task>
+    <task id="LOCAL-00524" summary="Added a bunch of throw ElementNotFoundException to method signatures">
+      <created>1693921131197</created>
+      <option name="number" value="00524" />
+      <option name="presentableId" value="LOCAL-00524" />
+      <option name="project" value="LOCAL" />
+      <updated>1693921131197</updated>
+    </task>
+    <task id="LOCAL-00525" summary="Remove unused imports">
+      <created>1693921196385</created>
+      <option name="number" value="00525" />
+      <option name="presentableId" value="LOCAL-00525" />
+      <option name="project" value="LOCAL" />
+      <updated>1693921196385</updated>
+    </task>
+    <option name="localTasksCounter" value="526" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,9 +533,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor MoveOptionService.java" />
-    <MESSAGE value="Finish BishopService.java" />
-    <MESSAGE value="Setup Queen &amp; Rook service" />
     <MESSAGE value="setup King Service, work in progress" />
     <MESSAGE value="Added adding attacked squares in PawnService.java" />
     <MESSAGE value="change package name" />
@@ -557,7 +555,10 @@
     <MESSAGE value="Added getPlayerForGameAndTeam and updated exception throwing" />
     <MESSAGE value="Updated pom.xml to include logger framework" />
     <MESSAGE value="remove unused import" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove unused import" />
+    <MESSAGE value="updated BaseExceptionHandler.java -&gt; takes ElementNotFoundException object as input instead of Exception" />
+    <MESSAGE value="Added a bunch of throw ElementNotFoundException to method signatures" />
+    <MESSAGE value="Remove unused imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove unused imports" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
