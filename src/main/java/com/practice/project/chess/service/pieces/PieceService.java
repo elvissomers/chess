@@ -9,6 +9,7 @@ import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.PieceRepository;
 import com.practice.project.chess.service.BoardService;
 import com.practice.project.chess.service.GameService;
+import com.practice.project.chess.service.PlayerService;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.entity.pieces.*;
@@ -24,6 +25,7 @@ public class PieceService {
 
     private final BoardService boardService;
     private final GameService gameService;
+    private final PlayerService playerService;
 
     private final PawnService pawnService;
     private final KnightService knightService;
@@ -94,23 +96,38 @@ public class PieceService {
 
     public void setLegalMovableSquaresForPiece(Piece piece, long gameId) throws ElementNotFoundException {
         for (Coordinate moveOption : piece.getMovableSquares()) {
-            Piece copyPiece = piece.copy();
-            copyPiece.setHorizontalPosition(moveOption.getXPos());
-            copyPiece.setVerticalPosition(moveOption.getYPos());
+            Piece copyPiece = copyPieceTo(piece, moveOption);
 
             BoardMap copyBoard = boardService.getBoardMapForCopiedPiece(piece, copyPiece, gameId);
-            Player opponentPlayer = gameService.getPlayerForGameAndTeam(gameId, piece.getPlayer().getTeam());
+            Player opponentPlayer = gameService.getOpponentPlayerForGameAndTeam(gameId, piece.getPlayer().getTeam());
 
-            List<Coordinate> attackedSquares = new ArrayList<>();
-            for (Piece enemyPiece : opponentPlayer.getPieces()){
-                Piece enemyCopyPiece = enemyPiece.copy();
-                setAttackedSquaresForPieceWithBoard(enemyCopyPiece, copyBoard);
-                attackedSquares.addAll(getAttackedSquaresForPiece(enemyCopyPiece));
-            }
-            if (!attackedSquares.contains(moveOption)) {
+            Player player = piece.getPlayer();
+            Coordinate kingPosition = playerService.getPlayerKingCoordinate(player);
+
+            List<Coordinate> attackedSquares = getAllAttackedSquaresForPlayer(opponentPlayer, copyBoard);
+            if (!attackedSquares.contains(kingPosition)) {
                 piece.getLegalMovableSquares().add(moveOption);
             }
         }
+    }
+
+    private Piece copyPieceTo(Piece piece, Coordinate destination) {
+        Piece copyPiece = piece.copy();
+        copyPiece.setHorizontalPosition(destination.getXPos());
+        copyPiece.setVerticalPosition(destination.getYPos());
+
+        return copyPiece;
+    }
+
+    private List<Coordinate> getAllAttackedSquaresForPlayer(Player player, BoardMap board) {
+        List<Coordinate> attackedSquares = new ArrayList<>();
+        for (Piece enemyPiece : player.getPieces()){
+            Piece enemyCopyPiece = enemyPiece.copy();
+            setAttackedSquaresForPieceWithBoard(enemyCopyPiece, board);
+            attackedSquares.addAll(getAttackedSquaresForPiece(enemyCopyPiece));
+        }
+
+        return attackedSquares;
     }
 
     public Piece createPiece(PieceType pieceType, Player player, int horizontalPosition, int verticalPosition) {
@@ -130,28 +147,4 @@ public class PieceService {
 
         return pieceRepository.save(piece);
     }
-
-    public void getLegalMovesForPiece(Piece piece, long gameId) {
-        for (Coordinate moveOption : piece.getMovableSquares()){
-            Piece copyPiece = piece.copy();
-            copyPiece.setHorizontalPosition(moveOption.getXPos());
-            copyPiece.setVerticalPosition(moveOption.getYPos());
-
-            BoardMap copyBoard = boardService.getBoardMapForCopiedPiece(piece, copyPiece, gameId);
-            setAllAttackedSquaresForEnemyPlayer(piece.getPlayer().getTeam(), copyBoard, game);
-            try {
-                Coordinate kingCoordinate = new Coordinate(piece.getPlayer().getKing().getHorizontalPosition(),
-                        piece.getPlayer().getKing().getVerticalPosition());
-                if (checkCheck(kingCoordinate, copyBoard, piece.getPlayer().getTeam(), game)) {
-                    continue;
-                }
-            } catch (ElementNotFoundException exception) {
-                exception.printStackTrace();
-            }
-
-            piece.getLegalMovableSquares().add(moveOption);
-        }
-    }
-
-
 }
