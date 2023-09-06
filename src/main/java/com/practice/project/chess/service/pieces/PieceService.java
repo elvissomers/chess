@@ -36,25 +36,23 @@ public class PieceService {
 
     private final PieceDtoMapper pieceDtoMapper;
 
-    public Piece getPiece(long id) {
+    public Piece getPiece(long id) throws ElementNotFoundException {
         return pieceRepository.findById(id)
-                .orElse(null);
-        // TODO: .orElseThrow(ElementNotFoundException)
+                .orElseThrow(() -> new ElementNotFoundException("Piece not found!"));
     }
 
-    public PieceDto getPieceDto(long id) {
+    public PieceDto getPieceDto(long id) throws ElementNotFoundException {
         return pieceRepository.findById(id)
                 .map(pieceDtoMapper::pieceToPieceDto)
-                .orElse(null);
-        // TODO: .orElseThrow(ElementNotFoundException)
+                .orElseThrow(() -> new ElementNotFoundException("Piece not found!"));
     }
 
-    public SquaresDto getMovableSquaresForPiece(long id) {
+    public SquaresDto getMovableSquaresForPiece(long id) throws ElementNotFoundException {
         return SquaresDto.builder().squares(
                 pieceRepository.findById(id)
                         .map(Piece::getMovableSquares)
-                        .orElse(null)) // TODO: .orElseThrow
-                .build();
+                        .orElseThrow(() -> new ElementNotFoundException("Piece not found!"))
+                ).build();
     }
 
     public SquaresDto getAttackedSquaresForPawn(long pieceId) throws ElementNotFoundException {
