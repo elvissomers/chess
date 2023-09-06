@@ -4,6 +4,7 @@ import com.practice.project.chess.data.dto.PlayerDto;
 import com.practice.project.chess.data.dto.SquaresDto;
 import com.practice.project.chess.data.dto.mapper.PlayerDtoMapper;
 import com.practice.project.chess.entity.Player;
+import com.practice.project.chess.entity.pieces.King;
 import com.practice.project.chess.entity.pieces.Pawn;
 import com.practice.project.chess.entity.pieces.Piece;
 import com.practice.project.chess.enums.PieceType;
@@ -90,6 +91,19 @@ public class PlayerService {
             }
             pieceService.setMovableSquaresForPiece(piece, gameId);
         }
+    }
+
+    public King getPlayerKing(Player player) throws ElementNotFoundException {
+        for (Piece piece : player.getPieces()) {
+            if (piece instanceof King)
+                return (King) piece;
+        }
+        throw new ElementNotFoundException("Player's King not found!");
+    }
+
+    public Coordinate getPlayerKingCoordinate(Player player) throws ElementNotFoundException {
+        King playerKing = getPlayerKing(player);
+        return new Coordinate(playerKing.getHorizontalPosition(), playerKing.getVerticalPosition());
     }
 
     public List<MoveDto> getPlayerMovesInOrder(PlayerDto playerDto) {
