@@ -5,6 +5,8 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Builder
@@ -12,11 +14,12 @@ import lombok.*;
 @NoArgsConstructor
 public class GameDto {
 
-    private long id;
     private long whitePlayerId;
     private long blackPlayerId;
 
     @Enumerated(EnumType.STRING)
     private GameState gameState;
+
+    private List<PieceDto> pieces;
 
 }

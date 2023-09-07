@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="-">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Updated pieceDto to hold Team instead of gameId and playerId">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/data/dto/GameDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/data/dto/GameDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/data/dto/mapper/GameDtoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/data/dto/mapper/GameDtoMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,28 +48,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/eso13215/IdeaProjects/coding-assessment&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/eso13215/IdeaProjects/chess",
+    "onboarding.tips.debug.path": "C:/Users/eso13215/IdeaProjects/chess/src/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -170,41 +172,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00488" summary="Update BoardService.java - board creating uses game Id instead of game Dto">
-      <created>1689771092272</created>
-      <option name="number" value="00488" />
-      <option name="presentableId" value="LOCAL-00488" />
-      <option name="project" value="LOCAL" />
-      <updated>1689771092273</updated>
-    </task>
-    <task id="LOCAL-00489" summary="setting pawn moves in service layer- work in progress">
-      <created>1689771720128</created>
-      <option name="number" value="00489" />
-      <option name="presentableId" value="LOCAL-00489" />
-      <option name="project" value="LOCAL" />
-      <updated>1689771720128</updated>
-    </task>
-    <task id="LOCAL-00490" summary="setting pawn moves in service layer">
-      <created>1689778019613</created>
-      <option name="number" value="00490" />
-      <option name="presentableId" value="LOCAL-00490" />
-      <option name="project" value="LOCAL" />
-      <updated>1689778019613</updated>
-    </task>
-    <task id="LOCAL-00491" summary="setting knight moves in KnightService.java">
-      <created>1689839816447</created>
-      <option name="number" value="00491" />
-      <option name="presentableId" value="LOCAL-00491" />
-      <option name="project" value="LOCAL" />
-      <updated>1689839816447</updated>
-    </task>
-    <task id="LOCAL-00492" summary="Refactor MoveFinder -&gt; MoveOptionService.java">
-      <created>1689839934091</created>
-      <option name="number" value="00492" />
-      <option name="presentableId" value="LOCAL-00492" />
-      <option name="project" value="LOCAL" />
-      <updated>1689839934091</updated>
     </task>
     <task id="LOCAL-00493" summary="refactoring MoveOptionService.java">
       <created>1689844597848</created>
@@ -514,7 +481,42 @@
       <option name="project" value="LOCAL" />
       <updated>1694012484418</updated>
     </task>
-    <option name="localTasksCounter" value="537" />
+    <task id="LOCAL-00537" summary="Added getPieceForGameAndPosition method">
+      <created>1694084173064</created>
+      <option name="number" value="00537" />
+      <option name="presentableId" value="LOCAL-00537" />
+      <option name="project" value="LOCAL" />
+      <updated>1694084173065</updated>
+    </task>
+    <task id="LOCAL-00538" summary="Updated getMovableSquares">
+      <created>1694084283577</created>
+      <option name="number" value="00538" />
+      <option name="presentableId" value="LOCAL-00538" />
+      <option name="project" value="LOCAL" />
+      <updated>1694084283577</updated>
+    </task>
+    <task id="LOCAL-00539" summary="Updated getMovableSquares">
+      <created>1694084302241</created>
+      <option name="number" value="00539" />
+      <option name="presentableId" value="LOCAL-00539" />
+      <option name="project" value="LOCAL" />
+      <updated>1694084302241</updated>
+    </task>
+    <task id="LOCAL-00540" summary="TODO item: include setmovablesquares in setlegalmovablesquares method">
+      <created>1694084383450</created>
+      <option name="number" value="00540" />
+      <option name="presentableId" value="LOCAL-00540" />
+      <option name="project" value="LOCAL" />
+      <updated>1694084383450</updated>
+    </task>
+    <task id="LOCAL-00541" summary="Updated pieceDto to hold Team instead of gameId and playerId">
+      <created>1694084880848</created>
+      <option name="number" value="00541" />
+      <option name="presentableId" value="LOCAL-00541" />
+      <option name="project" value="LOCAL" />
+      <updated>1694084880848</updated>
+    </task>
+    <option name="localTasksCounter" value="542" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,10 +534,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="bugfix, added ;" />
-    <MESSAGE value="setup LegalMoveService.java" />
-    <MESSAGE value="starting new setLegalMovableSquares method" />
-    <MESSAGE value="setMovableSquaresWithBoard method - for checking legal moves" />
     <MESSAGE value="setMovableSquaresWithBoard method - for checking legal moves - all pieces except king" />
     <MESSAGE value="setMovableSquaresWithBoard method - for checking legal moves - for king" />
     <MESSAGE value="Updated pawn setAttackedSquares to take piece instead of pawn" />
@@ -557,7 +555,11 @@
     <MESSAGE value="added checkMoveLegality method" />
     <MESSAGE value="game methods, work in progress" />
     <MESSAGE value="-" />
-    <option name="LAST_COMMIT_MESSAGE" value="-" />
+    <MESSAGE value="Added getPieceForGameAndPosition method" />
+    <MESSAGE value="Updated getMovableSquares" />
+    <MESSAGE value="TODO item: include setmovablesquares in setlegalmovablesquares method" />
+    <MESSAGE value="Updated pieceDto to hold Team instead of gameId and playerId" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated pieceDto to hold Team instead of gameId and playerId" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
