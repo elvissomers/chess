@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="remove unused imports">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/GameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/PlayerService.java" afterDir="false" />
-    </list>
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="getNewGame method in GameService.java" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -173,34 +168,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00496" summary="setup BishopService.java">
-      <created>1689846234047</created>
-      <option name="number" value="00496" />
-      <option name="presentableId" value="LOCAL-00496" />
-      <option name="project" value="LOCAL" />
-      <updated>1689846234047</updated>
-    </task>
-    <task id="LOCAL-00497" summary="refactor MoveOptionService.java">
-      <created>1689863537921</created>
-      <option name="number" value="00497" />
-      <option name="presentableId" value="LOCAL-00497" />
-      <option name="project" value="LOCAL" />
-      <updated>1689863537921</updated>
-    </task>
-    <task id="LOCAL-00498" summary="Finish BishopService.java">
-      <created>1689863547560</created>
-      <option name="number" value="00498" />
-      <option name="presentableId" value="LOCAL-00498" />
-      <option name="project" value="LOCAL" />
-      <updated>1689863547560</updated>
-    </task>
-    <task id="LOCAL-00499" summary="Setup Queen &amp; Rook service">
-      <created>1689863656887</created>
-      <option name="number" value="00499" />
-      <option name="presentableId" value="LOCAL-00499" />
-      <option name="project" value="LOCAL" />
-      <updated>1689863656887</updated>
     </task>
     <task id="LOCAL-00500" summary="setup King Service, work in progress">
       <created>1689865025192</created>
@@ -517,7 +484,35 @@
       <option name="project" value="LOCAL" />
       <updated>1694085798059</updated>
     </task>
-    <option name="localTasksCounter" value="545" />
+    <task id="LOCAL-00545" summary="remove unused imports">
+      <created>1694086461438</created>
+      <option name="number" value="00545" />
+      <option name="presentableId" value="LOCAL-00545" />
+      <option name="project" value="LOCAL" />
+      <updated>1694086461438</updated>
+    </task>
+    <task id="LOCAL-00546" summary="added builder">
+      <created>1694086477915</created>
+      <option name="number" value="00546" />
+      <option name="presentableId" value="LOCAL-00546" />
+      <option name="project" value="LOCAL" />
+      <updated>1694086477915</updated>
+    </task>
+    <task id="LOCAL-00547" summary="Saving player to repository after setting starting pieces">
+      <created>1694086492489</created>
+      <option name="number" value="00547" />
+      <option name="presentableId" value="LOCAL-00547" />
+      <option name="project" value="LOCAL" />
+      <updated>1694086492489</updated>
+    </task>
+    <task id="LOCAL-00548" summary="getNewGame method in GameService.java">
+      <created>1694086514461</created>
+      <option name="number" value="00548" />
+      <option name="presentableId" value="LOCAL-00548" />
+      <option name="project" value="LOCAL" />
+      <updated>1694086514461</updated>
+    </task>
+    <option name="localTasksCounter" value="549" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -535,9 +530,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="General setAttackedSquaresForPieceWithBoard method" />
-    <MESSAGE value="Added getPlayerForGameAndTeam and updated exception throwing" />
-    <MESSAGE value="Updated pom.xml to include logger framework" />
     <MESSAGE value="remove unused import" />
     <MESSAGE value="updated BaseExceptionHandler.java -&gt; takes ElementNotFoundException object as input instead of Exception" />
     <MESSAGE value="Added a bunch of throw ElementNotFoundException to method signatures" />
@@ -560,7 +552,10 @@
     <MESSAGE value="Updated gameDto (to contain pieces)" />
     <MESSAGE value="GameController.java update (getGame)" />
     <MESSAGE value="remove unused imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove unused imports" />
+    <MESSAGE value="added builder" />
+    <MESSAGE value="Saving player to repository after setting starting pieces" />
+    <MESSAGE value="getNewGame method in GameService.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="getNewGame method in GameService.java" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

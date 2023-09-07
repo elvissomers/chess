@@ -4,12 +4,14 @@ import com.practice.project.chess.data.dto.GameDto;
 import com.practice.project.chess.data.dto.mapper.GameDtoMapper;
 import com.practice.project.chess.entity.Game;
 import com.practice.project.chess.entity.Player;
+import com.practice.project.chess.entity.pieces.Piece;
 import com.practice.project.chess.enums.GameState;
 import com.practice.project.chess.enums.Team;
 import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.exception.InvalidMoveException;
 import com.practice.project.chess.repository.GameRepository;
 import com.practice.project.chess.service.pieces.PieceService;
+import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,7 @@ public class GameService {
 
     private final PieceService pieceService;
     private final PlayerService playerService;
+    private final BoardService boardService;
 
     private final GameRepository gameRepository;
 
@@ -68,13 +71,28 @@ public class GameService {
 
     public void makeMove(long gameId, long pieceId, Coordinate destination)
             throws ElementNotFoundException, InvalidMoveException {
+        Game game = getGame(gameId);
         pieceService.checkMoveLegality(pieceId, destination);
-
+        checkIfPieceInTurn(game, pieceId);
+        pieceService.updatePosition(pieceId, destination);
     }
 
-    private void checkIfPieceInTurn(long gameId, long pieceId) {
-
+    private void checkIfPieceInTurn(Game game, long pieceId) throws ElementNotFoundException, InvalidMoveException {
+        Piece piece = pieceService.getPiece(pieceId);
+        if ((game.getGameState() == GameState.WHITE_TURN && piece.getPlayer().getTeam() == Team.WHITE)
+                || (game.getGameState() == GameState.BLACK_TURN && piece.getPlayer().getTeam() == Team.BLACK)) {
+            return;
+        }
+        throw new InvalidMoveException("Not players turn!");
     }
 
+    private void processMove(long gameId) {
+        BoardMap boardAfterMove = boardService.getBoardMapForGame(gameId);
+        // TODO: check for check, checkmate, stalemate, or other draws
+    }
 
+    private void updateGameStateAfterMove(Game game) {
+        GameState newState = (game.getGameState() == GameState.WHITE_TURN) ? GameState.BLACK_TURN : GameState.WHITE_TURN;
+        game.setGameState(newState);
+    }
 }
