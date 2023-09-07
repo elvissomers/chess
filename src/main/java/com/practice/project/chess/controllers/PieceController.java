@@ -54,9 +54,7 @@ public class PieceController {
 
     @GetMapping("get_movable_squares")
     public SquaresDto getMovableSquares(@RequestBody GetPieceDataDto dto) throws ElementNotFoundException {
-        Game game = gameService.getGame(dto.getGameId());
         Piece piece = pieceService.getPieceForGameAndPosition(dto.getxPos(), dto.getyPos(), dto.getGameId());
-
         pieceService.setMovableSquaresForPiece(piece, dto.getGameId());
         pieceService.setLegalMovableSquaresForPiece(piece, dto.getGameId());
         // TODO call setmovable squares in setlegal movable squares
