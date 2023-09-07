@@ -3,16 +3,13 @@ package com.practice.project.chess.entity;
 import com.practice.project.chess.entity.pieces.*;
 import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.service.MoveOptionService;
-import com.ordina.nl.chess.entity.pieces.*;
 import com.practice.project.chess.repository.PieceRepository;
 import com.practice.project.chess.repository.PlayerRepository;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.enums.GameState;
 import com.practice.project.chess.enums.Team;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
