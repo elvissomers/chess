@@ -79,6 +79,7 @@ public class PieceService {
         // TODO: make attacked squares be an attribute of pawn specifically?
     }
 
+    // TODO: can this method be private?
     public void setMovableSquaresForPiece(Piece piece, long gameId) throws ElementNotFoundException {
         switch(piece.getPieceType()) {
             case PAWN -> pawnService.setMovableSquares(piece, gameId);
@@ -102,6 +103,8 @@ public class PieceService {
     }
 
     public void setLegalMovableSquaresForPiece(Piece piece, long gameId) throws ElementNotFoundException {
+        setMovableSquaresForPiece(piece, gameId);
+
         for (Coordinate moveOption : piece.getMovableSquares()) {
             Piece copyPiece = copyPieceTo(piece, moveOption);
 
