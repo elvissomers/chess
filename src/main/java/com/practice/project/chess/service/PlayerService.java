@@ -65,6 +65,8 @@ public class PlayerService {
                     xPos, yForPawns)
             );
         }
+        // TODO: is this needed? Or not?
+        playerRepository.save(player);
     }
 
     public SquaresDto getAllAttackedSquaresForPlayer(Player player) throws ElementNotFoundException {
