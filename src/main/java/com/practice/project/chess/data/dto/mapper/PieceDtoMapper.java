@@ -7,11 +7,10 @@ public class PieceDtoMapper {
 
     public PieceDto pieceToPieceDto(Piece piece) {
         return PieceDto.builder()
-                .id(piece.getId())
-                .playerId(piece.getPlayer().getId())
                 .horizontalPosition(piece.getHorizontalPosition())
                 .verticalPosition(piece.getVerticalPosition())
                 .pieceType(piece.getPieceType())
+                .team(piece.getPlayer().getTeam())
                 .build();
     }
 }
