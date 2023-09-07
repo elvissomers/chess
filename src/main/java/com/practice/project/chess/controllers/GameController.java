@@ -1,15 +1,11 @@
 package com.practice.project.chess.controllers;
 
 import com.practice.project.chess.data.dto.GameDto;
-import com.practice.project.chess.entity.Game;
 import com.practice.project.chess.exception.ElementNotFoundException;
-import com.practice.project.chess.repository.GameRepository;
 import com.practice.project.chess.service.GameService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
