@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="game methods, work in progress" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="-">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,13 +170,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00487" summary="Basic switch statement setup for setting pieces movable squares">
-      <created>1689770705761</created>
-      <option name="number" value="00487" />
-      <option name="presentableId" value="LOCAL-00487" />
-      <option name="project" value="LOCAL" />
-      <updated>1689770705761</updated>
     </task>
     <task id="LOCAL-00488" summary="Update BoardService.java - board creating uses game Id instead of game Dto">
       <created>1689771092272</created>
@@ -512,7 +507,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694009834021</updated>
     </task>
-    <option name="localTasksCounter" value="536" />
+    <task id="LOCAL-00536" summary="-">
+      <created>1694012484418</created>
+      <option name="number" value="00536" />
+      <option name="presentableId" value="LOCAL-00536" />
+      <option name="project" value="LOCAL" />
+      <updated>1694012484418</updated>
+    </task>
+    <option name="localTasksCounter" value="537" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -530,7 +532,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor getBoardMapForCopiedPiece" />
     <MESSAGE value="bugfix, added ;" />
     <MESSAGE value="setup LegalMoveService.java" />
     <MESSAGE value="starting new setLegalMovableSquares method" />
@@ -555,7 +556,8 @@
     <MESSAGE value="remove old comment" />
     <MESSAGE value="added checkMoveLegality method" />
     <MESSAGE value="game methods, work in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="game methods, work in progress" />
+    <MESSAGE value="-" />
+    <option name="LAST_COMMIT_MESSAGE" value="-" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

@@ -10,6 +10,9 @@ import com.practice.project.chess.entity.pieces.*;
 import com.practice.project.chess.enums.CastleType;
 import com.practice.project.chess.enums.GameState;
 import com.practice.project.chess.enums.Team;
+import com.practice.project.chess.exception.ElementNotFoundException;
+import com.practice.project.chess.service.GameService;
+import com.practice.project.chess.service.pieces.PieceService;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.service.MoveOptionService;
@@ -17,6 +20,7 @@ import com.practice.project.chess.repository.GameRepository;
 import com.practice.project.chess.repository.MoveRepository;
 import com.practice.project.chess.repository.PieceRepository;
 import com.practice.project.chess.repository.PlayerRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +29,7 @@ import java.util.Optional;
 import static java.lang.Math.abs;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("piece")
 @CrossOrigin(maxAge = 3600)
 public class PieceController {
@@ -44,18 +49,19 @@ public class PieceController {
     @Autowired
     private MoveOptionService moveFinder;
 
+    private final GameService gameService;
+    private final PieceService pieceService;
+
     @GetMapping("get_movable_squares")
-    public SquaresDto getMovableSquares(@RequestBody GetPieceDataDto dto) {
-        Optional<Game> optionalGame = gameRepository.findById(dto.getGameId());
-        Optional<Piece> optionalPiece = pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
-                dto.getxPos(), dto.getyPos(), dto.getGameId());
+    public SquaresDto getMovableSquares(@RequestBody GetPieceDataDto dto) throws ElementNotFoundException {
+        Game game = gameService.getGame(dto.getGameId());
+        Piece piece = pieceService.getPieceForGameAndPosition(dto.getxPos(), dto.getyPos(), dto.getGameId());
 
-        if (optionalGame.isEmpty() || optionalPiece.isEmpty())
-            return new SquaresDto(null);
-        BoardMap board = moveFinder.setBoardMap(optionalGame.get());
-        optionalGame.get().setMovableSquaresForPiece(optionalPiece.get(), board);
+        pieceService.setMovableSquaresForPiece(piece, dto.getGameId());
+        pieceService.setLegalMovableSquaresForPiece(piece, dto.getGameId());
+        // TODO call setmovable squares in setlegal movable squares
 
-        return new SquaresDto(optionalPiece.get().getLegalMovableSquares());
+        return new SquaresDto(piece.getLegalMovableSquares());
     }
 
     @PutMapping("move")
