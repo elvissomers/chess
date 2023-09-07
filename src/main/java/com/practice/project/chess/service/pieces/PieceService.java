@@ -50,6 +50,12 @@ public class PieceService {
                 .orElseThrow(() -> new ElementNotFoundException("Piece not found!"));
     }
 
+    public Piece getPieceForGameAndPosition(int xPos, int yPos, long gameId) throws ElementNotFoundException {
+        return pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
+                xPos, yPos, gameId)
+                .orElseThrow(() -> new ElementNotFoundException("Piece not found!"));
+    }
+
     public SquaresDto getMovableSquaresForPiece(long id) throws ElementNotFoundException {
         return SquaresDto.builder().squares(
                 pieceRepository.findById(id)
