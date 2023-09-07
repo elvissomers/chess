@@ -148,6 +148,13 @@ public class PieceService {
         throw new InvalidMoveException("Illegal Move!");
     }
 
+    public void updatePosition(long pieceId, Coordinate destination) throws ElementNotFoundException {
+        Piece piece = getPiece(pieceId);
+        piece.setHorizontalPosition(destination.getXPos());
+        piece.setVerticalPosition(destination.getYPos());
+        pieceRepository.save(piece);
+    }
+
     public Piece createPiece(PieceType pieceType, Player player, int horizontalPosition, int verticalPosition) {
         Piece piece = null;
         switch(pieceType) {
