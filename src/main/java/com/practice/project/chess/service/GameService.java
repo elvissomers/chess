@@ -3,8 +3,10 @@ package com.practice.project.chess.service;
 import com.practice.project.chess.data.dto.GameDto;
 import com.practice.project.chess.data.dto.mapper.GameDtoMapper;
 import com.practice.project.chess.entity.Game;
+import com.practice.project.chess.entity.Move;
 import com.practice.project.chess.entity.Player;
 import com.practice.project.chess.entity.pieces.King;
+import com.practice.project.chess.entity.pieces.Pawn;
 import com.practice.project.chess.entity.pieces.Piece;
 import com.practice.project.chess.enums.GameState;
 import com.practice.project.chess.enums.Team;
@@ -17,6 +19,8 @@ import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @AllArgsConstructor
 @Service
@@ -91,6 +95,7 @@ public class GameService {
         updatePlayerTurn(game);
         setCheckOrStaleMate(game);
         // TODO: check for other draws
+        // TODO: saving moves to moveHistory
         // TODO (Later) : check for check
     }
 
@@ -133,5 +138,32 @@ public class GameService {
 
     private GameState opponentWins(Player player) {
         return (player.getTeam() == Team.WHITE) ? GameState.BLACK_WINS : GameState.WHITE_WINS;
+    }
+
+    private boolean hasThreeFoldDraw(Game game) {
+        // TODO: we only need to check for the player in turn
+        return (playerHasThreeFoldDraw(game.getWhitePlayer()) || playerHasThreeFoldDraw(game.getBlackPlayer()));
+    }
+
+    private boolean playerHasThreeFoldDraw(Player player) {
+        return false;
+    }
+
+    private boolean hasFiftyMoveDraw(Game game) {
+        // TODO: we only need to check for the player in turn
+        return (playerHasFiftyMoveDraw(game.getWhitePlayer()) || playerHasFiftyMoveDraw(game.getBlackPlayer()));
+    }
+
+    private boolean playerHasFiftyMoveDraw(Player player) {
+        if (player.getMoveHistory().size() < 50)
+            return false;
+
+        List<Move> lastFiftyMoves = player.getLastNMoves(50);
+        for (Move move : lastFiftyMoves) {
+            if (move.getPiece() instanceof Pawn || move.getTakenPiece() != null) {
+                return false;
+            }
+        }
+        return true;
     }
 }

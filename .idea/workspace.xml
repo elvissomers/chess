@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="makeMove and helper methods; work in progress">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="processMove method - new updatePlayerTurn helper method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/GameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/PlayerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/pieces/KingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/pieces/KingService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,55 +171,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00502" summary="change package name">
-      <created>1690207916901</created>
-      <option name="number" value="00502" />
-      <option name="presentableId" value="LOCAL-00502" />
-      <option name="project" value="LOCAL" />
-      <updated>1690207916902</updated>
-    </task>
-    <task id="LOCAL-00503" summary="Update square getting to use id instead of dto">
-      <created>1690268370671</created>
-      <option name="number" value="00503" />
-      <option name="presentableId" value="LOCAL-00503" />
-      <option name="project" value="LOCAL" />
-      <updated>1690268370672</updated>
-    </task>
-    <task id="LOCAL-00504" summary="Remove unused method">
-      <created>1690268378562</created>
-      <option name="number" value="00504" />
-      <option name="presentableId" value="LOCAL-00504" />
-      <option name="project" value="LOCAL" />
-      <updated>1690268378562</updated>
-    </task>
-    <task id="LOCAL-00505" summary="Update kingService, added checkcheck, added attributes for piece board and game">
-      <created>1690268407284</created>
-      <option name="number" value="00505" />
-      <option name="presentableId" value="LOCAL-00505" />
-      <option name="project" value="LOCAL" />
-      <updated>1690268407284</updated>
-    </task>
-    <task id="LOCAL-00506" summary="Remove old imports">
-      <created>1690356151073</created>
-      <option name="number" value="00506" />
-      <option name="presentableId" value="LOCAL-00506" />
-      <option name="project" value="LOCAL" />
-      <updated>1690356151074</updated>
-    </task>
-    <task id="LOCAL-00507" summary="Remove MovementType - refactoring">
-      <created>1690356265212</created>
-      <option name="number" value="00507" />
-      <option name="presentableId" value="LOCAL-00507" />
-      <option name="project" value="LOCAL" />
-      <updated>1690356265212</updated>
-    </task>
-    <task id="LOCAL-00508" summary="Updated castling in KingService.java">
-      <created>1690356851016</created>
-      <option name="number" value="00508" />
-      <option name="presentableId" value="LOCAL-00508" />
-      <option name="project" value="LOCAL" />
-      <updated>1690356851016</updated>
     </task>
     <task id="LOCAL-00509" summary="Rename legal moves method">
       <created>1690356991211</created>
@@ -517,7 +466,56 @@
       <option name="project" value="LOCAL" />
       <updated>1694089123473</updated>
     </task>
-    <option name="localTasksCounter" value="551" />
+    <task id="LOCAL-00551" summary="remove unused import, todo comments">
+      <created>1694159466576</created>
+      <option name="number" value="00551" />
+      <option name="presentableId" value="LOCAL-00551" />
+      <option name="project" value="LOCAL" />
+      <updated>1694159466576</updated>
+    </task>
+    <task id="LOCAL-00552" summary="New method; getAllMovableSquares">
+      <created>1694159479421</created>
+      <option name="number" value="00552" />
+      <option name="presentableId" value="LOCAL-00552" />
+      <option name="project" value="LOCAL" />
+      <updated>1694159479421</updated>
+    </task>
+    <task id="LOCAL-00553" summary="Bugfix, todo comment">
+      <created>1694159503008</created>
+      <option name="number" value="00553" />
+      <option name="presentableId" value="LOCAL-00553" />
+      <option name="project" value="LOCAL" />
+      <updated>1694159503008</updated>
+    </task>
+    <task id="LOCAL-00554" summary="Process move and helper methods, work in progress">
+      <created>1694159532020</created>
+      <option name="number" value="00554" />
+      <option name="presentableId" value="LOCAL-00554" />
+      <option name="project" value="LOCAL" />
+      <updated>1694159532020</updated>
+    </task>
+    <task id="LOCAL-00555" summary="Refactor; changing method order">
+      <created>1694159624506</created>
+      <option name="number" value="00555" />
+      <option name="presentableId" value="LOCAL-00555" />
+      <option name="project" value="LOCAL" />
+      <updated>1694159624506</updated>
+    </task>
+    <task id="LOCAL-00556" summary="Shortened ElementNotFound messages">
+      <created>1694159687869</created>
+      <option name="number" value="00556" />
+      <option name="presentableId" value="LOCAL-00556" />
+      <option name="project" value="LOCAL" />
+      <updated>1694159687869</updated>
+    </task>
+    <task id="LOCAL-00557" summary="processMove method - new updatePlayerTurn helper method">
+      <created>1694159941261</created>
+      <option name="number" value="00557" />
+      <option name="presentableId" value="LOCAL-00557" />
+      <option name="project" value="LOCAL" />
+      <updated>1694159941262</updated>
+    </task>
+    <option name="localTasksCounter" value="558" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -535,13 +533,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added a bunch of throw ElementNotFoundException to method signatures" />
-    <MESSAGE value="Remove unused imports" />
-    <MESSAGE value="Updated copy constructor; removed unused imports" />
-    <MESSAGE value="setLegalMovableSquaresForPiece method finished" />
-    <MESSAGE value="added elementnotfoundexceptions to piece finding methods" />
-    <MESSAGE value="LegalMoveFinding update" />
-    <MESSAGE value="getKing methods" />
     <MESSAGE value="getOpponentPlayer method" />
     <MESSAGE value="added ElementNotFoundExceptions" />
     <MESSAGE value="remove old comment" />
@@ -560,7 +551,14 @@
     <MESSAGE value="getNewGame method in GameService.java" />
     <MESSAGE value="New update position method" />
     <MESSAGE value="makeMove and helper methods; work in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="makeMove and helper methods; work in progress" />
+    <MESSAGE value="remove unused import, todo comments" />
+    <MESSAGE value="New method; getAllMovableSquares" />
+    <MESSAGE value="Bugfix, todo comment" />
+    <MESSAGE value="Process move and helper methods, work in progress" />
+    <MESSAGE value="Refactor; changing method order" />
+    <MESSAGE value="Shortened ElementNotFound messages" />
+    <MESSAGE value="processMove method - new updatePlayerTurn helper method" />
+    <option name="LAST_COMMIT_MESSAGE" value="processMove method - new updatePlayerTurn helper method" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
