@@ -33,28 +33,24 @@ public class GameService {
 
     public Game getGame(long id) throws ElementNotFoundException {
         return gameRepository.findById(id)
-                .orElseThrow(() -> new ElementNotFoundException(
-                        "Requested game ID does not correspond to an existing game!"));
+                .orElseThrow(() -> new ElementNotFoundException("Game not found!"));
     }
 
     public GameDto getGameDto(long id) throws ElementNotFoundException {
         return gameRepository.findById(id)
                 .map(gameDtoMapper::gameToGameDto)
-                .orElseThrow(() -> new ElementNotFoundException(
-                        "Requested game ID does not correspond to an existing game!"));
+                .orElseThrow(() -> new ElementNotFoundException("Game not found!"));
     }
 
     public Player getPlayerForGameAndTeam(long gameId, Team team) throws ElementNotFoundException {
         Game game = gameRepository.findById(gameId)
-                .orElseThrow(() -> new ElementNotFoundException(
-                        "Requested game ID does not correspond to an existing game!"));
+                .orElseThrow(() -> new ElementNotFoundException("Game not found!"));
         return (team == Team.WHITE) ? game.getWhitePlayer() : game.getBlackPlayer();
     }
 
     public Player getOpponentPlayerForGameAndTeam(long gameId, Team team) throws ElementNotFoundException {
         Game game = gameRepository.findById(gameId)
-                .orElseThrow(() -> new ElementNotFoundException(
-                        "Requested game ID does not correspond to an existing game!"));
+                .orElseThrow(() -> new ElementNotFoundException("Game not found!"));
         return (team == Team.WHITE) ? game.getBlackPlayer() : game.getWhitePlayer();
     }
 
