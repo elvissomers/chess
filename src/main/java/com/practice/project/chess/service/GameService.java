@@ -86,10 +86,18 @@ public class GameService {
         throw new InvalidMoveException("Not players turn!");
     }
 
-    private void processMove(long gameId) {
-        BoardMap boardAfterMove = boardService.getBoardMapForGame(gameId); // why?
-        // TODO: check for checkmate, stalemate, or other draws
+    private void processMove(long gameId) throws ElementNotFoundException {
+        Game game = getGame(gameId);
+        updatePlayerTurn(game);
+        setCheckOrStaleMate(game);
+        // TODO: check for other draws
         // TODO (Later) : check for check
+    }
+
+    private void updatePlayerTurn(Game game) {
+        GameState nextPlayerTurn = (game.getGameState() == GameState.WHITE_TURN) ? GameState.BLACK_TURN
+                : GameState.WHITE_TURN;
+        game.setGameState(nextPlayerTurn);
     }
 
     private void setCheckOrStaleMate(Game game) throws ElementNotFoundException {
@@ -125,10 +133,5 @@ public class GameService {
 
     private GameState opponentWins(Player player) {
         return (player.getTeam() == Team.WHITE) ? GameState.BLACK_WINS : GameState.WHITE_WINS;
-    }
-
-    private void updateGameStateAfterMove(Game game) {
-        GameState newState = (game.getGameState() == GameState.WHITE_TURN) ? GameState.BLACK_TURN : GameState.WHITE_TURN;
-        game.setGameState(newState);
     }
 }
