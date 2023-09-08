@@ -157,8 +157,8 @@ public class GameService {
     }
 
     private boolean goesBackAndForth(List<Move> moves) {
-        return (moves.get(0) == moves.get(2) && moves.get(2) == moves.get(4) &&
-                moves.get(1) == moves.get(3) && moves.get(3) == moves.get(5));
+        return (moves.get(0).equals(moves.get(2)) && moves.get(2).equals(moves.get(4)) &&
+                moves.get(1).equals(moves.get(3)) && moves.get(3).equals(moves.get(5)));
     }
 
     private boolean hasFiftyMoveDraw(Game game) {
