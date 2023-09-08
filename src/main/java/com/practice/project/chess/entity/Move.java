@@ -21,7 +21,7 @@ public class Move {
     private long id;
 
     @Column(nullable = false)
-    // TODO: moet koppeltabel worden tussen player en moves
+    // TODO: moet koppeltabel worden tussen player en moves; could create PlayerMoveNumber object or sth
     private int number;
 
     @Column(nullable = false)
