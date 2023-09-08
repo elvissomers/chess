@@ -21,6 +21,7 @@ public class Move {
     private long id;
 
     @Column(nullable = false)
+    // TODO: moet koppeltabel worden tussen player en moves
     private int number;
 
     @Column(nullable = false)
@@ -68,6 +69,7 @@ public class Move {
         return (Objects.equals(piece, move.piece) && horizontalFrom == move.horizontalFrom &&
                 horizontalTo == move.horizontalTo && verticalFrom == move.verticalFrom &&
                 verticalTo == move.verticalTo && number == move.number);
+        // TODO: number?
     }
 
     @Override
