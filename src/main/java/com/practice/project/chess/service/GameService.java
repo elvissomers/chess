@@ -142,11 +142,23 @@ public class GameService {
 
     private boolean hasThreeFoldDraw(Game game) {
         // TODO: we only need to check for the player in turn
-        return (playerHasThreeFoldDraw(game.getWhitePlayer()) || playerHasThreeFoldDraw(game.getBlackPlayer()));
+        // TODO: this is not how three fold draw works! We need both players to repeat the moves!
+        return (playerHasThreeFoldDraw(game.getWhitePlayer()) && playerHasThreeFoldDraw(game.getBlackPlayer()));
     }
 
     private boolean playerHasThreeFoldDraw(Player player) {
-        return false;
+        int historySize = player.getMoveHistory().size();
+        if (historySize < 6)
+            return false;
+        // TODO: update move object and dto
+
+        List<Move> lastSixMoves = player.getLastNMoves(6);
+        return (goesBackAndForth(lastSixMoves));
+    }
+
+    private boolean goesBackAndForth(List<Move> moves) {
+        return (moves.get(0) == moves.get(2) && moves.get(2) == moves.get(4) &&
+                moves.get(1) == moves.get(3) && moves.get(3) == moves.get(5));
     }
 
     private boolean hasFiftyMoveDraw(Game game) {
