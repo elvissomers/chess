@@ -64,13 +64,17 @@ public class GameService {
         Player whitePlayer = Player.builder().game(game).team(Team.WHITE).build();
         Player blackPlayer = Player.builder().game(game).team(Team.BLACK).build();
 
+        processNewPlayers(game, whitePlayer, blackPlayer);
+        return gameDtoMapper.gameToGameDto(gameRepository.save(game));
+    }
+
+    private void processNewPlayers(Game game, Player whitePlayer, Player blackPlayer) {
         playerService.setStartPiecesForPlayer(whitePlayer);
         playerService.setStartPiecesForPlayer(blackPlayer);
 
         game.setWhitePlayer(whitePlayer);
         game.setBlackPlayer(blackPlayer);
         game.setGameState(GameState.WHITE_TURN);
-        return gameDtoMapper.gameToGameDto(gameRepository.save(game));
     }
 
     public void makeMove(long gameId, long pieceId, Coordinate destination)
