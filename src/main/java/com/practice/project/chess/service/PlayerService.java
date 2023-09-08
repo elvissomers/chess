@@ -82,6 +82,14 @@ public class PlayerService {
         return SquaresDto.builder().squares(attackedSquares).build();
     }
 
+    public List<Coordinate> getAllMovableSquaresForPlayer(Player player) throws ElementNotFoundException {
+        List<Coordinate> movableSquares = new ArrayList<>();
+        for (Piece piece : player.getPieces()) {
+            movableSquares.addAll(pieceService.getMovableSquaresForPiece(piece.getId()).getSquares());
+        }
+        return movableSquares;
+    }
+
     public void setAllAttackedAndMovableSquaresForPlayer(Player player) throws ElementNotFoundException {
         long gameId = player.getGame().getId();
         for (Piece piece : player.getPieces()) {
