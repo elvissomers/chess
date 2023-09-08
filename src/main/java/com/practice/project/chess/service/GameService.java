@@ -94,7 +94,7 @@ public class GameService {
         Game game = getGame(gameId);
         updatePlayerTurn(game);
         setCheckOrStaleMate(game);
-        // TODO: check for other draws
+        setOtherDraws(game);
         // TODO: saving moves to moveHistory
         // TODO (Later) : check for check
     }
@@ -159,6 +159,11 @@ public class GameService {
     private boolean goesBackAndForth(List<Move> moves) {
         return (moves.get(0).equals(moves.get(2)) && moves.get(2).equals(moves.get(4)) &&
                 moves.get(1).equals(moves.get(3)) && moves.get(3).equals(moves.get(5)));
+    }
+
+    private void setOtherDraws(Game game) {
+        if (hasFiftyMoveDraw(game) || hasThreeFoldDraw(game))
+            game.setGameState(GameState.DRAW);
     }
 
     private boolean hasFiftyMoveDraw(Game game) {
