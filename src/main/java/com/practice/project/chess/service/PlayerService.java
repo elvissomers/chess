@@ -11,6 +11,7 @@ import com.practice.project.chess.enums.PieceType;
 import com.practice.project.chess.enums.Team;
 import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.PlayerRepository;
+import com.practice.project.chess.service.pieces.KingService;
 import com.practice.project.chess.service.pieces.PawnService;
 import com.practice.project.chess.service.pieces.PieceService;
 import com.practice.project.chess.service.structures.Coordinate;
@@ -69,6 +70,7 @@ public class PlayerService {
         playerRepository.save(player);
     }
 
+    // TODO: why use squaresDto? Instead of just a list; List<Coordinate>?
     public SquaresDto getAllAttackedSquaresForPlayer(Player player) throws ElementNotFoundException {
         List<Coordinate> attackedSquares = new ArrayList<>();
         for (Piece piece : player.getPieces()) {
@@ -89,6 +91,7 @@ public class PlayerService {
             pieceService.setMovableSquaresForPiece(piece, gameId);
         }
     }
+    //TODO: variant of above method but with board, to simplify legal move pruning
 
     public King getPlayerKing(Player player) throws ElementNotFoundException {
         for (Piece piece : player.getPieces()) {
