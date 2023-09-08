@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="getNewGame method in GameService.java" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="makeMove and helper methods; work in progress">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/GameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/PlayerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/pieces/KingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/pieces/KingService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,28 +49,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/eso13215/IdeaProjects/chess",
-    "onboarding.tips.debug.path": "C:/Users/eso13215/IdeaProjects/chess/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -168,20 +173,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00500" summary="setup King Service, work in progress">
-      <created>1689865025192</created>
-      <option name="number" value="00500" />
-      <option name="presentableId" value="LOCAL-00500" />
-      <option name="project" value="LOCAL" />
-      <updated>1689865025192</updated>
-    </task>
-    <task id="LOCAL-00501" summary="Added adding attacked squares in PawnService.java">
-      <created>1689865049384</created>
-      <option name="number" value="00501" />
-      <option name="presentableId" value="LOCAL-00501" />
-      <option name="project" value="LOCAL" />
-      <updated>1689865049384</updated>
     </task>
     <task id="LOCAL-00502" summary="change package name">
       <created>1690207916901</created>
@@ -512,7 +503,21 @@
       <option name="project" value="LOCAL" />
       <updated>1694086514461</updated>
     </task>
-    <option name="localTasksCounter" value="549" />
+    <task id="LOCAL-00549" summary="New update position method">
+      <created>1694089110125</created>
+      <option name="number" value="00549" />
+      <option name="presentableId" value="LOCAL-00549" />
+      <option name="project" value="LOCAL" />
+      <updated>1694089110125</updated>
+    </task>
+    <task id="LOCAL-00550" summary="makeMove and helper methods; work in progress">
+      <created>1694089123473</created>
+      <option name="number" value="00550" />
+      <option name="presentableId" value="LOCAL-00550" />
+      <option name="project" value="LOCAL" />
+      <updated>1694089123473</updated>
+    </task>
+    <option name="localTasksCounter" value="551" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -530,8 +535,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="remove unused import" />
-    <MESSAGE value="updated BaseExceptionHandler.java -&gt; takes ElementNotFoundException object as input instead of Exception" />
     <MESSAGE value="Added a bunch of throw ElementNotFoundException to method signatures" />
     <MESSAGE value="Remove unused imports" />
     <MESSAGE value="Updated copy constructor; removed unused imports" />
@@ -555,7 +558,9 @@
     <MESSAGE value="added builder" />
     <MESSAGE value="Saving player to repository after setting starting pieces" />
     <MESSAGE value="getNewGame method in GameService.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="getNewGame method in GameService.java" />
+    <MESSAGE value="New update position method" />
+    <MESSAGE value="makeMove and helper methods; work in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="makeMove and helper methods; work in progress" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

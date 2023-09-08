@@ -4,12 +4,14 @@ import com.practice.project.chess.data.dto.GameDto;
 import com.practice.project.chess.data.dto.mapper.GameDtoMapper;
 import com.practice.project.chess.entity.Game;
 import com.practice.project.chess.entity.Player;
+import com.practice.project.chess.entity.pieces.King;
 import com.practice.project.chess.entity.pieces.Piece;
 import com.practice.project.chess.enums.GameState;
 import com.practice.project.chess.enums.Team;
 import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.exception.InvalidMoveException;
 import com.practice.project.chess.repository.GameRepository;
+import com.practice.project.chess.service.pieces.KingService;
 import com.practice.project.chess.service.pieces.PieceService;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
@@ -23,6 +25,7 @@ public class GameService {
     private final PieceService pieceService;
     private final PlayerService playerService;
     private final BoardService boardService;
+    private final KingService kingService;
 
     private final GameRepository gameRepository;
 
@@ -42,6 +45,7 @@ public class GameService {
     }
 
     public GameDto getNewGame() {
+        // TODO: split in create new game and get new game
         Game game = new Game();
         Player whitePlayer = Player.builder().game(game).team(Team.WHITE).build();
         Player blackPlayer = Player.builder().game(game).team(Team.BLACK).build();
@@ -87,8 +91,44 @@ public class GameService {
     }
 
     private void processMove(long gameId) {
-        BoardMap boardAfterMove = boardService.getBoardMapForGame(gameId);
-        // TODO: check for check, checkmate, stalemate, or other draws
+        BoardMap boardAfterMove = boardService.getBoardMapForGame(gameId); // why?
+        // TODO: check for checkmate, stalemate, or other draws
+        // TODO (Later) : check for check
+    }
+
+    private void setCheckOrStaleMate(Game game) throws ElementNotFoundException {
+        // TODO : player in turn needs to be updated before this method is called
+        Player playerInTurn = getPlayerInTurn(game);
+        if (!canPlayerMove(playerInTurn)) {
+            if (isPlayerInCheck(playerInTurn))
+                game.setGameState(opponentWins(playerInTurn));
+            else
+                game.setGameState(GameState.DRAW);
+        }
+    }
+
+    private Player getPlayerInTurn(Game game) throws ElementNotFoundException {
+        if (game.getGameState() == GameState.WHITE_TURN)
+            return game.getWhitePlayer();
+        else if (game.getGameState() == GameState.BLACK_TURN)
+            return game.getBlackPlayer();
+        else
+            throw new ElementNotFoundException("No Player in turn!");
+    }
+
+    private boolean isPlayerInCheck(Player player) throws ElementNotFoundException {
+        King playerKing = playerService.getPlayerKing(player);
+        kingService.setup(playerKing, player.getGame().getId());
+        return kingService.isInCheck();
+    }
+
+    private boolean canPlayerMove(Player player) throws ElementNotFoundException {
+        playerService.setAllAttackedAndMovableSquaresForPlayer(player);
+        return !playerService.getAllMovableSquaresForPlayer(player).isEmpty();
+    }
+
+    private GameState opponentWins(Player player) {
+        return (player.getTeam() == Team.WHITE) ? GameState.BLACK_WINS : GameState.WHITE_WINS;
     }
 
     private void updateGameStateAfterMove(Game game) {
