@@ -44,6 +44,20 @@ public class GameService {
                         "Requested game ID does not correspond to an existing game!"));
     }
 
+    public Player getPlayerForGameAndTeam(long gameId, Team team) throws ElementNotFoundException {
+        Game game = gameRepository.findById(gameId)
+                .orElseThrow(() -> new ElementNotFoundException(
+                        "Requested game ID does not correspond to an existing game!"));
+        return (team == Team.WHITE) ? game.getWhitePlayer() : game.getBlackPlayer();
+    }
+
+    public Player getOpponentPlayerForGameAndTeam(long gameId, Team team) throws ElementNotFoundException {
+        Game game = gameRepository.findById(gameId)
+                .orElseThrow(() -> new ElementNotFoundException(
+                        "Requested game ID does not correspond to an existing game!"));
+        return (team == Team.WHITE) ? game.getBlackPlayer() : game.getWhitePlayer();
+    }
+
     public GameDto getNewGame() {
         // TODO: split in create new game and get new game
         Game game = new Game();
@@ -57,20 +71,6 @@ public class GameService {
         game.setBlackPlayer(blackPlayer);
         game.setGameState(GameState.WHITE_TURN);
         return gameDtoMapper.gameToGameDto(gameRepository.save(game));
-    }
-
-    public Player getPlayerForGameAndTeam(long gameId, Team team) throws ElementNotFoundException {
-        Game game = gameRepository.findById(gameId)
-                .orElseThrow(() -> new ElementNotFoundException(
-                        "Requested game ID does not correspond to an existing game!"));
-        return (team == Team.WHITE) ? game.getWhitePlayer() : game.getBlackPlayer();
-    }
-
-    public Player getOpponentPlayerForGameAndTeam(long gameId, Team team) throws ElementNotFoundException {
-        Game game = gameRepository.findById(gameId)
-                .orElseThrow(() -> new ElementNotFoundException(
-                        "Requested game ID does not correspond to an existing game!"));
-        return (team == Team.WHITE) ? game.getBlackPlayer() : game.getWhitePlayer();
     }
 
     public void makeMove(long gameId, long pieceId, Coordinate destination)
