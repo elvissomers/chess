@@ -1,6 +1,7 @@
 package com.practice.project.chess.entity;
 
 import com.practice.project.chess.enums.CastleType;
+import com.practice.project.chess.enums.PieceType;
 import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.entity.pieces.Piece;
 import jakarta.persistence.*;
@@ -39,7 +40,7 @@ public class Move {
 
     private boolean takenPiece;
     private CastleType castleType;
-    private boolean promoted;
+    private PieceType promotedTo;
 
     @Override
     public String toString(){
@@ -51,7 +52,8 @@ public class Move {
         String moveChar = (takenPiece) ? "x" : "-";
         Coordinate squareFrom = new Coordinate(horizontalFrom, verticalFrom);
         Coordinate squareTo = new Coordinate(horizontalTo, verticalTo);
-        return piece.toString() + squareFrom + moveChar + squareTo;
+        String promotedString = "=" + promotedTo.toString(); // TODO: toString for PieceType
+        return piece.toString() + squareFrom + moveChar + squareTo + promotedString;
     }
 
     @Override
@@ -74,5 +76,4 @@ public class Move {
     public int hashCode() {
         return Objects.hash(piece, horizontalFrom, horizontalTo, verticalFrom, verticalTo);
     }
-
 }
