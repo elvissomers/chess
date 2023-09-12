@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="split up getnewgame method to have shorter methods">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="open changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/data/dto/MoveDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/data/dto/MoveDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/data/dto/mapper/MoveDtoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/data/dto/mapper/MoveDtoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/GameService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,13 +174,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00516" summary="setMovableSquaresWithBoard method - for checking legal moves - for king">
-      <created>1693901743798</created>
-      <option name="number" value="00516" />
-      <option name="presentableId" value="LOCAL-00516" />
-      <option name="project" value="LOCAL" />
-      <updated>1693901743798</updated>
     </task>
     <task id="LOCAL-00517" summary="Updated pawn setAttackedSquares to take piece instead of pawn">
       <created>1693901890120</created>
@@ -514,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694169928773</updated>
     </task>
-    <option name="localTasksCounter" value="565" />
+    <task id="LOCAL-00565" summary="open changes">
+      <created>1694176800173</created>
+      <option name="number" value="00565" />
+      <option name="presentableId" value="LOCAL-00565" />
+      <option name="project" value="LOCAL" />
+      <updated>1694176800173</updated>
+    </task>
+    <option name="localTasksCounter" value="566" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,7 +536,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="game methods, work in progress" />
     <MESSAGE value="-" />
     <MESSAGE value="Added getPieceForGameAndPosition method" />
     <MESSAGE value="Updated getMovableSquares" />
@@ -557,7 +560,8 @@
     <MESSAGE value="Some TODO commentary" />
     <MESSAGE value="Setting other draws in move processing" />
     <MESSAGE value="split up getnewgame method to have shorter methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="split up getnewgame method to have shorter methods" />
+    <MESSAGE value="open changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="open changes" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

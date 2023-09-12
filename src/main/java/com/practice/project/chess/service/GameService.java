@@ -145,8 +145,7 @@ public class GameService {
     }
 
     private boolean hasThreeFoldDraw(Game game) {
-        // TODO: we only need to check for the player in turn
-        // TODO: this is not how three fold draw works! We need both players to repeat the moves!
+        // TODO: Use real three fold draw rule
         return (playerHasThreeFoldDraw(game.getWhitePlayer()) && playerHasThreeFoldDraw(game.getBlackPlayer()));
     }
 
