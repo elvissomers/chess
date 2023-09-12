@@ -37,7 +37,7 @@ public class Move {
     @Column(nullable = false)
     private int verticalTo;
 
-    private Piece takenPiece;
+    private boolean takenPiece;
     private CastleType castleType;
     private boolean promoted;
 
@@ -48,7 +48,7 @@ public class Move {
         else if (castleType == CastleType.LONG)
             return "0-0-0";
 
-        String moveChar = (takenPiece == null) ? "-" : "x";
+        String moveChar = (takenPiece) ? "x" : "-";
         Coordinate squareFrom = new Coordinate(horizontalFrom, verticalFrom);
         Coordinate squareTo = new Coordinate(horizontalTo, verticalTo);
         return piece.toString() + squareFrom + moveChar + squareTo;
