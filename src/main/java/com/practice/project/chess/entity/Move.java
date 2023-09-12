@@ -19,10 +19,8 @@ public class Move {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column(nullable = false)
     // TODO: moet koppeltabel worden tussen player en moves; could create PlayerMoveNumber object or sth
-    private int number;
+//    private int number;
 
     @Column(nullable = false)
     private Piece piece;
@@ -68,13 +66,13 @@ public class Move {
 
         return (Objects.equals(piece, move.piece) && horizontalFrom == move.horizontalFrom &&
                 horizontalTo == move.horizontalTo && verticalFrom == move.verticalFrom &&
-                verticalTo == move.verticalTo && number == move.number);
+                verticalTo == move.verticalTo);
         // TODO: number?
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(piece, horizontalFrom, horizontalTo, verticalFrom, verticalTo, number);
+        return Objects.hash(piece, horizontalFrom, horizontalTo, verticalFrom, verticalTo);
     }
 
 }

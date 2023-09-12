@@ -11,7 +11,6 @@ public class MoveDtoMapper {
         return MoveDto.builder()
                 .id(move.getId())
                 .pieceId(move.getPiece().getId())
-                .number(move.getNumber())
                 .horizontalFrom(move.getHorizontalFrom())
                 .verticalFrom(move.getVerticalFrom())
                 .horizontalTo(move.getHorizontalTo())
