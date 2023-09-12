@@ -82,6 +82,7 @@ public class GameService {
         Game game = getGame(gameId);
         pieceService.checkMoveLegality(pieceId, destination);
         checkIfPieceInTurn(game, pieceId);
+        // TODO: check if Move is a special move: castling, promoting, or taking a piece
         pieceService.updatePosition(pieceId, destination);
     }
 

@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="comment changes">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/data/dto/mapper/MoveDtoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/data/dto/mapper/MoveDtoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/Move.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/MoveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/MoveService.java" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="start updating MoveService.java">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,34 +170,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00519" summary="Added getPlayerForGameAndTeam and updated exception throwing">
-      <created>1693902215118</created>
-      <option name="number" value="00519" />
-      <option name="presentableId" value="LOCAL-00519" />
-      <option name="project" value="LOCAL" />
-      <updated>1693902215118</updated>
-    </task>
-    <task id="LOCAL-00520" summary="Added getPlayerForGameAndTeam and updated exception throwing">
-      <created>1693902243804</created>
-      <option name="number" value="00520" />
-      <option name="presentableId" value="LOCAL-00520" />
-      <option name="project" value="LOCAL" />
-      <updated>1693902243805</updated>
-    </task>
-    <task id="LOCAL-00521" summary="Updated pom.xml to include logger framework">
-      <created>1693920405727</created>
-      <option name="number" value="00521" />
-      <option name="presentableId" value="LOCAL-00521" />
-      <option name="project" value="LOCAL" />
-      <updated>1693920405727</updated>
-    </task>
-    <task id="LOCAL-00522" summary="remove unused import">
-      <created>1693920411885</created>
-      <option name="number" value="00522" />
-      <option name="presentableId" value="LOCAL-00522" />
-      <option name="project" value="LOCAL" />
-      <updated>1693920411885</updated>
     </task>
     <task id="LOCAL-00523" summary="updated BaseExceptionHandler.java -&gt; takes ElementNotFoundException object as input instead of Exception">
       <created>1693920526200</created>
@@ -516,7 +486,35 @@
       <option name="project" value="LOCAL" />
       <updated>1694500894813</updated>
     </task>
-    <option name="localTasksCounter" value="568" />
+    <task id="LOCAL-00568" summary="Set takenPiece to boolean instead of Piece">
+      <created>1694501332957</created>
+      <option name="number" value="00568" />
+      <option name="presentableId" value="LOCAL-00568" />
+      <option name="project" value="LOCAL" />
+      <updated>1694501332957</updated>
+    </task>
+    <task id="LOCAL-00569" summary="Set promoted to piecetype instead of boolean">
+      <created>1694501544080</created>
+      <option name="number" value="00569" />
+      <option name="presentableId" value="LOCAL-00569" />
+      <option name="project" value="LOCAL" />
+      <updated>1694501544080</updated>
+    </task>
+    <task id="LOCAL-00570" summary="Promoted and taken piece types update">
+      <created>1694501619721</created>
+      <option name="number" value="00570" />
+      <option name="presentableId" value="LOCAL-00570" />
+      <option name="project" value="LOCAL" />
+      <updated>1694501619721</updated>
+    </task>
+    <task id="LOCAL-00571" summary="start updating MoveService.java">
+      <created>1694501651003</created>
+      <option name="number" value="00571" />
+      <option name="presentableId" value="LOCAL-00571" />
+      <option name="project" value="LOCAL" />
+      <updated>1694501651003</updated>
+    </task>
+    <option name="localTasksCounter" value="572" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -534,10 +532,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Updated getMovableSquares" />
-    <MESSAGE value="TODO item: include setmovablesquares in setlegalmovablesquares method" />
-    <MESSAGE value="Updated pieceDto to hold Team instead of gameId and playerId" />
-    <MESSAGE value="Updated gameDto (to contain pieces)" />
     <MESSAGE value="GameController.java update (getGame)" />
     <MESSAGE value="remove unused imports" />
     <MESSAGE value="added builder" />
@@ -559,7 +553,11 @@
     <MESSAGE value="open changes" />
     <MESSAGE value="Removed &quot;number&quot; attribute from Move" />
     <MESSAGE value="comment changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="comment changes" />
+    <MESSAGE value="Set takenPiece to boolean instead of Piece" />
+    <MESSAGE value="Set promoted to piecetype instead of boolean" />
+    <MESSAGE value="Promoted and taken piece types update" />
+    <MESSAGE value="start updating MoveService.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="start updating MoveService.java" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
