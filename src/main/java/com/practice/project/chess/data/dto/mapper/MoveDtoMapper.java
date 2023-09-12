@@ -15,8 +15,9 @@ public class MoveDtoMapper {
                 .verticalFrom(move.getVerticalFrom())
                 .horizontalTo(move.getHorizontalTo())
                 .verticalTo(move.getVerticalTo())
-                .takenPiece(move.getTakenPiece() != null)
+                .takenPiece(move.isTakenPiece())
                 .castleType(move.getCastleType())
+                .promotedTo(move.getPromotedTo())
                 .build();
     }
 }
