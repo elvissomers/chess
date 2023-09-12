@@ -15,7 +15,6 @@ import com.practice.project.chess.exception.InvalidMoveException;
 import com.practice.project.chess.repository.GameRepository;
 import com.practice.project.chess.service.pieces.KingService;
 import com.practice.project.chess.service.pieces.PieceService;
-import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -181,7 +180,7 @@ public class GameService {
 
         List<Move> lastFiftyMoves = player.getLastNMoves(50);
         for (Move move : lastFiftyMoves) {
-            if (move.getPiece() instanceof Pawn || move.getTakenPiece() != null) {
+            if (move.getPiece() instanceof Pawn || move.isTakenPiece()) {
                 return false;
             }
         }
