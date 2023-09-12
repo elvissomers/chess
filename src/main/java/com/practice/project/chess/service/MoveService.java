@@ -35,4 +35,9 @@ public class MoveService {
                 .map(moveDtoMapper::MoveToMoveDto)
                 .toList();
     }
+
+    public Move createMove() {
+        //todo
+        return null;
+    }
 }
