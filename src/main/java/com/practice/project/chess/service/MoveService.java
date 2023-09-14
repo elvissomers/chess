@@ -3,6 +3,7 @@ package com.practice.project.chess.service;
 import com.practice.project.chess.data.dto.MoveDto;
 import com.practice.project.chess.data.dto.mapper.MoveDtoMapper;
 import com.practice.project.chess.entity.Move;
+import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.MoveRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,17 +18,15 @@ public class MoveService {
 
     private final MoveDtoMapper moveDtoMapper;
 
-    public Move getMove(long id) {
+    public Move getMove(long id) throws ElementNotFoundException {
         return moveRepository.findById(id)
-                .orElse(null);
-        // TODO .orElseThrow(ElementNotFoundException)
+                .orElseThrow(() -> new ElementNotFoundException("Move not found!"));
     }
 
-    public MoveDto getMoveDto(long id) {
+    public MoveDto getMoveDto(long id) throws ElementNotFoundException {
         return moveRepository.findById(id)
                 .map(moveDtoMapper::MoveToMoveDto)
-                .orElse(null);
-        // TODO .orElseThrow(ElementNotFoundException)
+                .orElseThrow(() -> new ElementNotFoundException("Move not found!"));
     }
 
     public List<MoveDto> getMovesFromPlayerId(long id) {
