@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="start updating MoveService.java">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Added ElementNotFoundExceptions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/MoveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/MoveService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,27 +171,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00523" summary="updated BaseExceptionHandler.java -&gt; takes ElementNotFoundException object as input instead of Exception">
-      <created>1693920526200</created>
-      <option name="number" value="00523" />
-      <option name="presentableId" value="LOCAL-00523" />
-      <option name="project" value="LOCAL" />
-      <updated>1693920526200</updated>
-    </task>
-    <task id="LOCAL-00524" summary="Added a bunch of throw ElementNotFoundException to method signatures">
-      <created>1693921131197</created>
-      <option name="number" value="00524" />
-      <option name="presentableId" value="LOCAL-00524" />
-      <option name="project" value="LOCAL" />
-      <updated>1693921131197</updated>
-    </task>
-    <task id="LOCAL-00525" summary="Remove unused imports">
-      <created>1693921196385</created>
-      <option name="number" value="00525" />
-      <option name="presentableId" value="LOCAL-00525" />
-      <option name="project" value="LOCAL" />
-      <updated>1693921196385</updated>
     </task>
     <task id="LOCAL-00526" summary="Updated copy constructor; removed unused imports">
       <created>1694006299038</created>
@@ -514,7 +494,28 @@
       <option name="project" value="LOCAL" />
       <updated>1694501651003</updated>
     </task>
-    <option name="localTasksCounter" value="572" />
+    <task id="LOCAL-00572" summary="TODO comments">
+      <created>1694503484061</created>
+      <option name="number" value="00572" />
+      <option name="presentableId" value="LOCAL-00572" />
+      <option name="project" value="LOCAL" />
+      <updated>1694503484061</updated>
+    </task>
+    <task id="LOCAL-00573" summary="takenpiece booleanity update">
+      <created>1694503529009</created>
+      <option name="number" value="00573" />
+      <option name="presentableId" value="LOCAL-00573" />
+      <option name="project" value="LOCAL" />
+      <updated>1694503529009</updated>
+    </task>
+    <task id="LOCAL-00574" summary="Added ElementNotFoundExceptions">
+      <created>1694691019516</created>
+      <option name="number" value="00574" />
+      <option name="presentableId" value="LOCAL-00574" />
+      <option name="project" value="LOCAL" />
+      <updated>1694691019516</updated>
+    </task>
+    <option name="localTasksCounter" value="575" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,9 +533,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="GameController.java update (getGame)" />
-    <MESSAGE value="remove unused imports" />
-    <MESSAGE value="added builder" />
     <MESSAGE value="Saving player to repository after setting starting pieces" />
     <MESSAGE value="getNewGame method in GameService.java" />
     <MESSAGE value="New update position method" />
@@ -557,7 +555,10 @@
     <MESSAGE value="Set promoted to piecetype instead of boolean" />
     <MESSAGE value="Promoted and taken piece types update" />
     <MESSAGE value="start updating MoveService.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="start updating MoveService.java" />
+    <MESSAGE value="TODO comments" />
+    <MESSAGE value="takenpiece booleanity update" />
+    <MESSAGE value="Added ElementNotFoundExceptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ElementNotFoundExceptions" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

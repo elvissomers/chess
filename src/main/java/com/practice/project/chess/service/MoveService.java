@@ -30,6 +30,8 @@ public class MoveService {
     }
 
     public List<MoveDto> getMovesFromPlayerId(long id) {
+        // TODO: so how do we make sure the moves are in order?
+        // TODO PlayerMove "koppelobject"?
         return moveRepository.findByPlayers_IdContaining(id).stream()
                 .map(moveDtoMapper::MoveToMoveDto)
                 .toList();
