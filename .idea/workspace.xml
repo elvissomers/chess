@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Added ElementNotFoundExceptions">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/MoveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/MoveService.java" afterDir="false" />
-    </list>
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="PlayerMove object added" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -171,13 +168,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00526" summary="Updated copy constructor; removed unused imports">
-      <created>1694006299038</created>
-      <option name="number" value="00526" />
-      <option name="presentableId" value="LOCAL-00526" />
-      <option name="project" value="LOCAL" />
-      <updated>1694006299038</updated>
     </task>
     <task id="LOCAL-00527" summary="setLegalMovableSquaresForPiece method finished">
       <created>1694007104009</created>
@@ -515,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694691019516</updated>
     </task>
-    <option name="localTasksCounter" value="575" />
+    <task id="LOCAL-00575" summary="PlayerMove object added">
+      <created>1694692024565</created>
+      <option name="number" value="00575" />
+      <option name="presentableId" value="LOCAL-00575" />
+      <option name="project" value="LOCAL" />
+      <updated>1694692024565</updated>
+    </task>
+    <option name="localTasksCounter" value="576" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -533,7 +530,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Saving player to repository after setting starting pieces" />
     <MESSAGE value="getNewGame method in GameService.java" />
     <MESSAGE value="New update position method" />
     <MESSAGE value="makeMove and helper methods; work in progress" />
@@ -558,7 +554,8 @@
     <MESSAGE value="TODO comments" />
     <MESSAGE value="takenpiece booleanity update" />
     <MESSAGE value="Added ElementNotFoundExceptions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ElementNotFoundExceptions" />
+    <MESSAGE value="PlayerMove object added" />
+    <option name="LAST_COMMIT_MESSAGE" value="PlayerMove object added" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

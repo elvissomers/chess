@@ -2,6 +2,8 @@ package com.practice.project.chess.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import lombok.*;
 
 @Getter
@@ -12,6 +14,8 @@ import lombok.*;
 @Entity
 public class PlayerMove {
 
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column
