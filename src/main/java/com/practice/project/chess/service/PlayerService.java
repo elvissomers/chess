@@ -4,6 +4,7 @@ import com.practice.project.chess.data.dto.PlayerDto;
 import com.practice.project.chess.data.dto.SquaresDto;
 import com.practice.project.chess.data.dto.mapper.PlayerDtoMapper;
 import com.practice.project.chess.entity.Player;
+import com.practice.project.chess.entity.PlayerMove;
 import com.practice.project.chess.entity.pieces.King;
 import com.practice.project.chess.entity.pieces.Pawn;
 import com.practice.project.chess.entity.pieces.Piece;
@@ -114,24 +115,28 @@ public class PlayerService {
         return new Coordinate(playerKing.getHorizontalPosition(), playerKing.getVerticalPosition());
     }
 
-    public List<MoveDto> getPlayerMovesInOrder(PlayerDto playerDto) {
-        List<MoveDto> playerMoves = moveService.getMovesFromPlayerId(playerDto.getId());
+    public int getNumberOfMoves(long playerId) {
+        return getLastMove(playerId).getNumber();
+    }
+
+    public List<PlayerMove> getPlayerMovesInOrder(long playerId) {
+        List<PlayerMove> playerMoves = moveService.getPlayerMoves(playerId);
         return playerMoves.stream()
-                .sorted(Comparator.comparingInt(MoveDto::getNumber))
+                .sorted(Comparator.comparingInt(PlayerMove::getNumber))
                 .toList();
     }
 
-    public MoveDto getLastMove(PlayerDto playerDto) {
-        List<MoveDto> playerMoves = moveService.getMovesFromPlayerId(playerDto.getId());
+    public PlayerMove getLastMove(long playerId) {
+        List<PlayerMove> playerMoves = moveService.getPlayerMoves(playerId);
         return playerMoves.stream()
-                .max(Comparator.comparingInt(MoveDto::getNumber))
+                .max(Comparator.comparingInt(PlayerMove::getNumber))
                 .orElse(null);
     }
 
-    public List<MoveDto> getLastNMoves(int n, PlayerDto playerDto) {
-        List<MoveDto> playerMoves = moveService.getMovesFromPlayerId(playerDto.getId());
+    public List<PlayerMove> getLastNMoves(int n, long playerId) {
+        List<PlayerMove> playerMoves = moveService.getPlayerMoves(playerId);
         return playerMoves.stream()
-                .sorted(Comparator.comparingInt(MoveDto::getNumber).reversed())
+                .sorted(Comparator.comparingInt(PlayerMove::getNumber).reversed())
                 .limit(n)
                 .toList();
     }

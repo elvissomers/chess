@@ -9,6 +9,7 @@ import com.practice.project.chess.enums.CastleType;
 import com.practice.project.chess.enums.PieceType;
 import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.MoveRepository;
+import com.practice.project.chess.repository.PlayerMoveRepository;
 import com.practice.project.chess.service.structures.Coordinate;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,7 @@ import java.util.List;
 public class MoveService {
 
     private final MoveRepository moveRepository;
+    private final PlayerMoveRepository playerMoveRepository;
 
     private final MoveDtoMapper moveDtoMapper;
 
@@ -40,6 +42,10 @@ public class MoveService {
         return moveRepository.findByPlayers_IdContaining(id).stream()
                 .map(moveDtoMapper::MoveToMoveDto)
                 .toList();
+    }
+
+    public List<PlayerMove> getPlayerMoves(long playerId) {
+        return playerMoveRepository.findByPlayer_Id(playerId);
     }
 
     public Move getOrCreateMove(Piece piece, Coordinate destination, boolean takenPiece) {
