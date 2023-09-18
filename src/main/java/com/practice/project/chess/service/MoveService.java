@@ -41,8 +41,15 @@ public class MoveService {
                 .toList();
     }
 
-    public Move createMove(Piece piece, Coordinate destination, boolean takenPiece) {
-        return Move.builder() // TODO : id?
+    public Move getOrCreateMove(Piece piece, Coordinate destination, boolean takenPiece) {
+        return moveRepository.findByPieceAndTakenPieceAndHorizontalFromAndHorizontalToAndVerticalFromAndVerticalTo(
+                piece, takenPiece, piece.getHorizontalPosition(), destination.getXPos(), piece.getVerticalPosition(),
+                destination.getYPos())
+                .orElse(createMove(piece, destination, takenPiece));
+    }
+
+    private Move createMove(Piece piece, Coordinate destination, boolean takenPiece) {
+        Move move = Move.builder() // TODO : id?
                 .piece(piece)
                 .horizontalFrom(piece.getHorizontalPosition())
                 .verticalFrom(piece.getVerticalPosition())
@@ -50,6 +57,7 @@ public class MoveService {
                 .verticalTo(destination.getYPos())
                 .takenPiece(takenPiece)
                 .build();
+        return moveRepository.save(move);
     }
 
     public void updateSpecialMove(Move move, CastleType castleType, PieceType promotedTo) {

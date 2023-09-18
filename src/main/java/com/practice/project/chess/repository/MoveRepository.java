@@ -1,6 +1,7 @@
 package com.practice.project.chess.repository;
 
 import com.practice.project.chess.entity.Move;
+import com.practice.project.chess.entity.pieces.Piece;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,4 +17,6 @@ public interface MoveRepository extends JpaRepository<Move, Long> {
     Optional<Move> findByNumberAndHorizontalFromAndHorizontalToAndVerticalFromAndVerticalTo(int number, int xFrom,
                                                                                             int xTo, int yFrom, int yTo);
 
+    Optional<Move> findByPieceAndTakenPieceAndHorizontalFromAndHorizontalToAndVerticalFromAndVerticalTo(Piece piece, boolean takenPiece,
+                                                                                                        int xFrom, int xTo, int yFrom, int yTo);
 }

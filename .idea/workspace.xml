@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="createMove method">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="move creation and updating">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/MoveRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/MoveRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/MoveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/MoveService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,13 +171,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00530" summary="getKing methods">
-      <created>1694008665633</created>
-      <option name="number" value="00530" />
-      <option name="presentableId" value="LOCAL-00530" />
-      <option name="project" value="LOCAL" />
-      <updated>1694008665634</updated>
     </task>
     <task id="LOCAL-00531" summary="getOpponentPlayer method">
       <created>1694008761899</created>
@@ -514,7 +508,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695030237373</updated>
     </task>
-    <option name="localTasksCounter" value="579" />
+    <task id="LOCAL-00579" summary="move creation and updating">
+      <created>1695030618227</created>
+      <option name="number" value="00579" />
+      <option name="presentableId" value="LOCAL-00579" />
+      <option name="project" value="LOCAL" />
+      <updated>1695030618227</updated>
+    </task>
+    <option name="localTasksCounter" value="580" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,7 +533,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="remove unused import, todo comments" />
     <MESSAGE value="New method; getAllMovableSquares" />
     <MESSAGE value="Bugfix, todo comment" />
     <MESSAGE value="Process move and helper methods, work in progress" />
@@ -557,7 +557,8 @@
     <MESSAGE value="PlayerMove id updated" />
     <MESSAGE value="PlayerMove work in progress" />
     <MESSAGE value="createMove method" />
-    <option name="LAST_COMMIT_MESSAGE" value="createMove method" />
+    <MESSAGE value="move creation and updating" />
+    <option name="LAST_COMMIT_MESSAGE" value="move creation and updating" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
