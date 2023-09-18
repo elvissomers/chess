@@ -1,9 +1,6 @@
 package com.practice.project.chess.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -19,9 +16,11 @@ public class PlayerMove {
     private long id;
 
     @Column
+    @ManyToOne
     private Player player;
 
     @Column
+    @ManyToOne
     private Move move;
 
     @Column
