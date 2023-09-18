@@ -121,14 +121,12 @@ public class PlayerService {
     }
 
     public List<PlayerMove> getPlayerMovesInOrder(long playerId) {
-        List<PlayerMove> playerMoves = moveService.getPlayerMoves(playerId);
-        return playerMoves.stream()
+        return moveService.getPlayerMoves(playerId).stream()
                 .sorted(Comparator.comparingInt(PlayerMove::getNumber))
                 .toList();
     }
 
     public Move getLastMove(long playerId) {
-        // TODO; make this return just move instead; idem last one; replace in relevant methods
         return moveService.getPlayerMoves(playerId).stream()
                 .max(Comparator.comparingInt(PlayerMove::getNumber))
                 .map(PlayerMove::getMove)
