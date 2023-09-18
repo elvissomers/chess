@@ -12,6 +12,7 @@ public interface MoveRepository extends JpaRepository<Move, Long> {
 
     List<Move> findByPlayers_IdContaining(long id);
 
+    // TODO: split up in find move and find playermove
     Optional<Move> findByNumberAndHorizontalFromAndHorizontalToAndVerticalFromAndVerticalTo(int number, int xFrom,
                                                                                             int xTo, int yFrom, int yTo);
 

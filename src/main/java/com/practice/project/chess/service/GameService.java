@@ -95,6 +95,7 @@ public class GameService {
     }
 
     private void processMove(long gameId) throws ElementNotFoundException {
+        // Should return move?
         Game game = getGame(gameId);
         updatePlayerTurn(game);
         setCheckOrStaleMate(game);
