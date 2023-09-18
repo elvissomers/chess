@@ -8,7 +8,9 @@ import com.practice.project.chess.entity.Player;
 import com.practice.project.chess.entity.pieces.King;
 import com.practice.project.chess.entity.pieces.Pawn;
 import com.practice.project.chess.entity.pieces.Piece;
+import com.practice.project.chess.enums.CastleType;
 import com.practice.project.chess.enums.GameState;
+import com.practice.project.chess.enums.PieceType;
 import com.practice.project.chess.enums.Team;
 import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.exception.InvalidMoveException;
@@ -87,8 +89,43 @@ public class GameService {
     }
 
     private void updateMoveHistory(Player player, long pieceId, Coordinate destination) throws ElementNotFoundException {
+        // TODO: IMPORTANT: This should be done BEFORE the pieces position is updated! Otherwise we do not have the information
+        // TODO needed for the move (specifically, the x and y from)!!
         Piece piece = pieceService.getPiece(pieceId);
-        Move newMove = moveService.getOrCreateMove(piece, destination, false); //todo
+        boolean takenPiece = pieceService.getPieceForGameAndPosition(destination.getXPos(),
+                destination.getYPos(), player.getGame().getId()) != null;
+        Move newMove = moveService.getOrCreateMove(piece, destination, takenPiece); //todo
+    }
+
+    private void getMoveDetails(Move move) {
+        CastleType castleType = getTypeIfCastled(move);
+        PieceType promotionPiece = getNewPieceIfPromoted(move);
+        moveService.updateSpecialMove(move, castleType, promotionPiece);
+    }
+
+    private CastleType getTypeIfCastled(Move move) {
+        if (move.getPiece().getPieceType() == PieceType.KING) {
+            if (move.getHorizontalFrom() - move.getHorizontalTo() == 2)
+                return CastleType.LONG;
+            else if (move.getHorizontalFrom() - move.getHorizontalTo() == -2)
+                return CastleType.SHORT;
+        }
+        return null;
+    }
+
+    private PieceType getNewPieceIfPromoted(Move move) {
+        // TODO Making ACTUAL promotion possible. This means do the following two things:
+        // TODO 1) Removing the pawn and replacing it with a new piece of the correct PieceType
+        // TODO 2) Get the wanted PieceType as input from the used instead of just hardcoding it to queen
+        if (move.getPiece().getPieceType() == PieceType.PAWN) {
+            if (move.getVerticalTo() == getPromotionRank(move.getPiece()))
+                return PieceType.QUEEN;
+        }
+        return null;
+    }
+
+    private int getPromotionRank(Piece piece) {
+        return (piece.getPlayer().getTeam() == Team.WHITE) ? 7 : 0;
     }
 
     private void checkIfPieceInTurn(Game game, long pieceId) throws ElementNotFoundException, InvalidMoveException {
