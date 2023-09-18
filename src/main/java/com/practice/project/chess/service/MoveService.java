@@ -3,6 +3,7 @@ package com.practice.project.chess.service;
 import com.practice.project.chess.data.dto.MoveDto;
 import com.practice.project.chess.data.dto.mapper.MoveDtoMapper;
 import com.practice.project.chess.entity.Move;
+import com.practice.project.chess.entity.PlayerMove;
 import com.practice.project.chess.entity.pieces.Piece;
 import com.practice.project.chess.enums.CastleType;
 import com.practice.project.chess.enums.PieceType;
@@ -65,5 +66,12 @@ public class MoveService {
             move.setCastleType(castleType);
         if (promotedTo != null)
             move.setPromotedTo(promotedTo);
+    }
+
+    public PlayerMove getPlayerMove(Move move, int number) {
+        return PlayerMove.builder()
+                .move(move)
+                .number(number)
+                .build();
     }
 }
