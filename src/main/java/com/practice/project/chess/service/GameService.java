@@ -88,13 +88,15 @@ public class GameService {
         pieceService.updatePosition(pieceId, destination);
     }
 
-    private void updateMoveHistory(Player player, long pieceId, Coordinate destination) throws ElementNotFoundException {
+    private void updateMoveHistory(Game game, long pieceId, Coordinate destination) throws ElementNotFoundException {
         // TODO: IMPORTANT: This should be done BEFORE the pieces position is updated! Otherwise we do not have the information
         // TODO needed for the move (specifically, the x and y from)!!
         Piece piece = pieceService.getPiece(pieceId);
         boolean takenPiece = pieceService.getPieceForGameAndPosition(destination.getXPos(),
-                destination.getYPos(), player.getGame().getId()) != null;
-        Move newMove = moveService.getOrCreateMove(piece, destination, takenPiece); //todo
+                destination.getYPos(), game.getId()) != null;
+        Move newMove = moveService.getOrCreateMove(piece, destination, takenPiece);
+        getMoveDetails(newMove);
+        moveService.saveMoveForPlayer(newMove, playerInTurn(game));
     }
 
     private void getMoveDetails(Move move) {
