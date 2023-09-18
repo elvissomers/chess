@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="move creation and updating">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/MoveRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/MoveRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/MoveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/MoveService.java" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="PlayerMove generating">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/PlayerMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/PlayerMove.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,20 +170,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00531" summary="getOpponentPlayer method">
-      <created>1694008761899</created>
-      <option name="number" value="00531" />
-      <option name="presentableId" value="LOCAL-00531" />
-      <option name="project" value="LOCAL" />
-      <updated>1694008761899</updated>
-    </task>
-    <task id="LOCAL-00532" summary="added ElementNotFoundExceptions">
-      <created>1694008837487</created>
-      <option name="number" value="00532" />
-      <option name="presentableId" value="LOCAL-00532" />
-      <option name="project" value="LOCAL" />
-      <updated>1694008837487</updated>
     </task>
     <task id="LOCAL-00533" summary="remove old comment">
       <created>1694009275945</created>
@@ -515,7 +500,21 @@
       <option name="project" value="LOCAL" />
       <updated>1695030618227</updated>
     </task>
-    <option name="localTasksCounter" value="580" />
+    <task id="LOCAL-00580" summary="Update move creating to move finding or creating">
+      <created>1695031161363</created>
+      <option name="number" value="00580" />
+      <option name="presentableId" value="LOCAL-00580" />
+      <option name="project" value="LOCAL" />
+      <updated>1695031161363</updated>
+    </task>
+    <task id="LOCAL-00581" summary="PlayerMove generating">
+      <created>1695032119024</created>
+      <option name="number" value="00581" />
+      <option name="presentableId" value="LOCAL-00581" />
+      <option name="project" value="LOCAL" />
+      <updated>1695032119024</updated>
+    </task>
+    <option name="localTasksCounter" value="582" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -533,8 +532,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="New method; getAllMovableSquares" />
-    <MESSAGE value="Bugfix, todo comment" />
     <MESSAGE value="Process move and helper methods, work in progress" />
     <MESSAGE value="Refactor; changing method order" />
     <MESSAGE value="Shortened ElementNotFound messages" />
@@ -558,7 +555,9 @@
     <MESSAGE value="PlayerMove work in progress" />
     <MESSAGE value="createMove method" />
     <MESSAGE value="move creation and updating" />
-    <option name="LAST_COMMIT_MESSAGE" value="move creation and updating" />
+    <MESSAGE value="Update move creating to move finding or creating" />
+    <MESSAGE value="PlayerMove generating" />
+    <option name="LAST_COMMIT_MESSAGE" value="PlayerMove generating" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

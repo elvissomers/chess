@@ -33,9 +33,12 @@ public class Player {
     @ManyToMany
     @JoinTable(
             name = "player_moves",
+            // Question: could we add a separate attribute, say "number" to the join table here?
             joinColumns = @JoinColumn(name = "player_id"),
             inverseJoinColumns = @JoinColumn(name = "move_id"))
+
     private List<Move> moveHistory = new ArrayList<>();
+    // Question: do we even need a moveHistory attribute in player, if we can instead create a separate player object?
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
