@@ -269,13 +269,6 @@ public class MoveOptionService {
         }
     }
 
-    public boolean pawnCanBeEnPassawnedByPawn(Pawn targetPawn, Pawn attackingPawn, Game game) {
-        Player otherPlayer = (targetPawn.getPlayer().getTeam() == Team.WHITE) ? game.getBlackPlayer()
-                : game.getWhitePlayer();
-        return (otherPlayer.getLastMove().getPiece() == targetPawn && otherPlayer.getLastMove().getVerticalFrom()
-                == ((attackingPawn.getPlayer().getTeam() == Team.BLACK) ? 1 : 6));
-    }
-
     public BoardMap setBoardMap(Game game) {
         BoardMap board = new BoardMap();
         for (Player player : Set.of(game.getWhitePlayer(), game.getBlackPlayer())) {

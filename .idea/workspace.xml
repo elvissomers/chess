@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="PlayerMove generating">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/PlayerMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/PlayerMove.java" afterDir="false" />
-    </list>
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Updated player move history finding methods in PlayerService.java" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -170,34 +168,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00533" summary="remove old comment">
-      <created>1694009275945</created>
-      <option name="number" value="00533" />
-      <option name="presentableId" value="LOCAL-00533" />
-      <option name="project" value="LOCAL" />
-      <updated>1694009275945</updated>
-    </task>
-    <task id="LOCAL-00534" summary="added checkMoveLegality method">
-      <created>1694009409558</created>
-      <option name="number" value="00534" />
-      <option name="presentableId" value="LOCAL-00534" />
-      <option name="project" value="LOCAL" />
-      <updated>1694009409558</updated>
-    </task>
-    <task id="LOCAL-00535" summary="game methods, work in progress">
-      <created>1694009834021</created>
-      <option name="number" value="00535" />
-      <option name="presentableId" value="LOCAL-00535" />
-      <option name="project" value="LOCAL" />
-      <updated>1694009834021</updated>
-    </task>
-    <task id="LOCAL-00536" summary="-">
-      <created>1694012484418</created>
-      <option name="number" value="00536" />
-      <option name="presentableId" value="LOCAL-00536" />
-      <option name="project" value="LOCAL" />
-      <updated>1694012484418</updated>
     </task>
     <task id="LOCAL-00537" summary="Added getPieceForGameAndPosition method">
       <created>1694084173064</created>
@@ -514,7 +484,35 @@
       <option name="project" value="LOCAL" />
       <updated>1695032119024</updated>
     </task>
-    <option name="localTasksCounter" value="582" />
+    <task id="LOCAL-00582" summary="comments, some work in progress">
+      <created>1695032593307</created>
+      <option name="number" value="00582" />
+      <option name="presentableId" value="LOCAL-00582" />
+      <option name="project" value="LOCAL" />
+      <updated>1695032593307</updated>
+    </task>
+    <task id="LOCAL-00583" summary="added manytoone relations in PlayerMove.java">
+      <created>1695032608237</created>
+      <option name="number" value="00583" />
+      <option name="presentableId" value="LOCAL-00583" />
+      <option name="project" value="LOCAL" />
+      <updated>1695032608237</updated>
+    </task>
+    <task id="LOCAL-00584" summary="Derived queries">
+      <created>1695033102041</created>
+      <option name="number" value="00584" />
+      <option name="presentableId" value="LOCAL-00584" />
+      <option name="project" value="LOCAL" />
+      <updated>1695033102041</updated>
+    </task>
+    <task id="LOCAL-00585" summary="Updated player move history finding methods in PlayerService.java">
+      <created>1695033119285</created>
+      <option name="number" value="00585" />
+      <option name="presentableId" value="LOCAL-00585" />
+      <option name="project" value="LOCAL" />
+      <updated>1695033119285</updated>
+    </task>
+    <option name="localTasksCounter" value="586" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,10 +530,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Process move and helper methods, work in progress" />
-    <MESSAGE value="Refactor; changing method order" />
-    <MESSAGE value="Shortened ElementNotFound messages" />
-    <MESSAGE value="processMove method - new updatePlayerTurn helper method" />
     <MESSAGE value="some work on draw rules" />
     <MESSAGE value="Some TODO commentary" />
     <MESSAGE value="Setting other draws in move processing" />
@@ -557,7 +551,11 @@
     <MESSAGE value="move creation and updating" />
     <MESSAGE value="Update move creating to move finding or creating" />
     <MESSAGE value="PlayerMove generating" />
-    <option name="LAST_COMMIT_MESSAGE" value="PlayerMove generating" />
+    <MESSAGE value="comments, some work in progress" />
+    <MESSAGE value="added manytoone relations in PlayerMove.java" />
+    <MESSAGE value="Derived queries" />
+    <MESSAGE value="Updated player move history finding methods in PlayerService.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated player move history finding methods in PlayerService.java" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

@@ -1,8 +1,8 @@
 package com.practice.project.chess.service.pieces;
 
-import com.practice.project.chess.data.dto.PieceDto;
 import com.practice.project.chess.data.dto.SquaresDto;
 import com.practice.project.chess.entity.Game;
+import com.practice.project.chess.entity.Move;
 import com.practice.project.chess.entity.Player;
 import com.practice.project.chess.entity.pieces.Pawn;
 import com.practice.project.chess.entity.pieces.Piece;
@@ -11,6 +11,7 @@ import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.PieceRepository;
 import com.practice.project.chess.service.BoardService;
 import com.practice.project.chess.service.GameService;
+import com.practice.project.chess.service.PlayerService;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.constants.BoardSize;
@@ -25,6 +26,7 @@ public class PawnService {
 
     private final GameService gameService;
     private final BoardService boardService;
+    private final PlayerService playerService;
 
     private int xPos;
     private int yPos;
@@ -139,10 +141,11 @@ public class PawnService {
     }
 
     private boolean pawnCanBeTakenEnPassantByPawn(Pawn targetPawn, Pawn attackingPawn, Game game) {
-        Player otherPlayer = (targetPawn.getPlayer().getTeam() == Team.WHITE) ? game.getBlackPlayer()
+        Player opponentPlayer = (targetPawn.getPlayer().getTeam() == Team.WHITE) ? game.getBlackPlayer()
                 : game.getWhitePlayer();
-        return (otherPlayer.getLastMove().getPiece() == targetPawn && otherPlayer.getLastMove().getVerticalFrom()
-                == ((attackingPawn.getPlayer().getTeam() == Team.BLACK) ? 1 : 6));
+        Move opponentLastMove = playerService.getLastMove(opponentPlayer.getId()).getMove();
+        return opponentLastMove.getPiece() == targetPawn && opponentLastMove.getVerticalFrom()
+                == ((attackingPawn.getPlayer().getTeam() == Team.BLACK) ? 1 : 6);
     }
     
     

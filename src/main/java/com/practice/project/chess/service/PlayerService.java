@@ -127,6 +127,7 @@ public class PlayerService {
     }
 
     public PlayerMove getLastMove(long playerId) {
+        // TODO; make this return just move instead; idem last one; replace in relevant methods
         List<PlayerMove> playerMoves = moveService.getPlayerMoves(playerId);
         return playerMoves.stream()
                 .max(Comparator.comparingInt(PlayerMove::getNumber))
