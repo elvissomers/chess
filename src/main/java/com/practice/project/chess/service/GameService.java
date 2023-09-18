@@ -29,6 +29,7 @@ public class GameService {
     private final PlayerService playerService;
     private final BoardService boardService;
     private final KingService kingService;
+    private final MoveService moveService;
 
     private final GameRepository gameRepository;
 
@@ -83,6 +84,11 @@ public class GameService {
         checkIfPieceInTurn(game, pieceId);
         // TODO: check if Move is a special move: castling, promoting, or taking a piece
         pieceService.updatePosition(pieceId, destination);
+    }
+
+    private void updateMoveHistory(Player player, long pieceId, Coordinate destination) throws ElementNotFoundException {
+        Piece piece = pieceService.getPiece(pieceId);
+        Move newMove = moveService.getOrCreateMove(piece, destination, false); //todo
     }
 
     private void checkIfPieceInTurn(Game game, long pieceId) throws ElementNotFoundException, InvalidMoveException {
