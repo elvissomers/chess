@@ -157,7 +157,7 @@ public class GameService {
     }
 
     private boolean playerHasThreeFoldDraw(Player player) {
-        int historySize = player.getMoveHistory().size();
+        int historySize = playerService.getNumberOfMoves(player.getId());
         if (historySize < 6)
             return false;
         // TODO: update move object and dto
