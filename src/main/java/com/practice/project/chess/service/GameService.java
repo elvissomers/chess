@@ -118,7 +118,7 @@ public class GameService {
 
     private void setCheckOrStaleMate(Game game) throws ElementNotFoundException {
         // TODO : player in turn needs to be updated before this method is called
-        Player playerInTurn = getPlayerInTurn(game);
+        Player playerInTurn = playerInTurn(game);
         if (!canPlayerMove(playerInTurn)) {
             if (isPlayerInCheck(playerInTurn))
                 game.setGameState(opponentWins(playerInTurn));
@@ -127,7 +127,7 @@ public class GameService {
         }
     }
 
-    private Player getPlayerInTurn(Game game) throws ElementNotFoundException {
+    private Player playerInTurn(Game game) throws ElementNotFoundException {
         if (game.getGameState() == GameState.WHITE_TURN)
             return game.getWhitePlayer();
         else if (game.getGameState() == GameState.BLACK_TURN)
@@ -171,14 +171,13 @@ public class GameService {
                 moves.get(1).equals(moves.get(3)) && moves.get(3).equals(moves.get(5)));
     }
 
-    private void setOtherDraws(Game game) {
+    private void setOtherDraws(Game game) throws ElementNotFoundException {
         if (hasFiftyMoveDraw(game) || hasThreeFoldDraw(game))
             game.setGameState(GameState.DRAW);
     }
 
-    private boolean hasFiftyMoveDraw(Game game) {
-        // TODO: we only need to check for the player in turn
-        return (playerHasFiftyMoveDraw(game.getWhitePlayer()) || playerHasFiftyMoveDraw(game.getBlackPlayer()));
+    private boolean hasFiftyMoveDraw(Game game) throws ElementNotFoundException {
+        return playerHasFiftyMoveDraw(playerInTurn(game));
     }
 
     private boolean playerHasFiftyMoveDraw(Player player) {
