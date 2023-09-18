@@ -4,6 +4,8 @@ import com.practice.project.chess.data.dto.MoveDto;
 import com.practice.project.chess.data.dto.mapper.MoveDtoMapper;
 import com.practice.project.chess.entity.Move;
 import com.practice.project.chess.entity.pieces.Piece;
+import com.practice.project.chess.enums.CastleType;
+import com.practice.project.chess.enums.PieceType;
 import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.MoveRepository;
 import com.practice.project.chess.service.structures.Coordinate;
@@ -39,13 +41,21 @@ public class MoveService {
                 .toList();
     }
 
-    public Move createMove(Piece piece, Coordinate destination) {
+    public Move createMove(Piece piece, Coordinate destination, boolean takenPiece) {
         return Move.builder() // TODO : id?
                 .piece(piece)
                 .horizontalFrom(piece.getHorizontalPosition())
                 .verticalFrom(piece.getVerticalPosition())
                 .horizontalTo(destination.getXPos())
                 .verticalTo(destination.getYPos())
+                .takenPiece(takenPiece)
                 .build();
+    }
+
+    public void updateSpecialMove(Move move, CastleType castleType, PieceType promotedTo) {
+        if (castleType != null)
+            move.setCastleType(castleType);
+        if (promotedTo != null)
+            move.setPromotedTo(promotedTo);
     }
 }
