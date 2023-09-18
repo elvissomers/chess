@@ -156,7 +156,7 @@ public class GameService {
             return false;
         // TODO: update move object and dto
 
-        List<Move> lastSixMoves = player.getLastNMoves(6);
+        List<Move> lastSixMoves = playerService.getLastNMoves(6, player.getId());
         return (goesBackAndForth(lastSixMoves));
     }
 
@@ -179,7 +179,7 @@ public class GameService {
         if (player.getMoveHistory().size() < 50)
             return false;
 
-        List<Move> lastFiftyMoves = player.getLastNMoves(50);
+        List<Move> lastFiftyMoves = playerService.getLastNMoves(50, player.getId());
         for (Move move : lastFiftyMoves) {
             if (move.getPiece() instanceof Pawn || move.isTakenPiece()) {
                 return false;

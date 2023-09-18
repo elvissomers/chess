@@ -3,6 +3,7 @@ package com.practice.project.chess.service;
 import com.practice.project.chess.data.dto.PlayerDto;
 import com.practice.project.chess.data.dto.SquaresDto;
 import com.practice.project.chess.data.dto.mapper.PlayerDtoMapper;
+import com.practice.project.chess.entity.Move;
 import com.practice.project.chess.entity.Player;
 import com.practice.project.chess.entity.PlayerMove;
 import com.practice.project.chess.entity.pieces.King;
@@ -116,7 +117,7 @@ public class PlayerService {
     }
 
     public int getNumberOfMoves(long playerId) {
-        return getLastMove(playerId).getNumber();
+        return getPlayerMovesInOrder(playerId).size();
     }
 
     public List<PlayerMove> getPlayerMovesInOrder(long playerId) {
@@ -126,18 +127,18 @@ public class PlayerService {
                 .toList();
     }
 
-    public PlayerMove getLastMove(long playerId) {
+    public Move getLastMove(long playerId) {
         // TODO; make this return just move instead; idem last one; replace in relevant methods
-        List<PlayerMove> playerMoves = moveService.getPlayerMoves(playerId);
-        return playerMoves.stream()
+        return moveService.getPlayerMoves(playerId).stream()
                 .max(Comparator.comparingInt(PlayerMove::getNumber))
+                .map(PlayerMove::getMove)
                 .orElse(null);
     }
 
-    public List<PlayerMove> getLastNMoves(int n, long playerId) {
-        List<PlayerMove> playerMoves = moveService.getPlayerMoves(playerId);
-        return playerMoves.stream()
+    public List<Move> getLastNMoves(int n, long playerId) {
+        return moveService.getPlayerMoves(playerId).stream()
                 .sorted(Comparator.comparingInt(PlayerMove::getNumber).reversed())
+                .map(PlayerMove::getMove)
                 .limit(n)
                 .toList();
     }

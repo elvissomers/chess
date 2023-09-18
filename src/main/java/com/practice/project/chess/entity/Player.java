@@ -78,13 +78,4 @@ public class Player {
         }
         throw new ElementNotFoundException("Player's King not found!");
     }
-
-    public List<Move> getLastNMoves(int n) {
-        List<Move> playerMoves = moveRepository.findByPlayers_IdContaining(id);
-        return playerMoves.stream()
-                .sorted(Comparator.comparingInt(Move::getNumber).reversed())
-                .limit(n)
-                .collect(Collectors.toList());
-    }
-
 }

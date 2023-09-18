@@ -143,7 +143,7 @@ public class PawnService {
     private boolean pawnCanBeTakenEnPassantByPawn(Pawn targetPawn, Pawn attackingPawn, Game game) {
         Player opponentPlayer = (targetPawn.getPlayer().getTeam() == Team.WHITE) ? game.getBlackPlayer()
                 : game.getWhitePlayer();
-        Move opponentLastMove = playerService.getLastMove(opponentPlayer.getId()).getMove();
+        Move opponentLastMove = playerService.getLastMove(opponentPlayer.getId());
         return opponentLastMove.getPiece() == targetPawn && opponentLastMove.getVerticalFrom()
                 == ((attackingPawn.getPlayer().getTeam() == Team.BLACK) ? 1 : 6);
     }
