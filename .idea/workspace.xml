@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Code cleanup: removed unused imports, old comments">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/PlayerService.java" afterDir="false" />
-    </list>
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Added ElementNotFoundException in BoardService.java; removed unused imports" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -170,20 +168,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00552" summary="New method; getAllMovableSquares">
-      <created>1694159479421</created>
-      <option name="number" value="00552" />
-      <option name="presentableId" value="LOCAL-00552" />
-      <option name="project" value="LOCAL" />
-      <updated>1694159479421</updated>
-    </task>
-    <task id="LOCAL-00553" summary="Bugfix, todo comment">
-      <created>1694159503008</created>
-      <option name="number" value="00553" />
-      <option name="presentableId" value="LOCAL-00553" />
-      <option name="project" value="LOCAL" />
-      <updated>1694159503008</updated>
     </task>
     <task id="LOCAL-00554" summary="Process move and helper methods, work in progress">
       <created>1694159532020</created>
@@ -514,7 +498,21 @@
       <option name="project" value="LOCAL" />
       <updated>1695114080654</updated>
     </task>
-    <option name="localTasksCounter" value="601" />
+    <task id="LOCAL-00601" summary="After changing the pieces of a player, the player should be saved to the repository">
+      <created>1695114294880</created>
+      <option name="number" value="00601" />
+      <option name="presentableId" value="LOCAL-00601" />
+      <option name="project" value="LOCAL" />
+      <updated>1695114294880</updated>
+    </task>
+    <task id="LOCAL-00602" summary="Added ElementNotFoundException in BoardService.java; removed unused imports">
+      <created>1695114502138</created>
+      <option name="number" value="00602" />
+      <option name="presentableId" value="LOCAL-00602" />
+      <option name="project" value="LOCAL" />
+      <updated>1695114502138</updated>
+    </task>
+    <option name="localTasksCounter" value="603" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,8 +530,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added ElementNotFoundExceptions" />
-    <MESSAGE value="PlayerMove object added" />
     <MESSAGE value="PlayerMove id updated" />
     <MESSAGE value="PlayerMove work in progress" />
     <MESSAGE value="createMove method" />
@@ -557,7 +553,9 @@
     <MESSAGE value="Remove more unused methods and imports" />
     <MESSAGE value="Update playerHasFiftyMoveDraw to no longer use deprecated method" />
     <MESSAGE value="Code cleanup: removed unused imports, old comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup: removed unused imports, old comments" />
+    <MESSAGE value="After changing the pieces of a player, the player should be saved to the repository" />
+    <MESSAGE value="Added ElementNotFoundException in BoardService.java; removed unused imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ElementNotFoundException in BoardService.java; removed unused imports" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
