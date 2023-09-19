@@ -1,6 +1,5 @@
 package com.practice.project.chess.service.structures;
 
-import com.ordina.nl.chess.entity.pieces.*;
 import com.practice.project.chess.entity.pieces.Pawn;
 import com.practice.project.chess.entity.pieces.Piece;
 import lombok.*;
