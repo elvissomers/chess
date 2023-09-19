@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Update playerHasFiftyMoveDraw to no longer use deprecated method">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Code cleanup: removed unused imports, old comments">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/PlayerService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,13 +170,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00551" summary="remove unused import, todo comments">
-      <created>1694159466576</created>
-      <option name="number" value="00551" />
-      <option name="presentableId" value="LOCAL-00551" />
-      <option name="project" value="LOCAL" />
-      <updated>1694159466576</updated>
     </task>
     <task id="LOCAL-00552" summary="New method; getAllMovableSquares">
       <created>1694159479421</created>
@@ -514,7 +507,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695112409542</updated>
     </task>
-    <option name="localTasksCounter" value="600" />
+    <task id="LOCAL-00600" summary="Code cleanup: removed unused imports, old comments">
+      <created>1695114080654</created>
+      <option name="number" value="00600" />
+      <option name="presentableId" value="LOCAL-00600" />
+      <option name="project" value="LOCAL" />
+      <updated>1695114080654</updated>
+    </task>
+    <option name="localTasksCounter" value="601" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,7 +532,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="takenpiece booleanity update" />
     <MESSAGE value="Added ElementNotFoundExceptions" />
     <MESSAGE value="PlayerMove object added" />
     <MESSAGE value="PlayerMove id updated" />
@@ -557,7 +556,8 @@
     <MESSAGE value="Remove unused methods and imports" />
     <MESSAGE value="Remove more unused methods and imports" />
     <MESSAGE value="Update playerHasFiftyMoveDraw to no longer use deprecated method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update playerHasFiftyMoveDraw to no longer use deprecated method" />
+    <MESSAGE value="Code cleanup: removed unused imports, old comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup: removed unused imports, old comments" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

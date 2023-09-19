@@ -13,12 +13,10 @@ import com.practice.project.chess.enums.PieceType;
 import com.practice.project.chess.enums.Team;
 import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.PlayerRepository;
-import com.practice.project.chess.service.pieces.KingService;
 import com.practice.project.chess.service.pieces.PawnService;
 import com.practice.project.chess.service.pieces.PieceService;
 import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.constants.BoardSize;
-import com.practice.project.chess.data.dto.MoveDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -68,7 +66,6 @@ public class PlayerService {
                     xPos, yForPawns)
             );
         }
-        // TODO: is this needed? Or not?
         playerRepository.save(player);
     }
 

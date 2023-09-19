@@ -9,6 +9,7 @@ import com.practice.project.chess.enums.PieceType;
 import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.exception.InvalidMoveException;
 import com.practice.project.chess.repository.PieceRepository;
+import com.practice.project.chess.repository.PlayerRepository;
 import com.practice.project.chess.service.BoardService;
 import com.practice.project.chess.service.GameService;
 import com.practice.project.chess.service.PlayerService;
@@ -37,6 +38,7 @@ public class PieceService {
     private final KingService kingService;
 
     private final PieceRepository pieceRepository;
+    private final PlayerRepository playerRepository;
 
     private final PieceDtoMapper pieceDtoMapper;
 
@@ -162,6 +164,7 @@ public class PieceService {
         player.getPieces().remove(pawn);
         Piece promotionPiece = createPiece(move.getPromotedTo(), player, move.getHorizontalTo(), move.getVerticalTo());
         player.getPieces().add(promotionPiece);
+        playerRepository.save(player);
     }
 
     public Piece createPiece(PieceType pieceType, Player player, int horizontalPosition, int verticalPosition) {
