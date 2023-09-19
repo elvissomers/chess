@@ -43,14 +43,14 @@ public class MoveService {
         return playerMoveRepository.findByPlayer_Id(playerId);
     }
 
-    public Move getOrCreateMove(Piece piece, Coordinate destination, boolean takenPiece) {
+    public Move getOrCreateMove(Piece piece, Coordinate destination, Piece takenPiece) {
         return moveRepository.findByPieceAndTakenPieceAndHorizontalFromAndHorizontalToAndVerticalFromAndVerticalTo(
                 piece, takenPiece, piece.getHorizontalPosition(), destination.getXPos(), piece.getVerticalPosition(),
                 destination.getYPos())
                 .orElse(createMove(piece, destination, takenPiece));
     }
 
-    private Move createMove(Piece piece, Coordinate destination, boolean takenPiece) {
+    private Move createMove(Piece piece, Coordinate destination, Piece takenPiece) {
         Move move = Move.builder() // TODO : id?
                 .piece(piece)
                 .horizontalFrom(piece.getHorizontalPosition())

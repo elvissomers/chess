@@ -84,7 +84,7 @@ public class GameService {
         Game game = getGame(gameId);
         checkMove(game, pieceId, destination);
         PlayerMove madeMove = updateMoveHistory(game, pieceId, destination);
-        updatePieceAfterMove(madeMove.getMove());
+        updateGameAfterMove(madeMove.getMove());
         processMove(game);
     }
 
@@ -95,8 +95,8 @@ public class GameService {
 
     private PlayerMove updateMoveHistory(Game game, long pieceId, Coordinate destination) throws ElementNotFoundException {
         Piece piece = pieceService.getPiece(pieceId);
-        boolean takenPiece = pieceService.getPieceForGameAndPosition(destination.getXPos(),
-                destination.getYPos(), game.getId()) != null;
+        Piece takenPiece = pieceService.getPieceForGameAndPosition(destination.getXPos(),
+                destination.getYPos(), game.getId());
         Move newMove = moveService.getOrCreateMove(piece, destination, takenPiece);
         getMoveDetails(newMove);
         return moveService.saveMoveForPlayer(newMove, playerInTurn(game));
@@ -140,7 +140,9 @@ public class GameService {
         throw new InvalidMoveException("Not players turn!");
     }
 
-    private void updatePieceAfterMove(Move move) throws ElementNotFoundException {
+    private void updateGameAfterMove(Move move) throws ElementNotFoundException {
+        // TODO: taken piece needs to be removed from the game!
+        // TODO: so taken piece needs to be an actual piece instead of a boolean!
         if (move.getPromotedTo() != null)
             pieceService.promotePawnTo(move);
         else
@@ -228,7 +230,7 @@ public class GameService {
 
         List<Move> lastFiftyMoves = playerService.getLastNMoves(50, player.getId());
         for (Move move : lastFiftyMoves) {
-            if (move.getPiece() instanceof Pawn || move.isTakenPiece()) {
+            if (move.getPiece() instanceof Pawn || move.getTakenPiece() == null) {
                 return false;
             }
         }

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Added ElementNotFoundException in BoardService.java; removed unused imports" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Code cleanup: added todo comment and split up en passant move finder into smaller methods" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,13 +168,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00554" summary="Process move and helper methods, work in progress">
-      <created>1694159532020</created>
-      <option name="number" value="00554" />
-      <option name="presentableId" value="LOCAL-00554" />
-      <option name="project" value="LOCAL" />
-      <updated>1694159532020</updated>
     </task>
     <task id="LOCAL-00555" summary="Refactor; changing method order">
       <created>1694159624506</created>
@@ -512,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695114502138</updated>
     </task>
-    <option name="localTasksCounter" value="603" />
+    <task id="LOCAL-00603" summary="Code cleanup: added todo comment and split up en passant move finder into smaller methods">
+      <created>1695115623475</created>
+      <option name="number" value="00603" />
+      <option name="presentableId" value="LOCAL-00603" />
+      <option name="project" value="LOCAL" />
+      <updated>1695115623475</updated>
+    </task>
+    <option name="localTasksCounter" value="604" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -530,7 +530,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="PlayerMove id updated" />
     <MESSAGE value="PlayerMove work in progress" />
     <MESSAGE value="createMove method" />
     <MESSAGE value="move creation and updating" />
@@ -555,7 +554,8 @@
     <MESSAGE value="Code cleanup: removed unused imports, old comments" />
     <MESSAGE value="After changing the pieces of a player, the player should be saved to the repository" />
     <MESSAGE value="Added ElementNotFoundException in BoardService.java; removed unused imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ElementNotFoundException in BoardService.java; removed unused imports" />
+    <MESSAGE value="Code cleanup: added todo comment and split up en passant move finder into smaller methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup: added todo comment and split up en passant move finder into smaller methods" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

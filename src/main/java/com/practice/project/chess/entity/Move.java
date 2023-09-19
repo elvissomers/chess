@@ -36,7 +36,7 @@ public class Move {
     @Column(nullable = false)
     private int verticalTo;
 
-    private boolean takenPiece;
+    private Piece takenPiece;
     private CastleType castleType;
     private PieceType promotedTo;
 
@@ -47,7 +47,7 @@ public class Move {
         else if (castleType == CastleType.LONG)
             return "0-0-0";
 
-        String moveChar = (takenPiece) ? "x" : "-";
+        String moveChar = (takenPiece ==null) ? "-" : "x";
         Coordinate squareFrom = new Coordinate(horizontalFrom, verticalFrom);
         Coordinate squareTo = new Coordinate(horizontalTo, verticalTo);
         String promotedString = "=" + promotedTo.toString(); // TODO: toString for PieceType
@@ -66,11 +66,11 @@ public class Move {
 
         return (Objects.equals(piece, move.piece) && horizontalFrom == move.horizontalFrom &&
                 horizontalTo == move.horizontalTo && verticalFrom == move.verticalFrom &&
-                verticalTo == move.verticalTo);
+                verticalTo == move.verticalTo && Objects.equals(takenPiece, move.getTakenPiece()));
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(piece, horizontalFrom, horizontalTo, verticalFrom, verticalTo);
+        return Objects.hash(piece, horizontalFrom, horizontalTo, verticalFrom, verticalTo, takenPiece);
     }
 }

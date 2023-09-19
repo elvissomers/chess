@@ -17,6 +17,6 @@ public interface MoveRepository extends JpaRepository<Move, Long> {
     Optional<Move> findByNumberAndHorizontalFromAndHorizontalToAndVerticalFromAndVerticalTo(int number, int xFrom,
                                                                                             int xTo, int yFrom, int yTo);
 
-    Optional<Move> findByPieceAndTakenPieceAndHorizontalFromAndHorizontalToAndVerticalFromAndVerticalTo(Piece piece, boolean takenPiece,
+    Optional<Move> findByPieceAndTakenPieceAndHorizontalFromAndHorizontalToAndVerticalFromAndVerticalTo(Piece piece, Piece takenPiece,
                                                                                                         int xFrom, int xTo, int yFrom, int yTo);
 }

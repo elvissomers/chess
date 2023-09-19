@@ -21,7 +21,7 @@ public class MoveDto {
     private int horizontalTo;
     private int verticalTo;
 
-    private boolean takenPiece;
+    private long takenPieceId;
     @Enumerated(EnumType.STRING)
     private CastleType castleType;
     @Enumerated(EnumType.STRING)
