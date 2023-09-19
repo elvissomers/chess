@@ -184,4 +184,12 @@ public class PieceService {
 
         return pieceRepository.save(piece);
     }
+
+    public void removePiece(Piece piece) {
+        Player player = piece.getPlayer();
+        player.getPieces().remove(piece);
+
+        pieceRepository.delete(piece);
+        playerRepository.save(player);
+    }
 }

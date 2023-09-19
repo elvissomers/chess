@@ -140,8 +140,10 @@ public class GameService {
     }
 
     private void updateGameAfterMove(Move move) throws ElementNotFoundException {
-        // TODO: taken piece needs to be removed from the game!
-        // TODO: so taken piece needs to be an actual piece instead of a boolean!
+        // TODO taken Piece needs to be added when en passawned
+        if (move.getTakenPiece() != null)
+            pieceService.removePiece(move.getTakenPiece());
+
         if (move.getPromotedTo() != null)
             pieceService.promotePawnTo(move);
         else
