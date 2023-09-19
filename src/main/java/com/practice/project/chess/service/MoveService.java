@@ -2,12 +2,14 @@ package com.practice.project.chess.service;
 
 import com.practice.project.chess.data.dto.MoveDto;
 import com.practice.project.chess.data.dto.mapper.MoveDtoMapper;
+import com.practice.project.chess.entity.Game;
 import com.practice.project.chess.entity.Move;
 import com.practice.project.chess.entity.Player;
 import com.practice.project.chess.entity.PlayerMove;
 import com.practice.project.chess.entity.pieces.Piece;
 import com.practice.project.chess.enums.CastleType;
 import com.practice.project.chess.enums.PieceType;
+import com.practice.project.chess.enums.Team;
 import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.MoveRepository;
 import com.practice.project.chess.repository.PlayerMoveRepository;
@@ -25,6 +27,7 @@ public class MoveService {
     private final PlayerMoveRepository playerMoveRepository;
 
     private final PlayerService playerService;
+    private final BoardService boardService;
 
     private final MoveDtoMapper moveDtoMapper;
 
@@ -76,5 +79,19 @@ public class MoveService {
             move.setCastleType(castleType);
         if (promotedTo != null)
             move.setPromotedTo(promotedTo);
+    }
+
+    public void setTakenPieceIfEnPassant(Move move, long gameId) throws ElementNotFoundException {
+        if (pawnMovedDiagonally(move) && move.getTakenPiece() == null) {
+            Piece takenPiece = boardService.getBoardMapForGame(gameId)
+                    .getPieceByPos(move.getHorizontalTo(), move.getVerticalFrom());
+            move.setTakenPiece(takenPiece);
+        }
+
+    }
+
+    private boolean pawnMovedDiagonally(Move move) {
+        return (move.getPiece().getPieceType() == PieceType.PAWN &&
+                move.getHorizontalFrom() != move.getHorizontalTo());
     }
 }

@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Code cleanup: added todo comment and split up en passant move finder into smaller methods" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Code cleanup: remove unused imports">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/GameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/MoveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/MoveService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,34 +172,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00555" summary="Refactor; changing method order">
-      <created>1694159624506</created>
-      <option name="number" value="00555" />
-      <option name="presentableId" value="LOCAL-00555" />
-      <option name="project" value="LOCAL" />
-      <updated>1694159624506</updated>
-    </task>
-    <task id="LOCAL-00556" summary="Shortened ElementNotFound messages">
-      <created>1694159687869</created>
-      <option name="number" value="00556" />
-      <option name="presentableId" value="LOCAL-00556" />
-      <option name="project" value="LOCAL" />
-      <updated>1694159687869</updated>
-    </task>
-    <task id="LOCAL-00557" summary="processMove method - new updatePlayerTurn helper method">
-      <created>1694159941261</created>
-      <option name="number" value="00557" />
-      <option name="presentableId" value="LOCAL-00557" />
-      <option name="project" value="LOCAL" />
-      <updated>1694159941262</updated>
-    </task>
-    <task id="LOCAL-00558" summary="some work on draw rules">
-      <created>1694168314196</created>
-      <option name="number" value="00558" />
-      <option name="presentableId" value="LOCAL-00558" />
-      <option name="project" value="LOCAL" />
-      <updated>1694168314196</updated>
     </task>
     <task id="LOCAL-00559" summary="some work on draw rules">
       <created>1694168592349</created>
@@ -512,7 +488,35 @@
       <option name="project" value="LOCAL" />
       <updated>1695115623475</updated>
     </task>
-    <option name="localTasksCounter" value="604" />
+    <task id="LOCAL-00604" summary="Reworked &quot;takenPiece&quot; attribute in Move from boolean to Piece">
+      <created>1695117468127</created>
+      <option name="number" value="00604" />
+      <option name="presentableId" value="LOCAL-00604" />
+      <option name="project" value="LOCAL" />
+      <updated>1695117468127</updated>
+    </task>
+    <task id="LOCAL-00605" summary="Code cleanup: Remove old comments">
+      <created>1695117511817</created>
+      <option name="number" value="00605" />
+      <option name="presentableId" value="LOCAL-00605" />
+      <option name="project" value="LOCAL" />
+      <updated>1695117511817</updated>
+    </task>
+    <task id="LOCAL-00606" summary="Remove taken piece from game">
+      <created>1695117775057</created>
+      <option name="number" value="00606" />
+      <option name="presentableId" value="LOCAL-00606" />
+      <option name="project" value="LOCAL" />
+      <updated>1695117775057</updated>
+    </task>
+    <task id="LOCAL-00607" summary="Code cleanup: remove unused imports">
+      <created>1695118184817</created>
+      <option name="number" value="00607" />
+      <option name="presentableId" value="LOCAL-00607" />
+      <option name="project" value="LOCAL" />
+      <updated>1695118184817</updated>
+    </task>
+    <option name="localTasksCounter" value="608" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -530,10 +534,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="PlayerMove work in progress" />
-    <MESSAGE value="createMove method" />
-    <MESSAGE value="move creation and updating" />
-    <MESSAGE value="Update move creating to move finding or creating" />
     <MESSAGE value="PlayerMove generating" />
     <MESSAGE value="comments, some work in progress" />
     <MESSAGE value="added manytoone relations in PlayerMove.java" />
@@ -555,7 +555,11 @@
     <MESSAGE value="After changing the pieces of a player, the player should be saved to the repository" />
     <MESSAGE value="Added ElementNotFoundException in BoardService.java; removed unused imports" />
     <MESSAGE value="Code cleanup: added todo comment and split up en passant move finder into smaller methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup: added todo comment and split up en passant move finder into smaller methods" />
+    <MESSAGE value="Reworked &quot;takenPiece&quot; attribute in Move from boolean to Piece" />
+    <MESSAGE value="Code cleanup: Remove old comments" />
+    <MESSAGE value="Remove taken piece from game" />
+    <MESSAGE value="Code cleanup: remove unused imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup: remove unused imports" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

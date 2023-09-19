@@ -97,14 +97,15 @@ public class GameService {
         Piece takenPiece = pieceService.getPieceForGameAndPosition(destination.getXPos(),
                 destination.getYPos(), game.getId());
         Move newMove = moveService.getOrCreateMove(piece, destination, takenPiece);
-        getMoveDetails(newMove);
+        getMoveDetails(newMove, game.getId());
         return moveService.saveMoveForPlayer(newMove, playerInTurn(game));
     }
 
-    private void getMoveDetails(Move move) {
+    private void getMoveDetails(Move move, long gameId) throws ElementNotFoundException {
         CastleType castleType = getTypeIfCastled(move);
         PieceType promotionPiece = getNewPieceIfPromoted(move);
         moveService.updateSpecialMove(move, castleType, promotionPiece);
+        moveService.setTakenPieceIfEnPassant(move, gameId);
     }
 
     private CastleType getTypeIfCastled(Move move) {
@@ -140,7 +141,6 @@ public class GameService {
     }
 
     private void updateGameAfterMove(Move move) throws ElementNotFoundException {
-        // TODO taken Piece needs to be added when en passawned
         if (move.getTakenPiece() != null)
             pieceService.removePiece(move.getTakenPiece());
 
