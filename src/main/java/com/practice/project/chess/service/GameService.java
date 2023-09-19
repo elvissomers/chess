@@ -228,7 +228,7 @@ public class GameService {
     }
 
     private boolean playerHasFiftyMoveDraw(Player player) {
-        if (player.getMoveHistory().size() < 50)
+        if (playerService.getNumberOfMoves(player.getId()) < 50)
             return false;
 
         List<Move> lastFiftyMoves = playerService.getLastNMoves(50, player.getId());
