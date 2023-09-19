@@ -1,6 +1,7 @@
 package com.practice.project.chess.service.pieces;
 
 import com.practice.project.chess.entity.pieces.Piece;
+import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.service.BoardService;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.constants.BoardSize;
@@ -16,7 +17,7 @@ public class KnightService {
     private int xPos;
     private int yPos;
 
-    public void setMovableSquares(Piece piece, long gameId) {
+    public void setMovableSquares(Piece piece, long gameId) throws ElementNotFoundException {
         BoardMap board = boardService.getBoardMapForGame(gameId);
         setMovableSquaresWithBoard(piece, board);
     }

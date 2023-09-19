@@ -37,7 +37,7 @@ public class PawnService {
         return SquaresDto.builder().squares(
                 pieceRepository.findById(pieceId)
                         .map(Piece::getAttackedSquares)
-                        .orElseThrow(()-> new ElementNotFoundException("Piece not present in repository"))) // TODO: .orElseThrow
+                        .orElseThrow(()-> new ElementNotFoundException("Piece not present in repository")))
                 .build();
     }
 
@@ -51,7 +51,7 @@ public class PawnService {
         addPawnEnPassantMovesToMovableSquares(pawn, board, gameId);
     }
 
-    public void setAttackedSquares(Pawn pawn, long gameId) {
+    public void setAttackedSquares(Pawn pawn, long gameId) throws ElementNotFoundException {
         BoardMap board = boardService.getBoardMapForGame(gameId);
         obtainPosition(pawn);
 

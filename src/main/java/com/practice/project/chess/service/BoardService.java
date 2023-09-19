@@ -2,8 +2,8 @@ package com.practice.project.chess.service;
 
 import com.practice.project.chess.entity.Game;
 import com.practice.project.chess.entity.pieces.Piece;
+import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.GameRepository;
-import com.practice.project.chess.service.pieces.PieceService;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.constants.BoardSize;
@@ -19,14 +19,10 @@ public class BoardService {
 
     private final GameRepository gameRepository;
 
-    private final GameService gameService;
-    private final PlayerService playerService;
-    private final PieceService pieceService;
-
-    public BoardMap getBoardMapForGame(long gameId) {
+    public BoardMap getBoardMapForGame(long gameId) throws ElementNotFoundException {
         BoardMap boardMap = getEmptyBoardMap();
         Game game = gameRepository.findById(gameId)
-                .orElse(null); // TODO: orElseThrow...
+                .orElseThrow(() -> new ElementNotFoundException("Game not found!"));
 
         if (game != null) {
             List<Piece> pieces = Stream.concat(game.getWhitePlayer().getPieces().stream(),
@@ -66,7 +62,7 @@ public class BoardService {
         }
     }
 
-    public BoardMap getBoardMapForCopiedPiece(Piece originalPiece, Piece copyPiece, long gameId) {
+    public BoardMap getBoardMapForCopiedPiece(Piece originalPiece, Piece copyPiece, long gameId) throws ElementNotFoundException {
         BoardMap board = getBoardMapForGame(gameId);
 
         board.put(board.getCoordinateByPos(originalPiece.getHorizontalPosition(), originalPiece.getVerticalPosition()), null);
