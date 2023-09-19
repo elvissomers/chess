@@ -61,7 +61,6 @@ public class GameService {
     }
 
     public GameDto getNewGame() {
-        // TODO: split in create new game and get new game
         Game game = new Game();
         Player whitePlayer = Player.builder().game(game).team(Team.WHITE).build();
         Player blackPlayer = Player.builder().game(game).team(Team.BLACK).build();
