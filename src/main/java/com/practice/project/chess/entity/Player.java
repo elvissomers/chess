@@ -13,7 +13,6 @@ import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -46,30 +45,6 @@ public class Player {
 
     @OneToMany(mappedBy = "player", orphanRemoval = true)
     private List<Piece> pieces = new ArrayList<>();
-
-    private Set<Coordinate> allAttackedSquares = new HashSet<>();
-
-    @Autowired
-    private MoveRepository moveRepository;
-
-    @Autowired
-    private MoveOptionService moveFinder;
-
-    public Player(Game game, Team team) {
-        this.game = game;
-        this.team = team;
-    }
-
-    //TODO : use canPlayerMove in game
-    public boolean canMove() {
-        BoardMap board = moveFinder.setBoardMap(game);
-        for (Piece piece : pieces) {
-            game.setMovableSquaresForPiece(piece, board);
-            if (!piece.getLegalMovableSquares().isEmpty())
-                return true;
-        }
-        return false;
-    }
 
     public King getKing() throws ElementNotFoundException {
         for (Piece piece : pieces) {
