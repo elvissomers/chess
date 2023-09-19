@@ -30,7 +30,6 @@ public class GameService {
 
     private final PieceService pieceService;
     private final PlayerService playerService;
-    private final BoardService boardService;
     private final KingService kingService;
     private final MoveService moveService;
 
@@ -95,8 +94,6 @@ public class GameService {
     }
 
     private PlayerMove updateMoveHistory(Game game, long pieceId, Coordinate destination) throws ElementNotFoundException {
-        // IMPORTANT: This should be done BEFORE the pieces position is updated! Otherwise we do not have the information
-        // needed for the move
         Piece piece = pieceService.getPiece(pieceId);
         boolean takenPiece = pieceService.getPieceForGameAndPosition(destination.getXPos(),
                 destination.getYPos(), game.getId()) != null;
@@ -151,10 +148,10 @@ public class GameService {
     }
 
     private void processMove(Game game) throws ElementNotFoundException {
+        setOtherDraws(game);
         updatePlayerTurn(game);
         setCheckOrStaleMate(game);
-        setOtherDraws(game);
-        // TODO (Later) : check for check
+        // TODO check for check
     }
 
     private void updatePlayerTurn(Game game) {
@@ -164,7 +161,6 @@ public class GameService {
     }
 
     private void setCheckOrStaleMate(Game game) throws ElementNotFoundException {
-        // TODO : player in turn needs to be updated before this method is called
         Player playerInTurn = playerInTurn(game);
         if (!canPlayerMove(playerInTurn)) {
             if (isPlayerInCheck(playerInTurn))
@@ -207,7 +203,6 @@ public class GameService {
         int historySize = playerService.getNumberOfMoves(player.getId());
         if (historySize < 6)
             return false;
-        // TODO: update move object and dto
 
         List<Move> lastSixMoves = playerService.getLastNMoves(6, player.getId());
         return (goesBackAndForth(lastSixMoves));
