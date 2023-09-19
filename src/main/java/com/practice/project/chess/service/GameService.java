@@ -5,6 +5,7 @@ import com.practice.project.chess.data.dto.mapper.GameDtoMapper;
 import com.practice.project.chess.entity.Game;
 import com.practice.project.chess.entity.Move;
 import com.practice.project.chess.entity.Player;
+import com.practice.project.chess.entity.PlayerMove;
 import com.practice.project.chess.entity.pieces.King;
 import com.practice.project.chess.entity.pieces.Pawn;
 import com.practice.project.chess.entity.pieces.Piece;
@@ -82,21 +83,26 @@ public class GameService {
     public void makeMove(long gameId, long pieceId, Coordinate destination)
             throws ElementNotFoundException, InvalidMoveException {
         Game game = getGame(gameId);
-        pieceService.checkMoveLegality(pieceId, destination);
-        checkIfPieceInTurn(game, pieceId);
-        // TODO: check if Move is a special move: castling, promoting, or taking a piece
-        pieceService.updatePosition(pieceId, destination);
+        checkMove(game, pieceId, destination);
+        PlayerMove madeMove = updateMoveHistory(game, pieceId, destination);
+        updatePieceAfterMove(madeMove.getMove());
+        processMove(game);
     }
 
-    private void updateMoveHistory(Game game, long pieceId, Coordinate destination) throws ElementNotFoundException {
-        // TODO: IMPORTANT: This should be done BEFORE the pieces position is updated! Otherwise we do not have the information
-        // TODO needed for the move (specifically, the x and y from)!!
+    private void checkMove(Game game, long pieceId, Coordinate destination) throws ElementNotFoundException, InvalidMoveException {
+        pieceService.checkMoveLegality(pieceId, destination);
+        checkIfPieceInTurn(game, pieceId);
+    }
+
+    private PlayerMove updateMoveHistory(Game game, long pieceId, Coordinate destination) throws ElementNotFoundException {
+        // IMPORTANT: This should be done BEFORE the pieces position is updated! Otherwise we do not have the information
+        // needed for the move
         Piece piece = pieceService.getPiece(pieceId);
         boolean takenPiece = pieceService.getPieceForGameAndPosition(destination.getXPos(),
                 destination.getYPos(), game.getId()) != null;
         Move newMove = moveService.getOrCreateMove(piece, destination, takenPiece);
         getMoveDetails(newMove);
-        moveService.saveMoveForPlayer(newMove, playerInTurn(game));
+        return moveService.saveMoveForPlayer(newMove, playerInTurn(game));
     }
 
     private void getMoveDetails(Move move) {
@@ -116,8 +122,6 @@ public class GameService {
     }
 
     private PieceType getNewPieceIfPromoted(Move move) {
-        // TODO Making ACTUAL promotion possible. This means do the following two things:
-        // TODO 1) Removing the pawn and replacing it with a new piece of the correct PieceType
         // TODO 2) Get the wanted PieceType as input from the used instead of just hardcoding it to queen
         if (move.getPiece().getPieceType() == PieceType.PAWN) {
             if (move.getVerticalTo() == getPromotionRank(move.getPiece()))
@@ -139,13 +143,17 @@ public class GameService {
         throw new InvalidMoveException("Not players turn!");
     }
 
-    private void processMove(long gameId) throws ElementNotFoundException {
-        // Should return move?
-        Game game = getGame(gameId);
+    private void updatePieceAfterMove(Move move) throws ElementNotFoundException {
+        if (move.getPromotedTo() != null)
+            pieceService.promotePawnTo(move);
+        else
+            pieceService.updatePosition(move);
+    }
+
+    private void processMove(Game game) throws ElementNotFoundException {
         updatePlayerTurn(game);
         setCheckOrStaleMate(game);
         setOtherDraws(game);
-        // TODO: saving moves to moveHistory
         // TODO (Later) : check for check
     }
 

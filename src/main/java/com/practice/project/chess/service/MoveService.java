@@ -62,13 +62,13 @@ public class MoveService {
         return moveRepository.save(move);
     }
 
-    public void saveMoveForPlayer(Move move, Player player) {
+    public PlayerMove saveMoveForPlayer(Move move, Player player) {
         PlayerMove newMove = PlayerMove.builder()
                 .number(playerService.getNumberOfMoves(player.getId()) + 1)
                 .move(move)
                 .player(player)
                 .build();
-        playerMoveRepository.save(newMove);
+        return playerMoveRepository.save(newMove);
     }
 
     public void updateSpecialMove(Move move, CastleType castleType, PieceType promotedTo) {

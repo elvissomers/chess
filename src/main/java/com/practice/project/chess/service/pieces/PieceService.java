@@ -3,6 +3,7 @@ package com.practice.project.chess.service.pieces;
 import com.practice.project.chess.data.dto.PieceDto;
 import com.practice.project.chess.data.dto.SquaresDto;
 import com.practice.project.chess.data.dto.mapper.PieceDtoMapper;
+import com.practice.project.chess.entity.Move;
 import com.practice.project.chess.entity.Player;
 import com.practice.project.chess.enums.PieceType;
 import com.practice.project.chess.exception.ElementNotFoundException;
@@ -148,11 +149,19 @@ public class PieceService {
         throw new InvalidMoveException("Illegal Move!");
     }
 
-    public void updatePosition(long pieceId, Coordinate destination) throws ElementNotFoundException {
-        Piece piece = getPiece(pieceId);
-        piece.setHorizontalPosition(destination.getXPos());
-        piece.setVerticalPosition(destination.getYPos());
+    public void updatePosition(Move move) throws ElementNotFoundException {
+        Piece piece = move.getPiece();
+        piece.setHorizontalPosition(move.getHorizontalTo());
+        piece.setVerticalPosition(move.getVerticalTo());
         pieceRepository.save(piece);
+    }
+
+    public void promotePawnTo(Move move) {
+        Piece pawn = move.getPiece();
+        Player player = pawn.getPlayer();
+        player.getPieces().remove(pawn);
+        Piece promotionPiece = createPiece(move.getPromotedTo(), player, move.getHorizontalTo(), move.getVerticalTo());
+        player.getPieces().add(promotionPiece);
     }
 
     public Piece createPiece(PieceType pieceType, Player player, int horizontalPosition, int verticalPosition) {
