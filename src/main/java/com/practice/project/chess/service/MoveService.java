@@ -39,14 +39,6 @@ public class MoveService {
                 .orElseThrow(() -> new ElementNotFoundException("Move not found!"));
     }
 
-    public List<MoveDto> getMovesFromPlayerId(long id) {
-        // TODO: so how do we make sure the moves are in order?
-        // TODO PlayerMove "koppelobject"?
-        return moveRepository.findByPlayers_IdContaining(id).stream()
-                .map(moveDtoMapper::MoveToMoveDto)
-                .toList();
-    }
-
     public List<PlayerMove> getPlayerMoves(long playerId) {
         return playerMoveRepository.findByPlayer_Id(playerId);
     }
@@ -84,12 +76,5 @@ public class MoveService {
             move.setCastleType(castleType);
         if (promotedTo != null)
             move.setPromotedTo(promotedTo);
-    }
-
-    public PlayerMove getPlayerMove(Move move, int number) {
-        return PlayerMove.builder()
-                .move(move)
-                .number(number)
-                .build();
     }
 }
