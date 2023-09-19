@@ -2,14 +2,12 @@ package com.practice.project.chess.service;
 
 import com.practice.project.chess.data.dto.MoveDto;
 import com.practice.project.chess.data.dto.mapper.MoveDtoMapper;
-import com.practice.project.chess.entity.Game;
 import com.practice.project.chess.entity.Move;
 import com.practice.project.chess.entity.Player;
 import com.practice.project.chess.entity.PlayerMove;
 import com.practice.project.chess.entity.pieces.Piece;
 import com.practice.project.chess.enums.CastleType;
 import com.practice.project.chess.enums.PieceType;
-import com.practice.project.chess.enums.Team;
 import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.MoveRepository;
 import com.practice.project.chess.repository.PlayerMoveRepository;
