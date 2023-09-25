@@ -154,7 +154,7 @@ public class GameService {
         setOtherDraws(game);
         updatePlayerTurn(game);
         setCheckOrStaleMate(game);
-        // TODO check for check
+        // TODO check for check, for the "+" in notation (and maybe some other visual effect)
     }
 
     private void updatePlayerTurn(Game game) {
