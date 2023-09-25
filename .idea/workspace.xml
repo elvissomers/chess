@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Code cleanup: remove unused imports">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Code cleanup: Remove unused imports">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/GameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/MoveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/MoveService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,28 +46,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/eso13215/IdeaProjects/coding-assessment",
+    "onboarding.tips.debug.path": "C:/Users/eso13215/IdeaProjects/chess/src/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -172,20 +170,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00559" summary="some work on draw rules">
-      <created>1694168592349</created>
-      <option name="number" value="00559" />
-      <option name="presentableId" value="LOCAL-00559" />
-      <option name="project" value="LOCAL" />
-      <updated>1694168592349</updated>
-    </task>
-    <task id="LOCAL-00560" summary="some work on draw rules">
-      <created>1694168807114</created>
-      <option name="number" value="00560" />
-      <option name="presentableId" value="LOCAL-00560" />
-      <option name="project" value="LOCAL" />
-      <updated>1694168807114</updated>
     </task>
     <task id="LOCAL-00561" summary="Some TODO commentary">
       <created>1694168818379</created>
@@ -516,7 +500,21 @@
       <option name="project" value="LOCAL" />
       <updated>1695118184817</updated>
     </task>
-    <option name="localTasksCounter" value="608" />
+    <task id="LOCAL-00608" summary="If en passant occured, the taken pawn is set as takenPiece in move">
+      <created>1695118585662</created>
+      <option name="number" value="00608" />
+      <option name="presentableId" value="LOCAL-00608" />
+      <option name="project" value="LOCAL" />
+      <updated>1695118585662</updated>
+    </task>
+    <task id="LOCAL-00609" summary="Code cleanup: Remove unused imports">
+      <created>1695118611322</created>
+      <option name="number" value="00609" />
+      <option name="presentableId" value="LOCAL-00609" />
+      <option name="project" value="LOCAL" />
+      <updated>1695118611322</updated>
+    </task>
+    <option name="localTasksCounter" value="610" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -534,8 +532,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="PlayerMove generating" />
-    <MESSAGE value="comments, some work in progress" />
     <MESSAGE value="added manytoone relations in PlayerMove.java" />
     <MESSAGE value="Derived queries" />
     <MESSAGE value="Updated player move history finding methods in PlayerService.java" />
@@ -559,7 +555,9 @@
     <MESSAGE value="Code cleanup: Remove old comments" />
     <MESSAGE value="Remove taken piece from game" />
     <MESSAGE value="Code cleanup: remove unused imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup: remove unused imports" />
+    <MESSAGE value="If en passant occured, the taken pawn is set as takenPiece in move" />
+    <MESSAGE value="Code cleanup: Remove unused imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup: Remove unused imports" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
