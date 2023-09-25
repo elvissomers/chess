@@ -1,6 +1,5 @@
 package com.practice.project.chess.entity.pieces;
 
-import com.practice.project.chess.enums.PieceType;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
@@ -19,11 +18,6 @@ public class Bishop extends Piece {
 
     public Bishop copy(){
         return new Bishop(this);
-    }
-
-    @Override
-    public void setCorrectPieceType() {
-        setPieceType(PieceType.BISHOP);
     }
 
     @Override

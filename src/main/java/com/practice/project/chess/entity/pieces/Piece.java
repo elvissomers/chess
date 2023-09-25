@@ -25,8 +25,6 @@ public abstract class Piece {
 
     private int horizontalPosition;
     private int verticalPosition;
-    // TODO: move back to king & rook
-    private boolean hasMoved;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "player_id")
@@ -42,6 +40,7 @@ public abstract class Piece {
     private List<Coordinate> legalMovableSquares = new ArrayList<>();
 
     @Transient
+    // TODO: why is attackedSquares here instead of just in pawn?
     private List<Coordinate> attackedSquares = new ArrayList<>();
 
     protected Piece(Player player) {
@@ -61,10 +60,6 @@ public abstract class Piece {
     }
 
     public abstract Piece copy();
-
-    public void setLegalMovableSquares() {
-        legalMovableSquares = new ArrayList<>();
-    }
 
     public void addMovableSquare(Coordinate coordinate){
         this.movableSquares.add(coordinate);
