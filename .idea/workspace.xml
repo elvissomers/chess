@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Code cleanup: Remove unused methods, attributes and imports.">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Code cleanup: comment update">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/controllers/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/data/dto/MovePieceDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/data/dto/MovePieceDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/GameService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,13 +174,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00563" summary="Setting other draws in move processing">
-      <created>1694169657352</created>
-      <option name="number" value="00563" />
-      <option name="presentableId" value="LOCAL-00563" />
-      <option name="project" value="LOCAL" />
-      <updated>1694169657353</updated>
     </task>
     <task id="LOCAL-00564" summary="split up getnewgame method to have shorter methods">
       <created>1694169928772</created>
@@ -514,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695640941017</updated>
     </task>
-    <option name="localTasksCounter" value="612" />
+    <task id="LOCAL-00612" summary="Code cleanup: comment update">
+      <created>1695640999282</created>
+      <option name="number" value="00612" />
+      <option name="presentableId" value="LOCAL-00612" />
+      <option name="project" value="LOCAL" />
+      <updated>1695640999282</updated>
+    </task>
+    <option name="localTasksCounter" value="613" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,7 +536,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Updated player move history finding methods in PlayerService.java" />
     <MESSAGE value="Removing and replacing old methods from Player.java with those from PlayerService.java" />
     <MESSAGE value="remove old comments" />
     <MESSAGE value="Saving moves; work in progress" />
@@ -557,7 +560,8 @@
     <MESSAGE value="Code cleanup: Remove unused imports" />
     <MESSAGE value="Code cleanup: Remove unused methods and imports" />
     <MESSAGE value="Code cleanup: Remove unused methods, attributes and imports." />
-    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup: Remove unused methods, attributes and imports." />
+    <MESSAGE value="Code cleanup: comment update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup: comment update" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

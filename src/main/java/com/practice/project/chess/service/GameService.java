@@ -1,6 +1,7 @@
 package com.practice.project.chess.service;
 
 import com.practice.project.chess.data.dto.GameDto;
+import com.practice.project.chess.data.dto.MovePieceDto;
 import com.practice.project.chess.data.dto.mapper.GameDtoMapper;
 import com.practice.project.chess.entity.Game;
 import com.practice.project.chess.entity.Move;
@@ -78,22 +79,28 @@ public class GameService {
         game.setGameState(GameState.WHITE_TURN);
     }
 
-    public void makeMove(long gameId, long pieceId, Coordinate destination)
+    public void makeMoveFromDto(MovePieceDto dto) {
+        Game game = getGame(dto.getGameId());
+        Piece piece = pieceService.getPieceForGameAndPosition(dto.getXFrom(), dto.getYFrom(), dto.getGameId());
+        Coordinate destination = new Coordinate(dto.getXTo(), dto.getYTo());
+
+        makeMove(game, piece, destination);
+    }
+
+    public void makeMove(Game game, Piece piece, Coordinate destination)
             throws ElementNotFoundException, InvalidMoveException {
-        Game game = getGame(gameId);
-        checkMove(game, pieceId, destination);
-        PlayerMove madeMove = updateMoveHistory(game, pieceId, destination);
+        checkMove(game, piece, destination);
+        PlayerMove madeMove = updateMoveHistory(game, piece, destination);
         updateGameAfterMove(madeMove.getMove());
         processMove(game);
     }
 
-    private void checkMove(Game game, long pieceId, Coordinate destination) throws ElementNotFoundException, InvalidMoveException {
-        pieceService.checkMoveLegality(pieceId, destination);
-        checkIfPieceInTurn(game, pieceId);
+    private void checkMove(Game game, Piece piece, Coordinate destination) throws InvalidMoveException {
+        pieceService.checkMoveLegality(piece, destination);
+        checkIfPieceInTurn(game, piece);
     }
 
-    private PlayerMove updateMoveHistory(Game game, long pieceId, Coordinate destination) throws ElementNotFoundException {
-        Piece piece = pieceService.getPiece(pieceId);
+    private PlayerMove updateMoveHistory(Game game, Piece piece, Coordinate destination) throws ElementNotFoundException {
         Piece takenPiece = pieceService.getPieceForGameAndPosition(destination.getXPos(),
                 destination.getYPos(), game.getId());
         Move newMove = moveService.getOrCreateMove(piece, destination, takenPiece);
@@ -131,8 +138,7 @@ public class GameService {
         return (piece.getPlayer().getTeam() == Team.WHITE) ? 7 : 0;
     }
 
-    private void checkIfPieceInTurn(Game game, long pieceId) throws ElementNotFoundException, InvalidMoveException {
-        Piece piece = pieceService.getPiece(pieceId);
+    private void checkIfPieceInTurn(Game game, Piece piece) throws InvalidMoveException {
         if ((game.getGameState() == GameState.WHITE_TURN && piece.getPlayer().getTeam() == Team.WHITE)
                 || (game.getGameState() == GameState.BLACK_TURN && piece.getPlayer().getTeam() == Team.BLACK)) {
             return;

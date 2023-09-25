@@ -1,6 +1,7 @@
 package com.practice.project.chess.controllers;
 
 import com.practice.project.chess.data.dto.GameDto;
+import com.practice.project.chess.data.dto.MovePieceDto;
 import com.practice.project.chess.exception.ElementNotFoundException;
 import com.practice.project.chess.service.GameService;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,12 @@ public class GameController {
     }
 
     @PutMapping("create_new")
-    public void createNewStandardGame() {
-        // TODO
+    public GameDto createNewStandardGame() {
+        return gameService.getNewGame();
+    }
+
+    @PutMapping("make_move/{id}")
+    public GameDto makeMove(@PathVariable long id, @RequestBody MovePieceDto moveDto) {
+
     }
 }

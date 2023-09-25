@@ -8,6 +8,8 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO: players should be connected to accounts
+
 @Getter
 @Setter
 @Builder

@@ -143,9 +143,7 @@ public class PieceService {
         return attackedSquares;
     }
 
-    public void checkMoveLegality(long pieceId, Coordinate destination)
-            throws InvalidMoveException, ElementNotFoundException {
-        Piece piece = getPiece(pieceId);
+    public void checkMoveLegality(Piece piece, Coordinate destination) throws InvalidMoveException {
         if (piece.getLegalMovableSquares().contains(destination))
             return;
         throw new InvalidMoveException("Illegal Move!");
