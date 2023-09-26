@@ -3,7 +3,13 @@ package com.practice.project.chess.service;
 import com.practice.project.chess.entity.pieces.Piece;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.constants.BoardSize;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@RequiredArgsConstructor
+@Service
+// TODO: xPos and yPos are not final, is het een probleem dat deze service dat wel is
+// TODO andere classes waar deze ge inject wordt?
 public class MoveOptionService {
     
     private int xPos;
