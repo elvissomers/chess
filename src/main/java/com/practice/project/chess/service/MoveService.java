@@ -29,12 +29,12 @@ public class MoveService {
 
     private final MoveDtoMapper moveDtoMapper;
 
-    public Move getMove(long id) throws ElementNotFoundException {
+    public Move getMove(long id) {
         return moveRepository.findById(id)
                 .orElseThrow(() -> new ElementNotFoundException("Move not found!"));
     }
 
-    public MoveDto getMoveDto(long id) throws ElementNotFoundException {
+    public MoveDto getMoveDto(long id) {
         return moveRepository.findById(id)
                 .map(moveDtoMapper::MoveToMoveDto)
                 .orElseThrow(() -> new ElementNotFoundException("Move not found!"));
@@ -79,7 +79,7 @@ public class MoveService {
             move.setPromotedTo(promotedTo);
     }
 
-    public void setTakenPieceIfEnPassant(Move move, long gameId) throws ElementNotFoundException {
+    public void setTakenPieceIfEnPassant(Move move, long gameId) {
         if (pawnMovedDiagonally(move) && move.getTakenPiece() == null) {
             Piece takenPiece = boardService.getBoardMapForGame(gameId)
                     .getPieceByPos(move.getHorizontalTo(), move.getVerticalFrom());

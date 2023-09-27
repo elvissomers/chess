@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Work in progress: Setup Make Move endpoint in Game Controller">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Annotation and todo comment">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,13 +170,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00566" summary="Removed &quot;number&quot; attribute from Move">
-      <created>1694500883567</created>
-      <option name="number" value="00566" />
-      <option name="presentableId" value="LOCAL-00566" />
-      <option name="project" value="LOCAL" />
-      <updated>1694500883567</updated>
     </task>
     <task id="LOCAL-00567" summary="comment changes">
       <created>1694500894813</created>
@@ -514,7 +507,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695641879133</updated>
     </task>
-    <option name="localTasksCounter" value="615" />
+    <task id="LOCAL-00615" summary="Annotation and todo comment">
+      <created>1695714208669</created>
+      <option name="number" value="00615" />
+      <option name="presentableId" value="LOCAL-00615" />
+      <option name="project" value="LOCAL" />
+      <updated>1695714208669</updated>
+    </task>
+    <option name="localTasksCounter" value="616" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,7 +532,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="remove old comments" />
     <MESSAGE value="Saving moves; work in progress" />
     <MESSAGE value="playerInTurn usage and naming update" />
     <MESSAGE value="playerHasThreeFoldDraw refers to correct history size method" />
@@ -557,7 +556,8 @@
     <MESSAGE value="Code cleanup: Remove unused methods, attributes and imports." />
     <MESSAGE value="Code cleanup: comment update" />
     <MESSAGE value="Work in progress: Setup Make Move endpoint in Game Controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Work in progress: Setup Make Move endpoint in Game Controller" />
+    <MESSAGE value="Annotation and todo comment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Annotation and todo comment" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

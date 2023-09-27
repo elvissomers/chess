@@ -33,7 +33,7 @@ public class PawnService {
     private int startPos;
     private int yDirection;
 
-    public SquaresDto getAttackedSquares(long pieceId) throws ElementNotFoundException {
+    public SquaresDto getAttackedSquares(long pieceId) {
         return SquaresDto.builder().squares(
                 pieceRepository.findById(pieceId)
                         .map(Piece::getAttackedSquares)
@@ -41,7 +41,7 @@ public class PawnService {
                 .build();
     }
 
-    public void setMovableSquares(Piece pawn, long gameId) throws ElementNotFoundException {
+    public void setMovableSquares(Piece pawn, long gameId) {
         BoardMap board = boardService.getBoardMapForGame(gameId);
         obtainPosition(pawn);
 
@@ -51,7 +51,7 @@ public class PawnService {
         addPawnEnPassantMovesToMovableSquares(pawn, board, gameId);
     }
 
-    public void setAttackedSquares(Pawn pawn, long gameId) throws ElementNotFoundException {
+    public void setAttackedSquares(Pawn pawn, long gameId) {
         BoardMap board = boardService.getBoardMapForGame(gameId);
         obtainPosition(pawn);
 

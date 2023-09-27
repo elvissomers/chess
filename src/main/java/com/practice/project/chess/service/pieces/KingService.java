@@ -35,7 +35,7 @@ public class KingService {
     private int xPos;
     private int yPos;
 
-    public void setMovableSquares(Piece piece, long gameId) throws ElementNotFoundException {
+    public void setMovableSquares(Piece piece, long gameId) {
         setup(piece, gameId);
 
         setKingBasicMoves();
@@ -48,7 +48,7 @@ public class KingService {
         setKingBasicMoves();
     }
 
-    public void setup(Piece piece, long gameId) throws ElementNotFoundException {
+    public void setup(Piece piece, long gameId) {
         this.piece = piece;
         board = boardService.getBoardMapForGame(gameId);
         game = gameService.getGame(gameId);
@@ -79,7 +79,7 @@ public class KingService {
         return kingIsInSquares(attackedSquares);
     }
 
-    public boolean isInCheck(Coordinate position) throws ElementNotFoundException {
+    public boolean isInCheck(Coordinate position) {
         Player attackingPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? game.getBlackPlayer() :
                 game.getWhitePlayer();
         playerService.setAllAttackedAndMovableSquaresForPlayer(attackingPlayer);
@@ -97,7 +97,7 @@ public class KingService {
         return false;
     }
 
-    public void setKingCastlingMoves() throws ElementNotFoundException {
+    public void setKingCastlingMoves() {
         King king = (King) piece;
         if (isInCheck() || king.isHasMoved())
             return;
@@ -110,7 +110,7 @@ public class KingService {
         }
     }
 
-    private boolean canCastleShort() throws ElementNotFoundException {
+    private boolean canCastleShort() {
         return board.getPieceByPos(xPos+1,yPos) == null &&
                 !isInCheck(board.getCoordinateByPos(xPos+1, yPos)) &&
                 board.getPieceByPos(xPos+2, yPos) == null &&
@@ -118,7 +118,7 @@ public class KingService {
                 !rook.isHasMoved();
     }
 
-    private boolean canCastleLong() throws ElementNotFoundException {
+    private boolean canCastleLong() {
         return board.getPieceByPos(xPos-1, yPos) == null &&
                 !isInCheck(board.getCoordinateByPos(xPos-1, yPos)) &&
                 board.getPieceByPos(xPos-2, yPos) == null &&

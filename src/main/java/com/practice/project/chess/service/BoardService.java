@@ -19,7 +19,7 @@ public class BoardService {
 
     private final GameRepository gameRepository;
 
-    public BoardMap getBoardMapForGame(long gameId) throws ElementNotFoundException {
+    public BoardMap getBoardMapForGame(long gameId) {
         BoardMap boardMap = getEmptyBoardMap();
         Game game = gameRepository.findById(gameId)
                 .orElseThrow(() -> new ElementNotFoundException("Game not found!"));
@@ -62,7 +62,7 @@ public class BoardService {
         }
     }
 
-    public BoardMap getBoardMapForCopiedPiece(Piece originalPiece, Piece copyPiece, long gameId) throws ElementNotFoundException {
+    public BoardMap getBoardMapForCopiedPiece(Piece originalPiece, Piece copyPiece, long gameId) {
         BoardMap board = getBoardMapForGame(gameId);
 
         board.put(board.getCoordinateByPos(originalPiece.getHorizontalPosition(), originalPiece.getVerticalPosition()), null);

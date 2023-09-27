@@ -17,7 +17,7 @@ public class KnightService {
     private int xPos;
     private int yPos;
 
-    public void setMovableSquares(Piece piece, long gameId) throws ElementNotFoundException {
+    public void setMovableSquares(Piece piece, long gameId) {
         BoardMap board = boardService.getBoardMapForGame(gameId);
         setMovableSquaresWithBoard(piece, board);
     }

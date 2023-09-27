@@ -15,7 +15,7 @@ public class RookService {
     private final BoardService boardService;
     private final MoveOptionService moveOptionService;
 
-    public void setMovableSquares(Piece piece, long gameId) throws ElementNotFoundException {
+    public void setMovableSquares(Piece piece, long gameId) {
         BoardMap board = boardService.getBoardMapForGame(gameId);
         setMovableSquaresWithBoard(piece ,board);
     }

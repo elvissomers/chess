@@ -38,24 +38,24 @@ public class GameService {
 
     private final GameDtoMapper gameDtoMapper;
 
-    public Game getGame(long id) throws ElementNotFoundException {
+    public Game getGame(long id) {
         return gameRepository.findById(id)
                 .orElseThrow(() -> new ElementNotFoundException("Game not found!"));
     }
 
-    public GameDto getGameDto(long id) throws ElementNotFoundException {
+    public GameDto getGameDto(long id) {
         return gameRepository.findById(id)
                 .map(gameDtoMapper::gameToGameDto)
                 .orElseThrow(() -> new ElementNotFoundException("Game not found!"));
     }
 
-    public Player getPlayerForGameAndTeam(long gameId, Team team) throws ElementNotFoundException {
+    public Player getPlayerForGameAndTeam(long gameId, Team team) {
         Game game = gameRepository.findById(gameId)
                 .orElseThrow(() -> new ElementNotFoundException("Game not found!"));
         return (team == Team.WHITE) ? game.getWhitePlayer() : game.getBlackPlayer();
     }
 
-    public Player getOpponentPlayerForGameAndTeam(long gameId, Team team) throws ElementNotFoundException {
+    public Player getOpponentPlayerForGameAndTeam(long gameId, Team team) {
         Game game = gameRepository.findById(gameId)
                 .orElseThrow(() -> new ElementNotFoundException("Game not found!"));
         return (team == Team.WHITE) ? game.getBlackPlayer() : game.getWhitePlayer();
@@ -87,20 +87,19 @@ public class GameService {
         makeMove(game, piece, destination);
     }
 
-    public void makeMove(Game game, Piece piece, Coordinate destination)
-            throws ElementNotFoundException, InvalidMoveException {
+    public void makeMove(Game game, Piece piece, Coordinate destination) {
         checkMove(game, piece, destination);
         PlayerMove madeMove = updateMoveHistory(game, piece, destination);
         updateGameAfterMove(madeMove.getMove());
         processMove(game);
     }
 
-    private void checkMove(Game game, Piece piece, Coordinate destination) throws InvalidMoveException {
+    private void checkMove(Game game, Piece piece, Coordinate destination) {
         pieceService.checkMoveLegality(piece, destination);
         checkIfPieceInTurn(game, piece);
     }
 
-    private PlayerMove updateMoveHistory(Game game, Piece piece, Coordinate destination) throws ElementNotFoundException {
+    private PlayerMove updateMoveHistory(Game game, Piece piece, Coordinate destination) {
         Piece takenPiece = pieceService.getPieceForGameAndPosition(destination.getXPos(),
                 destination.getYPos(), game.getId());
         Move newMove = moveService.getOrCreateMove(piece, destination, takenPiece);
@@ -108,7 +107,7 @@ public class GameService {
         return moveService.saveMoveForPlayer(newMove, playerInTurn(game));
     }
 
-    private void getMoveDetails(Move move, long gameId) throws ElementNotFoundException {
+    private void getMoveDetails(Move move, long gameId) {
         CastleType castleType = getTypeIfCastled(move);
         PieceType promotionPiece = getNewPieceIfPromoted(move);
         moveService.updateSpecialMove(move, castleType, promotionPiece);
@@ -138,7 +137,7 @@ public class GameService {
         return (piece.getPlayer().getTeam() == Team.WHITE) ? 7 : 0;
     }
 
-    private void checkIfPieceInTurn(Game game, Piece piece) throws InvalidMoveException {
+    private void checkIfPieceInTurn(Game game, Piece piece) {
         if ((game.getGameState() == GameState.WHITE_TURN && piece.getPlayer().getTeam() == Team.WHITE)
                 || (game.getGameState() == GameState.BLACK_TURN && piece.getPlayer().getTeam() == Team.BLACK)) {
             return;
@@ -146,7 +145,7 @@ public class GameService {
         throw new InvalidMoveException("Not players turn!");
     }
 
-    private void updateGameAfterMove(Move move) throws ElementNotFoundException {
+    private void updateGameAfterMove(Move move) {
         if (move.getTakenPiece() != null)
             pieceService.removePiece(move.getTakenPiece());
 
@@ -156,7 +155,7 @@ public class GameService {
             pieceService.updatePosition(move);
     }
 
-    private void processMove(Game game) throws ElementNotFoundException {
+    private void processMove(Game game) {
         setOtherDraws(game);
         updatePlayerTurn(game);
         setCheckOrStaleMate(game);
@@ -169,7 +168,7 @@ public class GameService {
         game.setGameState(nextPlayerTurn);
     }
 
-    private void setCheckOrStaleMate(Game game) throws ElementNotFoundException {
+    private void setCheckOrStaleMate(Game game) {
         Player playerInTurn = playerInTurn(game);
         if (!canPlayerMove(playerInTurn)) {
             if (isPlayerInCheck(playerInTurn))
@@ -179,7 +178,7 @@ public class GameService {
         }
     }
 
-    private Player playerInTurn(Game game) throws ElementNotFoundException {
+    private Player playerInTurn(Game game) {
         if (game.getGameState() == GameState.WHITE_TURN)
             return game.getWhitePlayer();
         else if (game.getGameState() == GameState.BLACK_TURN)
@@ -188,13 +187,13 @@ public class GameService {
             throw new ElementNotFoundException("No Player in turn!");
     }
 
-    private boolean isPlayerInCheck(Player player) throws ElementNotFoundException {
+    private boolean isPlayerInCheck(Player player) {
         King playerKing = playerService.getPlayerKing(player);
         kingService.setup(playerKing, player.getGame().getId());
         return kingService.isInCheck();
     }
 
-    private boolean canPlayerMove(Player player) throws ElementNotFoundException {
+    private boolean canPlayerMove(Player player) {
         playerService.setAllAttackedAndMovableSquaresForPlayer(player);
         return !playerService.getAllMovableSquaresForPlayer(player).isEmpty();
     }
@@ -222,12 +221,12 @@ public class GameService {
                 moves.get(1).equals(moves.get(3)) && moves.get(3).equals(moves.get(5)));
     }
 
-    private void setOtherDraws(Game game) throws ElementNotFoundException {
+    private void setOtherDraws(Game game) {
         if (hasFiftyMoveDraw(game) || hasThreeFoldDraw(game))
             game.setGameState(GameState.DRAW);
     }
 
-    private boolean hasFiftyMoveDraw(Game game) throws ElementNotFoundException {
+    private boolean hasFiftyMoveDraw(Game game) {
         return playerHasFiftyMoveDraw(playerInTurn(game));
     }
 

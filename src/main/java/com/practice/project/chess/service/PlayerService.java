@@ -36,12 +36,12 @@ public class PlayerService {
 
     private PlayerDtoMapper playerDtoMapper;
 
-    public Player getPlayer(long id) throws ElementNotFoundException {
+    public Player getPlayer(long id) {
         return playerRepository.findById(id)
                 .orElseThrow(() -> new ElementNotFoundException("Player not found!"));
     }
 
-    public PlayerDto getPlayerDto(long id) throws ElementNotFoundException {
+    public PlayerDto getPlayerDto(long id) {
         return playerRepository.findById(id)
                 .map(playerDtoMapper::playerToPlayerDto)
                 .orElseThrow(() -> new ElementNotFoundException("Player not found!"));
@@ -70,7 +70,7 @@ public class PlayerService {
     }
 
     // TODO: why use squaresDto? Instead of just a list; List<Coordinate>?
-    public SquaresDto getAllAttackedSquaresForPlayer(Player player) throws ElementNotFoundException {
+    public SquaresDto getAllAttackedSquaresForPlayer(Player player) {
         List<Coordinate> attackedSquares = new ArrayList<>();
         for (Piece piece : player.getPieces()) {
             if (piece.getPieceType() == PieceType.PAWN)
@@ -81,7 +81,7 @@ public class PlayerService {
         return SquaresDto.builder().squares(attackedSquares).build();
     }
 
-    public List<Coordinate> getAllMovableSquaresForPlayer(Player player) throws ElementNotFoundException {
+    public List<Coordinate> getAllMovableSquaresForPlayer(Player player) {
         List<Coordinate> movableSquares = new ArrayList<>();
         for (Piece piece : player.getPieces()) {
             movableSquares.addAll(pieceService.getMovableSquaresForPiece(piece.getId()).getSquares());
@@ -89,7 +89,7 @@ public class PlayerService {
         return movableSquares;
     }
 
-    public void setAllAttackedAndMovableSquaresForPlayer(Player player) throws ElementNotFoundException {
+    public void setAllAttackedAndMovableSquaresForPlayer(Player player) {
         long gameId = player.getGame().getId();
         for (Piece piece : player.getPieces()) {
             if (piece.getPieceType() == PieceType.PAWN) {
@@ -100,7 +100,7 @@ public class PlayerService {
     }
     //TODO: variant of above method but with board, to simplify legal move pruning
 
-    public King getPlayerKing(Player player) throws ElementNotFoundException {
+    public King getPlayerKing(Player player) {
         for (Piece piece : player.getPieces()) {
             if (piece instanceof King)
                 return (King) piece;
@@ -108,7 +108,7 @@ public class PlayerService {
         throw new ElementNotFoundException("Player's King not found!");
     }
 
-    public Coordinate getPlayerKingCoordinate(Player player) throws ElementNotFoundException {
+    public Coordinate getPlayerKingCoordinate(Player player) {
         King playerKing = getPlayerKing(player);
         return new Coordinate(playerKing.getHorizontalPosition(), playerKing.getVerticalPosition());
     }

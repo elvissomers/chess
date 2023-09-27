@@ -42,24 +42,24 @@ public class PieceService {
 
     private final PieceDtoMapper pieceDtoMapper;
 
-    public Piece getPiece(long id) throws ElementNotFoundException {
+    public Piece getPiece(long id) {
         return pieceRepository.findById(id)
                 .orElseThrow(() -> new ElementNotFoundException("Piece not found!"));
     }
 
-    public PieceDto getPieceDto(long id) throws ElementNotFoundException {
+    public PieceDto getPieceDto(long id) {
         return pieceRepository.findById(id)
                 .map(pieceDtoMapper::pieceToPieceDto)
                 .orElseThrow(() -> new ElementNotFoundException("Piece not found!"));
     }
 
-    public Piece getPieceForGameAndPosition(int xPos, int yPos, long gameId) throws ElementNotFoundException {
+    public Piece getPieceForGameAndPosition(int xPos, int yPos, long gameId) {
         return pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
                 xPos, yPos, gameId)
                 .orElseThrow(() -> new ElementNotFoundException("Piece not found!"));
     }
 
-    public SquaresDto getMovableSquaresForPiece(long id) throws ElementNotFoundException {
+    public SquaresDto getMovableSquaresForPiece(long id) {
         return SquaresDto.builder().squares(
                 pieceRepository.findById(id)
                         .map(Piece::getMovableSquares)
@@ -67,11 +67,11 @@ public class PieceService {
                 ).build();
     }
 
-    public SquaresDto getAttackedSquaresForPawn(long pieceId) throws ElementNotFoundException {
+    public SquaresDto getAttackedSquaresForPawn(long pieceId) {
         return pawnService.getAttackedSquares(pieceId);
     }
 
-    public SquaresDto getAttackedSquaresForPiece(long pieceId) throws ElementNotFoundException {
+    public SquaresDto getAttackedSquaresForPiece(long pieceId) {
         return (getPiece(pieceId).getPieceType() == PieceType.PAWN) ? getAttackedSquaresForPawn(pieceId)
                 : getMovableSquaresForPiece(pieceId);
     }
@@ -83,7 +83,7 @@ public class PieceService {
     }
 
     // TODO: can this method be private?
-    public void setMovableSquaresForPiece(Piece piece, long gameId) throws ElementNotFoundException {
+    public void setMovableSquaresForPiece(Piece piece, long gameId) {
         switch(piece.getPieceType()) {
             case PAWN -> pawnService.setMovableSquares(piece, gameId);
             case KNIGHT -> knightService.setMovableSquares(piece, gameId);
@@ -105,7 +105,7 @@ public class PieceService {
         }
     }
 
-    public void setLegalMovableSquaresForPiece(Piece piece, long gameId) throws ElementNotFoundException {
+    public void setLegalMovableSquaresForPiece(Piece piece, long gameId) {
         setMovableSquaresForPiece(piece, gameId);
 
         for (Coordinate moveOption : piece.getMovableSquares()) {
@@ -143,13 +143,13 @@ public class PieceService {
         return attackedSquares;
     }
 
-    public void checkMoveLegality(Piece piece, Coordinate destination) throws InvalidMoveException {
+    public void checkMoveLegality(Piece piece, Coordinate destination) {
         if (piece.getLegalMovableSquares().contains(destination))
             return;
         throw new InvalidMoveException("Illegal Move!");
     }
 
-    public void updatePosition(Move move) throws ElementNotFoundException {
+    public void updatePosition(Move move) {
         Piece piece = move.getPiece();
         piece.setHorizontalPosition(move.getHorizontalTo());
         piece.setVerticalPosition(move.getVerticalTo());
