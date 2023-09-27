@@ -70,8 +70,7 @@ public class KingService {
         }
     }
 
-    public boolean isInCheck() throws ElementNotFoundException {
-        // TODO: use this for copied king as well?
+    public boolean isInCheck() {
         Player attackingPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? game.getBlackPlayer() :
                 game.getWhitePlayer();
         playerService.setAllAttackedAndMovableSquaresForPlayer(attackingPlayer);

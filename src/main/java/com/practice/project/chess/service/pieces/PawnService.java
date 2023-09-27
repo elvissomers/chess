@@ -117,9 +117,7 @@ public class PawnService {
         }
     }
 
-    public void addPawnEnPassantMovesToMovableSquares(Piece pawn, BoardMap board, long gameId) throws ElementNotFoundException {
-        // TODO The Move object needs to obtain the pawn taken en passant as takenPiece, right now it just picks the
-        // TODO piece on the destination
+    public void addPawnEnPassantMovesToMovableSquares(Piece pawn, BoardMap board, long gameId) {
         Game game = gameService.getGame(gameId);
 
         if (yPos == startPos + 3 * yDirection) {
