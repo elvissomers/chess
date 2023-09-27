@@ -28,6 +28,7 @@ public class GameController {
 
     @PutMapping("make_move/{id}")
     public void makeMove(@PathVariable long id, @RequestBody MovePieceDto moveDto) {
+        // TODO: should return gameDto of the new game
         gameService.makeMoveFromDto(moveDto);
     }
 }
