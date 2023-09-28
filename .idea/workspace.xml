@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Removed unused DAO files">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/structures/BoardMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/structures/BoardMap.java" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment=".class files resulting from running the app">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/PlayerMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/PlayerMove.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,20 +167,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00570" summary="Promoted and taken piece types update">
-      <created>1694501619721</created>
-      <option name="number" value="00570" />
-      <option name="presentableId" value="LOCAL-00570" />
-      <option name="project" value="LOCAL" />
-      <updated>1694501619721</updated>
-    </task>
-    <task id="LOCAL-00571" summary="start updating MoveService.java">
-      <created>1694501651003</created>
-      <option name="number" value="00571" />
-      <option name="presentableId" value="LOCAL-00571" />
-      <option name="project" value="LOCAL" />
-      <updated>1694501651003</updated>
     </task>
     <task id="LOCAL-00572" summary="TODO comments">
       <created>1694503484061</created>
@@ -511,7 +497,21 @@
       <option name="project" value="LOCAL" />
       <updated>1695889673541</updated>
     </task>
-    <option name="localTasksCounter" value="619" />
+    <task id="LOCAL-00619" summary="Remove unused builder patterns and constructors">
+      <created>1695889978597</created>
+      <option name="number" value="00619" />
+      <option name="presentableId" value="LOCAL-00619" />
+      <option name="project" value="LOCAL" />
+      <updated>1695889978597</updated>
+    </task>
+    <task id="LOCAL-00620" summary=".class files resulting from running the app">
+      <created>1695890004949</created>
+      <option name="number" value="00620" />
+      <option name="presentableId" value="LOCAL-00620" />
+      <option name="project" value="LOCAL" />
+      <updated>1695890004949</updated>
+    </task>
+    <option name="localTasksCounter" value="621" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -529,8 +529,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="saving special occasions to the move object in GameService.java" />
-    <MESSAGE value="Saving the move to the player history" />
     <MESSAGE value="removed unused methods" />
     <MESSAGE value="Update: makeMove saves move, piece is updated to queen if promoted, move is processed (game state is updated)" />
     <MESSAGE value="Remove unused methods and imports" />
@@ -554,7 +552,9 @@
     <MESSAGE value="Delete unused controller" />
     <MESSAGE value="Removed some comments" />
     <MESSAGE value="Removed unused DAO files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed unused DAO files" />
+    <MESSAGE value="Remove unused builder patterns and constructors" />
+    <MESSAGE value=".class files resulting from running the app" />
+    <option name="LAST_COMMIT_MESSAGE" value=".class files resulting from running the app" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

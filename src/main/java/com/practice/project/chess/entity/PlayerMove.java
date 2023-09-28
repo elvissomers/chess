@@ -11,7 +11,7 @@ import lombok.*;
 @Entity
 public class PlayerMove {
 
-    @Column
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
