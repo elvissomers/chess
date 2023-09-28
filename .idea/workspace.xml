@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment=".class files resulting from running the app">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/PlayerMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/PlayerMove.java" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Updated pieceType to be a discriminator column">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/pieces/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,27 +170,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00572" summary="TODO comments">
-      <created>1694503484061</created>
-      <option name="number" value="00572" />
-      <option name="presentableId" value="LOCAL-00572" />
-      <option name="project" value="LOCAL" />
-      <updated>1694503484061</updated>
-    </task>
-    <task id="LOCAL-00573" summary="takenpiece booleanity update">
-      <created>1694503529009</created>
-      <option name="number" value="00573" />
-      <option name="presentableId" value="LOCAL-00573" />
-      <option name="project" value="LOCAL" />
-      <updated>1694503529009</updated>
-    </task>
-    <task id="LOCAL-00574" summary="Added ElementNotFoundExceptions">
-      <created>1694691019516</created>
-      <option name="number" value="00574" />
-      <option name="presentableId" value="LOCAL-00574" />
-      <option name="project" value="LOCAL" />
-      <updated>1694691019516</updated>
     </task>
     <task id="LOCAL-00575" summary="PlayerMove object added">
       <created>1694692024565</created>
@@ -511,7 +493,28 @@
       <option name="project" value="LOCAL" />
       <updated>1695890004949</updated>
     </task>
-    <option name="localTasksCounter" value="621" />
+    <task id="LOCAL-00621" summary="anootated PlayerMove id with @Id">
+      <created>1695890092742</created>
+      <option name="number" value="00621" />
+      <option name="presentableId" value="LOCAL-00621" />
+      <option name="project" value="LOCAL" />
+      <updated>1695890092742</updated>
+    </task>
+    <task id="LOCAL-00622" summary="Remove @Column annotations in koppeltabel object">
+      <created>1695890134632</created>
+      <option name="number" value="00622" />
+      <option name="presentableId" value="LOCAL-00622" />
+      <option name="project" value="LOCAL" />
+      <updated>1695890134632</updated>
+    </task>
+    <task id="LOCAL-00623" summary="Updated pieceType to be a discriminator column">
+      <created>1695890363015</created>
+      <option name="number" value="00623" />
+      <option name="presentableId" value="LOCAL-00623" />
+      <option name="project" value="LOCAL" />
+      <updated>1695890363015</updated>
+    </task>
+    <option name="localTasksCounter" value="624" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -529,9 +532,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="removed unused methods" />
-    <MESSAGE value="Update: makeMove saves move, piece is updated to queen if promoted, move is processed (game state is updated)" />
-    <MESSAGE value="Remove unused methods and imports" />
     <MESSAGE value="Remove more unused methods and imports" />
     <MESSAGE value="Update playerHasFiftyMoveDraw to no longer use deprecated method" />
     <MESSAGE value="Code cleanup: removed unused imports, old comments" />
@@ -554,9 +554,20 @@
     <MESSAGE value="Removed unused DAO files" />
     <MESSAGE value="Remove unused builder patterns and constructors" />
     <MESSAGE value=".class files resulting from running the app" />
-    <option name="LAST_COMMIT_MESSAGE" value=".class files resulting from running the app" />
+    <MESSAGE value="anootated PlayerMove id with @Id" />
+    <MESSAGE value="Remove @Column annotations in koppeltabel object" />
+    <MESSAGE value="Updated pieceType to be a discriminator column" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated pieceType to be a discriminator column" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.springframework.beans.factory.BeanCreationException" package="org.springframework.beans.factory" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="main.classes.controllers.Player" memberName="game" />
