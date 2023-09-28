@@ -9,9 +9,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@Builder
 @AllArgsConstructor
-@RequiredArgsConstructor
 public class BoardMap extends HashMap<Coordinate, Piece> {
 
     private final transient Coordinate[][] coordinateArray;
