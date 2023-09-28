@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity(name="pieces")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "piece_type", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorColumn(name = "pieceType", discriminatorType = DiscriminatorType.STRING)
 public abstract class Piece {
 
     @Id
@@ -29,7 +29,7 @@ public abstract class Piece {
     @JoinColumn(name = "player_id")
     private Player player;
 
-    @Transient
+    @Enumerated(EnumType.STRING)
     private PieceType pieceType;
 
     @Transient
