@@ -15,11 +15,9 @@ public class PlayerMove {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
     @ManyToOne
     private Player player;
 
-    @Column
     @ManyToOne
     private Move move;
 
