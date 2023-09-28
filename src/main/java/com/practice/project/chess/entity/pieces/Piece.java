@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity(name="pieces")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "pieceType", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorColumn(name = "piece_type", discriminatorType = DiscriminatorType.STRING)
 public abstract class Piece {
 
     @Id
@@ -29,7 +29,7 @@ public abstract class Piece {
     @JoinColumn(name = "player_id")
     private Player player;
 
-    @Enumerated(EnumType.STRING)
+    @Transient
     private PieceType pieceType;
 
     @Transient
@@ -39,7 +39,6 @@ public abstract class Piece {
     private List<Coordinate> legalMovableSquares = new ArrayList<>();
 
     @Transient
-    // TODO: why is attackedSquares here instead of just in pawn?
     private List<Coordinate> attackedSquares = new ArrayList<>();
 
     protected Piece(Player player) {
