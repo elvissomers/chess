@@ -21,7 +21,7 @@ public class Move {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
+    @OneToOne
     private Piece piece;
 
     @Column(nullable = false)
@@ -36,8 +36,13 @@ public class Move {
     @Column(nullable = false)
     private int verticalTo;
 
+    @OneToOne
     private Piece takenPiece;
+
+    @Enumerated(EnumType.STRING)
     private CastleType castleType;
+
+    @Enumerated(EnumType.STRING)
     private PieceType promotedTo;
 
     @Override
