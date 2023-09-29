@@ -63,11 +63,13 @@ public class KingService {
         for (int x = xPos-1; x <= xPos+1; x++) {
             for (int y = yPos-1; y <= yPos+1; y++) {
                 if (moveOptionService.withinBoard(x, y)) {
-                    moveOptionService.addMovableSquareIfEmptyOrEnemy(x, y, piece, board);
+                    MoveOptionService.addMovableSquareIfEmptyOrEnemy(x, y, piece, board);
                 }
             }
         }
     }
+
+    // TODO: is king in check should be moved to LegalMoveService!
 
     public boolean isInCheck() {
         Player attackingPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? game.getBlackPlayer() :

@@ -140,6 +140,7 @@ public class MakeMoveService {
     }
 
     private boolean canPlayerMove(Player player) {
+        // TODO: this is wrong, because we need the all legal moves for the player instead of ALL moves (including self checking)
         playerService.setAllAttackedAndMovableSquaresForPlayer(player);
         return !playerService.getAllMovableSquaresForPlayer(player).isEmpty();
     }
