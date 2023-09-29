@@ -26,10 +26,6 @@ import java.util.List;
 @Service
 public class PieceService {
 
-    private final BoardService boardService;
-    private final GameService gameService;
-    private final PlayerService playerService;
-
     private final PawnService pawnService;
     private final KnightService knightService;
     private final BishopService bishopService;
@@ -98,44 +94,6 @@ public class PieceService {
             case QUEEN -> queenService.setMovableSquaresWithBoard(piece, board);
             case KING -> kingService.setMovableSquaresWithBoard(piece, board);
         }
-    }
-
-    public void setLegalMovableSquaresForPiece(Piece piece, long gameId) {
-        setMovableSquaresForPiece(piece, gameId);
-
-        for (Coordinate moveOption : piece.getMovableSquares()) {
-            Piece copyPiece = copyPieceTo(piece, moveOption);
-
-            BoardMap copyBoard = boardService.getBoardMapForCopiedPiece(piece, copyPiece, gameId);
-            Player opponentPlayer = gameService.getOpponentPlayerForGameAndTeam(gameId, piece.getPlayer().getTeam());
-
-            Player player = piece.getPlayer();
-            Coordinate kingPosition = playerService.getPlayerKingCoordinate(player);
-
-            List<Coordinate> attackedSquares = getAllAttackedSquaresForPlayer(opponentPlayer, copyBoard);
-            if (!attackedSquares.contains(kingPosition)) {
-                piece.getLegalMovableSquares().add(moveOption);
-            }
-        }
-    }
-
-    private Piece copyPieceTo(Piece piece, Coordinate destination) {
-        Piece copyPiece = piece.copy();
-        copyPiece.setHorizontalPosition(destination.getXPos());
-        copyPiece.setVerticalPosition(destination.getYPos());
-
-        return copyPiece;
-    }
-
-    private List<Coordinate> getAllAttackedSquaresForPlayer(Player player, BoardMap board) {
-        List<Coordinate> attackedSquares = new ArrayList<>();
-        for (Piece enemyPiece : player.getPieces()){
-            Piece enemyCopyPiece = enemyPiece.copy();
-            setAttackedSquaresForPieceWithBoard(enemyCopyPiece, board);
-            attackedSquares.addAll(getAttackedSquaresForPiece(enemyCopyPiece));
-        }
-
-        return attackedSquares;
     }
 
     public void checkMoveLegality(Piece piece, Coordinate destination) {
