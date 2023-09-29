@@ -13,6 +13,8 @@ public class King extends Piece {
 
     private boolean hasMoved;
 
+    private boolean inCheck;
+
     public King() {
         super();
     }

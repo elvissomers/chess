@@ -1,5 +1,6 @@
 package com.practice.project.chess.service.game;
 
+import com.practice.project.chess.controller.dto.SquaresDto;
 import com.practice.project.chess.repository.entity.Game;
 import com.practice.project.chess.repository.entity.Move;
 import com.practice.project.chess.repository.entity.Player;
@@ -23,6 +24,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static com.practice.project.chess.service.AllUtil.getOpponentPlayer;
+
 @AllArgsConstructor
 @Service
 public class MakeMoveService {
@@ -30,8 +33,6 @@ public class MakeMoveService {
     private final PlayerService playerService;
     private final PieceService pieceService;
     private final MoveService moveService;
-    // TODO: put the king part in pieceservice
-    private final KingService kingService;
 
     public void makeMove(Game game, Piece piece, Coordinate destination) {
         checkMove(game, piece, destination);
@@ -105,7 +106,6 @@ public class MakeMoveService {
         setOtherDraws(game);
         updatePlayerTurn(game);
         setCheckOrStaleMate(game);
-        // TODO check for check, for the "+" in notation (and maybe some other visual effect)
     }
 
     private void updatePlayerTurn(Game game) {
@@ -116,12 +116,22 @@ public class MakeMoveService {
 
     private void setCheckOrStaleMate(Game game) {
         Player playerInTurn = playerInTurn(game);
+        setPlayerKingInCheck(playerInTurn, getOpponentPlayer(game, playerInTurn));
         if (!canPlayerMove(playerInTurn)) {
             if (isPlayerInCheck(playerInTurn))
                 game.setGameState(opponentWins(playerInTurn));
             else
                 game.setGameState(GameState.DRAW);
         }
+    }
+
+
+
+    private void setPlayerKingInCheck(Player player, Player attackingPlayer) {
+        King playerKing = playerService.getPlayerKing(player);
+        playerService.setAllAttackedAndMovableSquaresForPlayer(attackingPlayer);
+        List<Coordinate> attackedSquares = playerService.getAllAttackedSquaresForPlayer(attackingPlayer);
+        playerKing.setInCheck(attackedSquares.contains(new Coordinate(playerKing.getHorizontalPosition(), playerKing.getVerticalPosition())));
     }
 
     private Player playerInTurn(Game game) {
@@ -134,9 +144,7 @@ public class MakeMoveService {
     }
 
     private boolean isPlayerInCheck(Player player) {
-        King playerKing = playerService.getPlayerKing(player);
-        kingService.setup(playerKing, player.getGame().getId());
-        return kingService.isInCheck();
+        return playerService.getPlayerKing(player).isInCheck();
     }
 
     private boolean canPlayerMove(Player player) {

@@ -71,7 +71,7 @@ public class PlayerService {
     }
 
     // TODO: why use squaresDto? Instead of just a list; List<Coordinate>?
-    public SquaresDto getAllAttackedSquaresForPlayer(Player player) {
+    public List<Coordinate> getAllAttackedSquaresForPlayer(Player player) {
         List<Coordinate> attackedSquares = new ArrayList<>();
         for (Piece piece : player.getPieces()) {
             if (piece.getPieceType() == PieceType.PAWN)
@@ -79,7 +79,7 @@ public class PlayerService {
             else
                 attackedSquares.addAll(pieceService.getMovableSquaresForPiece(piece.getId()).getSquares());
         }
-        return SquaresDto.builder().squares(attackedSquares).build();
+        return attackedSquares;
     }
 
     public List<Coordinate> getAllMovableSquaresForPlayer(Player player) {

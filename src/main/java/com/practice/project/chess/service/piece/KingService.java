@@ -7,6 +7,7 @@ import com.practice.project.chess.repository.entity.pieces.King;
 import com.practice.project.chess.repository.entity.pieces.Piece;
 import com.practice.project.chess.repository.entity.pieces.Rook;
 import com.practice.project.chess.repository.enums.Team;
+import com.practice.project.chess.service.AllUtil;
 import com.practice.project.chess.service.BoardService;
 import com.practice.project.chess.service.MoveOptionService;
 import com.practice.project.chess.service.game.GameService;
@@ -70,36 +71,9 @@ public class KingService {
     }
 
     // TODO: is king in check should be moved to LegalMoveService!
-
-    public boolean isInCheck() {
-        Player attackingPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? game.getBlackPlayer() :
-                game.getWhitePlayer();
-        playerService.setAllAttackedAndMovableSquaresForPlayer(attackingPlayer);
-        SquaresDto attackedSquares = playerService.getAllAttackedSquaresForPlayer(attackingPlayer);
-        return kingIsInSquares(attackedSquares);
-    }
-
-    public boolean isInCheck(Coordinate position) {
-        Player attackingPlayer = (piece.getPlayer().getTeam() == Team.WHITE) ? game.getBlackPlayer() :
-                game.getWhitePlayer();
-        playerService.setAllAttackedAndMovableSquaresForPlayer(attackingPlayer);
-        SquaresDto attackedSquares = playerService.getAllAttackedSquaresForPlayer(attackingPlayer);
-        return attackedSquares.getSquares().contains(position);
-    }
-
-    private boolean kingIsInSquares(SquaresDto squaresDto) {
-        List<Coordinate> squares = squaresDto.getSquares();
-        for (Coordinate square : squares) {
-            if (square.getXPos() == xPos && square.getYPos() == yPos) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public void setKingCastlingMoves() {
         King king = (King) piece;
-        if (isInCheck() || king.isHasMoved())
+        if (king.isInCheck() || king.isHasMoved())
             return;
 
         if (canCastleShort())
@@ -112,7 +86,7 @@ public class KingService {
 
     private boolean canCastleShort() {
         return board.getPieceByPos(xPos+1,yPos) == null &&
-                !isInCheck(board.getCoordinateByPos(xPos+1, yPos)) &&
+                kingIsSafeAt(board.getCoordinateByPos(xPos + 1, yPos)) &&
                 board.getPieceByPos(xPos+2, yPos) == null &&
                 board.getPieceByPos(xPos+3, yPos) instanceof Rook rook &&
                 !rook.isHasMoved();
@@ -120,10 +94,17 @@ public class KingService {
 
     private boolean canCastleLong() {
         return board.getPieceByPos(xPos-1, yPos) == null &&
-                !isInCheck(board.getCoordinateByPos(xPos-1, yPos)) &&
+                kingIsSafeAt(board.getCoordinateByPos(xPos - 1, yPos)) &&
                 board.getPieceByPos(xPos-2, yPos) == null &&
                 board.getPieceByPos(xPos-3, yPos) == null &&
                 board.getPieceByPos(xPos-4, yPos) instanceof Rook rook &&
                 !rook.isHasMoved();
+    }
+
+    public boolean kingIsSafeAt(Coordinate position) {
+        Player attackingPlayer = AllUtil.getOpponentPlayer(game, piece.getPlayer());
+        playerService.setAllAttackedAndMovableSquaresForPlayer(attackingPlayer);
+        List<Coordinate> attackedSquares = playerService.getAllAttackedSquaresForPlayer(attackingPlayer);
+        return !attackedSquares.contains(position);
     }
 }

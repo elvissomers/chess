@@ -40,12 +40,6 @@ public class GameService {
                 .orElseThrow(() -> new ElementNotFoundException("Game not found!"));
     }
 
-    public Player getOpponentPlayerForGameAndTeam(long gameId, Team team) {
-        Game game = gameRepository.findById(gameId)
-                .orElseThrow(() -> new ElementNotFoundException("Game not found!"));
-        return (team == Team.WHITE) ? game.getBlackPlayer() : game.getWhitePlayer();
-    }
-
     public GameDto getNewGame() {
         Game game = new Game();
         Player whitePlayer = Player.builder().game(game).team(Team.WHITE).build();
