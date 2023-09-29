@@ -64,5 +64,6 @@ public class GameService {
         Coordinate destination = new Coordinate(dto.getXTo(), dto.getYTo());
 
         makeMoveService.makeMove(game, piece, destination);
+        // TODO: legal moves should be set for the game after the move
     }
 }

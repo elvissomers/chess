@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="some .class files">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/LegalMoveService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/MoveOptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/MoveOptionService.java" afterDir="false" />
-    </list>
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Code cleanup: remove unused imports" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,37 +44,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/eso13215/IdeaProjects/coding-assessment",
-    "onboarding.tips.debug.path": "C:/Users/eso13215/IdeaProjects/chess/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/eso13215/IdeaProjects/coding-assessment&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.practice.project.chess.service.gameservice" />
+      <recent name="com.practice.project.chess.repository" />
+      <recent name="com.practice.project.chess.service" />
+      <recent name="com.practice.project.chess.controllers" />
       <recent name="com.ordina.nl.chess.service.pieces" />
-      <recent name="com.ordina.nl.chess.entity" />
-      <recent name="com.ordina.nl.chess.service.structures" />
-      <recent name="com.ordina.nl.chess.service" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="test.controllers" />
@@ -169,83 +166,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00580" summary="Update move creating to move finding or creating">
-      <created>1695031161363</created>
-      <option name="number" value="00580" />
-      <option name="presentableId" value="LOCAL-00580" />
-      <option name="project" value="LOCAL" />
-      <updated>1695031161363</updated>
-    </task>
-    <task id="LOCAL-00581" summary="PlayerMove generating">
-      <created>1695032119024</created>
-      <option name="number" value="00581" />
-      <option name="presentableId" value="LOCAL-00581" />
-      <option name="project" value="LOCAL" />
-      <updated>1695032119024</updated>
-    </task>
-    <task id="LOCAL-00582" summary="comments, some work in progress">
-      <created>1695032593307</created>
-      <option name="number" value="00582" />
-      <option name="presentableId" value="LOCAL-00582" />
-      <option name="project" value="LOCAL" />
-      <updated>1695032593307</updated>
-    </task>
-    <task id="LOCAL-00583" summary="added manytoone relations in PlayerMove.java">
-      <created>1695032608237</created>
-      <option name="number" value="00583" />
-      <option name="presentableId" value="LOCAL-00583" />
-      <option name="project" value="LOCAL" />
-      <updated>1695032608237</updated>
-    </task>
-    <task id="LOCAL-00584" summary="Derived queries">
-      <created>1695033102041</created>
-      <option name="number" value="00584" />
-      <option name="presentableId" value="LOCAL-00584" />
-      <option name="project" value="LOCAL" />
-      <updated>1695033102041</updated>
-    </task>
-    <task id="LOCAL-00585" summary="Updated player move history finding methods in PlayerService.java">
-      <created>1695033119285</created>
-      <option name="number" value="00585" />
-      <option name="presentableId" value="LOCAL-00585" />
-      <option name="project" value="LOCAL" />
-      <updated>1695033119285</updated>
-    </task>
-    <task id="LOCAL-00586" summary="Removing and replacing old methods from Player.java with those from PlayerService.java">
-      <created>1695034135257</created>
-      <option name="number" value="00586" />
-      <option name="presentableId" value="LOCAL-00586" />
-      <option name="project" value="LOCAL" />
-      <updated>1695034135257</updated>
-    </task>
-    <task id="LOCAL-00587" summary="Removing and replacing old methods from Player.java with those from PlayerService.java">
-      <created>1695035015275</created>
-      <option name="number" value="00587" />
-      <option name="presentableId" value="LOCAL-00587" />
-      <option name="project" value="LOCAL" />
-      <updated>1695035015275</updated>
-    </task>
-    <task id="LOCAL-00588" summary="Removing and replacing old methods from Player.java with those from PlayerService.java">
-      <created>1695035047270</created>
-      <option name="number" value="00588" />
-      <option name="presentableId" value="LOCAL-00588" />
-      <option name="project" value="LOCAL" />
-      <updated>1695035047270</updated>
-    </task>
-    <task id="LOCAL-00589" summary="remove old comments">
-      <created>1695039699698</created>
-      <option name="number" value="00589" />
-      <option name="presentableId" value="LOCAL-00589" />
-      <option name="project" value="LOCAL" />
-      <updated>1695039699698</updated>
-    </task>
-    <task id="LOCAL-00590" summary="Saving moves; work in progress">
-      <created>1695040389110</created>
-      <option name="number" value="00590" />
-      <option name="presentableId" value="LOCAL-00590" />
-      <option name="project" value="LOCAL" />
-      <updated>1695040389110</updated>
     </task>
     <task id="LOCAL-00591" summary="playerInTurn usage and naming update">
       <created>1695040645311</created>
@@ -513,7 +433,84 @@
       <option name="project" value="LOCAL" />
       <updated>1695892314365</updated>
     </task>
-    <option name="localTasksCounter" value="629" />
+    <task id="LOCAL-00629" summary="Refactor - split file structure in controller / service / repository at the highest level">
+      <created>1695975218272</created>
+      <option name="number" value="00629" />
+      <option name="presentableId" value="LOCAL-00629" />
+      <option name="project" value="LOCAL" />
+      <updated>1695975218272</updated>
+    </task>
+    <task id="LOCAL-00630" summary="Refactor - service folder structure">
+      <created>1695975343341</created>
+      <option name="number" value="00630" />
+      <option name="presentableId" value="LOCAL-00630" />
+      <option name="project" value="LOCAL" />
+      <updated>1695975343341</updated>
+    </task>
+    <task id="LOCAL-00631" summary="Refactor - split making &amp; processing a move into separate service">
+      <created>1695975760011</created>
+      <option name="number" value="00631" />
+      <option name="presentableId" value="LOCAL-00631" />
+      <option name="project" value="LOCAL" />
+      <updated>1695975760011</updated>
+    </task>
+    <task id="LOCAL-00632" summary="Code cleanup - remove unused imports">
+      <created>1695975788197</created>
+      <option name="number" value="00632" />
+      <option name="presentableId" value="LOCAL-00632" />
+      <option name="project" value="LOCAL" />
+      <updated>1695975788197</updated>
+    </task>
+    <task id="LOCAL-00633" summary="remove unused method">
+      <created>1695975807939</created>
+      <option name="number" value="00633" />
+      <option name="presentableId" value="LOCAL-00633" />
+      <option name="project" value="LOCAL" />
+      <updated>1695975807939</updated>
+    </task>
+    <task id="LOCAL-00634" summary="Refactor legal move setting to separate file; LegalMoveService.java - work in progress">
+      <created>1695976293880</created>
+      <option name="number" value="00634" />
+      <option name="presentableId" value="LOCAL-00634" />
+      <option name="project" value="LOCAL" />
+      <updated>1695976293880</updated>
+    </task>
+    <task id="LOCAL-00635" summary="Refactor legal move setting to separate file; LegalMoveService.java">
+      <created>1695978358038</created>
+      <option name="number" value="00635" />
+      <option name="presentableId" value="LOCAL-00635" />
+      <option name="project" value="LOCAL" />
+      <updated>1695978358038</updated>
+    </task>
+    <task id="LOCAL-00636" summary="Refactor en passant move setting to separate file; EnPassantService.java">
+      <created>1695980234850</created>
+      <option name="number" value="00636" />
+      <option name="presentableId" value="LOCAL-00636" />
+      <option name="project" value="LOCAL" />
+      <updated>1695980234850</updated>
+    </task>
+    <task id="LOCAL-00637" summary="Refactor Service package naming">
+      <created>1695980446504</created>
+      <option name="number" value="00637" />
+      <option name="presentableId" value="LOCAL-00637" />
+      <option name="project" value="LOCAL" />
+      <updated>1695980446504</updated>
+    </task>
+    <task id="LOCAL-00638" summary="More Service layer refactoring - work in progress">
+      <created>1695981741282</created>
+      <option name="number" value="00638" />
+      <option name="presentableId" value="LOCAL-00638" />
+      <option name="project" value="LOCAL" />
+      <updated>1695981741282</updated>
+    </task>
+    <task id="LOCAL-00639" summary="Code cleanup: remove unused imports">
+      <created>1695981808829</created>
+      <option name="number" value="00639" />
+      <option name="presentableId" value="LOCAL-00639" />
+      <option name="project" value="LOCAL" />
+      <updated>1695981808829</updated>
+    </task>
+    <option name="localTasksCounter" value="640" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -531,17 +528,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added ElementNotFoundException in BoardService.java; removed unused imports" />
-    <MESSAGE value="Code cleanup: added todo comment and split up en passant move finder into smaller methods" />
-    <MESSAGE value="Reworked &quot;takenPiece&quot; attribute in Move from boolean to Piece" />
-    <MESSAGE value="Code cleanup: Remove old comments" />
-    <MESSAGE value="Remove taken piece from game" />
-    <MESSAGE value="Code cleanup: remove unused imports" />
-    <MESSAGE value="If en passant occured, the taken pawn is set as takenPiece in move" />
-    <MESSAGE value="Code cleanup: Remove unused imports" />
-    <MESSAGE value="Code cleanup: Remove unused methods and imports" />
-    <MESSAGE value="Code cleanup: Remove unused methods, attributes and imports." />
-    <MESSAGE value="Code cleanup: comment update" />
     <MESSAGE value="Work in progress: Setup Make Move endpoint in Game Controller" />
     <MESSAGE value="Annotation and todo comment" />
     <MESSAGE value="Delete unused controller" />
@@ -556,7 +542,18 @@
     <MESSAGE value="Work on discriminator value" />
     <MESSAGE value="hibernate show sql" />
     <MESSAGE value="some .class files" />
-    <option name="LAST_COMMIT_MESSAGE" value="some .class files" />
+    <MESSAGE value="Refactor - split file structure in controller / service / repository at the highest level" />
+    <MESSAGE value="Refactor - service folder structure" />
+    <MESSAGE value="Refactor - split making &amp; processing a move into separate service" />
+    <MESSAGE value="Code cleanup - remove unused imports" />
+    <MESSAGE value="remove unused method" />
+    <MESSAGE value="Refactor legal move setting to separate file; LegalMoveService.java - work in progress" />
+    <MESSAGE value="Refactor legal move setting to separate file; LegalMoveService.java" />
+    <MESSAGE value="Refactor en passant move setting to separate file; EnPassantService.java" />
+    <MESSAGE value="Refactor Service package naming" />
+    <MESSAGE value="More Service layer refactoring - work in progress" />
+    <MESSAGE value="Code cleanup: remove unused imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup: remove unused imports" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
