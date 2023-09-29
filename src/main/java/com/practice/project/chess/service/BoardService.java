@@ -1,12 +1,12 @@
 package com.practice.project.chess.service;
 
-import com.practice.project.chess.entity.Game;
-import com.practice.project.chess.entity.pieces.Piece;
-import com.practice.project.chess.exception.ElementNotFoundException;
+import com.practice.project.chess.repository.entity.Game;
+import com.practice.project.chess.repository.entity.pieces.Piece;
+import com.practice.project.chess.service.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.GameRepository;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
-import com.practice.project.chess.constants.BoardSize;
+import com.practice.project.chess.service.constants.BoardSize;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

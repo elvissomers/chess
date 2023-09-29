@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Updated pieceType to be a discriminator column">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="some .class files">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/LegalMoveService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/Move.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/entity/pieces/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/MoveOptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/MoveOptionService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +19,8 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -49,28 +48,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/eso13215/IdeaProjects/coding-assessment",
+    "onboarding.tips.debug.path": "C:/Users/eso13215/IdeaProjects/chess/src/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -170,41 +169,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00575" summary="PlayerMove object added">
-      <created>1694692024565</created>
-      <option name="number" value="00575" />
-      <option name="presentableId" value="LOCAL-00575" />
-      <option name="project" value="LOCAL" />
-      <updated>1694692024565</updated>
-    </task>
-    <task id="LOCAL-00576" summary="PlayerMove id updated">
-      <created>1694692120197</created>
-      <option name="number" value="00576" />
-      <option name="presentableId" value="LOCAL-00576" />
-      <option name="project" value="LOCAL" />
-      <updated>1694692120197</updated>
-    </task>
-    <task id="LOCAL-00577" summary="PlayerMove work in progress">
-      <created>1695030107081</created>
-      <option name="number" value="00577" />
-      <option name="presentableId" value="LOCAL-00577" />
-      <option name="project" value="LOCAL" />
-      <updated>1695030107082</updated>
-    </task>
-    <task id="LOCAL-00578" summary="createMove method">
-      <created>1695030237373</created>
-      <option name="number" value="00578" />
-      <option name="presentableId" value="LOCAL-00578" />
-      <option name="project" value="LOCAL" />
-      <updated>1695030237373</updated>
-    </task>
-    <task id="LOCAL-00579" summary="move creation and updating">
-      <created>1695030618227</created>
-      <option name="number" value="00579" />
-      <option name="presentableId" value="LOCAL-00579" />
-      <option name="project" value="LOCAL" />
-      <updated>1695030618227</updated>
     </task>
     <task id="LOCAL-00580" summary="Update move creating to move finding or creating">
       <created>1695031161363</created>
@@ -514,7 +478,42 @@
       <option name="project" value="LOCAL" />
       <updated>1695890363015</updated>
     </task>
-    <option name="localTasksCounter" value="624" />
+    <task id="LOCAL-00624" summary="Updated annotations">
+      <created>1695892268445</created>
+      <option name="number" value="00624" />
+      <option name="presentableId" value="LOCAL-00624" />
+      <option name="project" value="LOCAL" />
+      <updated>1695892268445</updated>
+    </task>
+    <task id="LOCAL-00625" summary="Work on discriminator value">
+      <created>1695892280313</created>
+      <option name="number" value="00625" />
+      <option name="presentableId" value="LOCAL-00625" />
+      <option name="project" value="LOCAL" />
+      <updated>1695892280313</updated>
+    </task>
+    <task id="LOCAL-00626" summary="hibernate show sql">
+      <created>1695892292213</created>
+      <option name="number" value="00626" />
+      <option name="presentableId" value="LOCAL-00626" />
+      <option name="project" value="LOCAL" />
+      <updated>1695892292213</updated>
+    </task>
+    <task id="LOCAL-00627" summary="some .class files">
+      <created>1695892305493</created>
+      <option name="number" value="00627" />
+      <option name="presentableId" value="LOCAL-00627" />
+      <option name="project" value="LOCAL" />
+      <updated>1695892305493</updated>
+    </task>
+    <task id="LOCAL-00628" summary="some .class files">
+      <created>1695892314365</created>
+      <option name="number" value="00628" />
+      <option name="presentableId" value="LOCAL-00628" />
+      <option name="project" value="LOCAL" />
+      <updated>1695892314365</updated>
+    </task>
+    <option name="localTasksCounter" value="629" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,10 +531,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Remove more unused methods and imports" />
-    <MESSAGE value="Update playerHasFiftyMoveDraw to no longer use deprecated method" />
-    <MESSAGE value="Code cleanup: removed unused imports, old comments" />
-    <MESSAGE value="After changing the pieces of a player, the player should be saved to the repository" />
     <MESSAGE value="Added ElementNotFoundException in BoardService.java; removed unused imports" />
     <MESSAGE value="Code cleanup: added todo comment and split up en passant move finder into smaller methods" />
     <MESSAGE value="Reworked &quot;takenPiece&quot; attribute in Move from boolean to Piece" />
@@ -557,7 +552,11 @@
     <MESSAGE value="anootated PlayerMove id with @Id" />
     <MESSAGE value="Remove @Column annotations in koppeltabel object" />
     <MESSAGE value="Updated pieceType to be a discriminator column" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated pieceType to be a discriminator column" />
+    <MESSAGE value="Updated annotations" />
+    <MESSAGE value="Work on discriminator value" />
+    <MESSAGE value="hibernate show sql" />
+    <MESSAGE value="some .class files" />
+    <option name="LAST_COMMIT_MESSAGE" value="some .class files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

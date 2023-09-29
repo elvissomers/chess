@@ -1,7 +1,7 @@
 package com.practice.project.chess.service.structures;
 
-import com.practice.project.chess.entity.pieces.Pawn;
-import com.practice.project.chess.entity.pieces.Piece;
+import com.practice.project.chess.repository.entity.pieces.Pawn;
+import com.practice.project.chess.repository.entity.pieces.Piece;
 import lombok.*;
 
 import java.util.HashMap;

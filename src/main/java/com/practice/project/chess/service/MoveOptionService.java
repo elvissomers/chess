@@ -1,8 +1,8 @@
 package com.practice.project.chess.service;
 
-import com.practice.project.chess.entity.pieces.Piece;
+import com.practice.project.chess.repository.entity.pieces.Piece;
 import com.practice.project.chess.service.structures.BoardMap;
-import com.practice.project.chess.constants.BoardSize;
+import com.practice.project.chess.service.constants.BoardSize;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -84,14 +84,14 @@ public class MoveOptionService {
         return (x >= 0 && x < BoardSize.horizontalSize) && (y >= 0 && y < BoardSize.verticalSize);
     }
 
-    public void addMovableSquareIfEmptyOrEnemy(int x, int y, Piece piece, BoardMap board) {
+    public static void addMovableSquareIfEmptyOrEnemy(int x, int y, Piece piece, BoardMap board) {
         Piece otherPiece = board.getPieceByPos(x, y);
         if (otherPiece == null || otherPiece.getPlayer().getTeam() != piece.getPlayer().getTeam()) {
             piece.addMovableSquare(board.getCoordinateByPos(x, y));
         }
     }
     
-    private boolean hasPiece(int x, int y, BoardMap board) {
+    private static boolean hasPiece(int x, int y, BoardMap board) {
         return (board.getPieceByPos(x, y) != null);
     }
 }

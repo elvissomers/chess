@@ -1,21 +1,21 @@
 package com.practice.project.chess.service;
 
-import com.practice.project.chess.data.dto.GameDto;
-import com.practice.project.chess.data.dto.MovePieceDto;
-import com.practice.project.chess.data.dto.mapper.GameDtoMapper;
-import com.practice.project.chess.entity.Game;
-import com.practice.project.chess.entity.Move;
-import com.practice.project.chess.entity.Player;
-import com.practice.project.chess.entity.PlayerMove;
-import com.practice.project.chess.entity.pieces.King;
-import com.practice.project.chess.entity.pieces.Pawn;
-import com.practice.project.chess.entity.pieces.Piece;
-import com.practice.project.chess.enums.CastleType;
-import com.practice.project.chess.enums.GameState;
-import com.practice.project.chess.enums.PieceType;
-import com.practice.project.chess.enums.Team;
-import com.practice.project.chess.exception.ElementNotFoundException;
-import com.practice.project.chess.exception.InvalidMoveException;
+import com.practice.project.chess.controller.dto.GameDto;
+import com.practice.project.chess.controller.dto.MovePieceDto;
+import com.practice.project.chess.controller.dto.mapper.GameDtoMapper;
+import com.practice.project.chess.repository.entity.Game;
+import com.practice.project.chess.repository.entity.Move;
+import com.practice.project.chess.repository.entity.Player;
+import com.practice.project.chess.repository.entity.PlayerMove;
+import com.practice.project.chess.repository.entity.pieces.King;
+import com.practice.project.chess.repository.entity.pieces.Pawn;
+import com.practice.project.chess.repository.entity.pieces.Piece;
+import com.practice.project.chess.repository.enums.CastleType;
+import com.practice.project.chess.repository.enums.GameState;
+import com.practice.project.chess.repository.enums.PieceType;
+import com.practice.project.chess.repository.enums.Team;
+import com.practice.project.chess.service.exception.ElementNotFoundException;
+import com.practice.project.chess.service.exception.InvalidMoveException;
 import com.practice.project.chess.repository.GameRepository;
 import com.practice.project.chess.service.pieces.KingService;
 import com.practice.project.chess.service.pieces.PieceService;
@@ -150,7 +150,7 @@ public class GameService {
             pieceService.removePiece(move.getTakenPiece());
 
         if (move.getPromotedTo() != null)
-            pieceService.promotePawnTo(move);
+             pieceService.promotePawnTo(move);
         else
             pieceService.updatePosition(move);
     }

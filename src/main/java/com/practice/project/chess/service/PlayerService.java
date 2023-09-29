@@ -1,22 +1,22 @@
 package com.practice.project.chess.service;
 
-import com.practice.project.chess.data.dto.PlayerDto;
-import com.practice.project.chess.data.dto.SquaresDto;
-import com.practice.project.chess.data.dto.mapper.PlayerDtoMapper;
-import com.practice.project.chess.entity.Move;
-import com.practice.project.chess.entity.Player;
-import com.practice.project.chess.entity.PlayerMove;
-import com.practice.project.chess.entity.pieces.King;
-import com.practice.project.chess.entity.pieces.Pawn;
-import com.practice.project.chess.entity.pieces.Piece;
-import com.practice.project.chess.enums.PieceType;
-import com.practice.project.chess.enums.Team;
-import com.practice.project.chess.exception.ElementNotFoundException;
+import com.practice.project.chess.controller.dto.PlayerDto;
+import com.practice.project.chess.controller.dto.SquaresDto;
+import com.practice.project.chess.controller.dto.mapper.PlayerDtoMapper;
+import com.practice.project.chess.repository.entity.Move;
+import com.practice.project.chess.repository.entity.Player;
+import com.practice.project.chess.repository.entity.PlayerMove;
+import com.practice.project.chess.repository.entity.pieces.King;
+import com.practice.project.chess.repository.entity.pieces.Pawn;
+import com.practice.project.chess.repository.entity.pieces.Piece;
+import com.practice.project.chess.repository.enums.PieceType;
+import com.practice.project.chess.repository.enums.Team;
+import com.practice.project.chess.service.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.PlayerRepository;
 import com.practice.project.chess.service.pieces.PawnService;
 import com.practice.project.chess.service.pieces.PieceService;
 import com.practice.project.chess.service.structures.Coordinate;
-import com.practice.project.chess.constants.BoardSize;
+import com.practice.project.chess.service.constants.BoardSize;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

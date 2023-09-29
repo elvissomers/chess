@@ -1,9 +1,9 @@
 package com.practice.project.chess.repository;
 
-import com.practice.project.chess.entity.Game;
-import com.practice.project.chess.enums.Team;
+import com.practice.project.chess.repository.entity.Game;
+import com.practice.project.chess.repository.enums.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.practice.project.chess.entity.Player;
+import com.practice.project.chess.repository.entity.Player;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
