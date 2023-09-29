@@ -25,10 +25,8 @@ public class CastlingService {
 
     private int xPos;
     private int yPos;
-
     private Team team;
 
-    // TODO: is king in check should be moved to LegalMoveService!
     public void setKingCastlingMoves(Piece piece, Game game) {
         King king = (King) piece;
         setup(king);

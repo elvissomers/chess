@@ -118,7 +118,7 @@ public class MakeMoveService {
     private void setCheckOrStaleMate(Game game) {
         Player playerInTurn = playerInTurn(game);
         setPlayerKingInCheck(playerInTurn, getOpponentPlayer(game, playerInTurn));
-        if (!canPlayerMove(playerInTurn)) {
+        if (!canPlayerMove(playerInTurn, game)) {
             if (isPlayerInCheck(playerInTurn))
                 game.setGameState(opponentWins(playerInTurn));
             else
@@ -146,9 +146,8 @@ public class MakeMoveService {
         return playerService.getPlayerKing(player).isInCheck();
     }
 
-    private boolean canPlayerMove(Player player) {
-        // TODO: this is wrong, because we need the all legal moves for the player instead of ALL moves (including self checking)
-        playerService.setAllAttackedAndMovableSquaresForPlayer(player);
+    private boolean canPlayerMove(Player player, Game game) {
+        legalMoveService.setAllLegalMovableSquaresForPlayer(player, game);
         return !playerService.getAllMovableSquaresForPlayer(player).isEmpty();
     }
 

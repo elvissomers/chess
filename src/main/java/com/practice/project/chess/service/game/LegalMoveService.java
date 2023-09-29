@@ -52,6 +52,13 @@ public class LegalMoveService {
         }
     }
 
+    public void setAllLegalMovableSquaresForPlayer(Player player, Game game) {
+        // TODO : combine this more efficiently with method above, so we don't set the player we already have
+        // TODO at every turn (probably when refactoring player being in piece)
+        for (Piece piece : player.getPieces())
+            setLegalMovableSquaresForPiece(piece, game);
+    }
+
     private void setPlayers(Piece piece, Game game) {
         // TODO: should we remove the "player" attribute of piece? And the "game" attribute of player?
         // TODO: this would achieve better SOC
