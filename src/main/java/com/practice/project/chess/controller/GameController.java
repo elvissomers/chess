@@ -4,12 +4,12 @@ import com.practice.project.chess.controller.dto.GameDto;
 import com.practice.project.chess.controller.dto.MovePieceDto;
 import com.practice.project.chess.service.exception.ElementNotFoundException;
 import com.practice.project.chess.service.game.GameService;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequiredArgsConstructor
+@AllArgsConstructor
 @RequestMapping("game")
 @CrossOrigin(maxAge = 3600)
 public class GameController {
@@ -26,8 +26,8 @@ public class GameController {
         return gameService.getNewGame();
     }
 
-    @PutMapping("make_move/{id}")
-    public void makeMove(@PathVariable long id, @RequestBody MovePieceDto moveDto) {
+    @PutMapping("make_move")
+    public void makeMove(@RequestBody MovePieceDto moveDto) {
         // TODO: should return gameDto of the new game
         gameService.makeMoveFromDto(moveDto);
     }

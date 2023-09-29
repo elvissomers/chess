@@ -2,9 +2,11 @@ package com.practice.project.chess.controller.dto.mapper;
 
 import com.practice.project.chess.controller.dto.MoveDto;
 import com.practice.project.chess.repository.entity.Move;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@NoArgsConstructor
 public class MoveDtoMapper {
 
     public MoveDto MoveToMoveDto(Move move) {

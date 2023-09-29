@@ -3,14 +3,14 @@ package com.practice.project.chess.controller.dto.mapper;
 import com.practice.project.chess.controller.dto.GameDto;
 import com.practice.project.chess.controller.dto.PieceDto;
 import com.practice.project.chess.repository.entity.Game;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Stream;
 
 @Component
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class GameDtoMapper {
 
     private final PieceDtoMapper pieceDtoMapper;
