@@ -25,7 +25,6 @@ public class MoveService {
     private final MoveRepository moveRepository;
     private final PlayerMoveRepository playerMoveRepository;
 
-    private final PlayerService playerService;
     private final BoardService boardService;
 
     private final MoveDtoMapper moveDtoMapper;
