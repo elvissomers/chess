@@ -1,7 +1,6 @@
 package com.practice.project.chess.service.player;
 
 import com.practice.project.chess.controller.dto.PlayerDto;
-import com.practice.project.chess.controller.dto.SquaresDto;
 import com.practice.project.chess.controller.dto.mapper.PlayerDtoMapper;
 import com.practice.project.chess.repository.PlayerMoveRepository;
 import com.practice.project.chess.repository.entity.Move;
@@ -30,14 +29,14 @@ import java.util.List;
 @Service
 public class PlayerService {
 
-    private PieceService pieceService;
-    private PawnService pawnService;
-    private MoveService moveService;
+    private final PieceService pieceService;
+    private final PawnService pawnService;
+    private final MoveService moveService;
 
-    private PlayerRepository playerRepository;
-    private PlayerMoveRepository playerMoveRepository;
+    private final PlayerRepository playerRepository;
+    private final PlayerMoveRepository playerMoveRepository;
 
-    private PlayerDtoMapper playerDtoMapper;
+    private final PlayerDtoMapper playerDtoMapper;
 
     public Player getPlayer(long id) {
         return playerRepository.findById(id)
