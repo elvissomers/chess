@@ -26,16 +26,16 @@ public class LegalMoveService {
     private final PlayerService playerService;
     private final BoardService boardService;
     private final EnPassantService enPassantService;
+    private final CastlingService castlingService;
 
     private Player player;
     private Player opponentPlayer;
 
     public void setLegalMovableSquaresForPiece(Piece piece, Game game) {
-        pieceService.setMovableSquaresForPiece(piece, game.getId());
         setPlayers(piece, game);
-        if (piece.getPieceType() == PieceType.PAWN) {
-            enPassantService.addPawnEnPassantMovesToMovableSquares(piece, game);
-        }
+
+        pieceService.setMovableSquaresForPiece(piece, game.getId());
+        setSpecialMoves(piece, game);
 
         for (Coordinate moveOption : piece.getMovableSquares()) {
             Piece copyPiece = copyPieceTo(piece, moveOption);
@@ -59,6 +59,15 @@ public class LegalMoveService {
         } else {
             player = game.getBlackPlayer();
             opponentPlayer = game.getWhitePlayer();
+        }
+    }
+
+    private void setSpecialMoves(Piece piece, Game game) {
+        if (piece.getPieceType() == PieceType.PAWN) {
+            enPassantService.addPawnEnPassantMovesToMovableSquares(piece, game);
+        }
+        if (piece.getPieceType() == PieceType.KING) {
+            castlingService.setKingCastlingMoves(piece, game);
         }
     }
 
