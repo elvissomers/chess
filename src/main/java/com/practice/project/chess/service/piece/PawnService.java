@@ -1,12 +1,12 @@
-package com.practice.project.chess.service.gameservice.pieces;
+package com.practice.project.chess.service.piece;
 
 import com.practice.project.chess.controller.dto.SquaresDto;
 import com.practice.project.chess.repository.entity.pieces.Pawn;
 import com.practice.project.chess.repository.entity.pieces.Piece;
 import com.practice.project.chess.repository.enums.Team;
+import com.practice.project.chess.service.BoardService;
 import com.practice.project.chess.service.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.PieceRepository;
-import com.practice.project.chess.service.BoardService;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.service.constants.BoardSize;

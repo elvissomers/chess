@@ -1,4 +1,4 @@
-package com.practice.project.chess.service.gameservice;
+package com.practice.project.chess.service.player;
 
 import com.practice.project.chess.controller.dto.PlayerDto;
 import com.practice.project.chess.controller.dto.SquaresDto;
@@ -11,10 +11,11 @@ import com.practice.project.chess.repository.entity.pieces.Pawn;
 import com.practice.project.chess.repository.entity.pieces.Piece;
 import com.practice.project.chess.repository.enums.PieceType;
 import com.practice.project.chess.repository.enums.Team;
+import com.practice.project.chess.service.MoveService;
 import com.practice.project.chess.service.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.PlayerRepository;
-import com.practice.project.chess.service.gameservice.pieces.PawnService;
-import com.practice.project.chess.service.gameservice.pieces.PieceService;
+import com.practice.project.chess.service.piece.PawnService;
+import com.practice.project.chess.service.piece.PieceService;
 import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.service.constants.BoardSize;
 import lombok.AllArgsConstructor;
