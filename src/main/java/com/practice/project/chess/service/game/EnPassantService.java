@@ -12,22 +12,26 @@ import com.practice.project.chess.service.player.PlayerService;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@AllArgsConstructor
+import static com.practice.project.chess.repository.enums.Team.WHITE;
+
+@RequiredArgsConstructor
 @Service
 public class EnPassantService {
+
+    private final BoardService boardService;
+    private final PlayerService playerService;
 
     private int xPos;
     private int yPos;
     private int startPos;
     private int yDirection;
 
-    private final BoardService boardService;
-    private final PlayerService playerService;
-
     public void addPawnEnPassantMovesToMovableSquares(Piece pawn, Game game) {
         BoardMap board = boardService.getBoardMapForGame(game.getId());
+        setup(pawn);
 
         if (yPos == startPos + 3 * yDirection) {
             if (xPos > 0)
@@ -35,6 +39,13 @@ public class EnPassantService {
             if (xPos + 1 < BoardSize.horizontalSize)
                 addPawnEnPassantMovesDirection(1, board, pawn, game);
         }
+    }
+
+    private void setup(Piece pawn) {
+        xPos = pawn.getHorizontalPosition();
+        yPos = pawn.getVerticalPosition();
+        startPos = (pawn.getPlayer().getTeam() == WHITE) ? 1 : 6;
+        yDirection = (pawn.getPlayer().getTeam() == WHITE) ? 1 : -1;
     }
 
     private void addPawnEnPassantMovesDirection(int direction, BoardMap board, Piece pawn, Game game) {
@@ -52,7 +63,7 @@ public class EnPassantService {
     }
 
     private boolean pawnCanBeTakenEnPassantByPawn(Pawn targetPawn, Pawn attackingPawn, Game game) {
-        Player opponentPlayer = (targetPawn.getPlayer().getTeam() == Team.WHITE) ? game.getBlackPlayer()
+        Player opponentPlayer = (targetPawn.getPlayer().getTeam() == WHITE) ? game.getBlackPlayer()
                 : game.getWhitePlayer();
         Move opponentLastMove = playerService.getLastMove(opponentPlayer.getId());
         return opponentLastMove.getPiece() == targetPawn && opponentLastMove.getVerticalFrom()
