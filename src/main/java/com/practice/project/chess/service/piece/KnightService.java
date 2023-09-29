@@ -4,10 +4,10 @@ import com.practice.project.chess.repository.entity.pieces.Piece;
 import com.practice.project.chess.service.BoardService;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.constants.BoardSize;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class KnightService {
     
