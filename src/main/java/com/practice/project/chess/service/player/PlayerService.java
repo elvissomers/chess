@@ -3,6 +3,7 @@ package com.practice.project.chess.service.player;
 import com.practice.project.chess.controller.dto.PlayerDto;
 import com.practice.project.chess.controller.dto.SquaresDto;
 import com.practice.project.chess.controller.dto.mapper.PlayerDtoMapper;
+import com.practice.project.chess.repository.PlayerMoveRepository;
 import com.practice.project.chess.repository.entity.Move;
 import com.practice.project.chess.repository.entity.Player;
 import com.practice.project.chess.repository.entity.PlayerMove;
@@ -34,6 +35,7 @@ public class PlayerService {
     private MoveService moveService;
 
     private PlayerRepository playerRepository;
+    private PlayerMoveRepository playerMoveRepository;
 
     private PlayerDtoMapper playerDtoMapper;
 
@@ -111,6 +113,15 @@ public class PlayerService {
     public Coordinate getPlayerKingCoordinate(Player player) {
         King playerKing = getPlayerKing(player);
         return new Coordinate(playerKing.getHorizontalPosition(), playerKing.getVerticalPosition());
+    }
+
+    public PlayerMove saveMoveForPlayer(Move move, Player player) {
+        PlayerMove newMove = PlayerMove.builder()
+                .number(getNumberOfMoves(player.getId()) + 1)
+                .move(move)
+                .player(player)
+                .build();
+        return playerMoveRepository.save(newMove);
     }
 
     public int getNumberOfMoves(long playerId) {

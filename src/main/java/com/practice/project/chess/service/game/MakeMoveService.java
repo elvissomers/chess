@@ -51,7 +51,7 @@ public class MakeMoveService {
                 destination.getYPos(), game.getId());
         Move newMove = moveService.getOrCreateMove(piece, destination, takenPiece);
         getMoveDetails(newMove, game.getId());
-        return moveService.saveMoveForPlayer(newMove, playerInTurn(game));
+        return playerService.saveMoveForPlayer(newMove, playerInTurn(game));
     }
 
     private void getMoveDetails(Move move, long gameId) {
