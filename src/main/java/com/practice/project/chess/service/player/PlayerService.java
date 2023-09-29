@@ -70,7 +70,6 @@ public class PlayerService {
         playerRepository.save(player);
     }
 
-    // TODO: why use squaresDto? Instead of just a list; List<Coordinate>?
     public List<Coordinate> getAllAttackedSquaresForPlayer(Player player) {
         List<Coordinate> attackedSquares = new ArrayList<>();
         for (Piece piece : player.getPieces()) {
