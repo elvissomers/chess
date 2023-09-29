@@ -11,7 +11,6 @@ import com.practice.project.chess.service.constants.BoardSize;
 import com.practice.project.chess.service.player.PlayerService;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

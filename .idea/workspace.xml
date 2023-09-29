@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Code cleanup: Set final in appropriate fields, removed unused import" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Remove unused queries">
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/piece/KingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/piece/KingService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/piece/KnightService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/piece/KnightService.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -166,41 +169,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00597" summary="Remove unused methods and imports">
-      <created>1695112244709</created>
-      <option name="number" value="00597" />
-      <option name="presentableId" value="LOCAL-00597" />
-      <option name="project" value="LOCAL" />
-      <updated>1695112244709</updated>
-    </task>
-    <task id="LOCAL-00598" summary="Remove more unused methods and imports">
-      <created>1695112294441</created>
-      <option name="number" value="00598" />
-      <option name="presentableId" value="LOCAL-00598" />
-      <option name="project" value="LOCAL" />
-      <updated>1695112294441</updated>
-    </task>
-    <task id="LOCAL-00599" summary="Update playerHasFiftyMoveDraw to no longer use deprecated method">
-      <created>1695112409542</created>
-      <option name="number" value="00599" />
-      <option name="presentableId" value="LOCAL-00599" />
-      <option name="project" value="LOCAL" />
-      <updated>1695112409542</updated>
-    </task>
-    <task id="LOCAL-00600" summary="Code cleanup: removed unused imports, old comments">
-      <created>1695114080654</created>
-      <option name="number" value="00600" />
-      <option name="presentableId" value="LOCAL-00600" />
-      <option name="project" value="LOCAL" />
-      <updated>1695114080654</updated>
-    </task>
-    <task id="LOCAL-00601" summary="After changing the pieces of a player, the player should be saved to the repository">
-      <created>1695114294880</created>
-      <option name="number" value="00601" />
-      <option name="presentableId" value="LOCAL-00601" />
-      <option name="project" value="LOCAL" />
-      <updated>1695114294880</updated>
     </task>
     <task id="LOCAL-00602" summary="Added ElementNotFoundException in BoardService.java; removed unused imports">
       <created>1695114502138</created>
@@ -510,7 +478,42 @@
       <option name="project" value="LOCAL" />
       <updated>1695995237942</updated>
     </task>
-    <option name="localTasksCounter" value="646" />
+    <task id="LOCAL-00646" summary="Updated annotation in PieceDtoMapper">
+      <created>1695995370004</created>
+      <option name="number" value="00646" />
+      <option name="presentableId" value="LOCAL-00646" />
+      <option name="project" value="LOCAL" />
+      <updated>1695995370004</updated>
+    </task>
+    <task id="LOCAL-00647" summary="Updated annotation in KingService.java and KnightService.java">
+      <created>1695995522086</created>
+      <option name="number" value="00647" />
+      <option name="presentableId" value="LOCAL-00647" />
+      <option name="project" value="LOCAL" />
+      <updated>1695995522086</updated>
+    </task>
+    <task id="LOCAL-00648" summary="Some class files from running the app">
+      <created>1695995534835</created>
+      <option name="number" value="00648" />
+      <option name="presentableId" value="LOCAL-00648" />
+      <option name="project" value="LOCAL" />
+      <updated>1695995534835</updated>
+    </task>
+    <task id="LOCAL-00649" summary="Some class files from running the app">
+      <created>1695995540878</created>
+      <option name="number" value="00649" />
+      <option name="presentableId" value="LOCAL-00649" />
+      <option name="project" value="LOCAL" />
+      <updated>1695995540878</updated>
+    </task>
+    <task id="LOCAL-00650" summary="Remove unused queries">
+      <created>1695995644498</created>
+      <option name="number" value="00650" />
+      <option name="presentableId" value="LOCAL-00650" />
+      <option name="project" value="LOCAL" />
+      <updated>1695995644498</updated>
+    </task>
+    <option name="localTasksCounter" value="651" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -528,10 +531,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value=".class files resulting from running the app" />
-    <MESSAGE value="anootated PlayerMove id with @Id" />
-    <MESSAGE value="Remove @Column annotations in koppeltabel object" />
-    <MESSAGE value="Updated pieceType to be a discriminator column" />
     <MESSAGE value="Updated annotations" />
     <MESSAGE value="Work on discriminator value" />
     <MESSAGE value="hibernate show sql" />
@@ -553,7 +552,11 @@
     <MESSAGE value="Code cleanup: remove old comment" />
     <MESSAGE value="Moved saveMoveForPlayer from MoveService.java to PlayerService.java" />
     <MESSAGE value="Code cleanup: Set final in appropriate fields, removed unused import" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup: Set final in appropriate fields, removed unused import" />
+    <MESSAGE value="Updated annotation in PieceDtoMapper" />
+    <MESSAGE value="Updated annotation in KingService.java and KnightService.java" />
+    <MESSAGE value="Some class files from running the app" />
+    <MESSAGE value="Remove unused queries" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove unused queries" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
