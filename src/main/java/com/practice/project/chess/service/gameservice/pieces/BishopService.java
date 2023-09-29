@@ -1,4 +1,4 @@
-package com.practice.project.chess.service.pieces;
+package com.practice.project.chess.service.gameservice.pieces;
 
 import com.practice.project.chess.repository.entity.pieces.Piece;
 import com.practice.project.chess.service.BoardService;
@@ -9,19 +9,17 @@ import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
 @Service
-public class QueenService {
+public class BishopService {
 
     private final BoardService boardService;
     private final MoveOptionService moveOptionService;
 
     public void setMovableSquares(Piece piece, long gameId) {
         BoardMap board = boardService.getBoardMapForGame(gameId);
-        setMovableSquaresWithBoard(piece, board);
+        moveOptionService.addDiagonalMoves(piece, board);
     }
 
     public void setMovableSquaresWithBoard(Piece piece, BoardMap board) {
-        moveOptionService.addHorizontalMoves(piece, board);
-        moveOptionService.addVerticalMoves(piece, board);
         moveOptionService.addDiagonalMoves(piece, board);
     }
 }

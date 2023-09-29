@@ -1,7 +1,8 @@
-package com.practice.project.chess.service;
+package com.practice.project.chess.service.gameservice;
 
 import com.practice.project.chess.repository.entity.Player;
 import com.practice.project.chess.repository.entity.pieces.Piece;
+import com.practice.project.chess.service.gameservice.GameService;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
 import lombok.AllArgsConstructor;

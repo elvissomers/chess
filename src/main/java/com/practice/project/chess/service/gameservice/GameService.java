@@ -1,4 +1,4 @@
-package com.practice.project.chess.service;
+package com.practice.project.chess.service.gameservice;
 
 import com.practice.project.chess.controller.dto.GameDto;
 import com.practice.project.chess.controller.dto.MovePieceDto;
@@ -17,8 +17,8 @@ import com.practice.project.chess.repository.enums.Team;
 import com.practice.project.chess.service.exception.ElementNotFoundException;
 import com.practice.project.chess.service.exception.InvalidMoveException;
 import com.practice.project.chess.repository.GameRepository;
-import com.practice.project.chess.service.pieces.KingService;
-import com.practice.project.chess.service.pieces.PieceService;
+import com.practice.project.chess.service.gameservice.pieces.KingService;
+import com.practice.project.chess.service.gameservice.pieces.PieceService;
 import com.practice.project.chess.service.structures.Coordinate;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

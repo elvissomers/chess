@@ -1,4 +1,4 @@
-package com.practice.project.chess.service;
+package com.practice.project.chess.service.gameservice;
 
 import com.practice.project.chess.controller.dto.MoveDto;
 import com.practice.project.chess.controller.dto.mapper.MoveDtoMapper;
@@ -8,9 +8,11 @@ import com.practice.project.chess.repository.entity.PlayerMove;
 import com.practice.project.chess.repository.entity.pieces.Piece;
 import com.practice.project.chess.repository.enums.CastleType;
 import com.practice.project.chess.repository.enums.PieceType;
+import com.practice.project.chess.service.BoardService;
 import com.practice.project.chess.service.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.MoveRepository;
 import com.practice.project.chess.repository.PlayerMoveRepository;
+import com.practice.project.chess.service.gameservice.PlayerService;
 import com.practice.project.chess.service.structures.Coordinate;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

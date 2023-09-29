@@ -1,4 +1,4 @@
-package com.practice.project.chess.service.pieces;
+package com.practice.project.chess.service.gameservice.pieces;
 
 import com.practice.project.chess.repository.entity.pieces.Piece;
 import com.practice.project.chess.service.BoardService;

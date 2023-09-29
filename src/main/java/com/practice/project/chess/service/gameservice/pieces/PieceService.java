@@ -1,4 +1,4 @@
-package com.practice.project.chess.service.pieces;
+package com.practice.project.chess.service.gameservice.pieces;
 
 import com.practice.project.chess.controller.dto.PieceDto;
 import com.practice.project.chess.controller.dto.SquaresDto;
@@ -11,8 +11,8 @@ import com.practice.project.chess.service.exception.InvalidMoveException;
 import com.practice.project.chess.repository.PieceRepository;
 import com.practice.project.chess.repository.PlayerRepository;
 import com.practice.project.chess.service.BoardService;
-import com.practice.project.chess.service.GameService;
-import com.practice.project.chess.service.PlayerService;
+import com.practice.project.chess.service.gameservice.GameService;
+import com.practice.project.chess.service.gameservice.PlayerService;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.repository.entity.pieces.*;
