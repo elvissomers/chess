@@ -2,7 +2,9 @@ package com.practice.project.chess.service.gameservice;
 
 import com.practice.project.chess.repository.entity.Player;
 import com.practice.project.chess.repository.entity.pieces.Piece;
+import com.practice.project.chess.service.BoardService;
 import com.practice.project.chess.service.gameservice.GameService;
+import com.practice.project.chess.service.gameservice.pieces.PieceService;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
 import lombok.AllArgsConstructor;
@@ -16,9 +18,12 @@ import java.util.List;
 public class LegalMoveService {
 
     private final GameService gameService;
+    private final PieceService pieceService;
+    private final PlayerService playerService;
+    private final BoardService boardService;
 
     public void setLegalMovableSquaresForPiece(Piece piece, long gameId) {
-        setMovableSquaresForPiece(piece, gameId);
+        pieceService.setMovableSquaresForPiece(piece, gameId);
 
         for (Coordinate moveOption : piece.getMovableSquares()) {
             Piece copyPiece = copyPieceTo(piece, moveOption);
@@ -48,8 +53,8 @@ public class LegalMoveService {
         List<Coordinate> attackedSquares = new ArrayList<>();
         for (Piece enemyPiece : player.getPieces()){
             Piece enemyCopyPiece = enemyPiece.copy();
-            setAttackedSquaresForPieceWithBoard(enemyCopyPiece, board);
-            attackedSquares.addAll(getAttackedSquaresForPiece(enemyCopyPiece));
+            pieceService.setAttackedSquaresForPieceWithBoard(enemyCopyPiece, board);
+            attackedSquares.addAll(pieceService.getAttackedSquaresForPiece(enemyCopyPiece));
         }
 
         return attackedSquares;

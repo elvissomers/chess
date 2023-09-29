@@ -71,12 +71,7 @@ public class PieceService {
         return pawnService.getAttackedSquares(pieceId);
     }
 
-    public SquaresDto getAttackedSquaresForPiece(long pieceId) {
-        return (getPiece(pieceId).getPieceType() == PieceType.PAWN) ? getAttackedSquaresForPawn(pieceId)
-                : getMovableSquaresForPiece(pieceId);
-    }
-
-    private List<Coordinate> getAttackedSquaresForPiece(Piece piece) {
+    public List<Coordinate> getAttackedSquaresForPiece(Piece piece) {
         return (piece.getPieceType() == PieceType.PAWN) ? piece.getAttackedSquares()
                 : piece.getMovableSquares();
         // TODO: make attacked squares be an attribute of pawn specifically?
