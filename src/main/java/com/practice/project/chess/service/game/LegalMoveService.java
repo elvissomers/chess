@@ -32,6 +32,8 @@ public class LegalMoveService {
     private Player opponentPlayer;
 
     public void setLegalMovableSquaresForPiece(Piece piece, Game game) {
+        // TODO: this method should be actually called! We can call it in the setup of the game
+        // TODO and then also after every move is made
         setPlayers(piece, game);
 
         pieceService.setMovableSquaresForPiece(piece, game.getId());

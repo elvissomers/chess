@@ -16,6 +16,8 @@ import com.practice.project.chess.service.structures.Coordinate;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
+
 @AllArgsConstructor
 @Service
 public class GameService {
@@ -24,6 +26,7 @@ public class GameService {
     private final PlayerService playerService;
 
     private final MakeMoveService makeMoveService;
+    private final LegalMoveService legalMoveService;
 
     private final GameRepository gameRepository;
 
@@ -46,6 +49,7 @@ public class GameService {
         Player blackPlayer = Player.builder().game(game).team(Team.BLACK).build();
 
         processNewPlayers(game, whitePlayer, blackPlayer);
+        setLegalMoves(game);
         return gameDtoMapper.gameToGameDto(gameRepository.save(game));
     }
 
@@ -56,6 +60,13 @@ public class GameService {
         game.setWhitePlayer(whitePlayer);
         game.setBlackPlayer(blackPlayer);
         game.setGameState(GameState.WHITE_TURN);
+    }
+
+    private void setLegalMoves(Game game) {
+        for (Player player : Set.of(game.getWhitePlayer(), game.getBlackPlayer())) {
+            for (Piece piece : player.getPieces())
+                legalMoveService.setLegalMovableSquaresForPiece(piece, game);
+        }
     }
 
     public void makeMoveFromDto(MovePieceDto dto) {

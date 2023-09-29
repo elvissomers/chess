@@ -1,6 +1,5 @@
 package com.practice.project.chess.service.game;
 
-import com.practice.project.chess.controller.dto.SquaresDto;
 import com.practice.project.chess.repository.entity.Game;
 import com.practice.project.chess.repository.entity.Move;
 import com.practice.project.chess.repository.entity.Player;
@@ -16,13 +15,13 @@ import com.practice.project.chess.service.exception.ElementNotFoundException;
 import com.practice.project.chess.service.exception.InvalidMoveException;
 import com.practice.project.chess.service.MoveService;
 import com.practice.project.chess.service.player.PlayerService;
-import com.practice.project.chess.service.piece.KingService;
 import com.practice.project.chess.service.piece.PieceService;
 import com.practice.project.chess.service.structures.Coordinate;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 import static com.practice.project.chess.service.AllUtil.getOpponentPlayer;
 
@@ -33,6 +32,7 @@ public class MakeMoveService {
     private final PlayerService playerService;
     private final PieceService pieceService;
     private final MoveService moveService;
+    private final LegalMoveService legalMoveService;
 
     public void makeMove(Game game, Piece piece, Coordinate destination) {
         checkMove(game, piece, destination);
@@ -106,6 +106,7 @@ public class MakeMoveService {
         setOtherDraws(game);
         updatePlayerTurn(game);
         setCheckOrStaleMate(game);
+        setNewLegalMoves(game);
     }
 
     private void updatePlayerTurn(Game game) {
@@ -124,8 +125,6 @@ public class MakeMoveService {
                 game.setGameState(GameState.DRAW);
         }
     }
-
-
 
     private void setPlayerKingInCheck(Player player, Player attackingPlayer) {
         King playerKing = playerService.getPlayerKing(player);
@@ -196,5 +195,12 @@ public class MakeMoveService {
             }
         }
         return true;
+    }
+
+    private void setNewLegalMoves(Game game) {
+        for (Player player : Set.of(game.getWhitePlayer(), game.getBlackPlayer())) {
+            for (Piece piece : player.getPieces())
+                legalMoveService.setLegalMovableSquaresForPiece(piece, game);
+        }
     }
 }

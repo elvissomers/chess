@@ -19,8 +19,8 @@ public class BoardService {
 
     private final GameRepository gameRepository;
 
-    // TODO: game instead of gameId? That would make this class stateless, and we can make it an util class
     public BoardMap getBoardMapForGame(long gameId) {
+        // TODO: game instead of gameId? That would make this class stateless, and we can make it an util class
         BoardMap boardMap = getEmptyBoardMap();
         Game game = gameRepository.findById(gameId)
                 .orElseThrow(() -> new ElementNotFoundException("Game not found!"));
