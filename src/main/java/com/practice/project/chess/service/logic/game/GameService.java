@@ -53,7 +53,6 @@ public class GameService {
         Player blackPlayer = Player.builder().game(game).team(Team.BLACK).build();
 
         processNewPlayers(game, whitePlayer, blackPlayer);
-        setLegalMoves(game);
         return gameDtoMapper.gameToGameDto(gameRepository.save(game));
     }
 
@@ -66,20 +65,20 @@ public class GameService {
         game.setGameState(GameState.WHITE_TURN);
     }
 
-    private void setLegalMoves(Game game) {
-        for (Player player : Set.of(game.getWhitePlayer(), game.getBlackPlayer())) {
-            for (Piece piece : player.getPieces())
-                legalMoveService.setLegalMovableSquaresForPiece(piece, game);
-        }
-    }
-
-    public void makeMoveFromDto(MovePieceDto dto) {
+    public void processMoveRequest(MovePieceDto dto) {
         Game game = getGame(dto.getGameId());
+        setLegalMoves(game);
         Piece piece = getPieceForTeamAndPosition(game, dto.getTeam(), new Coordinate(dto.getXFrom(), dto.getYFrom()));
         Coordinate destination = new Coordinate(dto.getXTo(), dto.getYTo());
 
         makeMoveService.makeMove(game, piece, destination);
-        // TODO: legal moves should be set for the game after the move
+        // TODO: legal moves should be set for the game before the move
+    }
+
+    private void setLegalMoves(Game game) {
+        for (Player player : Set.of(game.getWhitePlayer(), game.getBlackPlayer())) {
+            legalMoveService.setAllLegalMovableSquaresForPlayer(player, game);
+        }
     }
 
     public static Piece getPieceForTeamAndPosition(Game game, Team team, Coordinate coordinate) {

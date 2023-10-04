@@ -111,7 +111,6 @@ public class MakeMoveService {
         setOtherDraws(game);
         updatePlayerTurn(game);
         setCheckOrStaleMate(game);
-        setNewLegalMoves(game);
     }
 
     private void updatePlayerTurn(Game game) {
@@ -199,12 +198,5 @@ public class MakeMoveService {
             }
         }
         return true;
-    }
-
-    private void setNewLegalMoves(Game game) {
-        for (Player player : Set.of(game.getWhitePlayer(), game.getBlackPlayer())) {
-            for (Piece piece : player.getPieces())
-                legalMoveService.setLegalMovableSquaresForPiece(piece, game);
-        }
     }
 }
