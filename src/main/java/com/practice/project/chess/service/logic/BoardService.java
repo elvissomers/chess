@@ -58,16 +58,15 @@ public class BoardService {
 
     private void addPiecesToBoard(List<Piece> pieces, BoardMap boardMap) {
         for (Piece piece : pieces) {
-            boardMap.put(boardMap.getCoordinateByPos(piece.getHorizontalPosition(), piece.getVerticalPosition()),
-                    piece);
+            boardMap.put(piece.getCoordinate(), piece);
         }
     }
 
     public BoardMap getBoardMapForCopiedPiece(Piece originalPiece, Piece copyPiece, long gameId) {
         BoardMap board = getBoardMapForGame(gameId);
 
-        board.put(board.getCoordinateByPos(originalPiece.getHorizontalPosition(), originalPiece.getVerticalPosition()), null);
-        board.put(board.getCoordinateByPos(copyPiece.getHorizontalPosition(), copyPiece.getVerticalPosition()), copyPiece);
+        board.put(originalPiece.getCoordinate(), null);
+        board.put(copyPiece.getCoordinate(), copyPiece);
 
         return board;
     }
