@@ -86,7 +86,7 @@ public class MoveOptionService {
 
     public static void addMovableSquareIfEmptyOrEnemy(int x, int y, Piece piece, BoardMap board) {
         Piece otherPiece = board.getPieceByPos(x, y);
-        if (otherPiece == null || otherPiece.getPlayer().getTeam() != piece.getPlayer().getTeam()) {
+        if (otherPiece == null || otherPiece.getTeam() != piece.getTeam()) {
             piece.addMovableSquare(board.getCoordinateByPos(x, y));
         }
     }

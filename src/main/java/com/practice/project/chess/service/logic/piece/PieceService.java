@@ -84,6 +84,7 @@ public class PieceService {
         pieceRepository.save(piece);
     }
 
+    // TODO: this should be at the game level responsibility
     public void promotePawnTo(Move move) {
         Piece pawn = move.getPiece();
         Player player = pawn.getPlayer();
@@ -111,6 +112,7 @@ public class PieceService {
         return pieceRepository.save(piece);
     }
 
+    // TODO: idem: game responsibility (or at least player)
     public void removePiece(Piece piece) {
         Player player = piece.getPlayer();
         player.getPieces().remove(piece);

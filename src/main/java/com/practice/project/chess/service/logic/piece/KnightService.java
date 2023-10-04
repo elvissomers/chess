@@ -55,7 +55,7 @@ public class KnightService {
     
     private void addMovableSquareIfEmptyOrEnemy(int x, int y, Piece piece, BoardMap board) {
         Piece otherPiece = board.get(board.getCoordinateArray()[x][y]);
-        if (otherPiece == null || otherPiece.getPlayer().getTeam() != piece.getPlayer().getTeam()) {
+        if (otherPiece == null || otherPiece.getTeam() != piece.getTeam()) {
             piece.addMovableSquare(board.getCoordinateArray()[x][y]);
         }
     }

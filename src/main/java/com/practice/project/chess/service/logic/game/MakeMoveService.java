@@ -86,12 +86,12 @@ public class MakeMoveService {
     }
 
     private int getPromotionRank(Piece piece) {
-        return (piece.getPlayer().getTeam() == Team.WHITE) ? 7 : 0;
+        return (piece.getTeam() == Team.WHITE) ? 7 : 0;
     }
 
     private void checkIfPieceInTurn(Game game, Piece piece) {
-        if ((game.getGameState() == GameState.WHITE_TURN && piece.getPlayer().getTeam() == Team.WHITE)
-                || (game.getGameState() == GameState.BLACK_TURN && piece.getPlayer().getTeam() == Team.BLACK)) {
+        if ((game.getGameState() == GameState.WHITE_TURN && piece.getTeam() == Team.WHITE)
+                || (game.getGameState() == GameState.BLACK_TURN && piece.getTeam() == Team.BLACK)) {
             return;
         }
         throw new InvalidMoveException("Not players turn!");

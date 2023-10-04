@@ -42,9 +42,9 @@ public class CastlingService {
     }
 
     private void setup(King king) {
-        xPos = king.getHorizontalPosition();
-        yPos = king.getVerticalPosition();
-        team = king.getPlayer().getTeam();
+        xPos = king.getCoordinate().getXPos();
+        yPos = king.getCoordinate().getYPos();
+        team = king.getTeam();
     }
 
     private boolean canCastleShort(Game game, BoardMap board) {

@@ -62,7 +62,7 @@ public class LegalMoveService {
     private void setPlayers(Piece piece, Game game) {
         // TODO: should we remove the "player" attribute of piece? And the "game" attribute of player?
         // TODO: this would achieve better SOC
-        if (piece.getPlayer().getTeam() == Team.WHITE) {
+        if (piece.getTeam() == Team.WHITE) {
             player = game.getWhitePlayer();
             opponentPlayer = game.getBlackPlayer();
         } else {
