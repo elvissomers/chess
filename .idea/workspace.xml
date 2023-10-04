@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="PieceDao; work in progress">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Code cleanup - remove unused methods and imports">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/PlayerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/PlayerRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,27 +169,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00641" summary="Moved castling into separate service, CastlingService.java">
-      <created>1695994766110</created>
-      <option name="number" value="00641" />
-      <option name="presentableId" value="LOCAL-00641" />
-      <option name="project" value="LOCAL" />
-      <updated>1695994766110</updated>
-    </task>
-    <task id="LOCAL-00642" summary="Removed dependencies from KingService.java (dependencies that KingService should not have)">
-      <created>1695994996197</created>
-      <option name="number" value="00642" />
-      <option name="presentableId" value="LOCAL-00642" />
-      <option name="project" value="LOCAL" />
-      <updated>1695994996197</updated>
-    </task>
-    <task id="LOCAL-00643" summary="Code cleanup: remove old comment">
-      <created>1695995087133</created>
-      <option name="number" value="00643" />
-      <option name="presentableId" value="LOCAL-00643" />
-      <option name="project" value="LOCAL" />
-      <updated>1695995087133</updated>
     </task>
     <task id="LOCAL-00644" summary="Moved saveMoveForPlayer from MoveService.java to PlayerService.java">
       <created>1695995191845</created>
@@ -512,7 +492,28 @@
       <option name="project" value="LOCAL" />
       <updated>1696419584519</updated>
     </task>
-    <option name="localTasksCounter" value="690" />
+    <task id="LOCAL-00690" summary="Code cleanup: Refactor method into smaller methods">
+      <created>1696420576172</created>
+      <option name="number" value="00690" />
+      <option name="presentableId" value="LOCAL-00690" />
+      <option name="project" value="LOCAL" />
+      <updated>1696420576172</updated>
+    </task>
+    <task id="LOCAL-00691" summary="Refactoring - services using DAO architecture">
+      <created>1696420601611</created>
+      <option name="number" value="00691" />
+      <option name="presentableId" value="LOCAL-00691" />
+      <option name="project" value="LOCAL" />
+      <updated>1696420601611</updated>
+    </task>
+    <task id="LOCAL-00692" summary="Code cleanup - remove unused methods and imports">
+      <created>1696420745880</created>
+      <option name="number" value="00692" />
+      <option name="presentableId" value="LOCAL-00692" />
+      <option name="project" value="LOCAL" />
+      <updated>1696420745881</updated>
+    </task>
+    <option name="localTasksCounter" value="693" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -530,9 +531,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Code cleanup: Remove unused classes and annotations" />
-    <MESSAGE value="Setup DAO structure: Move and PlayerMove" />
-    <MESSAGE value="Setup DAO structure: Piece" />
     <MESSAGE value="-" />
     <MESSAGE value="Code cleanup: Refactor service layer file structure" />
     <MESSAGE value="setup piece mapper" />
@@ -555,7 +553,10 @@
     <MESSAGE value="Setup daoToPieceMApper" />
     <MESSAGE value="separate service for movable squares (after all this is a game level concern)" />
     <MESSAGE value="PieceDao; work in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="PieceDao; work in progress" />
+    <MESSAGE value="Code cleanup: Refactor method into smaller methods" />
+    <MESSAGE value="Refactoring - services using DAO architecture" />
+    <MESSAGE value="Code cleanup - remove unused methods and imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup - remove unused methods and imports" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
