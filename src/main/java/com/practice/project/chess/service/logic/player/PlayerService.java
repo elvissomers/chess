@@ -36,33 +36,29 @@ public class PlayerService {
     private final PlayerRepository playerRepository;
     private final PlayerMoveRepository playerMoveRepository;
 
-    private final PlayerDtoMapper playerDtoMapper;
-
-    public Player getPlayer(long id) {
-        return playerRepository.findById(id)
-                .orElseThrow(() -> new ElementNotFoundException("Player not found!"));
+    public int getNumberOfMoves(long playerId) {
+        return getPlayerMovesInOrder(playerId).size();
     }
 
-    public void setStartPiecesForPlayer(Player player) {
-        PieceType[] pieceTypesInOrder = new PieceType[]{
-                PieceType.ROOK, PieceType.KNIGHT, PieceType.BISHOP, PieceType.QUEEN, PieceType.KING,
-                PieceType.BISHOP, PieceType.KNIGHT, PieceType.ROOK
-        };
-        int yForMajorPieces = (player.getTeam() == Team.WHITE) ? 0 : 7;
-        int yForPawns = (player.getTeam() == Team.WHITE) ? 1 : 6;
+    public List<PlayerMove> getPlayerMovesInOrder(long playerId) {
+        return moveService.getPlayerMoves(playerId).stream()
+                .sorted(Comparator.comparingInt(PlayerMove::getNumber))
+                .toList();
+    }
 
-        for (int xPos = 0; xPos < BoardSize.horizontalSize; xPos++) {
-            player.getPieces().add(pieceService.createPiece(pieceTypesInOrder[xPos], player,
-                    xPos, yForMajorPieces)
-            );
-        }
+    public Move getLastMove(long playerId) {
+        return moveService.getPlayerMoves(playerId).stream()
+                .max(Comparator.comparingInt(PlayerMove::getNumber))
+                .map(PlayerMove::getMove)
+                .orElse(null);
+    }
 
-        for (int xPos = 0; xPos < BoardSize.horizontalSize; xPos++) {
-            player.getPieces().add(pieceService.createPiece(PieceType.PAWN, player,
-                    xPos, yForPawns)
-            );
-        }
-        playerRepository.save(player);
+    public List<Move> getLastNMoves(int n, long playerId) {
+        return moveService.getPlayerMoves(playerId).stream()
+                .sorted(Comparator.comparingInt(PlayerMove::getNumber).reversed())
+                .map(PlayerMove::getMove)
+                .limit(n)
+                .toList();
     }
 
     public static Piece getPlayerPieceOnCoordinate(Player player, Coordinate coordinate) {
@@ -107,6 +103,28 @@ public class PlayerService {
         return movableSquares;
     }
 
+    public void setStartPiecesForPlayer(Player player) {
+        PieceType[] pieceTypesInOrder = new PieceType[]{
+                PieceType.ROOK, PieceType.KNIGHT, PieceType.BISHOP, PieceType.QUEEN, PieceType.KING,
+                PieceType.BISHOP, PieceType.KNIGHT, PieceType.ROOK
+        };
+        int yForMajorPieces = (player.getTeam() == Team.WHITE) ? 0 : 7;
+        int yForPawns = (player.getTeam() == Team.WHITE) ? 1 : 6;
+
+        for (int xPos = 0; xPos < BoardSize.horizontalSize; xPos++) {
+            player.getPieces().add(pieceService.createPiece(pieceTypesInOrder[xPos], player,
+                    xPos, yForMajorPieces)
+            );
+        }
+
+        for (int xPos = 0; xPos < BoardSize.horizontalSize; xPos++) {
+            player.getPieces().add(pieceService.createPiece(PieceType.PAWN, player,
+                    xPos, yForPawns)
+            );
+        }
+        playerRepository.save(player);
+    }
+
     public void setAllAttackedAndMovableSquaresForPlayer(Player player) {
         long gameId = player.getGame().getId();
         for (Piece piece : player.getPieces()) {
@@ -125,30 +143,5 @@ public class PlayerService {
                 .player(player)
                 .build();
         return playerMoveRepository.save(newMove);
-    }
-
-    public int getNumberOfMoves(long playerId) {
-        return getPlayerMovesInOrder(playerId).size();
-    }
-
-    public List<PlayerMove> getPlayerMovesInOrder(long playerId) {
-        return moveService.getPlayerMoves(playerId).stream()
-                .sorted(Comparator.comparingInt(PlayerMove::getNumber))
-                .toList();
-    }
-
-    public Move getLastMove(long playerId) {
-        return moveService.getPlayerMoves(playerId).stream()
-                .max(Comparator.comparingInt(PlayerMove::getNumber))
-                .map(PlayerMove::getMove)
-                .orElse(null);
-    }
-
-    public List<Move> getLastNMoves(int n, long playerId) {
-        return moveService.getPlayerMoves(playerId).stream()
-                .sorted(Comparator.comparingInt(PlayerMove::getNumber).reversed())
-                .map(PlayerMove::getMove)
-                .limit(n)
-                .toList();
     }
 }
