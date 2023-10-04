@@ -144,4 +144,22 @@ public class PlayerService {
                 .build();
         return playerMoveRepository.save(newMove);
     }
+
+    public void promotePawnTo(Move move) {
+        // TODO: should work without piece referring to player - player should be input and obtained where it is used
+        Piece pawn = move.getPiece();
+        Player player = pawn.getPlayer();
+        player.getPieces().remove(pawn);
+        Piece promotionPiece = pieceService.createPiece(move.getPromotedTo(), player, move.getHorizontalTo(), move.getVerticalTo());
+        player.getPieces().add(promotionPiece);
+        playerRepository.save(player);
+    }
+
+    public void removePiece(Piece piece) {
+        Player player = piece.getPlayer();
+        player.getPieces().remove(piece);
+
+        pieceService.deletePiece(piece);
+        playerRepository.save(player);
+    }
 }

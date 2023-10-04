@@ -99,10 +99,10 @@ public class MakeMoveService {
 
     private void updateGameAfterMove(Move move) {
         if (move.getTakenPiece() != null)
-            pieceService.removePiece(move.getTakenPiece());
+            playerService.removePiece(move.getTakenPiece());
 
         if (move.getPromotedTo() != null)
-            pieceService.promotePawnTo(move);
+            playerService.promotePawnTo(move);
         else
             pieceService.updatePosition(move);
     }
