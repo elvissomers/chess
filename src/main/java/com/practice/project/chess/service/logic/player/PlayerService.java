@@ -123,6 +123,8 @@ public class PlayerService {
         playerRepository.save(player);
     }
 
+    // TODO: this happens at game level, so should not be the players concern!
+    // TODO: idem move setting.. Or just the ID?
     public void setAllAttackedAndMovableSquaresForPlayer(Player player) {
         long gameId = player.getGame().getId();
         for (Piece piece : player.getPieces()) {
