@@ -2,17 +2,21 @@ package com.practice.project.chess.service.model.pieces;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@Builder
 @DiscriminatorValue("KING")
 public class King extends Piece {
 
     private boolean hasMoved;
 
+    // TODO: in Check should not be saved in the database, so should always be obtained
+    // TODO after converting dao to King
     private boolean inCheck;
 
     public King() {
