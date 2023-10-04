@@ -4,7 +4,7 @@ import com.practice.project.chess.controller.dto.PlayerDto;
 import com.practice.project.chess.controller.dto.mapper.PlayerDtoMapper;
 import com.practice.project.chess.repository.PlayerMoveRepository;
 import com.practice.project.chess.service.model.Move;
-import com.practice.project.chess.repository.entity.Player;
+import com.practice.project.chess.repository.dao.Player;
 import com.practice.project.chess.service.model.PlayerMove;
 import com.practice.project.chess.service.model.pieces.King;
 import com.practice.project.chess.service.model.pieces.Pawn;

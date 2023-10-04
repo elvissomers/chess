@@ -1,7 +1,7 @@
 package com.practice.project.chess.service.logic.game;
 
-import com.practice.project.chess.repository.entity.Game;
-import com.practice.project.chess.repository.entity.Player;
+import com.practice.project.chess.repository.dao.Game;
+import com.practice.project.chess.repository.dao.Player;
 import com.practice.project.chess.service.model.pieces.Piece;
 import com.practice.project.chess.repository.enums.PieceType;
 import com.practice.project.chess.repository.enums.Team;

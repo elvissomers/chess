@@ -1,5 +1,6 @@
-package com.practice.project.chess.repository.entity;
+package com.practice.project.chess.repository.dao;
 
+import com.practice.project.chess.repository.dao.Game;
 import com.practice.project.chess.service.model.pieces.Piece;
 import com.practice.project.chess.repository.enums.Team;
 import jakarta.persistence.*;

@@ -1,4 +1,4 @@
-package com.practice.project.chess.repository.entity;
+package com.practice.project.chess.repository.dao;
 
 import com.practice.project.chess.repository.enums.GameState;
 import jakarta.persistence.*;

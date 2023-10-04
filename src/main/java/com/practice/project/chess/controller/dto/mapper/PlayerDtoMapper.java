@@ -2,7 +2,7 @@ package com.practice.project.chess.controller.dto.mapper;
 
 import com.practice.project.chess.controller.dto.PlayerDto;
 import com.practice.project.chess.controller.dto.PlayerPiecesDto;
-import com.practice.project.chess.repository.entity.Player;
+import com.practice.project.chess.repository.dao.Player;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
