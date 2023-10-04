@@ -31,7 +31,14 @@ public class LegalMoveService {
     private Player player;
     private Player opponentPlayer;
 
-    public void setLegalMovableSquaresForPiece(Piece piece, Game game) {
+    public void setAllLegalMovableSquaresForPlayer(Player player, Game game) {
+        // TODO : combine this more efficiently with method above, so we don't set the player we already have
+        // TODO at every turn (probably when refactoring player being in piece)
+        for (Piece piece : player.getPieces())
+            setLegalMovableSquaresForPiece(piece, game);
+    }
+
+    private void setLegalMovableSquaresForPiece(Piece piece, Game game) {
         // TODO: this method should be actually called! We can call it in the setup of the game
         // TODO and then also after every move is made
         setPlayers(piece, game);
@@ -40,23 +47,20 @@ public class LegalMoveService {
         setSpecialMoves(piece, game);
 
         for (Coordinate moveOption : piece.getMovableSquares()) {
-            Piece copyPiece = copyPieceTo(piece, moveOption);
-
-            BoardMap copyBoard = boardService.getBoardMapForCopiedPiece(piece, copyPiece, game.getId());
-            Coordinate kingPosition = playerService.getPlayerKingCoordinate(player);
-
-            List<Coordinate> attackedSquares = getAllAttackedSquaresForPlayer(opponentPlayer, copyBoard);
-            if (!attackedSquares.contains(kingPosition)) {
-                piece.getLegalMovableSquares().add(moveOption);
-            }
+            addToLegalMovableSquaresIfLegal(piece, moveOption, game);
         }
     }
 
-    public void setAllLegalMovableSquaresForPlayer(Player player, Game game) {
-        // TODO : combine this more efficiently with method above, so we don't set the player we already have
-        // TODO at every turn (probably when refactoring player being in piece)
-        for (Piece piece : player.getPieces())
-            setLegalMovableSquaresForPiece(piece, game);
+    private void addToLegalMovableSquaresIfLegal(Piece piece, Coordinate destination, Game game) {
+        Piece copyPiece = copyPieceTo(piece, destination);
+
+        BoardMap copyBoard = boardService.getBoardMapForCopiedPiece(piece, copyPiece, game.getId());
+        Coordinate kingPosition = playerService.getPlayerKingCoordinate(player);
+
+        List<Coordinate> attackedSquares = getAllAttackedSquaresForPlayer(opponentPlayer, copyBoard);
+        if (!attackedSquares.contains(kingPosition)) {
+            piece.getLegalMovableSquares().add(destination);
+        }
     }
 
     private void setPlayers(Piece piece, Game game) {
