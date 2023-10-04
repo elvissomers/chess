@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="-">
-      <change afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/PieceController.class" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="setup piece mapper">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,41 +168,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00613" summary="Work in progress: Setup Make Move endpoint in Game Controller">
-      <created>1695641703709</created>
-      <option name="number" value="00613" />
-      <option name="presentableId" value="LOCAL-00613" />
-      <option name="project" value="LOCAL" />
-      <updated>1695641703709</updated>
-    </task>
-    <task id="LOCAL-00614" summary="Work in progress: Setup Make Move endpoint in Game Controller">
-      <created>1695641879133</created>
-      <option name="number" value="00614" />
-      <option name="presentableId" value="LOCAL-00614" />
-      <option name="project" value="LOCAL" />
-      <updated>1695641879133</updated>
-    </task>
-    <task id="LOCAL-00615" summary="Annotation and todo comment">
-      <created>1695714208669</created>
-      <option name="number" value="00615" />
-      <option name="presentableId" value="LOCAL-00615" />
-      <option name="project" value="LOCAL" />
-      <updated>1695714208669</updated>
-    </task>
-    <task id="LOCAL-00616" summary="Delete unused controller">
-      <created>1695889591452</created>
-      <option name="number" value="00616" />
-      <option name="presentableId" value="LOCAL-00616" />
-      <option name="project" value="LOCAL" />
-      <updated>1695889591452</updated>
-    </task>
-    <task id="LOCAL-00617" summary="Removed some comments">
-      <created>1695889665401</created>
-      <option name="number" value="00617" />
-      <option name="presentableId" value="LOCAL-00617" />
-      <option name="project" value="LOCAL" />
-      <updated>1695889665402</updated>
     </task>
     <task id="LOCAL-00618" summary="Removed unused DAO files">
       <created>1695889673541</created>
@@ -512,7 +477,42 @@
       <option name="project" value="LOCAL" />
       <updated>1696405985475</updated>
     </task>
-    <option name="localTasksCounter" value="662" />
+    <task id="LOCAL-00662" summary="Code cleanup: Refactor service layer file structure">
+      <created>1696406362831</created>
+      <option name="number" value="00662" />
+      <option name="presentableId" value="LOCAL-00662" />
+      <option name="project" value="LOCAL" />
+      <updated>1696406362831</updated>
+    </task>
+    <task id="LOCAL-00663" summary="Code cleanup: Refactor service layer file structure">
+      <created>1696406437084</created>
+      <option name="number" value="00663" />
+      <option name="presentableId" value="LOCAL-00663" />
+      <option name="project" value="LOCAL" />
+      <updated>1696406437084</updated>
+    </task>
+    <task id="LOCAL-00664" summary="Code cleanup: Refactor service layer file structure">
+      <created>1696406463934</created>
+      <option name="number" value="00664" />
+      <option name="presentableId" value="LOCAL-00664" />
+      <option name="project" value="LOCAL" />
+      <updated>1696406463934</updated>
+    </task>
+    <task id="LOCAL-00665" summary="Code cleanup: Refactor service layer file structure">
+      <created>1696406521532</created>
+      <option name="number" value="00665" />
+      <option name="presentableId" value="LOCAL-00665" />
+      <option name="project" value="LOCAL" />
+      <updated>1696406521532</updated>
+    </task>
+    <task id="LOCAL-00666" summary="setup piece mapper">
+      <created>1696406573025</created>
+      <option name="number" value="00666" />
+      <option name="presentableId" value="LOCAL-00666" />
+      <option name="project" value="LOCAL" />
+      <updated>1696406573025</updated>
+    </task>
+    <option name="localTasksCounter" value="667" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -530,8 +530,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Refactor legal move setting to separate file; LegalMoveService.java" />
-    <MESSAGE value="Refactor en passant move setting to separate file; EnPassantService.java" />
     <MESSAGE value="Refactor Service package naming" />
     <MESSAGE value="More Service layer refactoring - work in progress" />
     <MESSAGE value="TODO comment" />
@@ -555,7 +553,9 @@
     <MESSAGE value="Setup DAO structure: Move and PlayerMove" />
     <MESSAGE value="Setup DAO structure: Piece" />
     <MESSAGE value="-" />
-    <option name="LAST_COMMIT_MESSAGE" value="-" />
+    <MESSAGE value="Code cleanup: Refactor service layer file structure" />
+    <MESSAGE value="setup piece mapper" />
+    <option name="LAST_COMMIT_MESSAGE" value="setup piece mapper" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

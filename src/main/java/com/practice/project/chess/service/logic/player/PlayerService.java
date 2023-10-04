@@ -71,6 +71,29 @@ public class PlayerService {
         playerRepository.save(player);
     }
 
+    public Piece getPlayerPieceOnCoordinate(Player player, Coordinate coordinate) {
+        // TODO: player should be mapped to entity as well, that holds a list to pieces
+        // TODO instead of pieceDao's!
+        for (Piece piece : player.getPieces()) {
+            if (piece.getCoordinate().equals(coordinate))
+                return piece;
+        }
+        throw new ElementNotFoundException("No piece found at this position!");
+    }
+
+    public King getPlayerKing(Player player) {
+        for (Piece piece : player.getPieces()) {
+            if (piece instanceof King)
+                return (King) piece;
+        }
+        throw new ElementNotFoundException("Player's King not found!");
+    }
+
+    public Coordinate getPlayerKingCoordinate(Player player) {
+        King playerKing = getPlayerKing(player);
+        return new Coordinate(playerKing.getHorizontalPosition(), playerKing.getVerticalPosition());
+    }
+
     public List<Coordinate> getAllAttackedSquaresForPlayer(Player player) {
         List<Coordinate> attackedSquares = new ArrayList<>();
         for (Piece piece : player.getPieces()) {
@@ -100,19 +123,6 @@ public class PlayerService {
         }
     }
     //TODO: variant of above method but with board, to simplify legal move pruning
-
-    public King getPlayerKing(Player player) {
-        for (Piece piece : player.getPieces()) {
-            if (piece instanceof King)
-                return (King) piece;
-        }
-        throw new ElementNotFoundException("Player's King not found!");
-    }
-
-    public Coordinate getPlayerKingCoordinate(Player player) {
-        King playerKing = getPlayerKing(player);
-        return new Coordinate(playerKing.getHorizontalPosition(), playerKing.getVerticalPosition());
-    }
 
     public PlayerMove saveMoveForPlayer(Move move, Player player) {
         PlayerMove newMove = PlayerMove.builder()

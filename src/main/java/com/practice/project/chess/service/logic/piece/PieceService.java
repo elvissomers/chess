@@ -46,6 +46,7 @@ public class PieceService {
     }
 
     public Piece getPieceForGameAndPosition(int xPos, int yPos, long gameId) {
+        // TODO: refactor to get Piece for coordinate in PlayerService
         return pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
                 xPos, yPos, gameId)
                 .orElseThrow(() -> new ElementNotFoundException("Piece not found!"));
