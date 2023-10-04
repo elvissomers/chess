@@ -32,8 +32,6 @@ public class PieceService {
     private final PieceRepository pieceRepository;
     private final PlayerRepository playerRepository;
 
-    private final PieceDtoMapper pieceDtoMapper;
-
     public Piece getPieceForGameAndPosition(int xPos, int yPos, long gameId) {
         // TODO: refactor to get Piece for coordinate in PlayerService
         return pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
