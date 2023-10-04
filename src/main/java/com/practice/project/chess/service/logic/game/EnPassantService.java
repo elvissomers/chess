@@ -43,8 +43,8 @@ public class EnPassantService {
     private void setup(Piece pawn) {
         xPos = pawn.getHorizontalPosition();
         yPos = pawn.getVerticalPosition();
-        startPos = (pawn.getPlayer().getTeam() == WHITE) ? 1 : 6;
-        yDirection = (pawn.getPlayer().getTeam() == WHITE) ? 1 : -1;
+        startPos = (pawn.getTeam() == WHITE) ? 1 : 6;
+        yDirection = (pawn.getTeam() == WHITE) ? 1 : -1;
     }
 
     private void addPawnEnPassantMovesDirection(int direction, BoardMap board, Piece pawn, Game game) {
@@ -58,14 +58,14 @@ public class EnPassantService {
     }
 
     private boolean enemyTeam(Piece pawn, Pawn otherPawn) {
-        return (otherPawn.getPlayer().getTeam() != pawn.getPlayer().getTeam());
+        return (otherPawn.getTeam() != pawn.getTeam());
     }
 
     private boolean pawnCanBeTakenEnPassantByPawn(Pawn targetPawn, Pawn attackingPawn, Game game) {
-        Player opponentPlayer = (targetPawn.getPlayer().getTeam() == WHITE) ? game.getBlackPlayer()
+        Player opponentPlayer = (targetPawn.getTeam() == WHITE) ? game.getBlackPlayer()
                 : game.getWhitePlayer();
         Move opponentLastMove = playerService.getLastMove(opponentPlayer.getId());
         return opponentLastMove.getPiece() == targetPawn && opponentLastMove.getVerticalFrom()
-                == ((attackingPawn.getPlayer().getTeam() == Team.BLACK) ? 1 : 6);
+                == ((attackingPawn.getTeam() == Team.BLACK) ? 1 : 6);
     }
 }
