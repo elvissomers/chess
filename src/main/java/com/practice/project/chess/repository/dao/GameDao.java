@@ -1,7 +1,6 @@
 package com.practice.project.chess.repository.dao;
 
 import com.practice.project.chess.repository.enums.GameState;
-import com.practice.project.chess.service.model.Player;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
