@@ -32,13 +32,11 @@ public class PieceService {
 
     private final PieceMapper pieceMapper;
 
-    public SquaresDto getMovableSquaresForPiece(long id) {
-        return SquaresDto.builder().squares(
-                pieceRepository.findById(id)
+    public List<Coordinate> getMovableSquaresForPiece(long id) {
+        return pieceRepository.findById(id)
                         .map(pieceMapper::daoToPiece)
                         .map(Piece::getMovableSquares)
-                        .orElseThrow(() -> new ElementNotFoundException("Piece not found!"))
-                ).build();
+                        .orElseThrow(() -> new ElementNotFoundException("Piece not found!"));
     }
 
     private PieceDao getPieceDao(long id) {
