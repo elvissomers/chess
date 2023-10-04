@@ -1,6 +1,7 @@
 package com.practice.project.chess.service.model.pieces;
 
 import com.practice.project.chess.repository.dao.Player;
+import com.practice.project.chess.repository.enums.Team;
 import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.repository.enums.PieceType;
 import jakarta.persistence.*;
@@ -30,6 +31,8 @@ public abstract class Piece {
     @ManyToOne(optional = false)
     @JoinColumn(name = "player_id")
     private Player player;
+
+    private Team team;
 
     @Transient
     private PieceType pieceType;

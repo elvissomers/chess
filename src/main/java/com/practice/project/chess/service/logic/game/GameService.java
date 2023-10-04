@@ -18,11 +18,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+import static com.practice.project.chess.service.logic.player.PlayerService.getPlayerPieceOnCoordinate;
+
 @AllArgsConstructor
 @Service
 public class GameService {
 
-    private final PieceService pieceService;
     private final PlayerService playerService;
 
     private final MakeMoveService makeMoveService;
@@ -41,6 +42,10 @@ public class GameService {
         return gameRepository.findById(id)
                 .map(gameDtoMapper::gameToGameDto)
                 .orElseThrow(() -> new ElementNotFoundException("Game not found!"));
+    }
+
+    private static Player getPlayerOfTeam(Game game, Team team) {
+        return (team == Team.WHITE) ? game.getWhitePlayer() : game.getBlackPlayer();
     }
 
     public GameDto getNewGame() {
@@ -71,10 +76,14 @@ public class GameService {
 
     public void makeMoveFromDto(MovePieceDto dto) {
         Game game = getGame(dto.getGameId());
-        Piece piece = pieceService.getPieceForGameAndPosition(dto.getXFrom(), dto.getYFrom(), dto.getGameId());
+        Piece piece = getPieceForTeamAndPosition(game, dto.getTeam(), new Coordinate(dto.getXFrom(), dto.getYFrom()));
         Coordinate destination = new Coordinate(dto.getXTo(), dto.getYTo());
 
         makeMoveService.makeMove(game, piece, destination);
         // TODO: legal moves should be set for the game after the move
+    }
+
+    public static Piece getPieceForTeamAndPosition(Game game, Team team, Coordinate coordinate) {
+        return getPlayerPieceOnCoordinate(getPlayerOfTeam(game, team), coordinate);
     }
 }

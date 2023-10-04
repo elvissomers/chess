@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Set;
 
 import static com.practice.project.chess.service.logic.AllUtil.getOpponentPlayer;
+import static com.practice.project.chess.service.logic.game.GameService.getPieceForTeamAndPosition;
 
 @AllArgsConstructor
 @Service
@@ -47,11 +48,15 @@ public class MakeMoveService {
     }
 
     private PlayerMove updateMoveHistory(Game game, Piece piece, Coordinate destination) {
-        Piece takenPiece = pieceService.getPieceForGameAndPosition(destination.getXPos(),
-                destination.getYPos(), game.getId());
+        Team opponentTeam = getOtherTeam(piece.getTeam());
+        Piece takenPiece = getPieceForTeamAndPosition(game, opponentTeam, destination);
         Move newMove = moveService.getOrCreateMove(piece, destination, takenPiece);
         getMoveDetails(newMove, game.getId());
         return playerService.saveMoveForPlayer(newMove, playerInTurn(game));
+    }
+
+    private static Team getOtherTeam(Team team) {
+        return (team == Team.WHITE) ? Team.BLACK : Team.WHITE;
     }
 
     private void getMoveDetails(Move move, long gameId) {

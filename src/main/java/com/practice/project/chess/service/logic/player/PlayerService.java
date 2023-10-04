@@ -65,7 +65,7 @@ public class PlayerService {
         playerRepository.save(player);
     }
 
-    public Piece getPlayerPieceOnCoordinate(Player player, Coordinate coordinate) {
+    public static Piece getPlayerPieceOnCoordinate(Player player, Coordinate coordinate) {
         // TODO: player should be mapped to entity as well, that holds a list to pieces
         // TODO instead of pieceDao's!
         for (Piece piece : player.getPieces()) {
