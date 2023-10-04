@@ -43,12 +43,6 @@ public class PlayerService {
                 .orElseThrow(() -> new ElementNotFoundException("Player not found!"));
     }
 
-    public PlayerDto getPlayerDto(long id) {
-        return playerRepository.findById(id)
-                .map(playerDtoMapper::playerToPlayerDto)
-                .orElseThrow(() -> new ElementNotFoundException("Player not found!"));
-    }
-
     public void setStartPiecesForPlayer(Player player) {
         PieceType[] pieceTypesInOrder = new PieceType[]{
                 PieceType.ROOK, PieceType.KNIGHT, PieceType.BISHOP, PieceType.QUEEN, PieceType.KING,

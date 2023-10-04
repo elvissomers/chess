@@ -34,17 +34,6 @@ public class PieceService {
 
     private final PieceDtoMapper pieceDtoMapper;
 
-    public Piece getPiece(long id) {
-        return pieceRepository.findById(id)
-                .orElseThrow(() -> new ElementNotFoundException("Piece not found!"));
-    }
-
-    public PieceDto getPieceDto(long id) {
-        return pieceRepository.findById(id)
-                .map(pieceDtoMapper::pieceToPieceDto)
-                .orElseThrow(() -> new ElementNotFoundException("Piece not found!"));
-    }
-
     public Piece getPieceForGameAndPosition(int xPos, int yPos, long gameId) {
         // TODO: refactor to get Piece for coordinate in PlayerService
         return pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
