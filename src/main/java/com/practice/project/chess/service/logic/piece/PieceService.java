@@ -1,4 +1,4 @@
-package com.practice.project.chess.service.piece;
+package com.practice.project.chess.service.logic.piece;
 
 import com.practice.project.chess.controller.dto.PieceDto;
 import com.practice.project.chess.controller.dto.SquaresDto;

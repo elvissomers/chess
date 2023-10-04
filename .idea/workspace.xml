@@ -4,22 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Code cleanup: Remove unused classes and annotations">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/dao/GameDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/dao/MoveDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/dao/PlayerDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/dao/PlayerMoveDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/dao/pieces/PieceDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/GetPieceDataDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/MovePieceResponseDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/mapper/MoveDtoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/mapper/MoveDtoMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/CastlingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/CastlingService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/EnPassantService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/EnPassantService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/GameService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/GameService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/LegalMoveService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/LegalMoveService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/MakeMoveService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/MakeMoveService.class" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="-">
+      <change afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/PieceController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,27 +168,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00610" summary="Code cleanup: Remove unused methods and imports">
-      <created>1695640602271</created>
-      <option name="number" value="00610" />
-      <option name="presentableId" value="LOCAL-00610" />
-      <option name="project" value="LOCAL" />
-      <updated>1695640602272</updated>
-    </task>
-    <task id="LOCAL-00611" summary="Code cleanup: Remove unused methods, attributes and imports.">
-      <created>1695640941017</created>
-      <option name="number" value="00611" />
-      <option name="presentableId" value="LOCAL-00611" />
-      <option name="project" value="LOCAL" />
-      <updated>1695640941017</updated>
-    </task>
-    <task id="LOCAL-00612" summary="Code cleanup: comment update">
-      <created>1695640999282</created>
-      <option name="number" value="00612" />
-      <option name="presentableId" value="LOCAL-00612" />
-      <option name="project" value="LOCAL" />
-      <updated>1695640999282</updated>
     </task>
     <task id="LOCAL-00613" summary="Work in progress: Setup Make Move endpoint in Game Controller">
       <created>1695641703709</created>
@@ -526,7 +491,28 @@
       <option name="project" value="LOCAL" />
       <updated>1695997093562</updated>
     </task>
-    <option name="localTasksCounter" value="659" />
+    <task id="LOCAL-00659" summary="Setup DAO structure: Move and PlayerMove">
+      <created>1696405569445</created>
+      <option name="number" value="00659" />
+      <option name="presentableId" value="LOCAL-00659" />
+      <option name="project" value="LOCAL" />
+      <updated>1696405569445</updated>
+    </task>
+    <task id="LOCAL-00660" summary="Setup DAO structure: Piece">
+      <created>1696405979876</created>
+      <option name="number" value="00660" />
+      <option name="presentableId" value="LOCAL-00660" />
+      <option name="project" value="LOCAL" />
+      <updated>1696405979876</updated>
+    </task>
+    <task id="LOCAL-00661" summary="-">
+      <created>1696405985475</created>
+      <option name="number" value="00661" />
+      <option name="presentableId" value="LOCAL-00661" />
+      <option name="project" value="LOCAL" />
+      <updated>1696405985475</updated>
+    </task>
+    <option name="localTasksCounter" value="662" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -544,9 +530,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Code cleanup - remove unused imports" />
-    <MESSAGE value="remove unused method" />
-    <MESSAGE value="Refactor legal move setting to separate file; LegalMoveService.java - work in progress" />
     <MESSAGE value="Refactor legal move setting to separate file; LegalMoveService.java" />
     <MESSAGE value="Refactor en passant move setting to separate file; EnPassantService.java" />
     <MESSAGE value="Refactor Service package naming" />
@@ -569,7 +552,10 @@
     <MESSAGE value="Setting all legal moves at game initalization and at the end of every move" />
     <MESSAGE value="Update CanPlayerMove in MakeMoveService.java to only set legal moves for the player" />
     <MESSAGE value="Code cleanup: Remove unused classes and annotations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup: Remove unused classes and annotations" />
+    <MESSAGE value="Setup DAO structure: Move and PlayerMove" />
+    <MESSAGE value="Setup DAO structure: Piece" />
+    <MESSAGE value="-" />
+    <option name="LAST_COMMIT_MESSAGE" value="-" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

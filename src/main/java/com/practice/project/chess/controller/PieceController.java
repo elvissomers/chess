@@ -1,7 +1,7 @@
 package com.practice.project.chess.controller;
 
 import com.practice.project.chess.controller.dto.SquaresDto;
-import com.practice.project.chess.service.piece.PieceService;
+import com.practice.project.chess.service.logic.piece.PieceService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

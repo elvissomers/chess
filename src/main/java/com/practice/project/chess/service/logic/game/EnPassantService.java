@@ -1,4 +1,4 @@
-package com.practice.project.chess.service.game;
+package com.practice.project.chess.service.logic.game;
 
 import com.practice.project.chess.repository.entity.Game;
 import com.practice.project.chess.repository.entity.Move;
@@ -6,9 +6,9 @@ import com.practice.project.chess.repository.entity.Player;
 import com.practice.project.chess.repository.entity.pieces.Pawn;
 import com.practice.project.chess.repository.entity.pieces.Piece;
 import com.practice.project.chess.repository.enums.Team;
-import com.practice.project.chess.service.BoardService;
 import com.practice.project.chess.service.constants.BoardSize;
-import com.practice.project.chess.service.player.PlayerService;
+import com.practice.project.chess.service.logic.BoardService;
+import com.practice.project.chess.service.logic.player.PlayerService;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
 import lombok.RequiredArgsConstructor;

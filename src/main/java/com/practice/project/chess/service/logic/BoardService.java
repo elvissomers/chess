@@ -1,4 +1,4 @@
-package com.practice.project.chess.service;
+package com.practice.project.chess.service.logic;
 
 import com.practice.project.chess.repository.entity.Game;
 import com.practice.project.chess.repository.entity.pieces.Piece;

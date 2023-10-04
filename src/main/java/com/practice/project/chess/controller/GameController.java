@@ -3,7 +3,7 @@ package com.practice.project.chess.controller;
 import com.practice.project.chess.controller.dto.GameDto;
 import com.practice.project.chess.controller.dto.MovePieceDto;
 import com.practice.project.chess.service.exception.ElementNotFoundException;
-import com.practice.project.chess.service.game.GameService;
+import com.practice.project.chess.service.logic.game.GameService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

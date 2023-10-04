@@ -1,10 +1,10 @@
-package com.practice.project.chess.service.piece;
+package com.practice.project.chess.service.logic.piece;
 
 import com.practice.project.chess.controller.dto.SquaresDto;
 import com.practice.project.chess.repository.entity.pieces.Pawn;
 import com.practice.project.chess.repository.entity.pieces.Piece;
 import com.practice.project.chess.repository.enums.Team;
-import com.practice.project.chess.service.BoardService;
+import com.practice.project.chess.service.logic.BoardService;
 import com.practice.project.chess.service.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.PieceRepository;
 import com.practice.project.chess.service.structures.BoardMap;
