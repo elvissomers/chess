@@ -5,7 +5,6 @@ import com.practice.project.chess.service.model.pieces.Piece;
 import lombok.*;
 
 import java.util.HashMap;
-import java.util.List;
 
 @Getter
 @Setter
@@ -13,13 +12,6 @@ import java.util.List;
 public class BoardMap extends HashMap<Coordinate, Piece> {
 
     private final transient Coordinate[][] coordinateArray;
-
-    public void setPiecesToBoard(List<Piece> pieces) {
-        for (Piece piece : pieces) {
-            put(getCoordinateByPos(piece.getHorizontalPosition(), piece.getVerticalPosition()),
-                    piece);
-        }
-    }
 
     public Piece getPieceByPos(int xPos, int yPos){
         return get(coordinateArray[xPos][yPos]);
