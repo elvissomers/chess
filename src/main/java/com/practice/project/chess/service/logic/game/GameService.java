@@ -66,11 +66,12 @@ public class GameService {
     }
 
     public void processMoveRequest(MovePieceDto dto) {
+        // TODO game and gamedao should be separated, idem for player and playerdao
         Game game = getGame(dto.getGameId());
         setLegalMoves(game);
+
         Piece piece = getPieceForTeamAndPosition(game, dto.getTeam(), new Coordinate(dto.getXFrom(), dto.getYFrom()));
         Coordinate destination = new Coordinate(dto.getXTo(), dto.getYTo());
-
         makeMoveService.makeMove(game, piece, destination);
         // TODO: legal moves should be set for the game before the move
     }
