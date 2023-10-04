@@ -1,4 +1,4 @@
-package com.practice.project.chess.repository.entity.pieces;
+package com.practice.project.chess.service.model.pieces;
 
 import com.practice.project.chess.service.structures.Coordinate;
 import jakarta.persistence.*;

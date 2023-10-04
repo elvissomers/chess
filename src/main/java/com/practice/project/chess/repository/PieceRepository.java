@@ -1,7 +1,7 @@
 package com.practice.project.chess.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.practice.project.chess.repository.entity.pieces.Piece;
+import com.practice.project.chess.service.model.pieces.Piece;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

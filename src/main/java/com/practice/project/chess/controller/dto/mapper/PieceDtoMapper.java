@@ -1,7 +1,7 @@
 package com.practice.project.chess.controller.dto.mapper;
 
 import com.practice.project.chess.controller.dto.PieceDto;
-import com.practice.project.chess.repository.entity.pieces.Piece;
+import com.practice.project.chess.service.model.pieces.Piece;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 

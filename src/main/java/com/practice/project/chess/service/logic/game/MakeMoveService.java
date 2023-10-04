@@ -1,12 +1,12 @@
 package com.practice.project.chess.service.logic.game;
 
 import com.practice.project.chess.repository.entity.Game;
-import com.practice.project.chess.repository.entity.Move;
+import com.practice.project.chess.service.model.Move;
 import com.practice.project.chess.repository.entity.Player;
-import com.practice.project.chess.repository.entity.PlayerMove;
-import com.practice.project.chess.repository.entity.pieces.King;
-import com.practice.project.chess.repository.entity.pieces.Pawn;
-import com.practice.project.chess.repository.entity.pieces.Piece;
+import com.practice.project.chess.service.model.PlayerMove;
+import com.practice.project.chess.service.model.pieces.King;
+import com.practice.project.chess.service.model.pieces.Pawn;
+import com.practice.project.chess.service.model.pieces.Piece;
 import com.practice.project.chess.repository.enums.CastleType;
 import com.practice.project.chess.repository.enums.GameState;
 import com.practice.project.chess.repository.enums.PieceType;
@@ -14,7 +14,6 @@ import com.practice.project.chess.repository.enums.Team;
 import com.practice.project.chess.service.exception.ElementNotFoundException;
 import com.practice.project.chess.service.exception.InvalidMoveException;
 import com.practice.project.chess.service.logic.MoveService;
-import com.practice.project.chess.service.logic.game.LegalMoveService;
 import com.practice.project.chess.service.logic.player.PlayerService;
 import com.practice.project.chess.service.logic.piece.PieceService;
 import com.practice.project.chess.service.structures.Coordinate;

@@ -2,9 +2,9 @@ package com.practice.project.chess.service.logic;
 
 import com.practice.project.chess.controller.dto.MoveDto;
 import com.practice.project.chess.controller.dto.mapper.MoveDtoMapper;
-import com.practice.project.chess.repository.entity.Move;
-import com.practice.project.chess.repository.entity.PlayerMove;
-import com.practice.project.chess.repository.entity.pieces.Piece;
+import com.practice.project.chess.service.model.Move;
+import com.practice.project.chess.service.model.PlayerMove;
+import com.practice.project.chess.service.model.pieces.Piece;
 import com.practice.project.chess.repository.enums.CastleType;
 import com.practice.project.chess.repository.enums.PieceType;
 import com.practice.project.chess.service.exception.ElementNotFoundException;

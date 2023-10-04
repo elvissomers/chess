@@ -5,7 +5,7 @@ import com.practice.project.chess.controller.dto.MovePieceDto;
 import com.practice.project.chess.controller.dto.mapper.GameDtoMapper;
 import com.practice.project.chess.repository.entity.Game;
 import com.practice.project.chess.repository.entity.Player;
-import com.practice.project.chess.repository.entity.pieces.Piece;
+import com.practice.project.chess.service.model.pieces.Piece;
 import com.practice.project.chess.repository.enums.GameState;
 import com.practice.project.chess.repository.enums.Team;
 import com.practice.project.chess.service.exception.ElementNotFoundException;

@@ -1,7 +1,7 @@
 package com.practice.project.chess.service.logic;
 
 import com.practice.project.chess.repository.entity.Game;
-import com.practice.project.chess.repository.entity.pieces.Piece;
+import com.practice.project.chess.service.model.pieces.Piece;
 import com.practice.project.chess.service.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.GameRepository;
 import com.practice.project.chess.service.structures.BoardMap;

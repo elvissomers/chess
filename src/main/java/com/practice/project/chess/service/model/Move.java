@@ -1,9 +1,9 @@
-package com.practice.project.chess.repository.entity;
+package com.practice.project.chess.service.model;
 
 import com.practice.project.chess.repository.enums.CastleType;
 import com.practice.project.chess.repository.enums.PieceType;
 import com.practice.project.chess.service.structures.Coordinate;
-import com.practice.project.chess.repository.entity.pieces.Piece;
+import com.practice.project.chess.service.model.pieces.Piece;
 import jakarta.persistence.*;
 import lombok.*;
 

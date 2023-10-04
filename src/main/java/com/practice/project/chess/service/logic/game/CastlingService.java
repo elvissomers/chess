@@ -2,9 +2,9 @@ package com.practice.project.chess.service.logic.game;
 
 import com.practice.project.chess.repository.entity.Game;
 import com.practice.project.chess.repository.entity.Player;
-import com.practice.project.chess.repository.entity.pieces.King;
-import com.practice.project.chess.repository.entity.pieces.Piece;
-import com.practice.project.chess.repository.entity.pieces.Rook;
+import com.practice.project.chess.service.model.pieces.King;
+import com.practice.project.chess.service.model.pieces.Piece;
+import com.practice.project.chess.service.model.pieces.Rook;
 import com.practice.project.chess.repository.enums.Team;
 import com.practice.project.chess.service.logic.AllUtil;
 import com.practice.project.chess.service.logic.BoardService;

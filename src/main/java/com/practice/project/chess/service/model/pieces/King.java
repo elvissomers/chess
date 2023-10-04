@@ -1,4 +1,4 @@
-package com.practice.project.chess.repository.entity.pieces;
+package com.practice.project.chess.service.model.pieces;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -8,25 +8,27 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@DiscriminatorValue("ROOK")
-public class Rook extends Piece {
+@DiscriminatorValue("KING")
+public class King extends Piece {
 
     private boolean hasMoved;
 
-    public Rook() {
+    private boolean inCheck;
+
+    public King() {
         super();
     }
 
-    public Rook(Piece other){
+    public King(Piece other){
         super(other);
     }
 
-    public Rook copy(){
-        return new Rook(this);
+    public King copy(){
+        return new King(this);
     }
 
     @Override
     public String toString(){
-        return "R";
+        return "K";
     }
 }

@@ -3,7 +3,7 @@ package com.practice.project.chess.service.logic.piece;
 import com.practice.project.chess.controller.dto.PieceDto;
 import com.practice.project.chess.controller.dto.SquaresDto;
 import com.practice.project.chess.controller.dto.mapper.PieceDtoMapper;
-import com.practice.project.chess.repository.entity.Move;
+import com.practice.project.chess.service.model.Move;
 import com.practice.project.chess.repository.entity.Player;
 import com.practice.project.chess.repository.enums.PieceType;
 import com.practice.project.chess.service.exception.ElementNotFoundException;
@@ -12,7 +12,7 @@ import com.practice.project.chess.repository.PieceRepository;
 import com.practice.project.chess.repository.PlayerRepository;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
-import com.practice.project.chess.repository.entity.pieces.*;
+import com.practice.project.chess.service.model.pieces.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
