@@ -25,6 +25,8 @@ public abstract class Piece {
     private int horizontalPosition;
     private int verticalPosition;
 
+    private Coordinate coordinate;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "player_id")
     private Player player;

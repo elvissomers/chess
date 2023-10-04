@@ -63,8 +63,8 @@ public class MoveOptionService {
     }
 
     private void getPosition(Piece piece) {
-        xPos = piece.getHorizontalPosition();
-        yPos = piece.getVerticalPosition();
+        xPos = piece.getCoordinate().getXPos();
+        yPos = piece.getCoordinate().getYPos();
     }
     
     private void addDiagonalMovesForDirection(int xDirection, int yDirection, Piece piece, BoardMap board) {
