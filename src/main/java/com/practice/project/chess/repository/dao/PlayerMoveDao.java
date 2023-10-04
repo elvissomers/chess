@@ -1,7 +1,5 @@
 package com.practice.project.chess.repository.dao;
 
-import com.practice.project.chess.service.model.Player;
-import com.practice.project.chess.service.model.movehistory.Move;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,10 +16,10 @@ public class PlayerMoveDao {
     private long id;
 
     @ManyToOne
-    private Player player;
+    private PlayerDao player;
 
     @ManyToOne
-    private Move move;
+    private MoveDao move;
 
     @Column
     private int number;
