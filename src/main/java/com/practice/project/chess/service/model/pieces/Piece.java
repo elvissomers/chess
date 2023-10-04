@@ -1,6 +1,6 @@
 package com.practice.project.chess.service.model.pieces;
 
-import com.practice.project.chess.repository.dao.Player;
+import com.practice.project.chess.service.model.Player;
 import com.practice.project.chess.repository.enums.Team;
 import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.repository.enums.PieceType;

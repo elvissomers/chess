@@ -1,10 +1,8 @@
 package com.practice.project.chess.service.logic.player;
 
-import com.practice.project.chess.controller.dto.PlayerDto;
-import com.practice.project.chess.controller.dto.mapper.PlayerDtoMapper;
 import com.practice.project.chess.repository.PlayerMoveRepository;
 import com.practice.project.chess.service.model.movehistory.Move;
-import com.practice.project.chess.repository.dao.Player;
+import com.practice.project.chess.service.model.Player;
 import com.practice.project.chess.service.model.movehistory.PlayerMove;
 import com.practice.project.chess.service.model.pieces.King;
 import com.practice.project.chess.service.model.pieces.Pawn;
