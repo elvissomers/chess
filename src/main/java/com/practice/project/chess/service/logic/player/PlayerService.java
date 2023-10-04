@@ -88,7 +88,7 @@ public class PlayerService {
             if (piece.getPieceType() == PieceType.PAWN)
                 attackedSquares.addAll(pieceService.getAttackedSquaresForPawn(piece.getId()).getSquares());
             else
-                attackedSquares.addAll(pieceService.getMovableSquaresForPiece(piece.getId()).getSquares());
+                attackedSquares.addAll(pieceService.getMovableSquaresForPiece(piece.getId()));
         }
         return attackedSquares;
     }
@@ -96,7 +96,7 @@ public class PlayerService {
     public List<Coordinate> getAllMovableSquaresForPlayer(Player player) {
         List<Coordinate> movableSquares = new ArrayList<>();
         for (Piece piece : player.getPieces()) {
-            movableSquares.addAll(pieceService.getMovableSquaresForPiece(piece.getId()).getSquares());
+            movableSquares.addAll(pieceService.getMovableSquaresForPiece(piece.getId()));
         }
         return movableSquares;
     }

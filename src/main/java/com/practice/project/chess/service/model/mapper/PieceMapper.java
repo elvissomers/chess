@@ -14,20 +14,16 @@ public class PieceMapper {
         Piece piece = null;
         switch(dao.getPieceType()) {
             case KING -> piece = mapToKing(dao);
-            case PAWN -> piece = mapToPawn();
             case ROOK -> piece = mapToRook(dao);
-            case QUEEN -> piece = mapToQueen();
             case BISHOP -> piece = mapToBishop();
             case KNIGHT -> piece = mapToKnight();
+            case PAWN -> piece = mapToPawn();
+            case QUEEN -> piece = mapToQueen();
         }
         piece.setCoordinate(new Coordinate(dao.getHorizontalPosition(), dao.getVerticalPosition()));
         piece.setTeam(dao.getTeam());
+        piece.setId(dao.getId());
         return piece;
-    }
-
-    public PieceDao pieceToDao(Piece piece) {
-        // TODO: the original PieceDao used to create this piece should be altered; we should not create a new PieceDao
-        return null;
     }
 
     private Piece mapToKing(PieceDao dao) {

@@ -1,13 +1,14 @@
 package com.practice.project.chess.service.logic.piece;
 
 import com.practice.project.chess.controller.dto.SquaresDto;
+import com.practice.project.chess.repository.dao.pieces.PieceDao;
+import com.practice.project.chess.service.model.mapper.PieceMapper;
 import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.service.model.Player;
 import com.practice.project.chess.repository.enums.PieceType;
 import com.practice.project.chess.service.exception.ElementNotFoundException;
 import com.practice.project.chess.service.exception.InvalidMoveException;
 import com.practice.project.chess.repository.PieceRepository;
-import com.practice.project.chess.repository.PlayerRepository;
 import com.practice.project.chess.service.structures.BoardMap;
 import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.service.model.pieces.*;
@@ -28,14 +29,21 @@ public class PieceService {
     private final KingService kingService;
 
     private final PieceRepository pieceRepository;
-    private final PlayerRepository playerRepository;
+
+    private final PieceMapper pieceMapper;
 
     public SquaresDto getMovableSquaresForPiece(long id) {
         return SquaresDto.builder().squares(
                 pieceRepository.findById(id)
+                        .map(pieceMapper::daoToPiece)
                         .map(Piece::getMovableSquares)
                         .orElseThrow(() -> new ElementNotFoundException("Piece not found!"))
                 ).build();
+    }
+
+    private PieceDao getPieceDao(long id) {
+        return pieceRepository.findById(id)
+                .orElseThrow(() -> new ElementNotFoundException("Piece not found!"));
     }
 
     public SquaresDto getAttackedSquaresForPawn(long pieceId) {
@@ -81,10 +89,12 @@ public class PieceService {
         Piece piece = move.getPiece();
         piece.setHorizontalPosition(move.getHorizontalTo());
         piece.setVerticalPosition(move.getVerticalTo());
-        pieceRepository.save(piece);
+        // TODO: where does this happen for the dao?
+//        pieceRepository.save(piece);
     }
 
     public Piece createPiece(PieceType pieceType, Player player, int horizontalPosition, int verticalPosition) {
+        // TODO: this (or the method calling it) should also create and save a dao
         Piece piece = null;
         switch(pieceType) {
             case KING -> piece = new King();
@@ -99,10 +109,25 @@ public class PieceService {
         piece.setVerticalPosition(verticalPosition);
         piece.setPlayer(player);
 
-        return pieceRepository.save(piece);
+        return piece;
     }
 
-    public void removePiece(Piece piece) {
-        pieceRepository.delete(piece);
+    public void deletePiece(Piece piece) {
+        pieceRepository.deleteById(piece.getId());
+    }
+
+    // TODO: when do we call this exactly?
+    public void updatePieceDao(Piece piece) {
+        PieceDao dao = getPieceDao(piece.getId());
+        dao.setHorizontalPosition(piece.getCoordinate().getXPos());
+        dao.setVerticalPosition(piece.getCoordinate().getYPos());
+        updateHasMoved(dao, piece);
+    }
+
+    private void updateHasMoved(PieceDao dao, Piece piece) {
+        if (piece instanceof King king)
+            dao.setHasMoved(king.isHasMoved());
+        else if (piece instanceof Rook rook)
+            dao.setHasMoved(rook.isHasMoved());
     }
 }
