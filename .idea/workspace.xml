@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="setup piece mapper">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Remove unused methods">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/controller/dto/MovePieceDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/controller/dto/MovePieceDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/game/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/game/GameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/game/MakeMoveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/game/MakeMoveService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/player/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/player/PlayerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/pieces/Piece.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,48 +172,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00618" summary="Removed unused DAO files">
-      <created>1695889673541</created>
-      <option name="number" value="00618" />
-      <option name="presentableId" value="LOCAL-00618" />
-      <option name="project" value="LOCAL" />
-      <updated>1695889673541</updated>
-    </task>
-    <task id="LOCAL-00619" summary="Remove unused builder patterns and constructors">
-      <created>1695889978597</created>
-      <option name="number" value="00619" />
-      <option name="presentableId" value="LOCAL-00619" />
-      <option name="project" value="LOCAL" />
-      <updated>1695889978597</updated>
-    </task>
-    <task id="LOCAL-00620" summary=".class files resulting from running the app">
-      <created>1695890004949</created>
-      <option name="number" value="00620" />
-      <option name="presentableId" value="LOCAL-00620" />
-      <option name="project" value="LOCAL" />
-      <updated>1695890004949</updated>
-    </task>
-    <task id="LOCAL-00621" summary="anootated PlayerMove id with @Id">
-      <created>1695890092742</created>
-      <option name="number" value="00621" />
-      <option name="presentableId" value="LOCAL-00621" />
-      <option name="project" value="LOCAL" />
-      <updated>1695890092742</updated>
-    </task>
-    <task id="LOCAL-00622" summary="Remove @Column annotations in koppeltabel object">
-      <created>1695890134632</created>
-      <option name="number" value="00622" />
-      <option name="presentableId" value="LOCAL-00622" />
-      <option name="project" value="LOCAL" />
-      <updated>1695890134632</updated>
-    </task>
-    <task id="LOCAL-00623" summary="Updated pieceType to be a discriminator column">
-      <created>1695890363015</created>
-      <option name="number" value="00623" />
-      <option name="presentableId" value="LOCAL-00623" />
-      <option name="project" value="LOCAL" />
-      <updated>1695890363015</updated>
     </task>
     <task id="LOCAL-00624" summary="Updated annotations">
       <created>1695892268445</created>
@@ -512,7 +474,49 @@
       <option name="project" value="LOCAL" />
       <updated>1696406573025</updated>
     </task>
-    <option name="localTasksCounter" value="667" />
+    <task id="LOCAL-00667" summary="Added coordinate back into Piece">
+      <created>1696408522450</created>
+      <option name="number" value="00667" />
+      <option name="presentableId" value="LOCAL-00667" />
+      <option name="project" value="LOCAL" />
+      <updated>1696408522450</updated>
+    </task>
+    <task id="LOCAL-00668" summary="Added coordinate back into Piece">
+      <created>1696408526805</created>
+      <option name="number" value="00668" />
+      <option name="presentableId" value="LOCAL-00668" />
+      <option name="project" value="LOCAL" />
+      <updated>1696408526805</updated>
+    </task>
+    <task id="LOCAL-00669" summary="Update repository to take DAO instead of entity">
+      <created>1696408541494</created>
+      <option name="number" value="00669" />
+      <option name="presentableId" value="LOCAL-00669" />
+      <option name="project" value="LOCAL" />
+      <updated>1696408541494</updated>
+    </task>
+    <task id="LOCAL-00670" summary="Reworking setPieceForGameAndPosition (should not be in PieceService.java; since Piece should not have a Player (only the other way around))">
+      <created>1696408753958</created>
+      <option name="number" value="00670" />
+      <option name="presentableId" value="LOCAL-00670" />
+      <option name="project" value="LOCAL" />
+      <updated>1696408753958</updated>
+    </task>
+    <task id="LOCAL-00671" summary="Remove unused methods">
+      <created>1696408891948</created>
+      <option name="number" value="00671" />
+      <option name="presentableId" value="LOCAL-00671" />
+      <option name="project" value="LOCAL" />
+      <updated>1696408891948</updated>
+    </task>
+    <task id="LOCAL-00672" summary="Remove unused methods">
+      <created>1696408971273</created>
+      <option name="number" value="00672" />
+      <option name="presentableId" value="LOCAL-00672" />
+      <option name="project" value="LOCAL" />
+      <updated>1696408971273</updated>
+    </task>
+    <option name="localTasksCounter" value="673" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -530,10 +534,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Refactor Service package naming" />
-    <MESSAGE value="More Service layer refactoring - work in progress" />
-    <MESSAGE value="TODO comment" />
-    <MESSAGE value="Moved castling into separate service, CastlingService.java" />
     <MESSAGE value="Removed dependencies from KingService.java (dependencies that KingService should not have)" />
     <MESSAGE value="Code cleanup: remove old comment" />
     <MESSAGE value="Moved saveMoveForPlayer from MoveService.java to PlayerService.java" />
@@ -555,7 +555,11 @@
     <MESSAGE value="-" />
     <MESSAGE value="Code cleanup: Refactor service layer file structure" />
     <MESSAGE value="setup piece mapper" />
-    <option name="LAST_COMMIT_MESSAGE" value="setup piece mapper" />
+    <MESSAGE value="Added coordinate back into Piece" />
+    <MESSAGE value="Update repository to take DAO instead of entity" />
+    <MESSAGE value="Reworking setPieceForGameAndPosition (should not be in PieceService.java; since Piece should not have a Player (only the other way around))" />
+    <MESSAGE value="Remove unused methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove unused methods" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -32,13 +32,6 @@ public class PieceService {
     private final PieceRepository pieceRepository;
     private final PlayerRepository playerRepository;
 
-    public Piece getPieceForGameAndPosition(int xPos, int yPos, long gameId) {
-        // TODO: refactor to get Piece for coordinate in PlayerService
-        return pieceRepository.findByHorizontalPositionAndVerticalPositionAndPlayer_Game_Id(
-                xPos, yPos, gameId)
-                .orElseThrow(() -> new ElementNotFoundException("Piece not found!"));
-    }
-
     public SquaresDto getMovableSquaresForPiece(long id) {
         return SquaresDto.builder().squares(
                 pieceRepository.findById(id)
