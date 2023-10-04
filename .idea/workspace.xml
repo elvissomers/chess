@@ -4,9 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Remove unused queries">
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/piece/KingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/piece/KingService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/piece/KnightService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/piece/KnightService.class" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Code cleanup: Remove unused classes and annotations">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/dao/GameDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/dao/MoveDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/dao/PlayerDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/dao/PlayerMoveDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/dao/pieces/PieceDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/GetPieceDataDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/MovePieceResponseDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/mapper/MoveDtoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/mapper/MoveDtoMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/CastlingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/CastlingService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/EnPassantService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/EnPassantService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/GameService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/GameService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/LegalMoveService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/LegalMoveService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/MakeMoveService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/MakeMoveService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,28 +60,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/eso13215/IdeaProjects/chess",
-    "onboarding.tips.debug.path": "C:/Users/eso13215/IdeaProjects/chess/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -169,62 +182,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00602" summary="Added ElementNotFoundException in BoardService.java; removed unused imports">
-      <created>1695114502138</created>
-      <option name="number" value="00602" />
-      <option name="presentableId" value="LOCAL-00602" />
-      <option name="project" value="LOCAL" />
-      <updated>1695114502138</updated>
-    </task>
-    <task id="LOCAL-00603" summary="Code cleanup: added todo comment and split up en passant move finder into smaller methods">
-      <created>1695115623475</created>
-      <option name="number" value="00603" />
-      <option name="presentableId" value="LOCAL-00603" />
-      <option name="project" value="LOCAL" />
-      <updated>1695115623475</updated>
-    </task>
-    <task id="LOCAL-00604" summary="Reworked &quot;takenPiece&quot; attribute in Move from boolean to Piece">
-      <created>1695117468127</created>
-      <option name="number" value="00604" />
-      <option name="presentableId" value="LOCAL-00604" />
-      <option name="project" value="LOCAL" />
-      <updated>1695117468127</updated>
-    </task>
-    <task id="LOCAL-00605" summary="Code cleanup: Remove old comments">
-      <created>1695117511817</created>
-      <option name="number" value="00605" />
-      <option name="presentableId" value="LOCAL-00605" />
-      <option name="project" value="LOCAL" />
-      <updated>1695117511817</updated>
-    </task>
-    <task id="LOCAL-00606" summary="Remove taken piece from game">
-      <created>1695117775057</created>
-      <option name="number" value="00606" />
-      <option name="presentableId" value="LOCAL-00606" />
-      <option name="project" value="LOCAL" />
-      <updated>1695117775057</updated>
-    </task>
-    <task id="LOCAL-00607" summary="Code cleanup: remove unused imports">
-      <created>1695118184817</created>
-      <option name="number" value="00607" />
-      <option name="presentableId" value="LOCAL-00607" />
-      <option name="project" value="LOCAL" />
-      <updated>1695118184817</updated>
-    </task>
-    <task id="LOCAL-00608" summary="If en passant occured, the taken pawn is set as takenPiece in move">
-      <created>1695118585662</created>
-      <option name="number" value="00608" />
-      <option name="presentableId" value="LOCAL-00608" />
-      <option name="project" value="LOCAL" />
-      <updated>1695118585662</updated>
-    </task>
-    <task id="LOCAL-00609" summary="Code cleanup: Remove unused imports">
-      <created>1695118611322</created>
-      <option name="number" value="00609" />
-      <option name="presentableId" value="LOCAL-00609" />
-      <option name="project" value="LOCAL" />
-      <updated>1695118611322</updated>
     </task>
     <task id="LOCAL-00610" summary="Code cleanup: Remove unused methods and imports">
       <created>1695640602271</created>
@@ -513,7 +470,63 @@
       <option name="project" value="LOCAL" />
       <updated>1695995644498</updated>
     </task>
-    <option name="localTasksCounter" value="651" />
+    <task id="LOCAL-00651" summary="Remove unused attribute (PlayerService)">
+      <created>1695995727631</created>
+      <option name="number" value="00651" />
+      <option name="presentableId" value="LOCAL-00651" />
+      <option name="project" value="LOCAL" />
+      <updated>1695995727631</updated>
+    </task>
+    <task id="LOCAL-00652" summary="Added setup to EnPassantService.java">
+      <created>1695995863854</created>
+      <option name="number" value="00652" />
+      <option name="presentableId" value="LOCAL-00652" />
+      <option name="project" value="LOCAL" />
+      <updated>1695995863854</updated>
+    </task>
+    <task id="LOCAL-00653" summary="Remove unused repository CoordinateRepository.java">
+      <created>1695995928578</created>
+      <option name="number" value="00653" />
+      <option name="presentableId" value="LOCAL-00653" />
+      <option name="project" value="LOCAL" />
+      <updated>1695995928578</updated>
+    </task>
+    <task id="LOCAL-00654" summary="Code cleanup: remove unused imports">
+      <created>1695996020688</created>
+      <option name="number" value="00654" />
+      <option name="presentableId" value="LOCAL-00654" />
+      <option name="project" value="LOCAL" />
+      <updated>1695996020688</updated>
+    </task>
+    <task id="LOCAL-00655" summary=".class files from running app">
+      <created>1695996034034</created>
+      <option name="number" value="00655" />
+      <option name="presentableId" value="LOCAL-00655" />
+      <option name="project" value="LOCAL" />
+      <updated>1695996034034</updated>
+    </task>
+    <task id="LOCAL-00656" summary="Setting all legal moves at game initalization and at the end of every move">
+      <created>1695996499404</created>
+      <option name="number" value="00656" />
+      <option name="presentableId" value="LOCAL-00656" />
+      <option name="project" value="LOCAL" />
+      <updated>1695996499404</updated>
+    </task>
+    <task id="LOCAL-00657" summary="Update CanPlayerMove in MakeMoveService.java to only set legal moves for the player">
+      <created>1695996764980</created>
+      <option name="number" value="00657" />
+      <option name="presentableId" value="LOCAL-00657" />
+      <option name="project" value="LOCAL" />
+      <updated>1695996764980</updated>
+    </task>
+    <task id="LOCAL-00658" summary="Code cleanup: Remove unused classes and annotations">
+      <created>1695997093562</created>
+      <option name="number" value="00658" />
+      <option name="presentableId" value="LOCAL-00658" />
+      <option name="project" value="LOCAL" />
+      <updated>1695997093562</updated>
+    </task>
+    <option name="localTasksCounter" value="659" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -531,13 +544,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Updated annotations" />
-    <MESSAGE value="Work on discriminator value" />
-    <MESSAGE value="hibernate show sql" />
-    <MESSAGE value="some .class files" />
-    <MESSAGE value="Refactor - split file structure in controller / service / repository at the highest level" />
-    <MESSAGE value="Refactor - service folder structure" />
-    <MESSAGE value="Refactor - split making &amp; processing a move into separate service" />
     <MESSAGE value="Code cleanup - remove unused imports" />
     <MESSAGE value="remove unused method" />
     <MESSAGE value="Refactor legal move setting to separate file; LegalMoveService.java - work in progress" />
@@ -545,7 +551,6 @@
     <MESSAGE value="Refactor en passant move setting to separate file; EnPassantService.java" />
     <MESSAGE value="Refactor Service package naming" />
     <MESSAGE value="More Service layer refactoring - work in progress" />
-    <MESSAGE value="Code cleanup: remove unused imports" />
     <MESSAGE value="TODO comment" />
     <MESSAGE value="Moved castling into separate service, CastlingService.java" />
     <MESSAGE value="Removed dependencies from KingService.java (dependencies that KingService should not have)" />
@@ -556,7 +561,15 @@
     <MESSAGE value="Updated annotation in KingService.java and KnightService.java" />
     <MESSAGE value="Some class files from running the app" />
     <MESSAGE value="Remove unused queries" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove unused queries" />
+    <MESSAGE value="Remove unused attribute (PlayerService)" />
+    <MESSAGE value="Added setup to EnPassantService.java" />
+    <MESSAGE value="Remove unused repository CoordinateRepository.java" />
+    <MESSAGE value="Code cleanup: remove unused imports" />
+    <MESSAGE value=".class files from running app" />
+    <MESSAGE value="Setting all legal moves at game initalization and at the end of every move" />
+    <MESSAGE value="Update CanPlayerMove in MakeMoveService.java to only set legal moves for the player" />
+    <MESSAGE value="Code cleanup: Remove unused classes and annotations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup: Remove unused classes and annotations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
