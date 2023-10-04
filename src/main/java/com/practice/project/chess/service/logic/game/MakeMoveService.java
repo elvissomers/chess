@@ -1,9 +1,9 @@
 package com.practice.project.chess.service.logic.game;
 
 import com.practice.project.chess.repository.dao.Game;
-import com.practice.project.chess.service.model.Move;
+import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.repository.dao.Player;
-import com.practice.project.chess.service.model.PlayerMove;
+import com.practice.project.chess.service.model.movehistory.PlayerMove;
 import com.practice.project.chess.service.model.pieces.King;
 import com.practice.project.chess.service.model.pieces.Pawn;
 import com.practice.project.chess.service.model.pieces.Piece;

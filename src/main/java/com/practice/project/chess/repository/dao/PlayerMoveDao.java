@@ -1,6 +1,6 @@
 package com.practice.project.chess.repository.dao;
 
-import com.practice.project.chess.service.model.Move;
+import com.practice.project.chess.service.model.movehistory.Move;
 import jakarta.persistence.*;
 import lombok.*;
 

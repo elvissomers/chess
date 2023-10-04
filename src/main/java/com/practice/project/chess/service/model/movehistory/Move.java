@@ -1,4 +1,4 @@
-package com.practice.project.chess.service.model;
+package com.practice.project.chess.service.model.movehistory;
 
 import com.practice.project.chess.repository.enums.CastleType;
 import com.practice.project.chess.repository.enums.PieceType;

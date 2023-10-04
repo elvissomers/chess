@@ -1,7 +1,7 @@
 package com.practice.project.chess.controller.dto.mapper;
 
 import com.practice.project.chess.controller.dto.MoveDto;
-import com.practice.project.chess.service.model.Move;
+import com.practice.project.chess.service.model.movehistory.Move;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 

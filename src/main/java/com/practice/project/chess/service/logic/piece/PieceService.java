@@ -3,7 +3,7 @@ package com.practice.project.chess.service.logic.piece;
 import com.practice.project.chess.controller.dto.PieceDto;
 import com.practice.project.chess.controller.dto.SquaresDto;
 import com.practice.project.chess.controller.dto.mapper.PieceDtoMapper;
-import com.practice.project.chess.service.model.Move;
+import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.repository.dao.Player;
 import com.practice.project.chess.repository.enums.PieceType;
 import com.practice.project.chess.service.exception.ElementNotFoundException;
