@@ -2,6 +2,7 @@ package com.practice.project.chess.service.logic.piece;
 
 import com.practice.project.chess.controller.dto.SquaresDto;
 import com.practice.project.chess.repository.dao.pieces.PieceDao;
+import com.practice.project.chess.repository.enums.Team;
 import com.practice.project.chess.service.model.mapper.PieceMapper;
 import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.service.model.Player;
@@ -39,9 +40,29 @@ public class PieceService {
                         .orElseThrow(() -> new ElementNotFoundException("Piece not found!"));
     }
 
+    public PieceDao getOriginalDaoOfPiece(Piece piece) {
+        return pieceRepository.findById(piece.getId())
+                .orElseThrow(() -> new ElementNotFoundException("Piece nt found!"));
+    }
+
+    public PieceDao getNewDaoOfPiece(Piece piece) {
+        return pieceRepository.findByHorizontalPositionAndVerticalPositionAndTeamAndPieceTypeAndHasMoved(
+                piece.getCoordinate().getXPos(), piece.getCoordinate().getYPos(), piece.getTeam(),
+                piece.getPieceType(), piece.isHasMoved());
+    }
+
+    public Piece getPiece(int xPos, int yPos, Team team, PieceType pieceType, boolean hasMoved) {
+        return pieceMapper.daoToPiece(getPieceDao(xPos, yPos, team, pieceType, hasMoved));
+    }
+
     private PieceDao getPieceDao(long id) {
         return pieceRepository.findById(id)
                 .orElseThrow(() -> new ElementNotFoundException("Piece not found!"));
+    }
+
+    private PieceDao getPieceDao(int xPos, int yPos, Team team, PieceType pieceType, boolean hasMoved) {
+        return pieceRepository.findByHorizontalPositionAndVerticalPositionAndTeamAndPieceTypeAndHasMoved(
+                xPos, yPos, team, pieceType, hasMoved);
     }
 
     public SquaresDto getAttackedSquaresForPawn(long pieceId) {
@@ -87,6 +108,7 @@ public class PieceService {
         Piece piece = move.getPiece();
         piece.setHorizontalPosition(move.getHorizontalTo());
         piece.setVerticalPosition(move.getVerticalTo());
+        piece.setCoordinate(new Coordinate(move.getVerticalTo(), move.getVerticalTo()));
         // TODO: where does this happen for the dao?
 //        pieceRepository.save(piece);
     }
@@ -112,20 +134,5 @@ public class PieceService {
 
     public void deletePiece(Piece piece) {
         pieceRepository.deleteById(piece.getId());
-    }
-
-    // TODO: when do we call this exactly?
-    public void updatePieceDao(Piece piece) {
-        PieceDao dao = getPieceDao(piece.getId());
-        dao.setHorizontalPosition(piece.getCoordinate().getXPos());
-        dao.setVerticalPosition(piece.getCoordinate().getYPos());
-        updateHasMoved(dao, piece);
-    }
-
-    private void updateHasMoved(PieceDao dao, Piece piece) {
-        if (piece instanceof King king)
-            dao.setHasMoved(king.isHasMoved());
-        else if (piece instanceof Rook rook)
-            dao.setHasMoved(rook.isHasMoved());
     }
 }

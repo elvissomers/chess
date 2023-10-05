@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Change PlayerRepository.java datatype to DAO">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Update imports">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/PieceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/PieceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/piece/PieceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/piece/PieceService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,20 +169,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00645" summary="Code cleanup: Set final in appropriate fields, removed unused import">
-      <created>1695995237942</created>
-      <option name="number" value="00645" />
-      <option name="presentableId" value="LOCAL-00645" />
-      <option name="project" value="LOCAL" />
-      <updated>1695995237942</updated>
-    </task>
-    <task id="LOCAL-00646" summary="Updated annotation in PieceDtoMapper">
-      <created>1695995370004</created>
-      <option name="number" value="00646" />
-      <option name="presentableId" value="LOCAL-00646" />
-      <option name="project" value="LOCAL" />
-      <updated>1695995370004</updated>
     </task>
     <task id="LOCAL-00647" summary="Updated annotation in KingService.java and KnightService.java">
       <created>1695995522086</created>
@@ -512,7 +499,21 @@
       <option name="project" value="LOCAL" />
       <updated>1696430231585</updated>
     </task>
-    <option name="localTasksCounter" value="694" />
+    <task id="LOCAL-00694" summary="Code cleanup: Remove unused import">
+      <created>1696501223811</created>
+      <option name="number" value="00694" />
+      <option name="presentableId" value="LOCAL-00694" />
+      <option name="project" value="LOCAL" />
+      <updated>1696501223811</updated>
+    </task>
+    <task id="LOCAL-00695" summary="Update imports">
+      <created>1696501283965</created>
+      <option name="number" value="00695" />
+      <option name="presentableId" value="LOCAL-00695" />
+      <option name="project" value="LOCAL" />
+      <updated>1696501283965</updated>
+    </task>
+    <option name="localTasksCounter" value="696" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -530,8 +531,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Code cleanup: Refactor service layer file structure" />
-    <MESSAGE value="setup piece mapper" />
     <MESSAGE value="Added coordinate back into Piece" />
     <MESSAGE value="Update repository to take DAO instead of entity" />
     <MESSAGE value="Reworking setPieceForGameAndPosition (should not be in PieceService.java; since Piece should not have a Player (only the other way around))" />
@@ -555,7 +554,9 @@
     <MESSAGE value="Refactoring - services using DAO architecture" />
     <MESSAGE value="Code cleanup - remove unused methods and imports" />
     <MESSAGE value="Change PlayerRepository.java datatype to DAO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change PlayerRepository.java datatype to DAO" />
+    <MESSAGE value="Code cleanup: Remove unused import" />
+    <MESSAGE value="Update imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update imports" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

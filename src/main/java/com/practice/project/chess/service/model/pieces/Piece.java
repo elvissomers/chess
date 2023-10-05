@@ -64,6 +64,8 @@ public abstract class Piece {
 
     public abstract Piece copy();
 
+    public abstract boolean isHasMoved();
+
     public void addMovableSquare(Coordinate coordinate){
         this.movableSquares.add(coordinate);
     }

@@ -1,6 +1,8 @@
 package com.practice.project.chess.service.logic.player;
 
 import com.practice.project.chess.repository.PlayerMoveRepository;
+import com.practice.project.chess.repository.dao.PlayerDao;
+import com.practice.project.chess.repository.dao.pieces.PieceDao;
 import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.service.model.Player;
 import com.practice.project.chess.service.model.movehistory.PlayerMove;
@@ -102,6 +104,8 @@ public class PlayerService {
     }
 
     public void setStartPiecesForPlayer(Player player) {
+        // TODO: this should setup a playerDAO as well. Perhaps we could just hardcode the ID's of the starting pieces
+        // TODO into here? Or something akin to that?
         PieceType[] pieceTypesInOrder = new PieceType[]{
                 PieceType.ROOK, PieceType.KNIGHT, PieceType.BISHOP, PieceType.QUEEN, PieceType.KING,
                 PieceType.BISHOP, PieceType.KNIGHT, PieceType.ROOK
@@ -123,9 +127,9 @@ public class PlayerService {
         playerRepository.save(player);
     }
 
-    // TODO: this happens at game level, so should not be the players concern!
-    // TODO: idem move setting.. Or just the ID?
     public void setAllAttackedAndMovableSquaresForPlayer(Player player) {
+        // TODO: this happens at game level, so should not be the players concern!
+        // TODO: idem move setting.. Or just the ID?
         long gameId = player.getGame().getId();
         for (Piece piece : player.getPieces()) {
             if (piece.getPieceType() == PieceType.PAWN) {
@@ -156,10 +160,14 @@ public class PlayerService {
     }
 
     public void removePiece(Piece piece) {
+        // TODO: this should get Player (or playerDAO? as input, not requiring piece to have a player attribute)
         Player player = piece.getPlayer();
-        player.getPieces().remove(piece);
+        player.getPieces().remove(pieceService.getOriginalDaoOfPiece(piece));
+    }
 
-        pieceService.deletePiece(piece);
-        playerRepository.save(player);
+    // TODO: when do we call this exactly?
+    public void updateDaoListFromMovedPiece(PlayerDao player, Piece piece) {
+        player.getPieces().remove(pieceService.getOriginalDaoOfPiece(piece));
+        player.getPieces().add(pieceService.getNewDaoOfPiece(piece));
     }
 }
