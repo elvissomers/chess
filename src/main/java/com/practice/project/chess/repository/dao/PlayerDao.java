@@ -3,7 +3,6 @@ package com.practice.project.chess.repository.dao;
 import com.practice.project.chess.repository.dao.pieces.PieceDao;
 import com.practice.project.chess.repository.enums.Team;
 import com.practice.project.chess.service.model.Game;
-import com.practice.project.chess.service.model.pieces.Piece;
 import jakarta.persistence.*;
 import lombok.*;
 
