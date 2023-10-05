@@ -66,7 +66,7 @@ public class CastlingService {
 
     public boolean kingIsSafeAt(Game game, Coordinate position) {
         Player attackingPlayer = AllUtil.getOpponentPlayer(game, team);
-        playerService.setAllAttackedAndMovableSquaresForPlayer(attackingPlayer);
+        playerService.setAllAttackedAndMovableSquaresForPlayer(game, attackingPlayer);
         List<Coordinate> attackedSquares = playerService.getAllAttackedSquaresForPlayer(attackingPlayer);
         return !attackedSquares.contains(position);
     }

@@ -80,7 +80,7 @@ public class MakeMoveService {
 
     private void setCheckOrStaleMate(Game game) {
         Player playerInTurn = playerInTurn(game);
-        setPlayerKingInCheck(playerInTurn, getOpponentPlayer(game, playerInTurn));
+        setPlayerKingInCheck(game, playerInTurn, getOpponentPlayer(game, playerInTurn));
         if (!canPlayerMove(playerInTurn, game)) {
             if (isPlayerInCheck(playerInTurn))
                 game.setGameState(opponentWins(playerInTurn));
@@ -89,9 +89,9 @@ public class MakeMoveService {
         }
     }
 
-    private void setPlayerKingInCheck(Player player, Player attackingPlayer) {
+    private void setPlayerKingInCheck(Game game, Player player, Player attackingPlayer) {
         King playerKing = getPlayerKing(player);
-        playerService.setAllAttackedAndMovableSquaresForPlayer(attackingPlayer);
+        playerService.setAllAttackedAndMovableSquaresForPlayer(game, attackingPlayer);
         List<Coordinate> attackedSquares = playerService.getAllAttackedSquaresForPlayer(attackingPlayer);
         playerKing.setInCheck(attackedSquares.contains(new Coordinate(playerKing.getHorizontalPosition(), playerKing.getVerticalPosition())));
     }

@@ -2,6 +2,7 @@ package com.practice.project.chess.service.logic.player;
 
 import com.practice.project.chess.repository.PlayerMoveRepository;
 import com.practice.project.chess.repository.dao.PlayerDao;
+import com.practice.project.chess.service.model.Game;
 import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.service.model.Player;
 import com.practice.project.chess.service.model.movehistory.PlayerMove;
@@ -107,15 +108,15 @@ public class PlayerService {
         playerRepository.save(player);
     }
 
-    public void setAllAttackedAndMovableSquaresForPlayer(Player player) {
-        // TODO: this happens at game level, so should not be the players concern!
-        // TODO: idem move setting.. Or just the ID?
-        long gameId = player.getGame().getId();
+    // TODO: vraag voor Nick: is het okee om de Game door te geven aan een method in player service;
+    // TODO ook al heeft de player zelf supposedly geen idee van in welke game hij is?
+    // TODO of is dit impropere SOC?
+    public void setAllAttackedAndMovableSquaresForPlayer(Game game, Player player) {
         for (Piece piece : player.getPieces()) {
             if (piece.getPieceType() == PieceType.PAWN) {
-                pawnService.setAttackedSquares((Pawn) piece, gameId);
+                pawnService.setAttackedSquares((Pawn) piece, game.getId());
             }
-            pieceService.setMovableSquaresForPiece(piece, gameId);
+            pieceService.setMovableSquaresForPiece(piece, game.getId());
         }
     }
     //TODO: variant of above method but with board, to simplify legal move pruning
