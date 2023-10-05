@@ -9,7 +9,6 @@ public final class MoveUtil {
     private MoveUtil(){
     }
 
-
     public static void updateSpecialMove(Move move, CastleType castleType, PieceType promotedTo) {
         if (castleType != null)
             move.setCastleType(castleType);

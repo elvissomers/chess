@@ -18,6 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 public class MoveService {
+    // TODO: move should also be used as component only, and DAO should be used for obtaining from and saving to repository
 
     private final MoveRepository moveRepository;
     private final PlayerMoveRepository playerMoveRepository;
