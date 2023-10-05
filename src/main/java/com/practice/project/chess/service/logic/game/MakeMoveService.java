@@ -22,7 +22,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 import static com.practice.project.chess.service.logic.AllUtil.getOpponentPlayer;
-import static com.practice.project.chess.service.logic.MoveService.updateSpecialMove;
+import static com.practice.project.chess.service.logic.game.util.MoveUtil.updateSpecialMove;
 import static com.practice.project.chess.service.logic.game.GameService.getPieceForTeamAndPosition;
 import static com.practice.project.chess.service.logic.game.util.MakeMoveUtil.*;
 import static com.practice.project.chess.service.logic.game.util.PlayerUtil.getPlayerKing;

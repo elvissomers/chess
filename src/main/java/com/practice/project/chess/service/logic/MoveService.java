@@ -2,11 +2,10 @@ package com.practice.project.chess.service.logic;
 
 import com.practice.project.chess.controller.dto.MoveDto;
 import com.practice.project.chess.controller.dto.mapper.MoveDtoMapper;
+import com.practice.project.chess.service.logic.game.util.MoveUtil;
 import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.service.model.movehistory.PlayerMove;
 import com.practice.project.chess.service.model.pieces.Piece;
-import com.practice.project.chess.repository.enums.CastleType;
-import com.practice.project.chess.repository.enums.PieceType;
 import com.practice.project.chess.service.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.MoveRepository;
 import com.practice.project.chess.repository.PlayerMoveRepository;
@@ -61,24 +60,11 @@ public class MoveService {
         return moveRepository.save(move);
     }
 
-    public static void updateSpecialMove(Move move, CastleType castleType, PieceType promotedTo) {
-        if (castleType != null)
-            move.setCastleType(castleType);
-        if (promotedTo != null)
-            move.setPromotedTo(promotedTo);
-    }
-
     public void setTakenPieceIfEnPassant(Move move, long gameId) {
-        if (pawnMovedDiagonally(move) && move.getTakenPiece() == null) {
+        if (MoveUtil.pawnMovedDiagonally(move) && move.getTakenPiece() == null) {
             Piece takenPiece = boardService.getBoardMapForGame(gameId)
                     .getPieceByPos(move.getHorizontalTo(), move.getVerticalFrom());
             move.setTakenPiece(takenPiece);
         }
-
-    }
-
-    private static boolean pawnMovedDiagonally(Move move) {
-        return (move.getPiece().getPieceType() == PieceType.PAWN &&
-                move.getHorizontalFrom() != move.getHorizontalTo());
     }
 }
