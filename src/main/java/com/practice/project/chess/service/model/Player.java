@@ -1,6 +1,5 @@
 package com.practice.project.chess.service.model;
 
-import com.practice.project.chess.service.model.Game;
 import com.practice.project.chess.service.model.pieces.Piece;
 import com.practice.project.chess.repository.enums.Team;
 import jakarta.persistence.*;
@@ -22,9 +21,6 @@ public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @OneToOne
-    private Game game;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)

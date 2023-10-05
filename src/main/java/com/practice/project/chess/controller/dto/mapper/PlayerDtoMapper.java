@@ -16,7 +16,6 @@ public class PlayerDtoMapper {
         return PlayerDto.builder()
                 .id(player.getId())
                 .team(player.getTeam())
-                .gameId(player.getGame().getId())
                 .playerPiecesDto(getPlayerPiecesDto(player))
                 .build();
     }

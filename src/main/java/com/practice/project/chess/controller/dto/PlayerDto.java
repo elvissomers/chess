@@ -13,7 +13,6 @@ import lombok.*;
 public class PlayerDto {
 
     private long id;
-    private long gameId;
     private PlayerPiecesDto playerPiecesDto;
 
     @Enumerated(EnumType.STRING)
