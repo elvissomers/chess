@@ -23,7 +23,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 import static com.practice.project.chess.service.logic.AllUtil.getOpponentPlayer;
+import static com.practice.project.chess.service.logic.MoveService.updateSpecialMove;
 import static com.practice.project.chess.service.logic.game.GameService.getPieceForTeamAndPosition;
+import static com.practice.project.chess.service.logic.player.PlayerService.getPlayerKing;
 
 @AllArgsConstructor
 @Service
@@ -61,11 +63,11 @@ public class MakeMoveService {
     private void getMoveDetails(Move move, long gameId) {
         CastleType castleType = getTypeIfCastled(move);
         PieceType promotionPiece = getNewPieceIfPromoted(move);
-        moveService.updateSpecialMove(move, castleType, promotionPiece);
+        updateSpecialMove(move, castleType, promotionPiece);
         moveService.setTakenPieceIfEnPassant(move, gameId);
     }
 
-    private CastleType getTypeIfCastled(Move move) {
+    private static CastleType getTypeIfCastled(Move move) {
         if (move.getPiece().getPieceType() == PieceType.KING) {
             if (move.getHorizontalFrom() - move.getHorizontalTo() == 2)
                 return CastleType.LONG;
@@ -75,7 +77,7 @@ public class MakeMoveService {
         return null;
     }
 
-    private PieceType getNewPieceIfPromoted(Move move) {
+    private static PieceType getNewPieceIfPromoted(Move move) {
         // TODO 2) Get the wanted PieceType as input from the used instead of just hardcoding it to queen
         if (move.getPiece().getPieceType() == PieceType.PAWN) {
             if (move.getVerticalTo() == getPromotionRank(move.getPiece()))
@@ -84,11 +86,11 @@ public class MakeMoveService {
         return null;
     }
 
-    private int getPromotionRank(Piece piece) {
+    private static int getPromotionRank(Piece piece) {
         return (piece.getTeam() == Team.WHITE) ? 7 : 0;
     }
 
-    private void checkIfPieceInTurn(Game game, Piece piece) {
+    private static void checkIfPieceInTurn(Game game, Piece piece) {
         if ((game.getGameState() == GameState.WHITE_TURN && piece.getTeam() == Team.WHITE)
                 || (game.getGameState() == GameState.BLACK_TURN && piece.getTeam() == Team.BLACK)) {
             return;
@@ -130,7 +132,7 @@ public class MakeMoveService {
     }
 
     private void setPlayerKingInCheck(Player player, Player attackingPlayer) {
-        King playerKing = playerService.getPlayerKing(player);
+        King playerKing = getPlayerKing(player);
         playerService.setAllAttackedAndMovableSquaresForPlayer(attackingPlayer);
         List<Coordinate> attackedSquares = playerService.getAllAttackedSquaresForPlayer(attackingPlayer);
         playerKing.setInCheck(attackedSquares.contains(new Coordinate(playerKing.getHorizontalPosition(), playerKing.getVerticalPosition())));
@@ -146,7 +148,7 @@ public class MakeMoveService {
     }
 
     private boolean isPlayerInCheck(Player player) {
-        return playerService.getPlayerKing(player).isInCheck();
+        return getPlayerKing(player).isInCheck();
     }
 
     private boolean canPlayerMove(Player player, Game game) {
@@ -154,7 +156,7 @@ public class MakeMoveService {
         return !playerService.getAllMovableSquaresForPlayer(player).isEmpty();
     }
 
-    private GameState opponentWins(Player player) {
+    private static GameState opponentWins(Player player) {
         return (player.getTeam() == Team.WHITE) ? GameState.BLACK_WINS : GameState.WHITE_WINS;
     }
 
