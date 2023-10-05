@@ -39,7 +39,8 @@ public class MakeMoveService {
     public void makeMove(Game game, Piece piece, Coordinate destination) {
         checkMove(game, piece, destination);
         PlayerMove madeMove = updateMoveHistory(game, piece, destination);
-        updateGameAfterMove(madeMove.getMove());
+        Player playerInTurn = playerInTurn(game);
+        updateGameAfterMove(playerInTurn, madeMove.getMove());
         processMove(game);
     }
 
@@ -63,13 +64,13 @@ public class MakeMoveService {
         moveService.setTakenPieceIfEnPassant(move, gameId);
     }
 
-    private void updateGameAfterMove(Move move) {
+    private void updateGameAfterMove(Player player, Move move) {
         if (move.getTakenPiece() != null)
-            playerService.removePiece(move.getTakenPiece());
+            playerService.removePiece(player, move.getTakenPiece());
         else if (move.getPromotedTo() != null)
-            playerService.promotePawnTo(move);
+            playerService.promotePawnTo(player, move);
         else
-            pieceService.updatePosition(move);
+            playerService.updateDaoListFromMovedPiece(player, pieceService.getPieceWithNewPosition(move));
     }
 
     private void processMove(Game game) {

@@ -104,13 +104,13 @@ public class PieceService {
         throw new InvalidMoveException("Illegal Move!");
     }
 
-    public void updatePosition(Move move) {
+    public Piece getPieceWithNewPosition(Move move) {
         Piece piece = move.getPiece();
         piece.setHorizontalPosition(move.getHorizontalTo());
         piece.setVerticalPosition(move.getVerticalTo());
         piece.setCoordinate(new Coordinate(move.getVerticalTo(), move.getVerticalTo()));
-        // TODO: where does this happen for the dao?
-//        pieceRepository.save(piece);
+        // TODO: where does this happen for the dao? - > return piece
+        return piece;
     }
 
     public Piece createPiece(PieceType pieceType, Player player, int horizontalPosition, int verticalPosition) {

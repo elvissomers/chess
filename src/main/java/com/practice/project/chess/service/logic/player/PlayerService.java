@@ -105,7 +105,6 @@ public class PlayerService {
                     xPos, yForPawns)
             );
         }
-        playerRepository.save(player);
     }
 
     // TODO: vraag voor Nick: is het okee om de Game door te geven aan een method in player service;
@@ -119,7 +118,6 @@ public class PlayerService {
             pieceService.setMovableSquaresForPiece(piece, game.getId());
         }
     }
-    //TODO: variant of above method but with board, to simplify legal move pruning
 
     public PlayerMove saveMoveForPlayer(Move move, Player player) {
         PlayerMove newMove = PlayerMove.builder()
@@ -130,23 +128,21 @@ public class PlayerService {
         return playerMoveRepository.save(newMove);
     }
 
-    public void promotePawnTo(Move move) {
-        // TODO: should work without piece referring to player - player should be input and obtained where it is used
+    public void promotePawnTo(Player player, Move move) {
+        PlayerDao playerDao = getDaoForPlayer(player);
         Piece pawn = move.getPiece();
-        Player player = pawn.getPlayer();
-        player.getPieces().remove(pawn);
+        playerDao.getPieces().remove(pieceService.getOriginalDaoOfPiece(pawn));
+
         Piece promotionPiece = pieceService.createPiece(move.getPromotedTo(), player, move.getHorizontalTo(), move.getVerticalTo());
-        player.getPieces().add(promotionPiece);
-        playerRepository.save(player);
+        playerDao.getPieces().add(pieceService.getNewDaoOfPiece(promotionPiece));
+        playerRepository.save(playerDao);
     }
 
-    public void removePiece(Piece piece) {
-        // TODO: this should get Player (or playerDAO? as input, not requiring piece to have a player attribute)
-        Player player = piece.getPlayer();
-        player.getPieces().remove(pieceService.getOriginalDaoOfPiece(piece));
+    public void removePiece(Player player, Piece piece) {
+        PlayerDao playerDao = getDaoForPlayer(player);
+        playerDao.getPieces().remove(pieceService.getOriginalDaoOfPiece(piece));
     }
 
-    // TODO: when do we call this exactly?
     public void updateDaoListFromMovedPiece(Player player, Piece piece) {
         PlayerDao playerDao = getDaoForPlayer(player);
         playerDao.getPieces().remove(pieceService.getOriginalDaoOfPiece(piece));
