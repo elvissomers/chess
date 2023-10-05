@@ -77,7 +77,7 @@ public class MoveService {
 
     }
 
-    private boolean pawnMovedDiagonally(Move move) {
+    private static boolean pawnMovedDiagonally(Move move) {
         return (move.getPiece().getPieceType() == PieceType.PAWN &&
                 move.getHorizontalFrom() != move.getHorizontalTo());
     }

@@ -2,7 +2,6 @@ package com.practice.project.chess.service.logic.player;
 
 import com.practice.project.chess.repository.PlayerMoveRepository;
 import com.practice.project.chess.repository.dao.PlayerDao;
-import com.practice.project.chess.repository.dao.pieces.PieceDao;
 import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.service.model.Player;
 import com.practice.project.chess.service.model.movehistory.PlayerMove;
@@ -35,6 +34,11 @@ public class PlayerService {
 
     private final PlayerRepository playerRepository;
     private final PlayerMoveRepository playerMoveRepository;
+
+    public PlayerDao getDaoForPlayer(Player player) {
+        return playerRepository.findById(player.getId())
+                .orElseThrow(() -> new ElementNotFoundException("Player not found!"));
+    }
 
     public int getNumberOfMoves(long playerId) {
         return getPlayerMovesInOrder(playerId).size();
@@ -71,7 +75,7 @@ public class PlayerService {
         throw new ElementNotFoundException("No piece found at this position!");
     }
 
-    public King getPlayerKing(Player player) {
+    public static King getPlayerKing(Player player) {
         for (Piece piece : player.getPieces()) {
             if (piece instanceof King)
                 return (King) piece;
@@ -79,7 +83,7 @@ public class PlayerService {
         throw new ElementNotFoundException("Player's King not found!");
     }
 
-    public Coordinate getPlayerKingCoordinate(Player player) {
+    public static Coordinate getPlayerKingCoordinate(Player player) {
         King playerKing = getPlayerKing(player);
         return new Coordinate(playerKing.getHorizontalPosition(), playerKing.getVerticalPosition());
     }
@@ -166,8 +170,10 @@ public class PlayerService {
     }
 
     // TODO: when do we call this exactly?
-    public void updateDaoListFromMovedPiece(PlayerDao player, Piece piece) {
-        player.getPieces().remove(pieceService.getOriginalDaoOfPiece(piece));
-        player.getPieces().add(pieceService.getNewDaoOfPiece(piece));
+    public void updateDaoListFromMovedPiece(Player player, Piece piece) {
+        PlayerDao playerDao = getDaoForPlayer(player);
+        playerDao.getPieces().remove(pieceService.getOriginalDaoOfPiece(piece));
+        playerDao.getPieces().add(pieceService.getNewDaoOfPiece(piece));
+        playerRepository.save(playerDao);
     }
 }

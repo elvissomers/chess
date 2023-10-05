@@ -113,7 +113,7 @@ public class MakeMoveService {
         setCheckOrStaleMate(game);
     }
 
-    private void updatePlayerTurn(Game game) {
+    private static void updatePlayerTurn(Game game) {
         GameState nextPlayerTurn = (game.getGameState() == GameState.WHITE_TURN) ? GameState.BLACK_TURN
                 : GameState.WHITE_TURN;
         game.setGameState(nextPlayerTurn);
@@ -173,7 +173,7 @@ public class MakeMoveService {
         return (goesBackAndForth(lastSixMoves));
     }
 
-    private boolean goesBackAndForth(List<Move> moves) {
+    private static boolean goesBackAndForth(List<Move> moves) {
         return (moves.get(0).equals(moves.get(2)) && moves.get(2).equals(moves.get(4)) &&
                 moves.get(1).equals(moves.get(3)) && moves.get(3).equals(moves.get(5)));
     }
