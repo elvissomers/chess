@@ -21,7 +21,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 
 import static com.practice.project.chess.service.logic.AllUtil.getOpponentPlayer;
 import static com.practice.project.chess.service.logic.game.GameService.getPieceForTeamAndPosition;

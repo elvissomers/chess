@@ -61,7 +61,7 @@ public class MoveService {
         return moveRepository.save(move);
     }
 
-    public void updateSpecialMove(Move move, CastleType castleType, PieceType promotedTo) {
+    public static void updateSpecialMove(Move move, CastleType castleType, PieceType promotedTo) {
         if (castleType != null)
             move.setCastleType(castleType);
         if (promotedTo != null)
