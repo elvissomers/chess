@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Refactoring the services to separate Player and PlayerDao - work in progress">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PlayerMapper.java" afterDir="false" />
-    </list>
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Refactoring the services to separate Player and PlayerDao - work in progress - made some staticable methods static" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,41 +166,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00648" summary="Some class files from running the app">
-      <created>1695995534835</created>
-      <option name="number" value="00648" />
-      <option name="presentableId" value="LOCAL-00648" />
-      <option name="project" value="LOCAL" />
-      <updated>1695995534835</updated>
-    </task>
-    <task id="LOCAL-00649" summary="Some class files from running the app">
-      <created>1695995540878</created>
-      <option name="number" value="00649" />
-      <option name="presentableId" value="LOCAL-00649" />
-      <option name="project" value="LOCAL" />
-      <updated>1695995540878</updated>
-    </task>
-    <task id="LOCAL-00650" summary="Remove unused queries">
-      <created>1695995644498</created>
-      <option name="number" value="00650" />
-      <option name="presentableId" value="LOCAL-00650" />
-      <option name="project" value="LOCAL" />
-      <updated>1695995644498</updated>
-    </task>
-    <task id="LOCAL-00651" summary="Remove unused attribute (PlayerService)">
-      <created>1695995727631</created>
-      <option name="number" value="00651" />
-      <option name="presentableId" value="LOCAL-00651" />
-      <option name="project" value="LOCAL" />
-      <updated>1695995727631</updated>
-    </task>
-    <task id="LOCAL-00652" summary="Added setup to EnPassantService.java">
-      <created>1695995863854</created>
-      <option name="number" value="00652" />
-      <option name="presentableId" value="LOCAL-00652" />
-      <option name="project" value="LOCAL" />
-      <updated>1695995863854</updated>
     </task>
     <task id="LOCAL-00653" summary="Remove unused repository CoordinateRepository.java">
       <created>1695995928578</created>
@@ -512,7 +475,42 @@
       <option name="project" value="LOCAL" />
       <updated>1696502567213</updated>
     </task>
-    <option name="localTasksCounter" value="697" />
+    <task id="LOCAL-00697" summary="Refactoring the services to separate Player and PlayerDao - work in progress">
+      <created>1696502860839</created>
+      <option name="number" value="00697" />
+      <option name="presentableId" value="LOCAL-00697" />
+      <option name="project" value="LOCAL" />
+      <updated>1696502860839</updated>
+    </task>
+    <task id="LOCAL-00698" summary="Refactoring the services to separate Player and PlayerDao - work in progress - setup GameMapper as well">
+      <created>1696503035605</created>
+      <option name="number" value="00698" />
+      <option name="presentableId" value="LOCAL-00698" />
+      <option name="project" value="LOCAL" />
+      <updated>1696503035605</updated>
+    </task>
+    <task id="LOCAL-00699" summary="Refactoring the services to separate Player and PlayerDao - work in progress - made some staticable methods static">
+      <created>1696503472101</created>
+      <option name="number" value="00699" />
+      <option name="presentableId" value="LOCAL-00699" />
+      <option name="project" value="LOCAL" />
+      <updated>1696503472101</updated>
+    </task>
+    <task id="LOCAL-00700" summary="Refactoring the services to separate Player and PlayerDao - work in progress - made some staticable methods static">
+      <created>1696503572171</created>
+      <option name="number" value="00700" />
+      <option name="presentableId" value="LOCAL-00700" />
+      <option name="project" value="LOCAL" />
+      <updated>1696503572171</updated>
+    </task>
+    <task id="LOCAL-00701" summary="Refactoring the services to separate Player and PlayerDao - work in progress - made some staticable methods static">
+      <created>1696503791365</created>
+      <option name="number" value="00701" />
+      <option name="presentableId" value="LOCAL-00701" />
+      <option name="project" value="LOCAL" />
+      <updated>1696503791365</updated>
+    </task>
+    <option name="localTasksCounter" value="702" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -530,8 +528,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update repository to take DAO instead of entity" />
-    <MESSAGE value="Reworking setPieceForGameAndPosition (should not be in PieceService.java; since Piece should not have a Player (only the other way around))" />
     <MESSAGE value="Remove unused methods" />
     <MESSAGE value="Refactor: move getPieceForPosition to game responsibility instead of Piece" />
     <MESSAGE value="Refactor: move getPieceForPosition to game responsibility instead of Piece - remove old method" />
@@ -555,7 +551,9 @@
     <MESSAGE value="Code cleanup: Remove unused import" />
     <MESSAGE value="Update imports" />
     <MESSAGE value="Refactoring the services to separate Player and PlayerDao - work in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring the services to separate Player and PlayerDao - work in progress" />
+    <MESSAGE value="Refactoring the services to separate Player and PlayerDao - work in progress - setup GameMapper as well" />
+    <MESSAGE value="Refactoring the services to separate Player and PlayerDao - work in progress - made some staticable methods static" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring the services to separate Player and PlayerDao - work in progress - made some staticable methods static" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
