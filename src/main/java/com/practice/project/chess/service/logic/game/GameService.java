@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-import static com.practice.project.chess.service.logic.player.PlayerService.getPlayerPieceOnCoordinate;
+import static com.practice.project.chess.service.logic.game.util.PlayerUtil.getPlayerPieceOnCoordinate;
 
 @AllArgsConstructor
 @Service

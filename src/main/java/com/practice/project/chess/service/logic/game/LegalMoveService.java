@@ -1,5 +1,6 @@
 package com.practice.project.chess.service.logic.game;
 
+import com.practice.project.chess.service.logic.game.util.PlayerUtil;
 import com.practice.project.chess.service.model.Game;
 import com.practice.project.chess.service.model.Player;
 import com.practice.project.chess.service.model.pieces.Piece;
@@ -55,7 +56,7 @@ public class LegalMoveService {
         Piece copyPiece = copyPieceTo(piece, destination);
 
         BoardMap copyBoard = boardService.getBoardMapForCopiedPiece(piece, copyPiece, game.getId());
-        Coordinate kingPosition = playerService.getPlayerKingCoordinate(player);
+        Coordinate kingPosition = PlayerUtil.getPlayerKingCoordinate(player);
 
         List<Coordinate> attackedSquares = getAllAttackedSquaresForPlayer(opponentPlayer, copyBoard);
         if (!attackedSquares.contains(kingPosition)) {

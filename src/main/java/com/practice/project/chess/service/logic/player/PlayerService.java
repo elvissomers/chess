@@ -5,7 +5,6 @@ import com.practice.project.chess.repository.dao.PlayerDao;
 import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.service.model.Player;
 import com.practice.project.chess.service.model.movehistory.PlayerMove;
-import com.practice.project.chess.service.model.pieces.King;
 import com.practice.project.chess.service.model.pieces.Pawn;
 import com.practice.project.chess.service.model.pieces.Piece;
 import com.practice.project.chess.repository.enums.PieceType;
@@ -63,29 +62,6 @@ public class PlayerService {
                 .map(PlayerMove::getMove)
                 .limit(n)
                 .toList();
-    }
-
-    public static Piece getPlayerPieceOnCoordinate(Player player, Coordinate coordinate) {
-        // TODO: player should be mapped to entity as well, that holds a list to pieces
-        // TODO instead of pieceDao's!
-        for (Piece piece : player.getPieces()) {
-            if (piece.getCoordinate().equals(coordinate))
-                return piece;
-        }
-        throw new ElementNotFoundException("No piece found at this position!");
-    }
-
-    public static King getPlayerKing(Player player) {
-        for (Piece piece : player.getPieces()) {
-            if (piece instanceof King)
-                return (King) piece;
-        }
-        throw new ElementNotFoundException("Player's King not found!");
-    }
-
-    public static Coordinate getPlayerKingCoordinate(Player player) {
-        King playerKing = getPlayerKing(player);
-        return new Coordinate(playerKing.getHorizontalPosition(), playerKing.getVerticalPosition());
     }
 
     public List<Coordinate> getAllAttackedSquaresForPlayer(Player player) {

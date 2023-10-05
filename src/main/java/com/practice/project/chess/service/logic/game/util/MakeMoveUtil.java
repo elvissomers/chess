@@ -12,7 +12,7 @@ import com.practice.project.chess.service.model.pieces.Piece;
 
 import java.util.List;
 
-import static com.practice.project.chess.service.logic.player.PlayerService.getPlayerKing;
+import static com.practice.project.chess.service.logic.game.util.PlayerUtil.getPlayerKing;
 
 public final class MakeMoveUtil {
 

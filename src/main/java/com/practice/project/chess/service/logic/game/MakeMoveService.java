@@ -25,7 +25,7 @@ import static com.practice.project.chess.service.logic.AllUtil.getOpponentPlayer
 import static com.practice.project.chess.service.logic.MoveService.updateSpecialMove;
 import static com.practice.project.chess.service.logic.game.GameService.getPieceForTeamAndPosition;
 import static com.practice.project.chess.service.logic.game.util.MakeMoveUtil.*;
-import static com.practice.project.chess.service.logic.player.PlayerService.getPlayerKing;
+import static com.practice.project.chess.service.logic.game.util.PlayerUtil.getPlayerKing;
 
 @AllArgsConstructor
 @Service
@@ -66,8 +66,7 @@ public class MakeMoveService {
     private void updateGameAfterMove(Move move) {
         if (move.getTakenPiece() != null)
             playerService.removePiece(move.getTakenPiece());
-
-        if (move.getPromotedTo() != null)
+        else if (move.getPromotedTo() != null)
             playerService.promotePawnTo(move);
         else
             pieceService.updatePosition(move);
