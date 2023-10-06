@@ -1,12 +1,10 @@
 package com.practice.project.chess.service.logic;
 
-import com.practice.project.chess.controller.dto.MoveDto;
 import com.practice.project.chess.controller.dto.mapper.MoveDtoMapper;
 import com.practice.project.chess.service.logic.game.util.MoveUtil;
 import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.service.model.movehistory.PlayerMove;
 import com.practice.project.chess.service.model.pieces.Piece;
-import com.practice.project.chess.service.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.MoveRepository;
 import com.practice.project.chess.repository.PlayerMoveRepository;
 import com.practice.project.chess.service.structures.Coordinate;
@@ -26,17 +24,6 @@ public class MoveService {
     private final BoardService boardService;
 
     private final MoveDtoMapper moveDtoMapper;
-
-    public Move getMove(long id) {
-        return moveRepository.findById(id)
-                .orElseThrow(() -> new ElementNotFoundException("Move not found!"));
-    }
-
-    public MoveDto getMoveDto(long id) {
-        return moveRepository.findById(id)
-                .map(moveDtoMapper::MoveToMoveDto)
-                .orElseThrow(() -> new ElementNotFoundException("Move not found!"));
-    }
 
     public List<PlayerMove> getPlayerMoves(long playerId) {
         return playerMoveRepository.findByPlayer_Id(playerId);
