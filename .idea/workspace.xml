@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Setup MoveMapper.java and PlayerMoveMapper.java">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PlayerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PlayerMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PlayerMoveMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PlayerMoveMapper.java" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Remove unused methods and attributes and imports">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/MoveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/MoveService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,27 +173,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00664" summary="Code cleanup: Refactor service layer file structure">
-      <created>1696406463934</created>
-      <option name="number" value="00664" />
-      <option name="presentableId" value="LOCAL-00664" />
-      <option name="project" value="LOCAL" />
-      <updated>1696406463934</updated>
-    </task>
-    <task id="LOCAL-00665" summary="Code cleanup: Refactor service layer file structure">
-      <created>1696406521532</created>
-      <option name="number" value="00665" />
-      <option name="presentableId" value="LOCAL-00665" />
-      <option name="project" value="LOCAL" />
-      <updated>1696406521532</updated>
-    </task>
-    <task id="LOCAL-00666" summary="setup piece mapper">
-      <created>1696406573025</created>
-      <option name="number" value="00666" />
-      <option name="presentableId" value="LOCAL-00666" />
-      <option name="project" value="LOCAL" />
-      <updated>1696406573025</updated>
     </task>
     <task id="LOCAL-00667" summary="Added coordinate back into Piece">
       <created>1696408522450</created>
@@ -520,7 +496,28 @@
       <option name="project" value="LOCAL" />
       <updated>1696575351983</updated>
     </task>
-    <option name="localTasksCounter" value="713" />
+    <task id="LOCAL-00713" summary="Updated moveHistory mapping, we will remove unnecessary PlayerMove - PlayerMoveDao is the only structure we need">
+      <created>1696576777179</created>
+      <option name="number" value="00713" />
+      <option name="presentableId" value="LOCAL-00713" />
+      <option name="project" value="LOCAL" />
+      <updated>1696576777179</updated>
+    </task>
+    <task id="LOCAL-00714" summary="Remove unused methods">
+      <created>1696576817581</created>
+      <option name="number" value="00714" />
+      <option name="presentableId" value="LOCAL-00714" />
+      <option name="project" value="LOCAL" />
+      <updated>1696576817581</updated>
+    </task>
+    <task id="LOCAL-00715" summary="Remove unused methods and attributes and imports">
+      <created>1696576874063</created>
+      <option name="number" value="00715" />
+      <option name="presentableId" value="LOCAL-00715" />
+      <option name="project" value="LOCAL" />
+      <updated>1696576874063</updated>
+    </task>
+    <option name="localTasksCounter" value="716" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -538,9 +535,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Create DAO's for Player and Game" />
-    <MESSAGE value="Code cleanup: Remove unused imports" />
-    <MESSAGE value="SOC work in progress" />
     <MESSAGE value="Setup daoToPieceMApper" />
     <MESSAGE value="separate service for movable squares (after all this is a game level concern)" />
     <MESSAGE value="PieceDao; work in progress" />
@@ -563,7 +557,10 @@
     <MESSAGE value="More method splitting into appropriate classes" />
     <MESSAGE value="Remove noargsconstructor (which is already present by default)" />
     <MESSAGE value="Setup MoveMapper.java and PlayerMoveMapper.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup MoveMapper.java and PlayerMoveMapper.java" />
+    <MESSAGE value="Updated moveHistory mapping, we will remove unnecessary PlayerMove - PlayerMoveDao is the only structure we need" />
+    <MESSAGE value="Remove unused methods" />
+    <MESSAGE value="Remove unused methods and attributes and imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove unused methods and attributes and imports" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

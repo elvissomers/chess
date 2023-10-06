@@ -1,6 +1,5 @@
 package com.practice.project.chess.service.logic;
 
-import com.practice.project.chess.controller.dto.mapper.MoveDtoMapper;
 import com.practice.project.chess.service.logic.game.util.MoveUtil;
 import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.service.model.movehistory.PlayerMove;
@@ -35,7 +34,7 @@ public class MoveService {
     }
 
     private Move createMove(Piece piece, Coordinate destination, Piece takenPiece) {
-        Move move = Move.builder() // TODO : id?
+        return Move.builder()
                 .piece(piece)
                 .horizontalFrom(piece.getHorizontalPosition())
                 .verticalFrom(piece.getVerticalPosition())
@@ -43,7 +42,6 @@ public class MoveService {
                 .verticalTo(destination.getYPos())
                 .takenPiece(takenPiece)
                 .build();
-        return moveRepository.save(move);
     }
 
     public void setTakenPieceIfEnPassant(Move move, long gameId) {

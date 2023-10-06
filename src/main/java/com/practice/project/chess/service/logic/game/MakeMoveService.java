@@ -38,7 +38,7 @@ public class MakeMoveService {
 
     public void makeMove(Game game, Piece piece, Coordinate destination) {
         checkMovePossibility(game, piece, destination);
-        PlayerMove madeMove = updateMoveHistory(game, piece, destination);
+        PlayerMove madeMove = updateMoveHistory(game, piece, destination); // TODO: this could just be move, which is used next
         updatePlayerPiecesAfterMove(playerInTurn(game), madeMove.getMove());
         gameStateService.updateGameState(game);
     }
