@@ -2,15 +2,11 @@ package com.practice.project.chess.service.logic;
 
 import com.practice.project.chess.service.logic.game.util.MoveUtil;
 import com.practice.project.chess.service.model.movehistory.Move;
-import com.practice.project.chess.service.model.movehistory.PlayerMove;
 import com.practice.project.chess.service.model.pieces.Piece;
 import com.practice.project.chess.repository.MoveRepository;
-import com.practice.project.chess.repository.PlayerMoveRepository;
 import com.practice.project.chess.service.structures.Coordinate;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @AllArgsConstructor
 @Service
@@ -18,7 +14,6 @@ public class MoveService {
     // TODO: move should also be used as component only, and DAO should be used for obtaining from and saving to repository
 
     private final MoveRepository moveRepository;
-    private final PlayerMoveRepository playerMoveRepository;
 
     private final BoardService boardService;
 
