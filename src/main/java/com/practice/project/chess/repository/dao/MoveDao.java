@@ -1,6 +1,6 @@
 package com.practice.project.chess.repository.dao;
 
-import com.practice.project.chess.service.model.pieces.Piece;
+import com.practice.project.chess.repository.dao.pieces.PieceDao;
 import com.practice.project.chess.repository.enums.CastleType;
 import com.practice.project.chess.repository.enums.PieceType;
 import jakarta.persistence.*;
@@ -19,7 +19,7 @@ public class MoveDao {
     private long id;
 
     @OneToOne
-    private Piece piece;
+    private PieceDao piece;
 
     @Column(nullable = false)
     private int horizontalFrom;
@@ -34,7 +34,7 @@ public class MoveDao {
     private int verticalTo;
 
     @OneToOne
-    private Piece takenPiece;
+    private PieceDao takenPiece;
 
     @Enumerated(EnumType.STRING)
     private CastleType castleType;

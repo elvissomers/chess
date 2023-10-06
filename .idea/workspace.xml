@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Refactoring the services to separate Player and PlayerDao - work in progress - split static MakeMoveService.java methods into separate util file">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Got rid of the piece.getPlayer() in PlayerService.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,6 +71,10 @@
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="com.practice.project.chess.service.logic.game.util.MoveUtil" />
+      <recent name="com.practice.project.chess.service.logic.game.util.PlayerUtil" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.practice.project.chess.service.gameservice" />
@@ -168,41 +172,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00654" summary="Code cleanup: remove unused imports">
-      <created>1695996020688</created>
-      <option name="number" value="00654" />
-      <option name="presentableId" value="LOCAL-00654" />
-      <option name="project" value="LOCAL" />
-      <updated>1695996020688</updated>
-    </task>
-    <task id="LOCAL-00655" summary=".class files from running app">
-      <created>1695996034034</created>
-      <option name="number" value="00655" />
-      <option name="presentableId" value="LOCAL-00655" />
-      <option name="project" value="LOCAL" />
-      <updated>1695996034034</updated>
-    </task>
-    <task id="LOCAL-00656" summary="Setting all legal moves at game initalization and at the end of every move">
-      <created>1695996499404</created>
-      <option name="number" value="00656" />
-      <option name="presentableId" value="LOCAL-00656" />
-      <option name="project" value="LOCAL" />
-      <updated>1695996499404</updated>
-    </task>
-    <task id="LOCAL-00657" summary="Update CanPlayerMove in MakeMoveService.java to only set legal moves for the player">
-      <created>1695996764980</created>
-      <option name="number" value="00657" />
-      <option name="presentableId" value="LOCAL-00657" />
-      <option name="project" value="LOCAL" />
-      <updated>1695996764980</updated>
-    </task>
-    <task id="LOCAL-00658" summary="Code cleanup: Remove unused classes and annotations">
-      <created>1695997093562</created>
-      <option name="number" value="00658" />
-      <option name="presentableId" value="LOCAL-00658" />
-      <option name="project" value="LOCAL" />
-      <updated>1695997093562</updated>
     </task>
     <task id="LOCAL-00659" summary="Setup DAO structure: Move and PlayerMove">
       <created>1696405569445</created>
@@ -512,7 +481,42 @@
       <option name="project" value="LOCAL" />
       <updated>1696504166711</updated>
     </task>
-    <option name="localTasksCounter" value="703" />
+    <task id="LOCAL-00703" summary="Refactoring the services to separate Player and PlayerDao - work in progress - split static PlayerService.java methods into separate util file">
+      <created>1696506322235</created>
+      <option name="number" value="00703" />
+      <option name="presentableId" value="LOCAL-00703" />
+      <option name="project" value="LOCAL" />
+      <updated>1696506322235</updated>
+    </task>
+    <task id="LOCAL-00704" summary="Refactoring the services to separate Player and PlayerDao - work in progress - split static MoveService.java methods into separate util file">
+      <created>1696506468804</created>
+      <option name="number" value="00704" />
+      <option name="presentableId" value="LOCAL-00704" />
+      <option name="project" value="LOCAL" />
+      <updated>1696506468804</updated>
+    </task>
+    <task id="LOCAL-00705" summary="Refactoring the services to separate Player and PlayerDao - work in progress - split static MoveService.java methods into separate util file">
+      <created>1696506633787</created>
+      <option name="number" value="00705" />
+      <option name="presentableId" value="LOCAL-00705" />
+      <option name="project" value="LOCAL" />
+      <updated>1696506633787</updated>
+    </task>
+    <task id="LOCAL-00706" summary="Got rid of the player.getGame() in PlayerService.java">
+      <created>1696506932879</created>
+      <option name="number" value="00706" />
+      <option name="presentableId" value="LOCAL-00706" />
+      <option name="project" value="LOCAL" />
+      <updated>1696506932879</updated>
+    </task>
+    <task id="LOCAL-00707" summary="Got rid of the piece.getPlayer() in PlayerService.java">
+      <created>1696507587307</created>
+      <option name="number" value="00707" />
+      <option name="presentableId" value="LOCAL-00707" />
+      <option name="project" value="LOCAL" />
+      <updated>1696507587307</updated>
+    </task>
+    <option name="localTasksCounter" value="708" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -530,10 +534,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Refactor: move getPieceForPosition to game responsibility instead of Piece" />
-    <MESSAGE value="Refactor: move getPieceForPosition to game responsibility instead of Piece - remove old method" />
-    <MESSAGE value="Code cleanup : remove unused imports" />
-    <MESSAGE value="Code cleanup : remove unused imports and methods" />
     <MESSAGE value="DAO structure: using coordinate instead of position" />
     <MESSAGE value="DAO structure: using team instead of player" />
     <MESSAGE value="Code cleanup: Change method order" />
@@ -555,7 +555,11 @@
     <MESSAGE value="Refactoring the services to separate Player and PlayerDao - work in progress - setup GameMapper as well" />
     <MESSAGE value="Refactoring the services to separate Player and PlayerDao - work in progress - made some staticable methods static" />
     <MESSAGE value="Refactoring the services to separate Player and PlayerDao - work in progress - split static MakeMoveService.java methods into separate util file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring the services to separate Player and PlayerDao - work in progress - split static MakeMoveService.java methods into separate util file" />
+    <MESSAGE value="Refactoring the services to separate Player and PlayerDao - work in progress - split static PlayerService.java methods into separate util file" />
+    <MESSAGE value="Refactoring the services to separate Player and PlayerDao - work in progress - split static MoveService.java methods into separate util file" />
+    <MESSAGE value="Got rid of the player.getGame() in PlayerService.java" />
+    <MESSAGE value="Got rid of the piece.getPlayer() in PlayerService.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Got rid of the piece.getPlayer() in PlayerService.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
