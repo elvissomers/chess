@@ -57,10 +57,6 @@ public class EnPassantService {
         }
     }
 
-    private boolean enemyTeam(Piece pawn, Pawn otherPawn) {
-        return (otherPawn.getTeam() != pawn.getTeam());
-    }
-
     private boolean pawnCanBeTakenEnPassant(Pawn targetPawn, Game game) {
         Player opponentPlayer = getPlayerOfTeam(game, targetPawn.getTeam());
         Move opponentLastMove = playerService.getLastMove(opponentPlayer.getId());

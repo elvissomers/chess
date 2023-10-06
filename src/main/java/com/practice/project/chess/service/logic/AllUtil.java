@@ -4,6 +4,7 @@ import com.practice.project.chess.service.model.Game;
 import com.practice.project.chess.service.model.Player;
 import com.practice.project.chess.repository.enums.Team;
 import com.practice.project.chess.service.model.pieces.Pawn;
+import com.practice.project.chess.service.model.pieces.Piece;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,5 +24,9 @@ public class AllUtil {
 
     public static int pawnStartRank(Pawn pawn) {
         return (pawn.getTeam() == Team.WHITE) ? 1 : 6;
+    }
+
+    public static boolean enemyTeam(Piece pawn, Pawn otherPawn) {
+        return (otherPawn.getTeam() != pawn.getTeam());
     }
 }
