@@ -22,10 +22,6 @@ public class MoveService {
 
     private final BoardService boardService;
 
-    public List<PlayerMove> getPlayerMoves(long playerId) {
-        return playerMoveRepository.findByPlayer_Id(playerId);
-    }
-
     public Move getOrCreateMove(Piece piece, Coordinate destination, Piece takenPiece) {
         return moveRepository.findByPieceAndTakenPieceAndHorizontalFromAndHorizontalToAndVerticalFromAndVerticalTo(
                 piece, takenPiece, piece.getHorizontalPosition(), destination.getXPos(), piece.getVerticalPosition(),
