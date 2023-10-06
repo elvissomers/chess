@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Got rid of the piece.getPlayer() in PlayerService.java">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Remove noargsconstructor (which is already present by default)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/MoveMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PlayerMoveMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +74,7 @@
       <recent name="" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="com.practice.project.chess.service.logic.game.util.MakeMoveUtil" />
       <recent name="com.practice.project.chess.service.logic.game.util.MoveUtil" />
       <recent name="com.practice.project.chess.service.logic.game.util.PlayerUtil" />
     </key>
@@ -172,34 +174,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00659" summary="Setup DAO structure: Move and PlayerMove">
-      <created>1696405569445</created>
-      <option name="number" value="00659" />
-      <option name="presentableId" value="LOCAL-00659" />
-      <option name="project" value="LOCAL" />
-      <updated>1696405569445</updated>
-    </task>
-    <task id="LOCAL-00660" summary="Setup DAO structure: Piece">
-      <created>1696405979876</created>
-      <option name="number" value="00660" />
-      <option name="presentableId" value="LOCAL-00660" />
-      <option name="project" value="LOCAL" />
-      <updated>1696405979876</updated>
-    </task>
-    <task id="LOCAL-00661" summary="-">
-      <created>1696405985475</created>
-      <option name="number" value="00661" />
-      <option name="presentableId" value="LOCAL-00661" />
-      <option name="project" value="LOCAL" />
-      <updated>1696405985475</updated>
-    </task>
-    <task id="LOCAL-00662" summary="Code cleanup: Refactor service layer file structure">
-      <created>1696406362831</created>
-      <option name="number" value="00662" />
-      <option name="presentableId" value="LOCAL-00662" />
-      <option name="project" value="LOCAL" />
-      <updated>1696406362831</updated>
     </task>
     <task id="LOCAL-00663" summary="Code cleanup: Refactor service layer file structure">
       <created>1696406437084</created>
@@ -516,7 +490,35 @@
       <option name="project" value="LOCAL" />
       <updated>1696507587307</updated>
     </task>
-    <option name="localTasksCounter" value="708" />
+    <task id="LOCAL-00708" summary="Update MoveDao.java to hold PieceDao instead of Piece">
+      <created>1696574097536</created>
+      <option name="number" value="00708" />
+      <option name="presentableId" value="LOCAL-00708" />
+      <option name="project" value="LOCAL" />
+      <updated>1696574097537</updated>
+    </task>
+    <task id="LOCAL-00709" summary="Added moveHistory">
+      <created>1696574577524</created>
+      <option name="number" value="00709" />
+      <option name="presentableId" value="LOCAL-00709" />
+      <option name="project" value="LOCAL" />
+      <updated>1696574577524</updated>
+    </task>
+    <task id="LOCAL-00710" summary="More method splitting into appropriate classes">
+      <created>1696574794252</created>
+      <option name="number" value="00710" />
+      <option name="presentableId" value="LOCAL-00710" />
+      <option name="project" value="LOCAL" />
+      <updated>1696574794252</updated>
+    </task>
+    <task id="LOCAL-00711" summary="Remove noargsconstructor (which is already present by default)">
+      <created>1696574907009</created>
+      <option name="number" value="00711" />
+      <option name="presentableId" value="LOCAL-00711" />
+      <option name="project" value="LOCAL" />
+      <updated>1696574907009</updated>
+    </task>
+    <option name="localTasksCounter" value="712" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -534,10 +536,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="DAO structure: using coordinate instead of position" />
-    <MESSAGE value="DAO structure: using team instead of player" />
-    <MESSAGE value="Code cleanup: Change method order" />
-    <MESSAGE value="Refactor: Move remove and promote piece to PlayerService.java (instead of PieceService.java which should not be concerned with anything player-level)" />
     <MESSAGE value="Refactor: Move player and game to entity" />
     <MESSAGE value="Create DAO's for Player and Game" />
     <MESSAGE value="Code cleanup: Remove unused imports" />
@@ -559,7 +557,11 @@
     <MESSAGE value="Refactoring the services to separate Player and PlayerDao - work in progress - split static MoveService.java methods into separate util file" />
     <MESSAGE value="Got rid of the player.getGame() in PlayerService.java" />
     <MESSAGE value="Got rid of the piece.getPlayer() in PlayerService.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Got rid of the piece.getPlayer() in PlayerService.java" />
+    <MESSAGE value="Update MoveDao.java to hold PieceDao instead of Piece" />
+    <MESSAGE value="Added moveHistory" />
+    <MESSAGE value="More method splitting into appropriate classes" />
+    <MESSAGE value="Remove noargsconstructor (which is already present by default)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove noargsconstructor (which is already present by default)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
