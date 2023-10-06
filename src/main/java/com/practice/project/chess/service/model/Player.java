@@ -1,5 +1,6 @@
 package com.practice.project.chess.service.model;
 
+import com.practice.project.chess.service.model.movehistory.PlayerMove;
 import com.practice.project.chess.service.model.pieces.Piece;
 import com.practice.project.chess.repository.enums.Team;
 import jakarta.persistence.*;
@@ -28,4 +29,6 @@ public class Player {
 
     @OneToMany(mappedBy = "player", orphanRemoval = true)
     private List<Piece> pieces = new ArrayList<>();
+
+    private List<PlayerMove> moveHistory = new ArrayList<>();
 }
