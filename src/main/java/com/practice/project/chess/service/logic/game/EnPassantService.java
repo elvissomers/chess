@@ -28,31 +28,31 @@ public class EnPassantService {
     private int startPos;
     private int yDirection;
 
-    public void addPawnEnPassantMovesToMovableSquares(Piece pawn, Game game) {
+    public void addPawnEnPassantMovesToMovableSquares(Piece piece, Game game) {
         BoardMap board = boardService.getBoardMapForGame(game.getId());
-        setup(pawn);
+        setup(piece);
 
         if (yPos == startPos + 3 * yDirection) {
             if (xPos > 0)
-                addPawnEnPassantMovesDirection(-1, board, pawn, game);
+                addPawnEnPassantMovesDirection(-1, board, piece, game);
             if (xPos + 1 < BoardSize.horizontalSize)
-                addPawnEnPassantMovesDirection(1, board, pawn, game);
+                addPawnEnPassantMovesDirection(1, board, piece, game);
         }
     }
 
-    private void setup(Piece pawn) {
-        xPos = pawn.getHorizontalPosition();
-        yPos = pawn.getVerticalPosition();
-        startPos = pawnStartRank((Pawn) pawn);
-        yDirection = (pawn.getTeam() == WHITE) ? 1 : -1;
+    private void setup(Piece piece) {
+        xPos = piece.getHorizontalPosition();
+        yPos = piece.getVerticalPosition();
+        startPos = pawnStartRank((Pawn) piece);
+        yDirection = (piece.getTeam() == WHITE) ? 1 : -1;
     }
 
-    private void addPawnEnPassantMovesDirection(int direction, BoardMap board, Piece pawn, Game game) {
+    private void addPawnEnPassantMovesDirection(int direction, BoardMap board, Piece piece, Game game) {
         if (board.get(board.getCoordinateArray()[xPos + direction][yPos]) instanceof Pawn otherPawn
-                && enemyTeam(pawn, otherPawn)) {
+                && enemyTeam(piece, otherPawn)) {
             if (pawnCanBeTakenEnPassant(otherPawn, game)) {
                 Coordinate squareInFrontLeft = board.getCoordinateArray()[xPos + direction][yPos + yDirection];
-                pawn.addMovableSquare(squareInFrontLeft);
+                piece.addMovableSquare(squareInFrontLeft);
             }
         }
     }
