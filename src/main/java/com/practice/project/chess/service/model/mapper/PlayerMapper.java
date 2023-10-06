@@ -1,15 +1,20 @@
 package com.practice.project.chess.service.model.mapper;
 
 import com.practice.project.chess.repository.dao.PlayerDao;
+import com.practice.project.chess.repository.dao.PlayerMoveDao;
 import com.practice.project.chess.service.model.Player;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.util.Comparator;
+import java.util.stream.Collectors;
 
 @Component
 @AllArgsConstructor
 public class PlayerMapper {
 
     private final PieceMapper pieceMapper;
+    private final MoveMapper moveMapper;
 
     public Player playerDaoToPlayer(PlayerDao dao) {
         return Player.builder()
@@ -18,6 +23,12 @@ public class PlayerMapper {
                 .pieces(dao.getPieces().stream()
                         .map(pieceMapper::daoToPiece)
                         .toList())
+                .moveHistory(dao.getMoveHistory().stream()
+                        .sorted(Comparator.comparingInt(PlayerMoveDao::getNumber))
+                        .map(PlayerMoveDao::getMove)
+                        .map(moveMapper::daoToMove)
+                        .toList())
                 .build();
     }
+
 }
