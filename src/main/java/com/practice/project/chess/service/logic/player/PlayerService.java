@@ -11,7 +11,6 @@ import com.practice.project.chess.service.model.pieces.Pawn;
 import com.practice.project.chess.service.model.pieces.Piece;
 import com.practice.project.chess.repository.enums.PieceType;
 import com.practice.project.chess.repository.enums.Team;
-import com.practice.project.chess.service.logic.MoveService;
 import com.practice.project.chess.service.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.PlayerRepository;
 import com.practice.project.chess.service.logic.piece.PawnService;
@@ -22,7 +21,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 @AllArgsConstructor
@@ -31,7 +29,6 @@ public class PlayerService {
 
     private final PieceService pieceService;
     private final PawnService pawnService;
-    private final MoveService moveService;
 
     private final PlayerRepository playerRepository;
     private final PlayerMoveRepository playerMoveRepository;
