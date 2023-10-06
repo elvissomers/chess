@@ -3,11 +3,9 @@ package com.practice.project.chess.service.model.mapper;
 import com.practice.project.chess.repository.dao.pieces.PieceDao;
 import com.practice.project.chess.service.model.pieces.*;
 import com.practice.project.chess.service.structures.Coordinate;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
-@NoArgsConstructor
 public class PieceMapper {
 
     public Piece daoToPiece(PieceDao dao) {
