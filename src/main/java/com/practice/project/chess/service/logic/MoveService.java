@@ -23,8 +23,6 @@ public class MoveService {
 
     private final BoardService boardService;
 
-    private final MoveDtoMapper moveDtoMapper;
-
     public List<PlayerMove> getPlayerMoves(long playerId) {
         return playerMoveRepository.findByPlayer_Id(playerId);
     }
