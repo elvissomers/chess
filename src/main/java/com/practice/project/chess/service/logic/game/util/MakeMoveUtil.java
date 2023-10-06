@@ -4,6 +4,7 @@ import com.practice.project.chess.repository.enums.CastleType;
 import com.practice.project.chess.repository.enums.GameState;
 import com.practice.project.chess.repository.enums.PieceType;
 import com.practice.project.chess.repository.enums.Team;
+import com.practice.project.chess.service.exception.ElementNotFoundException;
 import com.practice.project.chess.service.exception.InvalidMoveException;
 import com.practice.project.chess.service.model.Game;
 import com.practice.project.chess.service.model.Player;
@@ -74,4 +75,12 @@ public final class MakeMoveUtil {
     }
 
 
+    public static Player playerInTurn(Game game) {
+        if (game.getGameState() == GameState.WHITE_TURN)
+            return game.getWhitePlayer();
+        else if (game.getGameState() == GameState.BLACK_TURN)
+            return game.getBlackPlayer();
+        else
+            throw new ElementNotFoundException("No Player in turn!");
+    }
 }
