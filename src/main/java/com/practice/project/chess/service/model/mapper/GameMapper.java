@@ -15,8 +15,8 @@ public class GameMapper {
         return Game.builder()
                 .id(dao.getId())
                 .gameState(dao.getGameState())
-                .whitePlayer(playerMapper.playerDaoToPlayer(dao.getWhitePlayer()))
-                .blackPlayer(playerMapper.playerDaoToPlayer(dao.getBlackPlayer()))
+                .whitePlayer(playerMapper.daoToPlayer(dao.getWhitePlayer()))
+                .blackPlayer(playerMapper.daoToPlayer(dao.getBlackPlayer()))
                 .build();
     }
 }

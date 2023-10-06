@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Some code cleanup; turned some methods static, rename, some more">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/game/EnPassantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/game/EnPassantService.java" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Some code cleanup; Split 50 move and 3 move repetition draw rules into separate files">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/player/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/player/PlayerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/GameMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/GameMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PlayerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PlayerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PlayerMoveMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PlayerMoveMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +76,7 @@
       <recent name="" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="com.practice.project.chess.service.logic.AllUtil" />
       <recent name="com.practice.project.chess.service.logic.game.util.MakeMoveUtil" />
       <recent name="com.practice.project.chess.service.logic.game.util.MoveUtil" />
       <recent name="com.practice.project.chess.service.logic.game.util.PlayerUtil" />
@@ -174,27 +177,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00668" summary="Added coordinate back into Piece">
-      <created>1696408526805</created>
-      <option name="number" value="00668" />
-      <option name="presentableId" value="LOCAL-00668" />
-      <option name="project" value="LOCAL" />
-      <updated>1696408526805</updated>
-    </task>
-    <task id="LOCAL-00669" summary="Update repository to take DAO instead of entity">
-      <created>1696408541494</created>
-      <option name="number" value="00669" />
-      <option name="presentableId" value="LOCAL-00669" />
-      <option name="project" value="LOCAL" />
-      <updated>1696408541494</updated>
-    </task>
-    <task id="LOCAL-00670" summary="Reworking setPieceForGameAndPosition (should not be in PieceService.java; since Piece should not have a Player (only the other way around))">
-      <created>1696408753958</created>
-      <option name="number" value="00670" />
-      <option name="presentableId" value="LOCAL-00670" />
-      <option name="project" value="LOCAL" />
-      <updated>1696408753958</updated>
     </task>
     <task id="LOCAL-00671" summary="Remove unused methods">
       <created>1696408891948</created>
@@ -518,7 +500,28 @@
       <option name="project" value="LOCAL" />
       <updated>1696577675595</updated>
     </task>
-    <option name="localTasksCounter" value="717" />
+    <task id="LOCAL-00717" summary="Some code cleanup; turned method static">
+      <created>1696580532985</created>
+      <option name="number" value="00717" />
+      <option name="presentableId" value="LOCAL-00717" />
+      <option name="project" value="LOCAL" />
+      <updated>1696580532985</updated>
+    </task>
+    <task id="LOCAL-00718" summary="Some code cleanup; named Piece variables &quot;piece&quot;">
+      <created>1696580601228</created>
+      <option name="number" value="00718" />
+      <option name="presentableId" value="LOCAL-00718" />
+      <option name="project" value="LOCAL" />
+      <updated>1696580601230</updated>
+    </task>
+    <task id="LOCAL-00719" summary="Some code cleanup; Split 50 move and 3 move repetition draw rules into separate files">
+      <created>1696580764242</created>
+      <option name="number" value="00719" />
+      <option name="presentableId" value="LOCAL-00719" />
+      <option name="project" value="LOCAL" />
+      <updated>1696580764242</updated>
+    </task>
+    <option name="localTasksCounter" value="720" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -536,9 +539,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="separate service for movable squares (after all this is a game level concern)" />
-    <MESSAGE value="PieceDao; work in progress" />
-    <MESSAGE value="Code cleanup: Refactor method into smaller methods" />
     <MESSAGE value="Refactoring - services using DAO architecture" />
     <MESSAGE value="Code cleanup - remove unused methods and imports" />
     <MESSAGE value="Change PlayerRepository.java datatype to DAO" />
@@ -561,7 +561,10 @@
     <MESSAGE value="Remove unused methods" />
     <MESSAGE value="Remove unused methods and attributes and imports" />
     <MESSAGE value="Some code cleanup; turned some methods static, rename, some more" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some code cleanup; turned some methods static, rename, some more" />
+    <MESSAGE value="Some code cleanup; turned method static" />
+    <MESSAGE value="Some code cleanup; named Piece variables &quot;piece&quot;" />
+    <MESSAGE value="Some code cleanup; Split 50 move and 3 move repetition draw rules into separate files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some code cleanup; Split 50 move and 3 move repetition draw rules into separate files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

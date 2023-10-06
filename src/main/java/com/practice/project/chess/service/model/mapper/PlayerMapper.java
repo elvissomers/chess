@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.Comparator;
-import java.util.stream.Collectors;
 
 @Component
 @AllArgsConstructor
@@ -16,7 +15,7 @@ public class PlayerMapper {
     private final PieceMapper pieceMapper;
     private final MoveMapper moveMapper;
 
-    public Player playerDaoToPlayer(PlayerDao dao) {
+    public Player daoToPlayer(PlayerDao dao) {
         return Player.builder()
                 .id(dao.getId())
                 .team(dao.getTeam())

@@ -3,6 +3,7 @@ package com.practice.project.chess.service.logic.player;
 import com.practice.project.chess.repository.PlayerMoveRepository;
 import com.practice.project.chess.repository.dao.PlayerDao;
 import com.practice.project.chess.service.model.Game;
+import com.practice.project.chess.service.model.mapper.PlayerMapper;
 import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.service.model.Player;
 import com.practice.project.chess.service.model.movehistory.PlayerMove;
@@ -35,8 +36,16 @@ public class PlayerService {
     private final PlayerRepository playerRepository;
     private final PlayerMoveRepository playerMoveRepository;
 
+    private final PlayerMapper playerMapper;
+
     public PlayerDao getDaoForPlayer(Player player) {
         return playerRepository.findById(player.getId())
+                .orElseThrow(() -> new ElementNotFoundException("Player not found!"));
+    }
+
+    public Player getPlayer(long id) {
+        return playerRepository.findById(id)
+                .map(playerMapper::daoToPlayer)
                 .orElseThrow(() -> new ElementNotFoundException("Player not found!"));
     }
 
@@ -44,25 +53,21 @@ public class PlayerService {
         return getPlayerMovesInOrder(playerId).size();
     }
 
-    public List<PlayerMove> getPlayerMovesInOrder(long playerId) {
-        return moveService.getPlayerMoves(playerId).stream()
-                .sorted(Comparator.comparingInt(PlayerMove::getNumber))
-                .toList();
+    public List<Move> getPlayerMovesInOrder(long playerId) {
+        return getPlayer(playerId).getMoveHistory();
     }
 
     public Move getLastMove(long playerId) {
-        return moveService.getPlayerMoves(playerId).stream()
-                .max(Comparator.comparingInt(PlayerMove::getNumber))
-                .map(PlayerMove::getMove)
-                .orElse(null);
+        List<Move> moves = getPlayerMovesInOrder(playerId);
+        return moves.isEmpty() ? null : moves.get(moves.size() - 1);
     }
 
     public List<Move> getLastNMoves(int n, long playerId) {
-        return moveService.getPlayerMoves(playerId).stream()
-                .sorted(Comparator.comparingInt(PlayerMove::getNumber).reversed())
-                .map(PlayerMove::getMove)
-                .limit(n)
-                .toList();
+        List<Move> moves = getPlayerMovesInOrder(playerId);
+        if (moves.size() < n) {
+            return getPlayerMovesInOrder(playerId);
+        }
+        return moves.subList(moves.size() - n, moves.size());
     }
 
     public List<Coordinate> getAllAttackedSquaresForPlayer(Player player) {

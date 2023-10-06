@@ -18,7 +18,7 @@ public class PlayerMoveMapper {
                 .move(moveMapper.daoToMove(dao.getMove()))
                 .id(dao.getId())
                 .number(dao.getNumber())
-                .player(playerMapper.playerDaoToPlayer(dao.getPlayer())) // But this will be a circular dependency!
+                .player(playerMapper.daoToPlayer(dao.getPlayer())) // But this will be a circular dependency!
                 .build();
     }
 }
