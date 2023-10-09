@@ -1,6 +1,7 @@
 package com.practice.project.chess.service.logic.piece;
 
 import com.practice.project.chess.controller.dto.SquaresDto;
+import com.practice.project.chess.service.model.mapper.PieceMapper;
 import com.practice.project.chess.service.model.pieces.Pawn;
 import com.practice.project.chess.service.model.pieces.Piece;
 import com.practice.project.chess.repository.enums.Team;
@@ -21,6 +22,8 @@ public class PawnService {
 
     private final BoardService boardService;
 
+    private final PieceMapper pieceMapper;
+
     private int xPos;
     private int yPos;
     private int startPos;
@@ -29,6 +32,7 @@ public class PawnService {
     public SquaresDto getAttackedSquares(long pieceId) {
         return SquaresDto.builder().squares(
                 pieceRepository.findById(pieceId)
+                        .map(pieceMapper::daoToPiece)
                         .map(Piece::getAttackedSquares)
                         .orElseThrow(()-> new ElementNotFoundException("Piece not present in repository")))
                 .build();
