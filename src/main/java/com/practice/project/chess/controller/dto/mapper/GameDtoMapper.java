@@ -2,7 +2,9 @@ package com.practice.project.chess.controller.dto.mapper;
 
 import com.practice.project.chess.controller.dto.GameDto;
 import com.practice.project.chess.controller.dto.PieceDto;
+import com.practice.project.chess.repository.dao.GameDao;
 import com.practice.project.chess.service.model.Game;
+import com.practice.project.chess.service.model.mapper.PieceMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +17,7 @@ public class GameDtoMapper {
 
     private final PieceDtoMapper pieceDtoMapper;
 
-    public GameDto gameToGameDto(Game game) {
+    public GameDto gameToGameDto(GameDao game) {
         return GameDto.builder()
                 .gameState(game.getGameState())
                 .whitePlayerId(game.getWhitePlayer().getId())
@@ -24,7 +26,7 @@ public class GameDtoMapper {
                 .build();
     }
 
-    private List<PieceDto> getPieces(Game game) {
+    private List<PieceDto> getPieces(GameDao game) {
         return Stream.concat(game.getBlackPlayer().getPieces().stream(),
                         game.getWhitePlayer().getPieces().stream())
                 .map(pieceDtoMapper::pieceToPieceDto)
