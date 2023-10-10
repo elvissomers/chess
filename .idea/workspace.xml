@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Some code cleanup; Split 50 move and 3 move repetition draw rules into separate files">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/player/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/player/PlayerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/GameMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/GameMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PlayerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PlayerMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PlayerMoveMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PlayerMoveMapper.java" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Starting some tests">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/MoveRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/MoveRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/BoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/MoveService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/MoveService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/practice/project/chess/service/logic/BoardServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/practice/project/chess/service/logic/BoardServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,10 +19,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -63,7 +64,7 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/eso13215/IdeaProjects/coding-assessment&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/eso13215/IdeaProjects/chess/src/Main.java&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
@@ -89,12 +90,13 @@
       <recent name="com.ordina.nl.chess.service.pieces" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.practice.project.chess.service.logic" />
       <recent name="test.controllers" />
       <recent name="test.board" />
       <recent name="test.pieces" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.com.practice.project.chess.ChessApplication">
+  <component name="RunManager" selected="JUnit.BoardServiceTest.getBoardMapForGame">
     <configuration name="ChessApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ordina.nl.chess.ChessApplication" />
       <module name="demo" />
@@ -128,6 +130,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BoardServiceTest.getBoardMapForGame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.practice.project.chess.service.logic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.practice.project.chess.service.logic" />
+      <option name="MAIN_CLASS_NAME" value="com.practice.project.chess.service.logic.BoardServiceTest" />
+      <option name="METHOD_NAME" value="getBoardMapForGame" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MoveFinderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
@@ -143,29 +161,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoveFinderTest.setAllMovableSquaresCheckPreventingMovesShouldBeAllowed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test.controllers" />
-      <option name="MAIN_CLASS_NAME" value="test.controllers.MoveFinderTest" />
-      <option name="METHOD_NAME" value="setAllMovableSquaresCheckPreventingMovesShouldBeAllowed" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BoardServiceTest.getBoardMapForGame" />
         <item itemvalue="Application.com.practice.project.chess.ChessApplication" />
         <item itemvalue="Application.ChessApplication" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.MoveFinderTest" />
-        <item itemvalue="JUnit.MoveFinderTest.setAllMovableSquaresCheckPreventingMovesShouldBeAllowed" />
       </list>
     </recent_temporary>
   </component>
@@ -177,48 +179,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00671" summary="Remove unused methods">
-      <created>1696408891948</created>
-      <option name="number" value="00671" />
-      <option name="presentableId" value="LOCAL-00671" />
-      <option name="project" value="LOCAL" />
-      <updated>1696408891948</updated>
-    </task>
-    <task id="LOCAL-00672" summary="Remove unused methods">
-      <created>1696408971273</created>
-      <option name="number" value="00672" />
-      <option name="presentableId" value="LOCAL-00672" />
-      <option name="project" value="LOCAL" />
-      <updated>1696408971273</updated>
-    </task>
-    <task id="LOCAL-00673" summary="Refactor: move getPieceForPosition to game responsibility instead of Piece">
-      <created>1696409981029</created>
-      <option name="number" value="00673" />
-      <option name="presentableId" value="LOCAL-00673" />
-      <option name="project" value="LOCAL" />
-      <updated>1696409981029</updated>
-    </task>
-    <task id="LOCAL-00674" summary="Refactor: move getPieceForPosition to game responsibility instead of Piece - remove old method">
-      <created>1696410017695</created>
-      <option name="number" value="00674" />
-      <option name="presentableId" value="LOCAL-00674" />
-      <option name="project" value="LOCAL" />
-      <updated>1696410017695</updated>
-    </task>
-    <task id="LOCAL-00675" summary="Code cleanup : remove unused imports">
-      <created>1696410040151</created>
-      <option name="number" value="00675" />
-      <option name="presentableId" value="LOCAL-00675" />
-      <option name="project" value="LOCAL" />
-      <updated>1696410040151</updated>
-    </task>
-    <task id="LOCAL-00676" summary="Code cleanup : remove unused imports and methods">
-      <created>1696410273780</created>
-      <option name="number" value="00676" />
-      <option name="presentableId" value="LOCAL-00676" />
-      <option name="project" value="LOCAL" />
-      <updated>1696410273780</updated>
     </task>
     <task id="LOCAL-00677" summary="DAO structure: using coordinate instead of position">
       <created>1696410523969</created>
@@ -521,7 +481,49 @@
       <option name="project" value="LOCAL" />
       <updated>1696580764242</updated>
     </task>
-    <option name="localTasksCounter" value="720" />
+    <task id="LOCAL-00720" summary="Reworked PlayerService moveHistory obtaining methods to just look at the player object, and not at the db">
+      <created>1696581332590</created>
+      <option name="number" value="00720" />
+      <option name="presentableId" value="LOCAL-00720" />
+      <option name="project" value="LOCAL" />
+      <updated>1696581332590</updated>
+    </task>
+    <task id="LOCAL-00721" summary="Reworked PlayerService moveHistory obtaining methods to just look at the player object, and not at the db">
+      <created>1696581352298</created>
+      <option name="number" value="00721" />
+      <option name="presentableId" value="LOCAL-00721" />
+      <option name="project" value="LOCAL" />
+      <updated>1696581352298</updated>
+    </task>
+    <task id="LOCAL-00722" summary="Reworked PlayerService moveHistory obtaining methods to just look at the player object, and not at the db">
+      <created>1696581370348</created>
+      <option name="number" value="00722" />
+      <option name="presentableId" value="LOCAL-00722" />
+      <option name="project" value="LOCAL" />
+      <updated>1696581370348</updated>
+    </task>
+    <task id="LOCAL-00723" summary="Reworked PlayerService moveHistory obtaining methods to just look at the player object, and not at the db">
+      <created>1696581420973</created>
+      <option name="number" value="00723" />
+      <option name="presentableId" value="LOCAL-00723" />
+      <option name="project" value="LOCAL" />
+      <updated>1696581420974</updated>
+    </task>
+    <task id="LOCAL-00724" summary="Added piecemapper">
+      <created>1696848801062</created>
+      <option name="number" value="00724" />
+      <option name="presentableId" value="LOCAL-00724" />
+      <option name="project" value="LOCAL" />
+      <updated>1696848801063</updated>
+    </task>
+    <task id="LOCAL-00725" summary="Starting some tests">
+      <created>1696857959077</created>
+      <option name="number" value="00725" />
+      <option name="presentableId" value="LOCAL-00725" />
+      <option name="project" value="LOCAL" />
+      <updated>1696857959077</updated>
+    </task>
+    <option name="localTasksCounter" value="726" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -539,9 +541,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Refactoring - services using DAO architecture" />
-    <MESSAGE value="Code cleanup - remove unused methods and imports" />
-    <MESSAGE value="Change PlayerRepository.java datatype to DAO" />
     <MESSAGE value="Code cleanup: Remove unused import" />
     <MESSAGE value="Update imports" />
     <MESSAGE value="Refactoring the services to separate Player and PlayerDao - work in progress" />
@@ -564,7 +563,10 @@
     <MESSAGE value="Some code cleanup; turned method static" />
     <MESSAGE value="Some code cleanup; named Piece variables &quot;piece&quot;" />
     <MESSAGE value="Some code cleanup; Split 50 move and 3 move repetition draw rules into separate files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some code cleanup; Split 50 move and 3 move repetition draw rules into separate files" />
+    <MESSAGE value="Reworked PlayerService moveHistory obtaining methods to just look at the player object, and not at the db" />
+    <MESSAGE value="Added piecemapper" />
+    <MESSAGE value="Starting some tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Starting some tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
