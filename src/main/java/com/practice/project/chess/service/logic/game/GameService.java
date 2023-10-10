@@ -5,6 +5,7 @@ import com.practice.project.chess.controller.dto.MovePieceDto;
 import com.practice.project.chess.controller.dto.mapper.GameDtoMapper;
 import com.practice.project.chess.service.model.Game;
 import com.practice.project.chess.service.model.Player;
+import com.practice.project.chess.service.model.mapper.GameMapper;
 import com.practice.project.chess.service.model.pieces.Piece;
 import com.practice.project.chess.repository.enums.GameState;
 import com.practice.project.chess.repository.enums.Team;
@@ -31,9 +32,11 @@ public class GameService {
     private final GameRepository gameRepository;
 
     private final GameDtoMapper gameDtoMapper;
+    private final GameMapper gameMapper;
 
     public Game getGame(long id) {
         return gameRepository.findById(id)
+                .map(gameMapper::gameDaoToGame)
                 .orElseThrow(() -> new ElementNotFoundException("Game not found!"));
     }
 
