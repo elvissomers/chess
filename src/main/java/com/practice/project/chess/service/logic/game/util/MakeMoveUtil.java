@@ -10,6 +10,7 @@ import com.practice.project.chess.service.model.Game;
 import com.practice.project.chess.service.model.Player;
 import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.service.model.pieces.Piece;
+import com.practice.project.chess.service.structures.Coordinate;
 
 import java.util.List;
 
@@ -34,10 +35,10 @@ public final class MakeMoveUtil {
         return null;
     }
 
-    public static PieceType getNewPieceIfPromoted(Move move) {
+    public static PieceType getNewPieceIfPromoted(Piece piece, Coordinate destination) {
         // TODO 2) Get the wanted PieceType as input from the used instead of just hardcoding it to queen
-        if (move.getPiece().getPieceType() == PieceType.PAWN) {
-            if (move.getVerticalTo() == getPromotionRank(move.getPiece()))
+        if (piece.getPieceType() == PieceType.PAWN) {
+            if (destination.getYPos() == getPromotionRank(piece))
                 return PieceType.QUEEN;
         }
         return null;

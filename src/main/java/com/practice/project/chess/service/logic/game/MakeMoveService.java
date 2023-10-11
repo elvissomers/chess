@@ -49,10 +49,14 @@ public class MakeMoveService {
     }
 
     private PlayerMove updateMoveHistory(Game game, Piece piece, Coordinate destination) {
+        // TODO: could be shorter
         Team opponentTeam = getOtherTeam(piece.getTeam());
         Piece takenPiece = getPieceForTeamAndPosition(game, opponentTeam, destination);
-        Move newMove = moveService.getOrCreateMove(piece, destination, takenPiece);
-        getMoveDetails(newMove, game.getId());
+        PieceType promotionPiece = getNewPieceIfPromoted(piece, destination);
+        Move newMove = moveService.getOrCreateMove(piece, destination, takenPiece, promotionPiece);
+        CastleType castleType = getTypeIfCastled(newMove);
+        updateSpecialMove(newMove, castleType, promotionPiece);
+        moveService.setTakenPieceIfEnPassant(newMove, game.getId());
         return playerService.saveMoveForPlayer(newMove, playerInTurn(game));
     }
 
@@ -63,12 +67,5 @@ public class MakeMoveService {
             playerService.promotePawnTo(player, move);
         else
             playerService.updateDaoListFromMovedPiece(player, pieceService.getPieceWithNewPosition(move));
-    }
-
-    private void getMoveDetails(Move move, long gameId) {
-        CastleType castleType = getTypeIfCastled(move);
-        PieceType promotionPiece = getNewPieceIfPromoted(move);
-        updateSpecialMove(move, castleType, promotionPiece);
-        moveService.setTakenPieceIfEnPassant(move, gameId);
     }
 }
