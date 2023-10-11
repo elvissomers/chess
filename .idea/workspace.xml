@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Create endpoint for service to fill piece repository with initial Pieces">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Changed old entities to &quot;@Component&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/PieceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/PieceRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/filling/FillPieceRepositoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/filling/FillPieceRepositoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/piece/PieceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/piece/PieceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/pieces/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/practice/project/chess/service/logic/BoardServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/dao/pieces/PieceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/dao/pieces/PieceDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/pieces/Piece.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/pieces/Piece.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,48 +189,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00687" summary="separate service for movable squares (after all this is a game level concern)">
-      <created>1696419014636</created>
-      <option name="number" value="00687" />
-      <option name="presentableId" value="LOCAL-00687" />
-      <option name="project" value="LOCAL" />
-      <updated>1696419014636</updated>
-    </task>
-    <task id="LOCAL-00688" summary="PieceDao; work in progress">
-      <created>1696419538926</created>
-      <option name="number" value="00688" />
-      <option name="presentableId" value="LOCAL-00688" />
-      <option name="project" value="LOCAL" />
-      <updated>1696419538926</updated>
-    </task>
-    <task id="LOCAL-00689" summary="PieceDao; work in progress">
-      <created>1696419584519</created>
-      <option name="number" value="00689" />
-      <option name="presentableId" value="LOCAL-00689" />
-      <option name="project" value="LOCAL" />
-      <updated>1696419584519</updated>
-    </task>
-    <task id="LOCAL-00690" summary="Code cleanup: Refactor method into smaller methods">
-      <created>1696420576172</created>
-      <option name="number" value="00690" />
-      <option name="presentableId" value="LOCAL-00690" />
-      <option name="project" value="LOCAL" />
-      <updated>1696420576172</updated>
-    </task>
-    <task id="LOCAL-00691" summary="Refactoring - services using DAO architecture">
-      <created>1696420601611</created>
-      <option name="number" value="00691" />
-      <option name="presentableId" value="LOCAL-00691" />
-      <option name="project" value="LOCAL" />
-      <updated>1696420601611</updated>
-    </task>
-    <task id="LOCAL-00692" summary="Code cleanup - remove unused methods and imports">
-      <created>1696420745880</created>
-      <option name="number" value="00692" />
-      <option name="presentableId" value="LOCAL-00692" />
-      <option name="project" value="LOCAL" />
-      <updated>1696420745881</updated>
     </task>
     <task id="LOCAL-00693" summary="Change PlayerRepository.java datatype to DAO">
       <created>1696430231585</created>
@@ -532,7 +491,49 @@
       <option name="project" value="LOCAL" />
       <updated>1697022355149</updated>
     </task>
-    <option name="localTasksCounter" value="736" />
+    <task id="LOCAL-00736" summary="Creating a new Game now creates PlayerDaos and GameDao">
+      <created>1697023029080</created>
+      <option name="number" value="00736" />
+      <option name="presentableId" value="LOCAL-00736" />
+      <option name="project" value="LOCAL" />
+      <updated>1697023029080</updated>
+    </task>
+    <task id="LOCAL-00737" summary="Making the return value of PieceRepository.findByHorizontalPositionAndVerticalPositionAndTeamAndPieceTypeAndHasMoved Optiona&lt;&gt;">
+      <created>1697023054334</created>
+      <option name="number" value="00737" />
+      <option name="presentableId" value="LOCAL-00737" />
+      <option name="project" value="LOCAL" />
+      <updated>1697023054334</updated>
+    </task>
+    <task id="LOCAL-00738" summary="Unmake isHasMoved abstract (so other pieces do not have to implement it)">
+      <created>1697023403842</created>
+      <option name="number" value="00738" />
+      <option name="presentableId" value="LOCAL-00738" />
+      <option name="project" value="LOCAL" />
+      <updated>1697023403842</updated>
+    </task>
+    <task id="LOCAL-00739" summary="Update MoveService.getOrCreateMove to take a promotedTo pieceType">
+      <created>1697023426145</created>
+      <option name="number" value="00739" />
+      <option name="presentableId" value="LOCAL-00739" />
+      <option name="project" value="LOCAL" />
+      <updated>1697023426145</updated>
+    </task>
+    <task id="LOCAL-00740" summary="Added mapping from GameDao to Game">
+      <created>1697023438295</created>
+      <option name="number" value="00740" />
+      <option name="presentableId" value="LOCAL-00740" />
+      <option name="project" value="LOCAL" />
+      <updated>1697023438295</updated>
+    </task>
+    <task id="LOCAL-00741" summary="Changed old entities to &quot;@Component&quot;">
+      <created>1697033031725</created>
+      <option name="number" value="00741" />
+      <option name="presentableId" value="LOCAL-00741" />
+      <option name="project" value="LOCAL" />
+      <updated>1697033031725</updated>
+    </task>
+    <option name="localTasksCounter" value="742" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -550,12 +551,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Got rid of the piece.getPlayer() in PlayerService.java" />
-    <MESSAGE value="Update MoveDao.java to hold PieceDao instead of Piece" />
-    <MESSAGE value="Added moveHistory" />
-    <MESSAGE value="More method splitting into appropriate classes" />
-    <MESSAGE value="Remove noargsconstructor (which is already present by default)" />
-    <MESSAGE value="Setup MoveMapper.java and PlayerMoveMapper.java" />
     <MESSAGE value="Updated moveHistory mapping, we will remove unnecessary PlayerMove - PlayerMoveDao is the only structure we need" />
     <MESSAGE value="Remove unused methods" />
     <MESSAGE value="Remove unused methods and attributes and imports" />
@@ -575,7 +570,13 @@
     <MESSAGE value="Wrote unit tests for PieceMapper" />
     <MESSAGE value="Create service to fill piece repository with initial Pieces" />
     <MESSAGE value="Create endpoint for service to fill piece repository with initial Pieces" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create endpoint for service to fill piece repository with initial Pieces" />
+    <MESSAGE value="Creating a new Game now creates PlayerDaos and GameDao" />
+    <MESSAGE value="Making the return value of PieceRepository.findByHorizontalPositionAndVerticalPositionAndTeamAndPieceTypeAndHasMoved Optiona&lt;&gt;" />
+    <MESSAGE value="Unmake isHasMoved abstract (so other pieces do not have to implement it)" />
+    <MESSAGE value="Update MoveService.getOrCreateMove to take a promotedTo pieceType" />
+    <MESSAGE value="Added mapping from GameDao to Game" />
+    <MESSAGE value="Changed old entities to &quot;@Component&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed old entities to &quot;@Component&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

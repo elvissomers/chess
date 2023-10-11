@@ -6,6 +6,7 @@ import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.repository.enums.PieceType;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +15,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name="pieces")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "piece_type", discriminatorType = DiscriminatorType.STRING)
+@Component
 public abstract class Piece {
 
     @Id
