@@ -86,27 +86,16 @@ public class PlayerService {
         return movableSquares;
     }
 
-    public void setStartPiecesForPlayer(Player player) {
+    public void setStartPiecesForPlayer(PlayerDao player) {
         // TODO: this should setup a playerDAO as well. Perhaps we could just hardcode the ID's of the starting pieces
         // TODO into here? Or something akin to that?
-        PieceType[] pieceTypesInOrder = new PieceType[]{
-                PieceType.ROOK, PieceType.KNIGHT, PieceType.BISHOP, PieceType.QUEEN, PieceType.KING,
-                PieceType.BISHOP, PieceType.KNIGHT, PieceType.ROOK
-        };
         int yForMajorPieces = (player.getTeam() == Team.WHITE) ? 0 : 7;
+        for (int xPos = 0; xPos < BoardSize.horizontalSize; xPos++)
+            player.getPieces().add(pieceService.getStartingPiece(xPos, yForMajorPieces, player.getTeam()));
+
         int yForPawns = (player.getTeam() == Team.WHITE) ? 1 : 6;
-
-        for (int xPos = 0; xPos < BoardSize.horizontalSize; xPos++) {
-            player.getPieces().add(pieceService.createPiece(pieceTypesInOrder[xPos], player,
-                    xPos, yForMajorPieces)
-            );
-        }
-
-        for (int xPos = 0; xPos < BoardSize.horizontalSize; xPos++) {
-            player.getPieces().add(pieceService.createPiece(PieceType.PAWN, player,
-                    xPos, yForPawns)
-            );
-        }
+        for (int xPos = 0; xPos < BoardSize.horizontalSize; xPos++)
+            player.getPieces().add(pieceService.getStartingPiece(xPos, yForPawns, player.getTeam()));
     }
 
     // TODO: vraag voor Nick: is het okee om de Game door te geven aan een method in player service;

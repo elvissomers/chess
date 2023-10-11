@@ -3,6 +3,8 @@ package com.practice.project.chess.service.logic.game;
 import com.practice.project.chess.controller.dto.GameDto;
 import com.practice.project.chess.controller.dto.MovePieceDto;
 import com.practice.project.chess.controller.dto.mapper.GameDtoMapper;
+import com.practice.project.chess.repository.dao.GameDao;
+import com.practice.project.chess.repository.dao.PlayerDao;
 import com.practice.project.chess.service.model.Game;
 import com.practice.project.chess.service.model.Player;
 import com.practice.project.chess.service.model.mapper.GameMapper;
@@ -51,15 +53,15 @@ public class GameService {
     }
 
     public GameDto getNewGame() {
-        Game game = new Game();
-        Player whitePlayer = Player.builder().game(game).team(Team.WHITE).build();
-        Player blackPlayer = Player.builder().game(game).team(Team.BLACK).build();
+        GameDao game = new GameDao();
+        PlayerDao whitePlayer = PlayerDao.builder().team(Team.WHITE).build();
+        PlayerDao blackPlayer = PlayerDao.builder().team(Team.BLACK).build();
 
         processNewPlayers(game, whitePlayer, blackPlayer);
         return gameDtoMapper.gameToGameDto(gameRepository.save(game));
     }
 
-    private void processNewPlayers(Game game, Player whitePlayer, Player blackPlayer) {
+    private void processNewPlayers(GameDao game, PlayerDao whitePlayer, PlayerDao blackPlayer) {
         playerService.setStartPiecesForPlayer(whitePlayer);
         playerService.setStartPiecesForPlayer(blackPlayer);
 
