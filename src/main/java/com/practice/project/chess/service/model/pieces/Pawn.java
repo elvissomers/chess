@@ -1,11 +1,10 @@
 package com.practice.project.chess.service.model.pieces;
 
 import com.practice.project.chess.service.structures.Coordinate;
-import jakarta.persistence.*;
+import org.springframework.stereotype.Component;
 
 
-@Entity
-@DiscriminatorValue("PAWN")
+@Component
 public class Pawn extends Piece {
 
     public Pawn() {

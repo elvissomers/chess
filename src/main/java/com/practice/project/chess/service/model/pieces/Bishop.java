@@ -1,10 +1,8 @@
 package com.practice.project.chess.service.model.pieces;
 
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
+import org.springframework.stereotype.Component;
 
-@Entity
-@DiscriminatorValue("BISHOP")
+@Component
 public class Bishop extends Piece {
 
     public Bishop() {

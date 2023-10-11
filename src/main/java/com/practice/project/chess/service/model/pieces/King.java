@@ -1,16 +1,13 @@
 package com.practice.project.chess.service.model.pieces;
 
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.stereotype.Component;
 
-@Entity
+@Component
 @Getter
 @Setter
 @Builder
-@DiscriminatorValue("KING")
+@AllArgsConstructor
 public class King extends Piece {
 
     private boolean hasMoved;
