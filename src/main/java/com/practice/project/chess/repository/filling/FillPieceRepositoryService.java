@@ -67,6 +67,8 @@ public class FillPieceRepositoryService {
     }
 
     private boolean isNotEmpty(PieceRepository pieceRepository) {
+        // TODO: will return null if we remove the optional? Perhaps we should replace it that way.
+        // But optional returns are proper standard so probably we should keep it that way?
         Optional<PieceDao> rookAtA1 = pieceRepository.findByHorizontalPositionAndVerticalPositionAndTeamAndPieceTypeAndHasMoved(
                 0,0, Team.WHITE, PieceType.ROOK,false);
         return rookAtA1.isPresent();

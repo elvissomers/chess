@@ -4,61 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Open changes (work in progress)">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Create endpoint for service to fill piece repository with initial Pieces">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/PieceController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/MovePieceDto$MovePieceDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/MovePieceDto$MovePieceDtoBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/MovePieceDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/MovePieceDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/PlayerDto$PlayerDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/PlayerDto$PlayerDtoBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/PlayerDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/PlayerDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/mapper/GameDtoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/mapper/GameDtoMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/mapper/MoveDtoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/mapper/MoveDtoMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/mapper/PieceDtoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/mapper/PieceDtoMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/mapper/PlayerDtoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/controller/dto/mapper/PlayerDtoMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/GameRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/MoveRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/PieceRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/PlayerMoveRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/PlayerRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/entity/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/entity/Move$MoveBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/entity/Move.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/entity/Player$PlayerBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/entity/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/entity/PlayerMove$PlayerMoveBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/entity/PlayerMove.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/entity/pieces/Bishop.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/entity/pieces/King.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/entity/pieces/Knight.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/entity/pieces/Pawn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/entity/pieces/Piece.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/entity/pieces/Queen.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/entity/pieces/Rook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/AllUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/BoardService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/MoveOptionService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/MoveService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/constants/BoardSize.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/exception/BaseExceptionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/exception/ElementNotFoundException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/exception/ErrorResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/exception/InvalidMoveException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/CastlingService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/EnPassantService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/GameService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/LegalMoveService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/game/MakeMoveService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/piece/BishopService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/piece/KingService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/piece/KnightService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/piece/PawnService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/piece/PieceService$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/piece/PieceService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/piece/QueenService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/piece/RookService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/player/PlayerService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/structures/BoardMap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/PieceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/PieceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/filling/FillPieceRepositoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/repository/filling/FillPieceRepositoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/piece/PieceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/logic/piece/PieceService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,8 +20,8 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -139,13 +89,14 @@
       <recent name="com.ordina.nl.chess.service.pieces" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.practice.project.chess.service.model.mapper" />
       <recent name="com.practice.project.chess.service.logic" />
       <recent name="test.controllers" />
       <recent name="test.board" />
       <recent name="test.pieces" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BoardServiceTest.getBoardMapForGame">
+  <component name="RunManager" selected="JUnit.PieceMapperTest">
     <configuration name="ChessApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ordina.nl.chess.ChessApplication" />
       <module name="demo" />
@@ -155,13 +106,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="chess-app" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -195,28 +139,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoveFinderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
+    <configuration name="PieceMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="test.controllers.*" />
+          <option name="PATTERN" value="com.practice.project.chess.service.model.mapper.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="test.controllers" />
-      <option name="MAIN_CLASS_NAME" value="test.controllers.MoveFinderTest" />
+      <option name="PACKAGE_NAME" value="com.practice.project.chess.service.model.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.practice.project.chess.service.model.mapper.PieceMapperTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PieceMapperTest.daoToPawn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.practice.project.chess.service.model.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.practice.project.chess.service.model.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.practice.project.chess.service.model.mapper.PieceMapperTest" />
+      <option name="METHOD_NAME" value="daoToPawn" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PieceMapperTest" />
+        <item itemvalue="JUnit.PieceMapperTest.daoToPawn" />
         <item itemvalue="JUnit.BoardServiceTest.getBoardMapForGame" />
         <item itemvalue="Application.com.practice.project.chess.ChessApplication" />
         <item itemvalue="Application.ChessApplication" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.MoveFinderTest" />
       </list>
     </recent_temporary>
   </component>
@@ -228,41 +188,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00682" summary="Refactor: Move player and game to entity">
-      <created>1696411287515</created>
-      <option name="number" value="00682" />
-      <option name="presentableId" value="LOCAL-00682" />
-      <option name="project" value="LOCAL" />
-      <updated>1696411287515</updated>
-    </task>
-    <task id="LOCAL-00683" summary="Create DAO's for Player and Game">
-      <created>1696411413826</created>
-      <option name="number" value="00683" />
-      <option name="presentableId" value="LOCAL-00683" />
-      <option name="project" value="LOCAL" />
-      <updated>1696411413826</updated>
-    </task>
-    <task id="LOCAL-00684" summary="Code cleanup: Remove unused imports">
-      <created>1696411431848</created>
-      <option name="number" value="00684" />
-      <option name="presentableId" value="LOCAL-00684" />
-      <option name="project" value="LOCAL" />
-      <updated>1696411431848</updated>
-    </task>
-    <task id="LOCAL-00685" summary="SOC work in progress">
-      <created>1696411515810</created>
-      <option name="number" value="00685" />
-      <option name="presentableId" value="LOCAL-00685" />
-      <option name="project" value="LOCAL" />
-      <updated>1696411515810</updated>
-    </task>
-    <task id="LOCAL-00686" summary="Setup daoToPieceMApper">
-      <created>1696418675917</created>
-      <option name="number" value="00686" />
-      <option name="presentableId" value="LOCAL-00686" />
-      <option name="project" value="LOCAL" />
-      <updated>1696418675917</updated>
     </task>
     <task id="LOCAL-00687" summary="separate service for movable squares (after all this is a game level concern)">
       <created>1696419014636</created>
@@ -572,7 +497,42 @@
       <option name="project" value="LOCAL" />
       <updated>1696943854304</updated>
     </task>
-    <option name="localTasksCounter" value="731" />
+    <task id="LOCAL-00731" summary="Open class files">
+      <created>1697002683726</created>
+      <option name="number" value="00731" />
+      <option name="presentableId" value="LOCAL-00731" />
+      <option name="project" value="LOCAL" />
+      <updated>1697002683726</updated>
+    </task>
+    <task id="LOCAL-00732" summary="Remove PlayerMoveMapper.java (not used anywhere)">
+      <created>1697002752454</created>
+      <option name="number" value="00732" />
+      <option name="presentableId" value="LOCAL-00732" />
+      <option name="project" value="LOCAL" />
+      <updated>1697002752454</updated>
+    </task>
+    <task id="LOCAL-00733" summary="Wrote unit tests for PieceMapper">
+      <created>1697003546241</created>
+      <option name="number" value="00733" />
+      <option name="presentableId" value="LOCAL-00733" />
+      <option name="project" value="LOCAL" />
+      <updated>1697003546241</updated>
+    </task>
+    <task id="LOCAL-00734" summary="Create service to fill piece repository with initial Pieces">
+      <created>1697022162493</created>
+      <option name="number" value="00734" />
+      <option name="presentableId" value="LOCAL-00734" />
+      <option name="project" value="LOCAL" />
+      <updated>1697022162493</updated>
+    </task>
+    <task id="LOCAL-00735" summary="Create endpoint for service to fill piece repository with initial Pieces">
+      <created>1697022355149</created>
+      <option name="number" value="00735" />
+      <option name="presentableId" value="LOCAL-00735" />
+      <option name="project" value="LOCAL" />
+      <updated>1697022355149</updated>
+    </task>
+    <option name="localTasksCounter" value="736" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -590,11 +550,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Refactoring the services to separate Player and PlayerDao - work in progress - made some staticable methods static" />
-    <MESSAGE value="Refactoring the services to separate Player and PlayerDao - work in progress - split static MakeMoveService.java methods into separate util file" />
-    <MESSAGE value="Refactoring the services to separate Player and PlayerDao - work in progress - split static PlayerService.java methods into separate util file" />
-    <MESSAGE value="Refactoring the services to separate Player and PlayerDao - work in progress - split static MoveService.java methods into separate util file" />
-    <MESSAGE value="Got rid of the player.getGame() in PlayerService.java" />
     <MESSAGE value="Got rid of the piece.getPlayer() in PlayerService.java" />
     <MESSAGE value="Update MoveDao.java to hold PieceDao instead of Piece" />
     <MESSAGE value="Added moveHistory" />
@@ -615,7 +570,12 @@
     <MESSAGE value="Test setup" />
     <MESSAGE value="Update GameRepository.java to DAO use" />
     <MESSAGE value="Open changes (work in progress)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Open changes (work in progress)" />
+    <MESSAGE value="Open class files" />
+    <MESSAGE value="Remove PlayerMoveMapper.java (not used anywhere)" />
+    <MESSAGE value="Wrote unit tests for PieceMapper" />
+    <MESSAGE value="Create service to fill piece repository with initial Pieces" />
+    <MESSAGE value="Create endpoint for service to fill piece repository with initial Pieces" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create endpoint for service to fill piece repository with initial Pieces" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

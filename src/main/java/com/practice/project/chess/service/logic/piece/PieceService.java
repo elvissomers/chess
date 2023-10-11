@@ -48,7 +48,8 @@ public class PieceService {
     public PieceDao getNewDaoOfPiece(Piece piece) {
         return pieceRepository.findByHorizontalPositionAndVerticalPositionAndTeamAndPieceTypeAndHasMoved(
                 piece.getCoordinate().getXPos(), piece.getCoordinate().getYPos(), piece.getTeam(),
-                piece.getPieceType(), piece.isHasMoved());
+                piece.getPieceType(), piece.isHasMoved())
+                .orElseThrow(() -> new ElementNotFoundException("Piece not found!"));
     }
 
     public Piece getPiece(int xPos, int yPos, Team team, PieceType pieceType, boolean hasMoved) {
@@ -60,9 +61,18 @@ public class PieceService {
                 .orElseThrow(() -> new ElementNotFoundException("Piece not found!"));
     }
 
+    public PieceDao getStartingPiece(int xPos, int yPos, Team team) {
+        PieceType[] pieceTypesInOrder = new PieceType[]{
+                PieceType.ROOK, PieceType.KNIGHT, PieceType.BISHOP, PieceType.QUEEN, PieceType.KING,
+                PieceType.BISHOP, PieceType.KNIGHT, PieceType.ROOK
+        };
+        return getPieceDao(xPos, yPos, team, pieceTypesInOrder[xPos], false);
+    }
+
     private PieceDao getPieceDao(int xPos, int yPos, Team team, PieceType pieceType, boolean hasMoved) {
         return pieceRepository.findByHorizontalPositionAndVerticalPositionAndTeamAndPieceTypeAndHasMoved(
-                xPos, yPos, team, pieceType, hasMoved);
+                xPos, yPos, team, pieceType, hasMoved)
+                .orElseThrow(() -> new ElementNotFoundException("Piece not found!"));
     }
 
     public SquaresDto getAttackedSquaresForPawn(long pieceId) {
