@@ -1,6 +1,7 @@
 package com.practice.project.chess.service.logic;
 
 import com.practice.project.chess.service.model.Game;
+import com.practice.project.chess.service.model.mapper.GameMapper;
 import com.practice.project.chess.service.model.pieces.Piece;
 import com.practice.project.chess.service.exception.ElementNotFoundException;
 import com.practice.project.chess.repository.GameRepository;
@@ -19,10 +20,13 @@ public class BoardService {
 
     private final GameRepository gameRepository;
 
+    private final GameMapper gameMapper;
+
     public BoardMap getBoardMapForGame(long gameId) {
         // TODO: game instead of gameId? That would make this class stateless, and we can make it an util class
         BoardMap boardMap = getEmptyBoardMap();
         Game game = gameRepository.findById(gameId)
+                .map(gameMapper::gameDaoToGame)
                 .orElseThrow(() -> new ElementNotFoundException("Game not found!"));
 
         if (game != null) {
