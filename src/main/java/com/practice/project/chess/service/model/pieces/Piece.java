@@ -4,7 +4,6 @@ import com.practice.project.chess.service.model.Player;
 import com.practice.project.chess.repository.enums.Team;
 import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.repository.enums.PieceType;
-import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
@@ -18,8 +17,6 @@ import java.util.List;
 @Component
 public abstract class Piece {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private int horizontalPosition;
@@ -27,22 +24,16 @@ public abstract class Piece {
 
     private Coordinate coordinate;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "player_id")
     private Player player;
 
     private Team team;
 
-    @Transient
     private PieceType pieceType;
 
-    @Transient
     private List<Coordinate> movableSquares = new ArrayList<>();
 
-    @Transient
     private List<Coordinate> legalMovableSquares = new ArrayList<>();
 
-    @Transient
     private List<Coordinate> attackedSquares = new ArrayList<>();
 
     protected Piece(Player player) {
