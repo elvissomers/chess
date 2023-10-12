@@ -19,9 +19,9 @@ public class Game {
     @Column(name = "state")
     private GameState gameState;
 
-    @OneToOne(mappedBy = "game")
+    @OneToOne
     private Player whitePlayer;
 
-    @OneToOne(mappedBy = "game")
+    @OneToOne
     private Player blackPlayer;
 }

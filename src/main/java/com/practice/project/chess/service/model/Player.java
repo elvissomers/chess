@@ -27,8 +27,9 @@ public class Player {
     @Enumerated(EnumType.STRING)
     private Team team;
 
-    @OneToMany(mappedBy = "player", orphanRemoval = true)
+    @OneToMany
     private List<Piece> pieces = new ArrayList<>();
 
+    @OneToMany
     private List<Move> moveHistory = new ArrayList<>();
 }

@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Removed Builder pattern from King and Rook">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/practice/project/chess/service/model/mapper/PieceMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/practice/project/chess/service/model/mapper/PieceMapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/mapper/PieceMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/mapper/PieceMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/pieces/King$KingBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/pieces/King.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/pieces/King.class" afterDir="false" />
-    </list>
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Update Game and Player DAO relation annotations" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -192,20 +186,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00696" summary="Refactoring the services to separate Player and PlayerDao - work in progress">
-      <created>1696502567213</created>
-      <option name="number" value="00696" />
-      <option name="presentableId" value="LOCAL-00696" />
-      <option name="project" value="LOCAL" />
-      <updated>1696502567213</updated>
-    </task>
-    <task id="LOCAL-00697" summary="Refactoring the services to separate Player and PlayerDao - work in progress">
-      <created>1696502860839</created>
-      <option name="number" value="00697" />
-      <option name="presentableId" value="LOCAL-00697" />
-      <option name="project" value="LOCAL" />
-      <updated>1696502860839</updated>
     </task>
     <task id="LOCAL-00698" summary="Refactoring the services to separate Player and PlayerDao - work in progress - setup GameMapper as well">
       <created>1696503035605</created>
@@ -536,7 +516,21 @@
       <option name="project" value="LOCAL" />
       <updated>1697094918517</updated>
     </task>
-    <option name="localTasksCounter" value="745" />
+    <task id="LOCAL-00745" summary="Turned Move and PlayerMove into Components instead of Entities">
+      <created>1697096176972</created>
+      <option name="number" value="00745" />
+      <option name="presentableId" value="LOCAL-00745" />
+      <option name="project" value="LOCAL" />
+      <updated>1697096176973</updated>
+    </task>
+    <task id="LOCAL-00746" summary="Update Game and Player DAO relation annotations">
+      <created>1697096284911</created>
+      <option name="number" value="00746" />
+      <option name="presentableId" value="LOCAL-00746" />
+      <option name="project" value="LOCAL" />
+      <updated>1697096284911</updated>
+    </task>
+    <option name="localTasksCounter" value="747" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -554,8 +548,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Some code cleanup; turned some methods static, rename, some more" />
-    <MESSAGE value="Some code cleanup; turned method static" />
     <MESSAGE value="Some code cleanup; named Piece variables &quot;piece&quot;" />
     <MESSAGE value="Some code cleanup; Split 50 move and 3 move repetition draw rules into separate files" />
     <MESSAGE value="Reworked PlayerService moveHistory obtaining methods to just look at the player object, and not at the db" />
@@ -579,7 +571,9 @@
     <MESSAGE value="unversioned &amp; .class files" />
     <MESSAGE value="Remove JPA annotations" />
     <MESSAGE value="Removed Builder pattern from King and Rook" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed Builder pattern from King and Rook" />
+    <MESSAGE value="Turned Move and PlayerMove into Components instead of Entities" />
+    <MESSAGE value="Update Game and Player DAO relation annotations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Game and Player DAO relation annotations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
