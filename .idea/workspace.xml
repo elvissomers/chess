@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Added correct constructors to Game and PlayerMove (application starts now)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PieceMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PieceMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/structures/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/structures/Coordinate.java" afterDir="false" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Update pieceMapperTest - started using new PieceDaos instead of Mockito.Mock objects">
       <change beforePath="$PROJECT_DIR$/src/test/java/com/practice/project/chess/service/model/mapper/PieceMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/practice/project/chess/service/model/mapper/PieceMapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/mapper/PieceMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/mapper/PieceMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/movehistory/PlayerMove.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/movehistory/PlayerMove.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/practice/project/chess/service/model/mapper/PieceMapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/practice/project/chess/service/model/mapper/PieceMapperTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/structures/Coordinate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/structures/Coordinate.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,27 +189,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00701" summary="Refactoring the services to separate Player and PlayerDao - work in progress - made some staticable methods static">
-      <created>1696503791365</created>
-      <option name="number" value="00701" />
-      <option name="presentableId" value="LOCAL-00701" />
-      <option name="project" value="LOCAL" />
-      <updated>1696503791365</updated>
-    </task>
-    <task id="LOCAL-00702" summary="Refactoring the services to separate Player and PlayerDao - work in progress - split static MakeMoveService.java methods into separate util file">
-      <created>1696504166711</created>
-      <option name="number" value="00702" />
-      <option name="presentableId" value="LOCAL-00702" />
-      <option name="project" value="LOCAL" />
-      <updated>1696504166711</updated>
-    </task>
-    <task id="LOCAL-00703" summary="Refactoring the services to separate Player and PlayerDao - work in progress - split static PlayerService.java methods into separate util file">
-      <created>1696506322235</created>
-      <option name="number" value="00703" />
-      <option name="presentableId" value="LOCAL-00703" />
-      <option name="project" value="LOCAL" />
-      <updated>1696506322235</updated>
     </task>
     <task id="LOCAL-00704" summary="Refactoring the services to separate Player and PlayerDao - work in progress - split static MoveService.java methods into separate util file">
       <created>1696506468804</created>
@@ -538,7 +512,28 @@
       <option name="project" value="LOCAL" />
       <updated>1697096547851</updated>
     </task>
-    <option name="localTasksCounter" value="750" />
+    <task id="LOCAL-00750" summary="Override coordinate equals and hashmap methods">
+      <created>1697100901074</created>
+      <option name="number" value="00750" />
+      <option name="presentableId" value="LOCAL-00750" />
+      <option name="project" value="LOCAL" />
+      <updated>1697100901074</updated>
+    </task>
+    <task id="LOCAL-00751" summary="Mapped other attributes in PieceMapper">
+      <created>1697100918491</created>
+      <option name="number" value="00751" />
+      <option name="presentableId" value="LOCAL-00751" />
+      <option name="project" value="LOCAL" />
+      <updated>1697100918491</updated>
+    </task>
+    <task id="LOCAL-00752" summary="Update pieceMapperTest - started using new PieceDaos instead of Mockito.Mock objects">
+      <created>1697100940855</created>
+      <option name="number" value="00752" />
+      <option name="presentableId" value="LOCAL-00752" />
+      <option name="project" value="LOCAL" />
+      <updated>1697100940855</updated>
+    </task>
+    <option name="localTasksCounter" value="753" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -556,9 +551,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added piecemapper" />
-    <MESSAGE value="Starting some tests" />
-    <MESSAGE value="Update dto mappers to take DAO's as input (instead of POJOs)" />
     <MESSAGE value="Test setup" />
     <MESSAGE value="Update GameRepository.java to DAO use" />
     <MESSAGE value="Open changes (work in progress)" />
@@ -581,7 +573,10 @@
     <MESSAGE value="Update Game and Player entity relation annotations" />
     <MESSAGE value="Update Game and Player to be components instead of entities" />
     <MESSAGE value="Added correct constructors to Game and PlayerMove (application starts now)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added correct constructors to Game and PlayerMove (application starts now)" />
+    <MESSAGE value="Override coordinate equals and hashmap methods" />
+    <MESSAGE value="Mapped other attributes in PieceMapper" />
+    <MESSAGE value="Update pieceMapperTest - started using new PieceDaos instead of Mockito.Mock objects" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update pieceMapperTest - started using new PieceDaos instead of Mockito.Mock objects" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
