@@ -21,6 +21,10 @@ public class PieceMapper {
         piece.setCoordinate(new Coordinate(dao.getHorizontalPosition(), dao.getVerticalPosition()));
         piece.setTeam(dao.getTeam());
         piece.setId(dao.getId());
+        // TODO: are these needed?
+        piece.setPieceType(dao.getPieceType());
+        piece.setHorizontalPosition(dao.getHorizontalPosition());
+        piece.setVerticalPosition(dao.getVerticalPosition());
         return piece;
     }
 
