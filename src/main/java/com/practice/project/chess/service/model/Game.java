@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 @Setter
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 @Component
 public class Game {
 

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Component
 public class PlayerMove {
 
