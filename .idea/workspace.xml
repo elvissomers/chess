@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Changed old entities to &quot;@Component&quot;">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Remove JPA annotations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/pieces/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/practice/project/chess/service/logic/BoardServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/dao/pieces/PieceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/repository/dao/pieces/PieceDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PieceMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PieceMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/pieces/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/pieces/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/pieces/Rook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/pieces/Piece.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/pieces/Piece.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +97,7 @@
       <recent name="test.pieces" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PieceMapperTest">
+  <component name="RunManager" selected="Application.com.practice.project.chess.ChessApplication">
     <configuration name="ChessApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ordina.nl.chess.ChessApplication" />
       <module name="demo" />
@@ -173,10 +173,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PieceMapperTest" />
-        <item itemvalue="JUnit.PieceMapperTest.daoToPawn" />
-        <item itemvalue="JUnit.BoardServiceTest.getBoardMapForGame" />
         <item itemvalue="Application.com.practice.project.chess.ChessApplication" />
+        <item itemvalue="JUnit.PieceMapperTest.daoToPawn" />
+        <item itemvalue="JUnit.PieceMapperTest" />
+        <item itemvalue="JUnit.BoardServiceTest.getBoardMapForGame" />
         <item itemvalue="Application.ChessApplication" />
       </list>
     </recent_temporary>
@@ -189,20 +189,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00693" summary="Change PlayerRepository.java datatype to DAO">
-      <created>1696430231585</created>
-      <option name="number" value="00693" />
-      <option name="presentableId" value="LOCAL-00693" />
-      <option name="project" value="LOCAL" />
-      <updated>1696430231585</updated>
-    </task>
-    <task id="LOCAL-00694" summary="Code cleanup: Remove unused import">
-      <created>1696501223811</created>
-      <option name="number" value="00694" />
-      <option name="presentableId" value="LOCAL-00694" />
-      <option name="project" value="LOCAL" />
-      <updated>1696501223811</updated>
     </task>
     <task id="LOCAL-00695" summary="Update imports">
       <created>1696501283965</created>
@@ -533,7 +519,21 @@
       <option name="project" value="LOCAL" />
       <updated>1697033031725</updated>
     </task>
-    <option name="localTasksCounter" value="742" />
+    <task id="LOCAL-00742" summary="unversioned &amp; .class files">
+      <created>1697033058663</created>
+      <option name="number" value="00742" />
+      <option name="presentableId" value="LOCAL-00742" />
+      <option name="project" value="LOCAL" />
+      <updated>1697033058663</updated>
+    </task>
+    <task id="LOCAL-00743" summary="Remove JPA annotations">
+      <created>1697033236050</created>
+      <option name="number" value="00743" />
+      <option name="presentableId" value="LOCAL-00743" />
+      <option name="project" value="LOCAL" />
+      <updated>1697033236050</updated>
+    </task>
+    <option name="localTasksCounter" value="744" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -551,8 +551,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Updated moveHistory mapping, we will remove unnecessary PlayerMove - PlayerMoveDao is the only structure we need" />
-    <MESSAGE value="Remove unused methods" />
     <MESSAGE value="Remove unused methods and attributes and imports" />
     <MESSAGE value="Some code cleanup; turned some methods static, rename, some more" />
     <MESSAGE value="Some code cleanup; turned method static" />
@@ -576,7 +574,9 @@
     <MESSAGE value="Update MoveService.getOrCreateMove to take a promotedTo pieceType" />
     <MESSAGE value="Added mapping from GameDao to Game" />
     <MESSAGE value="Changed old entities to &quot;@Component&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed old entities to &quot;@Component&quot;" />
+    <MESSAGE value="unversioned &amp; .class files" />
+    <MESSAGE value="Remove JPA annotations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove JPA annotations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

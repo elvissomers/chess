@@ -25,11 +25,15 @@ public class PieceMapper {
     }
 
     private Piece mapToKing(PieceDao dao) {
-        return King.builder().hasMoved(dao.isHasMoved()).build();
+        King king = new King();
+        king.setHasMoved(dao.isHasMoved());
+        return king;
     }
 
     private Piece mapToRook(PieceDao dao) {
-        return Rook.builder().hasMoved(dao.isHasMoved()).build();
+        Rook rook = new Rook();
+        rook.setHasMoved(dao.isHasMoved());
+        return rook;
     }
 
     private Piece mapToPawn() {

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 @Component
 @Getter
 @Setter
-@Builder
 public class Rook extends Piece {
 
     private boolean hasMoved;

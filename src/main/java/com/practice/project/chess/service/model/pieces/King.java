@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 @Component
 @Getter
 @Setter
-@Builder
 @AllArgsConstructor
 public class King extends Piece {
 
