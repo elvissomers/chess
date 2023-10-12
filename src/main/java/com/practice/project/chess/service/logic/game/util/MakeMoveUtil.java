@@ -1,5 +1,6 @@
 package com.practice.project.chess.service.logic.game.util;
 
+import com.practice.project.chess.repository.dao.MoveDao;
 import com.practice.project.chess.repository.enums.CastleType;
 import com.practice.project.chess.repository.enums.GameState;
 import com.practice.project.chess.repository.enums.PieceType;
@@ -25,7 +26,7 @@ public final class MakeMoveUtil {
         return (team == Team.WHITE) ? Team.BLACK : Team.WHITE;
     }
 
-    public static CastleType getTypeIfCastled(Move move) {
+    public static CastleType getTypeIfCastled(MoveDao move) {
         if (move.getPiece().getPieceType() == PieceType.KING) {
             if (move.getHorizontalFrom() - move.getHorizontalTo() == 2)
                 return CastleType.LONG;

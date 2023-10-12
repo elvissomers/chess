@@ -1,7 +1,10 @@
 package com.practice.project.chess.service.logic;
 
+import com.practice.project.chess.repository.dao.MoveDao;
+import com.practice.project.chess.repository.dao.pieces.PieceDao;
 import com.practice.project.chess.repository.enums.PieceType;
 import com.practice.project.chess.service.logic.game.util.MoveUtil;
+import com.practice.project.chess.service.logic.piece.PieceService;
 import com.practice.project.chess.service.model.mapper.MoveMapper;
 import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.service.model.pieces.Piece;
@@ -17,20 +20,18 @@ public class MoveService {
     private final MoveRepository moveRepository;
 
     private final BoardService boardService;
-
-    private final MoveMapper moveMapper;
+    private final PieceService pieceService;
 
     // TODO: after getting or creating a move, it should also be saved (in DAO form) to both MoveRepository and PlayerMoveRepository
-    public Move getOrCreateMove(Piece piece, Coordinate destination, Piece takenPiece, PieceType promotedTo) {
-        return moveRepository.findByPiece_IdAndTakenPiece_IdAndHorizontalFromAndHorizontalToAndVerticalFromAndVerticalToAndPromotedTo(
-                piece.getId(), takenPiece.getId(), piece.getHorizontalPosition(), destination.getXPos(), piece.getVerticalPosition(),
-                destination.getYPos(), promotedTo) // TODO: this should also have promotedTo? Or can we still set promotedTo into the DAO later? THis might be multiple moves, with different promotedtos otherwise!
-                .map(moveMapper::daoToMove)
+    public MoveDao getOrCreateMove(PieceDao piece, Coordinate destination, PieceDao takenPiece, PieceType promotedTo) {
+        return moveRepository.findByPieceAndTakenPieceAndHorizontalFromAndHorizontalToAndVerticalFromAndVerticalToAndPromotedTo(
+                piece, takenPiece, piece.getHorizontalPosition(), destination.getXPos(), piece.getVerticalPosition(),
+                destination.getYPos(), promotedTo)
                 .orElse(createMove(piece, destination, takenPiece));
     }
 
-    private Move createMove(Piece piece, Coordinate destination, Piece takenPiece) {
-        return Move.builder()
+    private MoveDao createMove(PieceDao piece, Coordinate destination, PieceDao takenPiece) {
+        MoveDao moveToSave = MoveDao.builder()
                 .piece(piece)
                 .horizontalFrom(piece.getHorizontalPosition())
                 .verticalFrom(piece.getVerticalPosition())
@@ -38,13 +39,15 @@ public class MoveService {
                 .verticalTo(destination.getYPos())
                 .takenPiece(takenPiece)
                 .build();
+        return moveRepository.save(moveToSave);
     }
 
-    public void setTakenPieceIfEnPassant(Move move, long gameId) {
+    public void setTakenPieceIfEnPassant(MoveDao move, long gameId) {
         if (MoveUtil.pawnMovedDiagonally(move) && move.getTakenPiece() == null) {
             Piece takenPiece = boardService.getBoardMapForGame(gameId)
                     .getPieceByPos(move.getHorizontalTo(), move.getVerticalFrom());
-            move.setTakenPiece(takenPiece);
+            PieceDao takenPieceDao = pieceService.getOriginalDaoOfPiece(takenPiece);
+            move.setTakenPiece(takenPieceDao);
         }
     }
 }

@@ -1,8 +1,11 @@
 package com.practice.project.chess.service.logic.player;
 
 import com.practice.project.chess.repository.PlayerMoveRepository;
+import com.practice.project.chess.repository.dao.MoveDao;
 import com.practice.project.chess.repository.dao.PlayerDao;
+import com.practice.project.chess.repository.dao.PlayerMoveDao;
 import com.practice.project.chess.service.model.Game;
+import com.practice.project.chess.service.model.mapper.MoveMapper;
 import com.practice.project.chess.service.model.mapper.PlayerMapper;
 import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.service.model.Player;
@@ -31,8 +34,10 @@ public class PlayerService {
     private final PawnService pawnService;
 
     private final PlayerRepository playerRepository;
+    private final PlayerMoveRepository playerMoveRepository;
 
     private final PlayerMapper playerMapper;
+    private final MoveMapper moveMapper;
 
     public PlayerDao getDaoForPlayer(Player player) {
         return playerRepository.findById(player.getId())
@@ -109,13 +114,13 @@ public class PlayerService {
         }
     }
 
-    public PlayerMove saveMoveForPlayer(Move move, Player player) {
-        // TODO: save PlayerMoveDao to PlayerDao
-        return PlayerMove.builder()
+    public Move saveMoveForPlayer(MoveDao move, Player player) {
+        PlayerMoveDao moveToSave = PlayerMoveDao.builder()
                 .number(getNumberOfMoves(player.getId()) + 1)
                 .move(move)
-                .player(player)
                 .build();
+        playerMoveRepository.save(moveToSave);
+        return moveMapper.daoToMove(moveToSave.getMove());
     }
 
     public void promotePawnTo(Player player, Move move) {

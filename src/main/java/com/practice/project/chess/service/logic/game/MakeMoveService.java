@@ -1,5 +1,7 @@
 package com.practice.project.chess.service.logic.game;
 
+import com.practice.project.chess.repository.dao.MoveDao;
+import com.practice.project.chess.repository.dao.pieces.PieceDao;
 import com.practice.project.chess.service.model.Game;
 import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.service.model.Player;
@@ -38,8 +40,8 @@ public class MakeMoveService {
 
     public void makeMove(Game game, Piece piece, Coordinate destination) {
         checkMovePossibility(game, piece, destination);
-        PlayerMove madeMove = updateMoveHistory(game, piece, destination); // TODO: this could just be move, which is used next
-        updatePlayerPiecesAfterMove(playerInTurn(game), madeMove.getMove());
+        Move madeMove = updateMoveHistory(game, piece, destination); // TODO: this could just be move, which is used next
+        updatePlayerPiecesAfterMove(playerInTurn(game), madeMove);
         gameStateService.updateGameState(game);
     }
 
@@ -48,12 +50,16 @@ public class MakeMoveService {
         checkIfPieceInTurn(game, piece);
     }
 
-    private PlayerMove updateMoveHistory(Game game, Piece piece, Coordinate destination) {
+    private Move updateMoveHistory(Game game, Piece piece, Coordinate destination) {
         // TODO: could be shorter
         Team opponentTeam = getOtherTeam(piece.getTeam());
         Piece takenPiece = getPieceForTeamAndPosition(game, opponentTeam, destination);
         PieceType promotionPiece = getNewPieceIfPromoted(piece, destination);
-        Move newMove = moveService.getOrCreateMove(piece, destination, takenPiece, promotionPiece);
+
+        PieceDao movedPieceDao = pieceService.getOriginalDaoOfPiece(piece);
+        PieceDao takenPieceDao = pieceService.getOriginalDaoOfPiece(takenPiece);
+        MoveDao newMove = moveService.getOrCreateMove(movedPieceDao, destination, takenPieceDao, promotionPiece);
+
         CastleType castleType = getTypeIfCastled(newMove);
         updateSpecialMove(newMove, castleType, promotionPiece);
         moveService.setTakenPieceIfEnPassant(newMove, game.getId());
