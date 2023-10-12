@@ -20,9 +20,9 @@ public class GameDao {
     @Column(name = "state")
     private GameState gameState;
 
-    @OneToOne(mappedBy = "game")
+    @OneToOne
     private PlayerDao whitePlayer;
 
-    @OneToOne(mappedBy = "game")
+    @OneToOne
     private PlayerDao blackPlayer;
 }

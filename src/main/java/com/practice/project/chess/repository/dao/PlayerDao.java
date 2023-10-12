@@ -24,7 +24,7 @@ public class PlayerDao {
     @Enumerated(EnumType.STRING)
     private Team team;
 
-    @OneToMany(mappedBy = "player", orphanRemoval = true)
+    @OneToMany
     private List<PieceDao> pieces = new ArrayList<>();
 
     @OneToMany(mappedBy = "player", orphanRemoval = true)
