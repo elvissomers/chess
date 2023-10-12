@@ -16,9 +16,6 @@ public class PlayerMoveDao {
     private long id;
 
     @ManyToOne
-    private PlayerDao player;
-
-    @ManyToOne
     private MoveDao move;
 
     @Column
