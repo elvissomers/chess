@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Update pieceMapperTest - started using new PieceDaos instead of Mockito.Mock objects">
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/practice/project/chess/service/model/mapper/PieceMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/practice/project/chess/service/model/mapper/PieceMapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/structures/Coordinate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/structures/Coordinate.class" afterDir="false" />
-    </list>
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Reworked the updating of movehistory to use PlayerMoveDao and MoveDao where appropriate" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -174,8 +171,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.PieceMapperTest" />
-        <item itemvalue="JUnit.PieceMapperTest.daoAttributesCopied" />
         <item itemvalue="Application.com.practice.project.chess.ChessApplication" />
+        <item itemvalue="JUnit.PieceMapperTest.daoAttributesCopied" />
         <item itemvalue="JUnit.PieceMapperTest.daoToPawn" />
         <item itemvalue="JUnit.BoardServiceTest.getBoardMapForGame" />
       </list>
@@ -189,55 +186,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00704" summary="Refactoring the services to separate Player and PlayerDao - work in progress - split static MoveService.java methods into separate util file">
-      <created>1696506468804</created>
-      <option name="number" value="00704" />
-      <option name="presentableId" value="LOCAL-00704" />
-      <option name="project" value="LOCAL" />
-      <updated>1696506468804</updated>
-    </task>
-    <task id="LOCAL-00705" summary="Refactoring the services to separate Player and PlayerDao - work in progress - split static MoveService.java methods into separate util file">
-      <created>1696506633787</created>
-      <option name="number" value="00705" />
-      <option name="presentableId" value="LOCAL-00705" />
-      <option name="project" value="LOCAL" />
-      <updated>1696506633787</updated>
-    </task>
-    <task id="LOCAL-00706" summary="Got rid of the player.getGame() in PlayerService.java">
-      <created>1696506932879</created>
-      <option name="number" value="00706" />
-      <option name="presentableId" value="LOCAL-00706" />
-      <option name="project" value="LOCAL" />
-      <updated>1696506932879</updated>
-    </task>
-    <task id="LOCAL-00707" summary="Got rid of the piece.getPlayer() in PlayerService.java">
-      <created>1696507587307</created>
-      <option name="number" value="00707" />
-      <option name="presentableId" value="LOCAL-00707" />
-      <option name="project" value="LOCAL" />
-      <updated>1696507587307</updated>
-    </task>
-    <task id="LOCAL-00708" summary="Update MoveDao.java to hold PieceDao instead of Piece">
-      <created>1696574097536</created>
-      <option name="number" value="00708" />
-      <option name="presentableId" value="LOCAL-00708" />
-      <option name="project" value="LOCAL" />
-      <updated>1696574097537</updated>
-    </task>
-    <task id="LOCAL-00709" summary="Added moveHistory">
-      <created>1696574577524</created>
-      <option name="number" value="00709" />
-      <option name="presentableId" value="LOCAL-00709" />
-      <option name="project" value="LOCAL" />
-      <updated>1696574577524</updated>
-    </task>
-    <task id="LOCAL-00710" summary="More method splitting into appropriate classes">
-      <created>1696574794252</created>
-      <option name="number" value="00710" />
-      <option name="presentableId" value="LOCAL-00710" />
-      <option name="project" value="LOCAL" />
-      <updated>1696574794252</updated>
     </task>
     <task id="LOCAL-00711" summary="Remove noargsconstructor (which is already present by default)">
       <created>1696574907009</created>
@@ -533,7 +481,56 @@
       <option name="project" value="LOCAL" />
       <updated>1697100940855</updated>
     </task>
-    <option name="localTasksCounter" value="753" />
+    <task id="LOCAL-00753" summary="Add JUnit and Mockito to pom,xml">
+      <created>1697102841424</created>
+      <option name="number" value="00753" />
+      <option name="presentableId" value="LOCAL-00753" />
+      <option name="project" value="LOCAL" />
+      <updated>1697102841425</updated>
+    </task>
+    <task id="LOCAL-00754" summary="Add JUnit and Mockito to pom,xml">
+      <created>1697102957736</created>
+      <option name="number" value="00754" />
+      <option name="presentableId" value="LOCAL-00754" />
+      <option name="project" value="LOCAL" />
+      <updated>1697102957736</updated>
+    </task>
+    <task id="LOCAL-00755" summary="Trying to get Mockito,mock to work in Test class (without succes)">
+      <created>1697102976737</created>
+      <option name="number" value="00755" />
+      <option name="presentableId" value="LOCAL-00755" />
+      <option name="project" value="LOCAL" />
+      <updated>1697102976737</updated>
+    </task>
+    <task id="LOCAL-00756" summary="Saving new players to repository, remove unused attribute PlayerMmoveRepository">
+      <created>1697103218990</created>
+      <option name="number" value="00756" />
+      <option name="presentableId" value="LOCAL-00756" />
+      <option name="project" value="LOCAL" />
+      <updated>1697103218990</updated>
+    </task>
+    <task id="LOCAL-00757" summary="Removed player attribute from PlayerMoveDao.java">
+      <created>1697115564598</created>
+      <option name="number" value="00757" />
+      <option name="presentableId" value="LOCAL-00757" />
+      <option name="project" value="LOCAL" />
+      <updated>1697115564598</updated>
+    </task>
+    <task id="LOCAL-00758" summary="Reworked the updating of movehistory to use PlayerMoveDao and MoveDao where appropriate">
+      <created>1697116658658</created>
+      <option name="number" value="00758" />
+      <option name="presentableId" value="LOCAL-00758" />
+      <option name="project" value="LOCAL" />
+      <updated>1697116658658</updated>
+    </task>
+    <task id="LOCAL-00759" summary="Reworked the updating of movehistory to use PlayerMoveDao and MoveDao where appropriate">
+      <created>1697116688518</created>
+      <option name="number" value="00759" />
+      <option name="presentableId" value="LOCAL-00759" />
+      <option name="project" value="LOCAL" />
+      <updated>1697116688518</updated>
+    </task>
+    <option name="localTasksCounter" value="760" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -551,11 +548,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Test setup" />
-    <MESSAGE value="Update GameRepository.java to DAO use" />
-    <MESSAGE value="Open changes (work in progress)" />
-    <MESSAGE value="Open class files" />
-    <MESSAGE value="Remove PlayerMoveMapper.java (not used anywhere)" />
     <MESSAGE value="Wrote unit tests for PieceMapper" />
     <MESSAGE value="Create service to fill piece repository with initial Pieces" />
     <MESSAGE value="Create endpoint for service to fill piece repository with initial Pieces" />
@@ -576,7 +568,12 @@
     <MESSAGE value="Override coordinate equals and hashmap methods" />
     <MESSAGE value="Mapped other attributes in PieceMapper" />
     <MESSAGE value="Update pieceMapperTest - started using new PieceDaos instead of Mockito.Mock objects" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update pieceMapperTest - started using new PieceDaos instead of Mockito.Mock objects" />
+    <MESSAGE value="Add JUnit and Mockito to pom,xml" />
+    <MESSAGE value="Trying to get Mockito,mock to work in Test class (without succes)" />
+    <MESSAGE value="Saving new players to repository, remove unused attribute PlayerMmoveRepository" />
+    <MESSAGE value="Removed player attribute from PlayerMoveDao.java" />
+    <MESSAGE value="Reworked the updating of movehistory to use PlayerMoveDao and MoveDao where appropriate" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reworked the updating of movehistory to use PlayerMoveDao and MoveDao where appropriate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

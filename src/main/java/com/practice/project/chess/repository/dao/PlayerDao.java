@@ -27,6 +27,6 @@ public class PlayerDao {
     @OneToMany
     private List<PieceDao> pieces = new ArrayList<>();
 
-    @OneToMany(mappedBy = "player", orphanRemoval = true)
+    @OneToMany
     private List<PlayerMoveDao> moveHistory = new ArrayList<>();
 }
