@@ -31,7 +31,6 @@ public class PlayerService {
     private final PawnService pawnService;
 
     private final PlayerRepository playerRepository;
-    private final PlayerMoveRepository playerMoveRepository;
 
     private final PlayerMapper playerMapper;
 
@@ -87,8 +86,6 @@ public class PlayerService {
     }
 
     public void setStartPiecesForPlayer(PlayerDao player) {
-        // TODO: this should setup a playerDAO as well. Perhaps we could just hardcode the ID's of the starting pieces
-        // TODO into here? Or something akin to that?
         int yForMajorPieces = (player.getTeam() == Team.WHITE) ? 0 : 7;
         for (int xPos = 0; xPos < BoardSize.horizontalSize; xPos++)
             player.getPieces().add(pieceService.getStartingPiece(xPos, yForMajorPieces, player.getTeam()));
@@ -96,9 +93,11 @@ public class PlayerService {
         int yForPawns = (player.getTeam() == Team.WHITE) ? 1 : 6;
         for (int xPos = 0; xPos < BoardSize.horizontalSize; xPos++)
             player.getPieces().add(pieceService.getStartingPiece(xPos, yForPawns, player.getTeam()));
+
+        playerRepository.save(player);
     }
 
-    // TODO: vraag voor Nick: is het okee om de Game door te geven aan een method in player service;
+    // TODO: vraag is het okee om de Game door te geven aan een method in player service;
     // TODO ook al heeft de player zelf supposedly geen idee van in welke game hij is?
     // TODO of is dit impropere SOC?
     public void setAllAttackedAndMovableSquaresForPlayer(Game game, Player player) {
