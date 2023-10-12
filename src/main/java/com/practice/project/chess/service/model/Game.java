@@ -1,27 +1,19 @@
 package com.practice.project.chess.service.model;
 
 import com.practice.project.chess.repository.enums.GameState;
-import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.stereotype.Component;
 
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
-@Entity
+@Component
 public class Game {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "state")
     private GameState gameState;
 
-    @OneToOne
     private Player whitePlayer;
-
-    @OneToOne
     private Player blackPlayer;
 }
