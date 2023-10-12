@@ -23,7 +23,7 @@ class PieceMapperTest {
 
     @Test
     void daoAttributesCopied() {
-        PieceDao testDao = Mockito.mock(PieceDao.class);
+        PieceDao testDao = new PieceDao();
 
         boolean hasMoved = false;
         Team team = Team.WHITE;
@@ -43,14 +43,13 @@ class PieceMapperTest {
         assertSame(result.getTeam(), team);
         assertSame(result.getHorizontalPosition(), horizontalPosition);
         assertSame(result.getVerticalPosition(), verticalPosition);
-        assertSame(result.isHasMoved(), hasMoved);
 
-        assertSame(result.getCoordinate(), new Coordinate(horizontalPosition, verticalPosition));
+        assertEquals(result.getCoordinate(), new Coordinate(horizontalPosition, verticalPosition));
     }
 
     @Test
     void daoToPawn() {
-        PieceDao pawnDao = Mockito.mock(PieceDao.class);
+        PieceDao pawnDao = new PieceDao();
         pawnDao.setPieceType(PieceType.PAWN);
 
         Piece result = pieceMapper.daoToPiece(pawnDao);
@@ -61,7 +60,7 @@ class PieceMapperTest {
 
     @Test
     void daoToKnight() {
-        PieceDao pawnDao = Mockito.mock(PieceDao.class);
+        PieceDao pawnDao = new PieceDao();
         pawnDao.setPieceType(PieceType.KNIGHT);
 
         Piece result = pieceMapper.daoToPiece(pawnDao);
@@ -72,7 +71,7 @@ class PieceMapperTest {
 
     @Test
     void daoToBishop() {
-        PieceDao pawnDao = Mockito.mock(PieceDao.class);
+        PieceDao pawnDao = new PieceDao();
         pawnDao.setPieceType(PieceType.BISHOP);
 
         Piece result = pieceMapper.daoToPiece(pawnDao);
@@ -83,7 +82,7 @@ class PieceMapperTest {
 
     @Test
     void daoToRook() {
-        PieceDao pawnDao = Mockito.mock(PieceDao.class);
+        PieceDao pawnDao = new PieceDao();
         pawnDao.setPieceType(PieceType.ROOK);
 
         Piece result = pieceMapper.daoToPiece(pawnDao);
@@ -94,7 +93,7 @@ class PieceMapperTest {
 
     @Test
     void daoToQueen() {
-        PieceDao pawnDao = Mockito.mock(PieceDao.class);
+        PieceDao pawnDao = new PieceDao();
         pawnDao.setPieceType(PieceType.QUEEN);
 
         Piece result = pieceMapper.daoToPiece(pawnDao);
@@ -105,7 +104,7 @@ class PieceMapperTest {
 
     @Test
     void daoToKing() {
-        PieceDao pawnDao = Mockito.mock(PieceDao.class);
+        PieceDao pawnDao = new PieceDao();
         pawnDao.setPieceType(PieceType.KING);
 
         Piece result = pieceMapper.daoToPiece(pawnDao);

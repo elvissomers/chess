@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Update Game and Player DAO relation annotations" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Added correct constructors to Game and PlayerMove (application starts now)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PieceMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PieceMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/structures/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/structures/Coordinate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/practice/project/chess/service/model/mapper/PieceMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/practice/project/chess/service/model/mapper/PieceMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/mapper/PieceMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/mapper/PieceMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/movehistory/PlayerMove.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/movehistory/PlayerMove.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/practice/project/chess/service/model/mapper/PieceMapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/practice/project/chess/service/model/mapper/PieceMapperTest.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +99,7 @@
       <recent name="test.pieces" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.com.practice.project.chess.ChessApplication">
+  <component name="RunManager" selected="JUnit.PieceMapperTest">
     <configuration name="com.practice.project.chess.ChessApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.practice.project.chess.ChessApplication" />
       <module name="demo" />
@@ -170,10 +178,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.com.practice.project.chess.ChessApplication" />
         <item itemvalue="JUnit.PieceMapperTest" />
-        <item itemvalue="JUnit.PieceMapperTest.daoToPawn" />
         <item itemvalue="JUnit.PieceMapperTest.daoAttributesCopied" />
+        <item itemvalue="Application.com.practice.project.chess.ChessApplication" />
+        <item itemvalue="JUnit.PieceMapperTest.daoToPawn" />
         <item itemvalue="JUnit.BoardServiceTest.getBoardMapForGame" />
       </list>
     </recent_temporary>
@@ -186,27 +194,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00698" summary="Refactoring the services to separate Player and PlayerDao - work in progress - setup GameMapper as well">
-      <created>1696503035605</created>
-      <option name="number" value="00698" />
-      <option name="presentableId" value="LOCAL-00698" />
-      <option name="project" value="LOCAL" />
-      <updated>1696503035605</updated>
-    </task>
-    <task id="LOCAL-00699" summary="Refactoring the services to separate Player and PlayerDao - work in progress - made some staticable methods static">
-      <created>1696503472101</created>
-      <option name="number" value="00699" />
-      <option name="presentableId" value="LOCAL-00699" />
-      <option name="project" value="LOCAL" />
-      <updated>1696503472101</updated>
-    </task>
-    <task id="LOCAL-00700" summary="Refactoring the services to separate Player and PlayerDao - work in progress - made some staticable methods static">
-      <created>1696503572171</created>
-      <option name="number" value="00700" />
-      <option name="presentableId" value="LOCAL-00700" />
-      <option name="project" value="LOCAL" />
-      <updated>1696503572171</updated>
     </task>
     <task id="LOCAL-00701" summary="Refactoring the services to separate Player and PlayerDao - work in progress - made some staticable methods static">
       <created>1696503791365</created>
@@ -530,7 +517,28 @@
       <option name="project" value="LOCAL" />
       <updated>1697096284911</updated>
     </task>
-    <option name="localTasksCounter" value="747" />
+    <task id="LOCAL-00747" summary="Update Game and Player entity relation annotations">
+      <created>1697096351136</created>
+      <option name="number" value="00747" />
+      <option name="presentableId" value="LOCAL-00747" />
+      <option name="project" value="LOCAL" />
+      <updated>1697096351136</updated>
+    </task>
+    <task id="LOCAL-00748" summary="Update Game and Player to be components instead of entities">
+      <created>1697096434985</created>
+      <option name="number" value="00748" />
+      <option name="presentableId" value="LOCAL-00748" />
+      <option name="project" value="LOCAL" />
+      <updated>1697096434985</updated>
+    </task>
+    <task id="LOCAL-00749" summary="Added correct constructors to Game and PlayerMove (application starts now)">
+      <created>1697096547851</created>
+      <option name="number" value="00749" />
+      <option name="presentableId" value="LOCAL-00749" />
+      <option name="project" value="LOCAL" />
+      <updated>1697096547851</updated>
+    </task>
+    <option name="localTasksCounter" value="750" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -548,9 +556,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Some code cleanup; named Piece variables &quot;piece&quot;" />
-    <MESSAGE value="Some code cleanup; Split 50 move and 3 move repetition draw rules into separate files" />
-    <MESSAGE value="Reworked PlayerService moveHistory obtaining methods to just look at the player object, and not at the db" />
     <MESSAGE value="Added piecemapper" />
     <MESSAGE value="Starting some tests" />
     <MESSAGE value="Update dto mappers to take DAO's as input (instead of POJOs)" />
@@ -573,7 +578,10 @@
     <MESSAGE value="Removed Builder pattern from King and Rook" />
     <MESSAGE value="Turned Move and PlayerMove into Components instead of Entities" />
     <MESSAGE value="Update Game and Player DAO relation annotations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Game and Player DAO relation annotations" />
+    <MESSAGE value="Update Game and Player entity relation annotations" />
+    <MESSAGE value="Update Game and Player to be components instead of entities" />
+    <MESSAGE value="Added correct constructors to Game and PlayerMove (application starts now)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added correct constructors to Game and PlayerMove (application starts now)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -582,6 +590,21 @@
           <properties class="org.springframework.beans.factory.BeanCreationException" package="org.springframework.beans.factory" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PieceMapper.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PieceMapper.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PieceMapper.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
