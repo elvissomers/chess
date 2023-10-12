@@ -5,12 +5,8 @@ import com.practice.project.chess.repository.dao.pieces.PieceDao;
 import com.practice.project.chess.service.model.Game;
 import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.service.model.Player;
-import com.practice.project.chess.service.model.movehistory.PlayerMove;
-import com.practice.project.chess.service.model.pieces.King;
-import com.practice.project.chess.service.model.pieces.Pawn;
 import com.practice.project.chess.service.model.pieces.Piece;
 import com.practice.project.chess.repository.enums.CastleType;
-import com.practice.project.chess.repository.enums.GameState;
 import com.practice.project.chess.repository.enums.PieceType;
 import com.practice.project.chess.repository.enums.Team;
 import com.practice.project.chess.service.logic.MoveService;
@@ -20,13 +16,10 @@ import com.practice.project.chess.service.structures.Coordinate;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 import static com.practice.project.chess.service.logic.AllUtil.getOpponentPlayer;
 import static com.practice.project.chess.service.logic.game.util.MoveUtil.updateSpecialMove;
 import static com.practice.project.chess.service.logic.game.GameService.getPieceForTeamAndPosition;
 import static com.practice.project.chess.service.logic.game.util.MakeMoveUtil.*;
-import static com.practice.project.chess.service.logic.game.util.PlayerUtil.getPlayerKing;
 
 @AllArgsConstructor
 @Service

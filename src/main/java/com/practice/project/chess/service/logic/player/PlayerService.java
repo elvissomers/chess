@@ -9,7 +9,6 @@ import com.practice.project.chess.service.model.mapper.MoveMapper;
 import com.practice.project.chess.service.model.mapper.PlayerMapper;
 import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.service.model.Player;
-import com.practice.project.chess.service.model.movehistory.PlayerMove;
 import com.practice.project.chess.service.model.pieces.Pawn;
 import com.practice.project.chess.service.model.pieces.Piece;
 import com.practice.project.chess.repository.enums.PieceType;
