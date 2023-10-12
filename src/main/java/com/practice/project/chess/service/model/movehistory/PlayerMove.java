@@ -1,27 +1,19 @@
 package com.practice.project.chess.service.model.movehistory;
 
 import com.practice.project.chess.service.model.Player;
-import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.stereotype.Component;
 
 @Getter
 @Setter
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity
+@Component
 public class PlayerMove {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
     private Player player;
-
-    @ManyToOne
     private Move move;
 
-    @Column
     private int number;
 }

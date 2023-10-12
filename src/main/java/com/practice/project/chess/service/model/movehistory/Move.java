@@ -6,6 +6,7 @@ import com.practice.project.chess.service.structures.Coordinate;
 import com.practice.project.chess.service.model.pieces.Piece;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
@@ -14,35 +15,25 @@ import java.util.Objects;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Component
 public class Move {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToOne
     private Piece piece;
 
-    @Column(nullable = false)
     private int horizontalFrom;
 
-    @Column(nullable = false)
     private int verticalFrom;
 
-    @Column(nullable = false)
     private int horizontalTo;
 
-    @Column(nullable = false)
     private int verticalTo;
 
-    @OneToOne
     private Piece takenPiece;
 
-    @Enumerated(EnumType.STRING)
     private CastleType castleType;
 
-    @Enumerated(EnumType.STRING)
     private PieceType promotedTo;
 
     @Override

@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Remove JPA annotations">
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Removed Builder pattern from King and Rook">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PieceMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/mapper/PieceMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/pieces/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/pieces/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/practice/project/chess/service/model/pieces/Rook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/pieces/Piece.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/pieces/Piece.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/practice/project/chess/service/model/mapper/PieceMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/practice/project/chess/service/model/mapper/PieceMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/mapper/PieceMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/mapper/PieceMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/pieces/King$KingBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/pieces/King.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/practice/project/chess/service/model/pieces/King.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,19 +98,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.com.practice.project.chess.ChessApplication">
-    <configuration name="ChessApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ordina.nl.chess.ChessApplication" />
-      <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ordina.nl.chess.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="com.practice.project.chess.ChessApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.practice.project.chess.ChessApplication" />
       <module name="demo" />
@@ -155,6 +142,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PieceMapperTest.daoAttributesCopied" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.practice.project.chess.service.model.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.practice.project.chess.service.model.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.practice.project.chess.service.model.mapper.PieceMapperTest" />
+      <option name="METHOD_NAME" value="daoAttributesCopied" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PieceMapperTest.daoToPawn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
@@ -174,10 +177,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.com.practice.project.chess.ChessApplication" />
-        <item itemvalue="JUnit.PieceMapperTest.daoToPawn" />
         <item itemvalue="JUnit.PieceMapperTest" />
+        <item itemvalue="JUnit.PieceMapperTest.daoToPawn" />
+        <item itemvalue="JUnit.PieceMapperTest.daoAttributesCopied" />
         <item itemvalue="JUnit.BoardServiceTest.getBoardMapForGame" />
-        <item itemvalue="Application.ChessApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -189,13 +192,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00695" summary="Update imports">
-      <created>1696501283965</created>
-      <option name="number" value="00695" />
-      <option name="presentableId" value="LOCAL-00695" />
-      <option name="project" value="LOCAL" />
-      <updated>1696501283965</updated>
     </task>
     <task id="LOCAL-00696" summary="Refactoring the services to separate Player and PlayerDao - work in progress">
       <created>1696502567213</created>
@@ -533,7 +529,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697033236050</updated>
     </task>
-    <option name="localTasksCounter" value="744" />
+    <task id="LOCAL-00744" summary="Removed Builder pattern from King and Rook">
+      <created>1697094918516</created>
+      <option name="number" value="00744" />
+      <option name="presentableId" value="LOCAL-00744" />
+      <option name="project" value="LOCAL" />
+      <updated>1697094918517</updated>
+    </task>
+    <option name="localTasksCounter" value="745" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -551,7 +554,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Remove unused methods and attributes and imports" />
     <MESSAGE value="Some code cleanup; turned some methods static, rename, some more" />
     <MESSAGE value="Some code cleanup; turned method static" />
     <MESSAGE value="Some code cleanup; named Piece variables &quot;piece&quot;" />
@@ -576,7 +578,8 @@
     <MESSAGE value="Changed old entities to &quot;@Component&quot;" />
     <MESSAGE value="unversioned &amp; .class files" />
     <MESSAGE value="Remove JPA annotations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove JPA annotations" />
+    <MESSAGE value="Removed Builder pattern from King and Rook" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed Builder pattern from King and Rook" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

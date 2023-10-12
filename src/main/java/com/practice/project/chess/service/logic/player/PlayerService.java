@@ -111,12 +111,12 @@ public class PlayerService {
     }
 
     public PlayerMove saveMoveForPlayer(Move move, Player player) {
-        PlayerMove newMove = PlayerMove.builder()
+        // TODO: save PlayerMoveDao to PlayerDao
+        return PlayerMove.builder()
                 .number(getNumberOfMoves(player.getId()) + 1)
                 .move(move)
                 .player(player)
                 .build();
-        return playerMoveRepository.save(newMove);
     }
 
     public void promotePawnTo(Player player, Move move) {
