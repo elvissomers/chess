@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Reworked the updating of movehistory to use PlayerMoveDao and MoveDao where appropriate" />
+    <list default="true" id="0e75b675-5543-4527-9176-52918370641d" name="Changes" comment="Code cleanup: remove unused imports">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/practice/project/chess/service/model/mapper/MoveMapperTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,8 +17,8 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -91,7 +93,7 @@
       <recent name="test.pieces" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PieceMapperTest">
+  <component name="RunManager" selected="JUnit.MoveMapperTest.daoAttributesCopied">
     <configuration name="com.practice.project.chess.ChessApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.practice.project.chess.ChessApplication" />
       <module name="demo" />
@@ -105,17 +107,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardServiceTest.getBoardMapForGame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MoveMapperTest.daoAttributesCopied" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.practice.project.chess.service.logic.*" />
+          <option name="PATTERN" value="com.practice.project.chess.service.model.mapper.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.practice.project.chess.service.logic" />
-      <option name="MAIN_CLASS_NAME" value="com.practice.project.chess.service.logic.BoardServiceTest" />
-      <option name="METHOD_NAME" value="getBoardMapForGame" />
+      <option name="PACKAGE_NAME" value="com.practice.project.chess.service.model.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.practice.project.chess.service.model.mapper.MoveMapperTest" />
+      <option name="METHOD_NAME" value="daoAttributesCopied" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -170,11 +172,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MoveMapperTest.daoAttributesCopied" />
         <item itemvalue="JUnit.PieceMapperTest" />
         <item itemvalue="Application.com.practice.project.chess.ChessApplication" />
         <item itemvalue="JUnit.PieceMapperTest.daoAttributesCopied" />
         <item itemvalue="JUnit.PieceMapperTest.daoToPawn" />
-        <item itemvalue="JUnit.BoardServiceTest.getBoardMapForGame" />
       </list>
     </recent_temporary>
   </component>
@@ -186,27 +188,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683878755156</updated>
-    </task>
-    <task id="LOCAL-00711" summary="Remove noargsconstructor (which is already present by default)">
-      <created>1696574907009</created>
-      <option name="number" value="00711" />
-      <option name="presentableId" value="LOCAL-00711" />
-      <option name="project" value="LOCAL" />
-      <updated>1696574907009</updated>
-    </task>
-    <task id="LOCAL-00712" summary="Setup MoveMapper.java and PlayerMoveMapper.java">
-      <created>1696575351983</created>
-      <option name="number" value="00712" />
-      <option name="presentableId" value="LOCAL-00712" />
-      <option name="project" value="LOCAL" />
-      <updated>1696575351983</updated>
-    </task>
-    <task id="LOCAL-00713" summary="Updated moveHistory mapping, we will remove unnecessary PlayerMove - PlayerMoveDao is the only structure we need">
-      <created>1696576777179</created>
-      <option name="number" value="00713" />
-      <option name="presentableId" value="LOCAL-00713" />
-      <option name="project" value="LOCAL" />
-      <updated>1696576777179</updated>
     </task>
     <task id="LOCAL-00714" summary="Remove unused methods">
       <created>1696576817581</created>
@@ -530,7 +511,28 @@
       <option name="project" value="LOCAL" />
       <updated>1697116688518</updated>
     </task>
-    <option name="localTasksCounter" value="760" />
+    <task id="LOCAL-00760" summary="Removed incorrect mappedBy attribute">
+      <created>1697117126554</created>
+      <option name="number" value="00760" />
+      <option name="presentableId" value="LOCAL-00760" />
+      <option name="project" value="LOCAL" />
+      <updated>1697117126554</updated>
+    </task>
+    <task id="LOCAL-00761" summary="Some class files from running">
+      <created>1697117469361</created>
+      <option name="number" value="00761" />
+      <option name="presentableId" value="LOCAL-00761" />
+      <option name="project" value="LOCAL" />
+      <updated>1697117469361</updated>
+    </task>
+    <task id="LOCAL-00762" summary="Code cleanup: remove unused imports">
+      <created>1697118324476</created>
+      <option name="number" value="00762" />
+      <option name="presentableId" value="LOCAL-00762" />
+      <option name="project" value="LOCAL" />
+      <updated>1697118324476</updated>
+    </task>
+    <option name="localTasksCounter" value="763" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -548,9 +550,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Wrote unit tests for PieceMapper" />
-    <MESSAGE value="Create service to fill piece repository with initial Pieces" />
-    <MESSAGE value="Create endpoint for service to fill piece repository with initial Pieces" />
     <MESSAGE value="Creating a new Game now creates PlayerDaos and GameDao" />
     <MESSAGE value="Making the return value of PieceRepository.findByHorizontalPositionAndVerticalPositionAndTeamAndPieceTypeAndHasMoved Optiona&lt;&gt;" />
     <MESSAGE value="Unmake isHasMoved abstract (so other pieces do not have to implement it)" />
@@ -573,7 +572,10 @@
     <MESSAGE value="Saving new players to repository, remove unused attribute PlayerMmoveRepository" />
     <MESSAGE value="Removed player attribute from PlayerMoveDao.java" />
     <MESSAGE value="Reworked the updating of movehistory to use PlayerMoveDao and MoveDao where appropriate" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reworked the updating of movehistory to use PlayerMoveDao and MoveDao where appropriate" />
+    <MESSAGE value="Removed incorrect mappedBy attribute" />
+    <MESSAGE value="Some class files from running" />
+    <MESSAGE value="Code cleanup: remove unused imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup: remove unused imports" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
