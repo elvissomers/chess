@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+
+  chess_db:
+    image: 'mysql:8.0'
+    volumes:
+      - ./data-backup:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=chess
+    ports:
+      - "3306:3306"
+    networks:
+      - backend
+
+  chess-backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=chess_db
+      - DB_name=chess
+      - DB_PORT=3306
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+    depends_on:
+      - chess_db
+    networks:
+      - backend
+
+
+networks:
+  backend:

@@ -1,5 +1,6 @@
 ### IntelliJ IDEA ###
 out/
+target
 !**/src/main/**/out/
 !**/src/test/**/out/
 .idea
@@ -28,3 +29,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Data ###
+data-backup
