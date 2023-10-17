@@ -1,6 +1,5 @@
 package com.practice.project.chess.service.structures;
 
-import com.practice.project.chess.service.model.movehistory.Move;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

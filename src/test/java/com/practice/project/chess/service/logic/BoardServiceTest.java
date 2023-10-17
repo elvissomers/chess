@@ -6,10 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class BoardServiceTest {
@@ -27,10 +24,9 @@ class BoardServiceTest {
     void test1() {
         // Arrange
         long mockId = 1;
-        Mockito.when(boardService.get).
 
         // Act
-        boardService.getBoardMapForGame(mockId);
+//        boardService.getBoardMapForGame(mockId);
 
 
     }

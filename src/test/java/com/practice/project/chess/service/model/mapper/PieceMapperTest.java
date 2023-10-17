@@ -6,7 +6,6 @@ import com.practice.project.chess.repository.enums.Team;
 import com.practice.project.chess.service.model.pieces.*;
 import com.practice.project.chess.service.structures.Coordinate;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -20,7 +19,7 @@ class PieceMapperTest {
 
     @Test
     void daoAttributesCopied() {
-        PieceDao testDao = Mockito.mock(PieceDao.class);
+        PieceDao testDao = new PieceDao();
 
         boolean hasMoved = false;
         Team team = Team.WHITE;
