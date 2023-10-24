@@ -8,23 +8,20 @@ import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
-// TODO: xPos and yPos are not final, is het een probleem dat deze service dat wel is
-// TODO andere classes waar deze ge inject wordt?
 public class MoveOptionService {
-    
-    private int xPos;
-    private int yPos;
+
     private final int[] directions = {-1, 1};
 
     public void addHorizontalMoves(Piece piece, BoardMap board){
-        getPosition(piece);
+        int xPos = piece.getCoordinate().getXPos();
+        int yPos = piece.getCoordinate().getYPos();
 
         for (int direction : directions) {
-            addHorizontalMovesForDirection(direction, piece, board);
+            addHorizontalMovesForDirection(xPos, yPos, direction, piece, board);
         }
     }
 
-    private void addHorizontalMovesForDirection(int direction, Piece piece, BoardMap board) {
+    private void addHorizontalMovesForDirection(int xPos, int yPos, int direction, Piece piece, BoardMap board) {
         int x = xPos + direction;
         while (withinBoard(x, yPos)) {
             addMovableSquareIfEmptyOrEnemy(x, yPos, piece, board);
@@ -35,14 +32,15 @@ public class MoveOptionService {
     }
 
     public void addVerticalMoves(Piece piece, BoardMap board){
-        getPosition(piece);
+        int xPos = piece.getCoordinate().getXPos();
+        int yPos = piece.getCoordinate().getYPos();
 
         for (int direction : directions) {
-            addVerticalMovesForDirection(direction, piece, board);
+            addVerticalMovesForDirection(xPos, yPos, direction, piece, board);
         }
     }
 
-    private void addVerticalMovesForDirection(int direction, Piece piece, BoardMap board) {
+    private void addVerticalMovesForDirection(int xPos, int yPos, int direction, Piece piece, BoardMap board) {
         int y = yPos + direction;
         while (withinBoard(xPos, y)) {
             addMovableSquareIfEmptyOrEnemy(xPos, y, piece, board);
@@ -53,21 +51,18 @@ public class MoveOptionService {
     }
 
     public void addDiagonalMoves(Piece piece, BoardMap board){
-        getPosition(piece);
+        int xPos = piece.getCoordinate().getXPos();
+        int yPos = piece.getCoordinate().getYPos();
 
         for (int xDirection : directions) {
             for (int yDirection : directions) {
-                addDiagonalMovesForDirection(xDirection, yDirection, piece, board);
+                addDiagonalMovesForDirection(xPos, yPos, xDirection, yDirection, piece, board);
             }
         }
     }
-
-    private void getPosition(Piece piece) {
-        xPos = piece.getCoordinate().getXPos();
-        yPos = piece.getCoordinate().getYPos();
-    }
     
-    private void addDiagonalMovesForDirection(int xDirection, int yDirection, Piece piece, BoardMap board) {
+    private void addDiagonalMovesForDirection(int xPos, int yPos, int xDirection, int yDirection,
+                                              Piece piece, BoardMap board) {
         int x = xPos + xDirection;
         int y = yPos + yDirection;
         
@@ -80,7 +75,7 @@ public class MoveOptionService {
         }
     }
 
-    public boolean withinBoard(int x, int y) {
+    public static boolean withinBoard(int x, int y) {
         return (x >= 0 && x < BoardSize.horizontalSize) && (y >= 0 && y < BoardSize.verticalSize);
     }
 
