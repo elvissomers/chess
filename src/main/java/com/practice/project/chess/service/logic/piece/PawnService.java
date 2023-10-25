@@ -24,11 +24,6 @@ public class PawnService {
 
     private final PieceMapper pieceMapper;
 
-    private int xPos;
-    private int yPos;
-    private int startPos;
-    private int yDirection;
-
     public SquaresDto getAttackedSquares(long pieceId) {
         return SquaresDto.builder().squares(
                 pieceRepository.findById(pieceId)
@@ -40,7 +35,6 @@ public class PawnService {
 
     public void setMovableSquares(Piece pawn, long gameId) {
         BoardMap board = boardService.getBoardMapForGame(gameId);
-        obtainPosition(pawn);
 
         addSquareInFrontToMovableSquares(pawn, board);
         addStartingMoveToMovableSquares(pawn, board);
@@ -49,7 +43,8 @@ public class PawnService {
 
     public void setAttackedSquares(Pawn pawn, long gameId) {
         BoardMap board = boardService.getBoardMapForGame(gameId);
-        obtainPosition(pawn);
+        int xPos = pawn.getCoordinate().getXPos();
+        int yPos = pawn.getCoordinate().getYPos();
 
         if (xPos + 1 < BoardSize.horizontalSize)
             pawn.addAttackedSquare(board.getCoordinateByPos(xPos + 1, yPos + 1));
@@ -59,7 +54,8 @@ public class PawnService {
 
     public void setAttackedSquaresWithBoard(Piece piece, BoardMap board) {
         Pawn pawn = (Pawn) piece;
-        obtainPosition(pawn);
+        int xPos = pawn.getCoordinate().getXPos();
+        int yPos = pawn.getCoordinate().getYPos();
 
         if (xPos + 1 < BoardSize.horizontalSize)
             pawn.addAttackedSquare(board.getCoordinateByPos(xPos + 1, yPos + 1));
@@ -67,14 +63,11 @@ public class PawnService {
             pawn.addAttackedSquare(board.getCoordinateByPos(xPos - 1, yPos + 1));
     }
 
-    private void obtainPosition(Piece pawn) {
-        xPos = pawn.getHorizontalPosition();
-        yPos = pawn.getVerticalPosition();
-        yDirection = (pawn.getTeam() == Team.WHITE) ? 1 : -1;
-        startPos = (pawn.getTeam() == Team.WHITE) ? 1 : 6;
-    }
-
     private void addSquareInFrontToMovableSquares(Piece pawn, BoardMap board) {
+        int xPos = pawn.getCoordinate().getXPos();
+        int yPos = pawn.getCoordinate().getYPos();
+        int yDirection = (pawn.getTeam() == Team.WHITE) ? 1 : -1;
+
         Coordinate squareInFront = board.getCoordinateByPos(xPos, yPos + yDirection);
         if (board.get(squareInFront) == null) {
             pawn.addMovableSquare(squareInFront);
@@ -82,6 +75,8 @@ public class PawnService {
     }
 
     private void addPieceTakingMovesToMovableSquares(Piece pawn, BoardMap board) {
+        int xPos = pawn.getCoordinate().getXPos();
+
         if (xPos + 1 < BoardSize.horizontalSize)
             addRightTakingMoveToMovableSquares(pawn, board);
         if (xPos > 0)
@@ -89,6 +84,10 @@ public class PawnService {
     }
 
     private void addRightTakingMoveToMovableSquares(Piece pawn, BoardMap board) {
+        int xPos = pawn.getCoordinate().getXPos();
+        int yPos = pawn.getCoordinate().getYPos();
+        int yDirection = (pawn.getTeam() == Team.WHITE) ? 1 : -1;
+
         Coordinate squareInFrontRight = board.getCoordinateByPos(xPos + 1,yPos + yDirection);
         if (board.get(squareInFrontRight) != null && board.get(squareInFrontRight).
                 getPlayer().getTeam() != pawn.getTeam()) {
@@ -97,6 +96,10 @@ public class PawnService {
     }
 
     private void addLeftTakingMoveToMovableSquares(Piece pawn, BoardMap board) {
+        int xPos = pawn.getCoordinate().getXPos();
+        int yPos = pawn.getCoordinate().getYPos();
+        int yDirection = (pawn.getTeam() == Team.WHITE) ? 1 : -1;
+
         Coordinate squareInFrontLeft = board.getCoordinateByPos(xPos - 1,yPos + yDirection);
         if (board.get(squareInFrontLeft) != null && board.get(squareInFrontLeft).
                 getPlayer().getTeam() != pawn.getTeam()) {
@@ -105,6 +108,11 @@ public class PawnService {
     }
 
     private void addStartingMoveToMovableSquares(Piece pawn, BoardMap board) {
+        int xPos = pawn.getCoordinate().getXPos();
+        int yPos = pawn.getCoordinate().getYPos();
+        int yDirection = (pawn.getTeam() == Team.WHITE) ? 1 : -1;
+        int startPos = (pawn.getTeam() == Team.WHITE) ? 1 : 6;
+
         if (yPos == startPos) {
             Coordinate squareTwoInFront = board.getCoordinateByPos(xPos,yPos + 2 * yDirection);
             if (board.get(squareTwoInFront) == null) {
