@@ -7,14 +7,13 @@ import com.practice.project.chess.service.constants.BoardSize;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import static com.practice.project.chess.service.logic.AllUtil.addMovableSquareIfEmptyOrEnemy;
+
 @RequiredArgsConstructor
 @Service
 public class KnightService {
     
     private final BoardService boardService;
-
-    private int xPos;
-    private int yPos;
 
     public void setMovableSquares(Piece piece, long gameId) {
         BoardMap board = boardService.getBoardMapForGame(gameId);
@@ -22,13 +21,7 @@ public class KnightService {
     }
     
     public void setMovableSquaresWithBoard(Piece piece, BoardMap board) {
-        obtainPosition(piece);
         setLShapedMoves(piece, board);
-    }
-
-    private void obtainPosition(Piece piece) {
-        xPos = piece.getHorizontalPosition();
-        yPos = piece.getVerticalPosition();
     }
 
     public void setLShapedMoves(Piece piece, BoardMap board){
@@ -40,6 +33,8 @@ public class KnightService {
     }
 
     private void setLShapedMovesForDirection(int xDirection, int yRelativeDirection, Piece piece, BoardMap board) {
+        int xPos = piece.getCoordinate().getXPos();
+        int yPos = piece.getCoordinate().getYPos();
         int x1 = xPos + xDirection;
         int x2 = xPos + 2 * xDirection;
         int y1 = yPos + 2 * xDirection * yRelativeDirection;
@@ -50,13 +45,6 @@ public class KnightService {
         }
         if (0 <= x2 && x2 < BoardSize.horizontalSize && 0 <= y2 && y2 < BoardSize.verticalSize){
             addMovableSquareIfEmptyOrEnemy(x2, y2, piece, board);
-        }
-    }
-    
-    private void addMovableSquareIfEmptyOrEnemy(int x, int y, Piece piece, BoardMap board) {
-        Piece otherPiece = board.get(board.getCoordinateArray()[x][y]);
-        if (otherPiece == null || otherPiece.getTeam() != piece.getTeam()) {
-            piece.addMovableSquare(board.getCoordinateArray()[x][y]);
         }
     }
 }
