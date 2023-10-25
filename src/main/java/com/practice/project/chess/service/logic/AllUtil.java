@@ -24,6 +24,10 @@ public class AllUtil {
         return (team == Team.WHITE) ? game.getWhitePlayer() : game.getBlackPlayer();
     }
 
+    public static Player getPlayerOfOtherTeam(Game game, Team team) {
+        return (team == Team.WHITE) ? game.getBlackPlayer() : game.getWhitePlayer();
+    }
+
     public static int pawnStartRank(Pawn pawn) {
         return (pawn.getTeam() == Team.WHITE) ? 1 : 6;
     }
