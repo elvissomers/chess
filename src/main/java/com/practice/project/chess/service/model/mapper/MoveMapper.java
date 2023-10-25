@@ -12,7 +12,7 @@ public class MoveMapper {
     private final PieceMapper pieceMapper;
 
     public Move daoToMove(MoveDao dao) {
-        return Move.builder()
+        return (dao == null) ? null : Move.builder()
                 .id(dao.getId())
                 .horizontalFrom(dao.getHorizontalFrom())
                 .verticalFrom(dao.getVerticalFrom())

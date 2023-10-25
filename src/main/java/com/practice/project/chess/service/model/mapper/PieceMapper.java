@@ -9,6 +9,9 @@ import org.springframework.stereotype.Component;
 public class PieceMapper {
 
     public Piece daoToPiece(PieceDao dao) {
+        if (dao == null)
+            return null;
+
         Piece piece = null;
         switch(dao.getPieceType()) {
             case KING -> piece = mapToKing(dao);

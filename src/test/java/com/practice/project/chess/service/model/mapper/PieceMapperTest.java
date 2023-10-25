@@ -18,7 +18,7 @@ class PieceMapperTest {
     private PieceMapper pieceMapper;
 
     @Test
-    void daoAttributesCopied() {
+    void pieceShouldHaveDaoAttributes() {
         PieceDao testDao = new PieceDao();
 
         boolean hasMoved = false;
@@ -42,68 +42,74 @@ class PieceMapperTest {
 
         assertEquals(result.getCoordinate(), new Coordinate(horizontalPosition, verticalPosition));
     }
+    
+    @Test
+    void nullDaoShouldReturnNull() {
+        Piece result = pieceMapper.daoToPiece(null);
+        assertNull(result);
+    }
 
     @Test
-    void daoToPawn() {
-        PieceDao pawnDao = new PieceDao();
-        pawnDao.setPieceType(PieceType.PAWN);
+    void pawnDaoShouldReturnPawn() {
+        PieceDao pieceDao = new PieceDao();
+        pieceDao.setPieceType(PieceType.PAWN);
 
-        Piece result = pieceMapper.daoToPiece(pawnDao);
+        Piece result = pieceMapper.daoToPiece(pieceDao);
 
         assertTrue(result instanceof Pawn);
         assertSame(result.getPieceType(), PieceType.PAWN);
     }
 
     @Test
-    void daoToKnight() {
-        PieceDao pawnDao = new PieceDao();
-        pawnDao.setPieceType(PieceType.KNIGHT);
+    void knightDaoShouldReturnKnight() {
+        PieceDao pieceDao = new PieceDao();
+        pieceDao.setPieceType(PieceType.KNIGHT);
 
-        Piece result = pieceMapper.daoToPiece(pawnDao);
+        Piece result = pieceMapper.daoToPiece(pieceDao);
 
         assertTrue(result instanceof Knight);
         assertSame(result.getPieceType(), PieceType.KNIGHT);
     }
 
     @Test
-    void daoToBishop() {
-        PieceDao pawnDao = new PieceDao();
-        pawnDao.setPieceType(PieceType.BISHOP);
+    void bishopDaoShouldReturnBishop() {
+        PieceDao pieceDao = new PieceDao();
+        pieceDao.setPieceType(PieceType.BISHOP);
 
-        Piece result = pieceMapper.daoToPiece(pawnDao);
+        Piece result = pieceMapper.daoToPiece(pieceDao);
 
         assertTrue(result instanceof Bishop);
         assertSame(result.getPieceType(), PieceType.BISHOP);
     }
 
     @Test
-    void daoToRook() {
-        PieceDao pawnDao = new PieceDao();
-        pawnDao.setPieceType(PieceType.ROOK);
+    void rookDaoShouldReturnRook() {
+        PieceDao pieceDao = new PieceDao();
+        pieceDao.setPieceType(PieceType.ROOK);
 
-        Piece result = pieceMapper.daoToPiece(pawnDao);
+        Piece result = pieceMapper.daoToPiece(pieceDao);
 
         assertTrue(result instanceof Rook);
         assertSame(result.getPieceType(), PieceType.ROOK);
     }
 
     @Test
-    void daoToQueen() {
-        PieceDao pawnDao = new PieceDao();
-        pawnDao.setPieceType(PieceType.QUEEN);
+    void queenDaoShouldReturnQueen() {
+        PieceDao pieceDao = new PieceDao();
+        pieceDao.setPieceType(PieceType.QUEEN);
 
-        Piece result = pieceMapper.daoToPiece(pawnDao);
+        Piece result = pieceMapper.daoToPiece(pieceDao);
 
         assertTrue(result instanceof Queen);
         assertSame(result.getPieceType(), PieceType.QUEEN);
     }
 
     @Test
-    void daoToKing() {
-        PieceDao pawnDao = new PieceDao();
-        pawnDao.setPieceType(PieceType.KING);
+    void kingDaoShouldReturnKing() {
+        PieceDao pieceDao = new PieceDao();
+        pieceDao.setPieceType(PieceType.KING);
 
-        Piece result = pieceMapper.daoToPiece(pawnDao);
+        Piece result = pieceMapper.daoToPiece(pieceDao);
 
         assertTrue(result instanceof King);
         assertSame(result.getPieceType(), PieceType.KING);

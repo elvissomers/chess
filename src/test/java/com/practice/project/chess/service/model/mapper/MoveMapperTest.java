@@ -18,8 +18,7 @@ class MoveMapperTest {
 
 
     @Test
-    void daoAttributesCopied() {
-        // TODO null check in piecemapper (and movemapper i geuss)
+    void daoAttributesShouldBeCopied() {
         int verticalFrom = 0;
         int horizontalFrom = 2;
         int verticalTo = 1;
@@ -41,5 +40,11 @@ class MoveMapperTest {
         Move result = moveMapper.daoToMove(moveDao);
 
         assertSame(result.getVerticalTo(), verticalTo);
+    }
+
+    @Test
+    void nullDaoShouldReturnNull() {
+        Move result = moveMapper.daoToMove(null);
+        assertNull(result);
     }
 }
