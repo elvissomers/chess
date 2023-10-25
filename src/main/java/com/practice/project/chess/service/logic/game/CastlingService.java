@@ -23,48 +23,39 @@ public class CastlingService {
     private final BoardService boardService;
     private final PlayerService playerService;
 
-    private int xPos;
-    private int yPos;
-    private Team team;
-
     public void setKingCastlingMoves(Piece piece, Game game) {
         King king = (King) piece;
-        setup(king);
         BoardMap board = boardService.getBoardMapForGame(game.getId());
+        int xPos = king.getCoordinate().getXPos();
+        int yPos = king.getCoordinate().getYPos();
 
         if (king.isInCheck() || king.isHasMoved())
             return;
 
-        if (canCastleShort(game, board))
+        if (canCastleShort(king.getTeam(), xPos, yPos, game, board))
             king.addMovableSquare(board.getCoordinateByPos(xPos+2, yPos));
-        if (canCastleLong(game, board))
+        if (canCastleLong(king.getTeam(), xPos, yPos, game, board))
             king.addMovableSquare(board.getCoordinateByPos(xPos-2, yPos));
     }
 
-    private void setup(King king) {
-        xPos = king.getCoordinate().getXPos();
-        yPos = king.getCoordinate().getYPos();
-        team = king.getTeam();
-    }
-
-    private boolean canCastleShort(Game game, BoardMap board) {
+    private boolean canCastleShort(Team team, int xPos, int yPos, Game game, BoardMap board) {
         return board.getPieceByPos(xPos+1,yPos) == null &&
-                kingIsSafeAt(game, board.getCoordinateByPos(xPos + 1, yPos)) &&
+                kingIsSafeAt(team, game, board.getCoordinateByPos(xPos + 1, yPos)) &&
                 board.getPieceByPos(xPos+2, yPos) == null &&
                 board.getPieceByPos(xPos+3, yPos) instanceof Rook rook &&
                 !rook.isHasMoved();
     }
 
-    private boolean canCastleLong(Game game, BoardMap board) {
+    private boolean canCastleLong(Team team, int xPos, int yPos, Game game, BoardMap board) {
         return board.getPieceByPos(xPos-1, yPos) == null &&
-                kingIsSafeAt(game, board.getCoordinateByPos(xPos - 1, yPos)) &&
+                kingIsSafeAt(team, game, board.getCoordinateByPos(xPos - 1, yPos)) &&
                 board.getPieceByPos(xPos-2, yPos) == null &&
                 board.getPieceByPos(xPos-3, yPos) == null &&
                 board.getPieceByPos(xPos-4, yPos) instanceof Rook rook &&
                 !rook.isHasMoved();
     }
 
-    public boolean kingIsSafeAt(Game game, Coordinate position) {
+    public boolean kingIsSafeAt(Team team, Game game, Coordinate position) {
         Player attackingPlayer = AllUtil.getOpponentPlayer(game, team);
         playerService.setAllAttackedAndMovableSquaresForPlayer(game, attackingPlayer);
         List<Coordinate> attackedSquares = playerService.getAllAttackedSquaresForPlayer(attackingPlayer);
