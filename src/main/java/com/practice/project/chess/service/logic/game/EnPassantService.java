@@ -23,14 +23,12 @@ public class EnPassantService {
     private final BoardService boardService;
     private final PlayerService playerService;
 
-    private int xPos;
-    private int yPos;
-    private int startPos;
-    private int yDirection;
-
     public void addPawnEnPassantMovesToMovableSquares(Piece piece, Game game) {
         BoardMap board = boardService.getBoardMapForGame(game.getId());
-        setup(piece);
+        int xPos = piece.getCoordinate().getXPos();
+        int yPos = piece.getCoordinate().getYPos();
+        int startPos = pawnStartRank((Pawn) piece);
+        int yDirection = (piece.getTeam() == WHITE) ? 1 : -1;
 
         if (yPos == startPos + 3 * yDirection) {
             if (xPos > 0)
@@ -40,14 +38,11 @@ public class EnPassantService {
         }
     }
 
-    private void setup(Piece piece) {
-        xPos = piece.getHorizontalPosition();
-        yPos = piece.getVerticalPosition();
-        startPos = pawnStartRank((Pawn) piece);
-        yDirection = (piece.getTeam() == WHITE) ? 1 : -1;
-    }
-
     private void addPawnEnPassantMovesDirection(int direction, BoardMap board, Piece piece, Game game) {
+        int xPos = piece.getCoordinate().getXPos();
+        int yPos = piece.getCoordinate().getYPos();
+        int yDirection = (piece.getTeam() == WHITE) ? 1 : -1;
+
         if (board.get(board.getCoordinateArray()[xPos + direction][yPos]) instanceof Pawn otherPawn
                 && enemyTeam(piece, otherPawn)) {
             if (pawnCanBeTakenEnPassant(otherPawn, game)) {
