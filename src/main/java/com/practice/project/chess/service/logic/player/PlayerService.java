@@ -91,11 +91,11 @@ public class PlayerService {
 
     public void setStartPiecesForPlayer(PlayerDao player) {
         int yForMajorPieces = (player.getTeam() == Team.WHITE) ? 0 : 7;
-        for (int xPos = 0; xPos < BoardSize.horizontalSize; xPos++)
+        for (int xPos = 0; xPos < BoardSize.HORIZONTAL_SIZE; xPos++)
             player.getPieces().add(pieceService.getStartingPiece(xPos, yForMajorPieces, player.getTeam()));
 
         int yForPawns = (player.getTeam() == Team.WHITE) ? 1 : 6;
-        for (int xPos = 0; xPos < BoardSize.horizontalSize; xPos++)
+        for (int xPos = 0; xPos < BoardSize.HORIZONTAL_SIZE; xPos++)
             player.getPieces().add(pieceService.getStartingPiece(xPos, yForPawns, player.getTeam()));
 
         playerRepository.save(player);

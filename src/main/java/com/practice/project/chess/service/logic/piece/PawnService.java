@@ -46,7 +46,7 @@ public class PawnService {
         int xPos = pawn.getCoordinate().getXPos();
         int yPos = pawn.getCoordinate().getYPos();
 
-        if (xPos + 1 < BoardSize.horizontalSize)
+        if (xPos + 1 < BoardSize.HORIZONTAL_SIZE)
             pawn.addAttackedSquare(board.getCoordinateByPos(xPos + 1, yPos + 1));
         if (xPos > 0)
             pawn.addAttackedSquare(board.getCoordinateByPos(xPos - 1, yPos + 1));
@@ -57,7 +57,7 @@ public class PawnService {
         int xPos = pawn.getCoordinate().getXPos();
         int yPos = pawn.getCoordinate().getYPos();
 
-        if (xPos + 1 < BoardSize.horizontalSize)
+        if (xPos + 1 < BoardSize.HORIZONTAL_SIZE)
             pawn.addAttackedSquare(board.getCoordinateByPos(xPos + 1, yPos + 1));
         if (xPos > 0)
             pawn.addAttackedSquare(board.getCoordinateByPos(xPos - 1, yPos + 1));
@@ -77,7 +77,7 @@ public class PawnService {
     private void addPieceTakingMovesToMovableSquares(Piece pawn, BoardMap board) {
         int xPos = pawn.getCoordinate().getXPos();
 
-        if (xPos + 1 < BoardSize.horizontalSize)
+        if (xPos + 1 < BoardSize.HORIZONTAL_SIZE)
             addRightTakingMoveToMovableSquares(pawn, board);
         if (xPos > 0)
             addLeftTakingMoveToMovableSquares(pawn, board);

@@ -37,7 +37,7 @@ public class AllUtil {
     }
 
     public static boolean withinBoard(int x, int y) {
-        return (x >= 0 && x < BoardSize.horizontalSize) && (y >= 0 && y < BoardSize.verticalSize);
+        return (x >= 0 && x < BoardSize.HORIZONTAL_SIZE) && (y >= 0 && y < BoardSize.VERTICAL_SIZE);
     }
 
     public static void addMovableSquareIfEmptyOrEnemy(int x, int y, Piece piece, BoardMap board) {

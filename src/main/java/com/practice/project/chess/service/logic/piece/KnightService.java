@@ -40,10 +40,10 @@ public class KnightService {
         int y1 = yPos + 2 * xDirection * yRelativeDirection;
         int y2 = yPos + xDirection * yRelativeDirection;
 
-        if (0 <= x1 && x1 < BoardSize.horizontalSize && 0 <= y1 && y1 < BoardSize.verticalSize){
+        if (0 <= x1 && x1 < BoardSize.HORIZONTAL_SIZE && 0 <= y1 && y1 < BoardSize.VERTICAL_SIZE){
             addMovableSquareIfEmptyOrEnemy(x1, y1, piece, board);
         }
-        if (0 <= x2 && x2 < BoardSize.horizontalSize && 0 <= y2 && y2 < BoardSize.verticalSize){
+        if (0 <= x2 && x2 < BoardSize.HORIZONTAL_SIZE && 0 <= y2 && y2 < BoardSize.VERTICAL_SIZE){
             addMovableSquareIfEmptyOrEnemy(x2, y2, piece, board);
         }
     }

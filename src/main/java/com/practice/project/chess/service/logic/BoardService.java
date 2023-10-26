@@ -42,8 +42,8 @@ public class BoardService {
         Coordinate[][] coordinateArray = getStandardCoordinateArray();
         BoardMap boardMap = new BoardMap(coordinateArray);
 
-        for (int i = 0; i < BoardSize.horizontalSize; i++) {
-            for (int j = 0; j < BoardSize.verticalSize; j++) {
+        for (int i = 0; i < BoardSize.HORIZONTAL_SIZE; i++) {
+            for (int j = 0; j < BoardSize.VERTICAL_SIZE; j++) {
                 boardMap.put(coordinateArray[i][j], null);
             }
         }
@@ -51,9 +51,9 @@ public class BoardService {
     }
 
     private Coordinate[][] getStandardCoordinateArray() {
-        Coordinate[][] coordinateArray = new Coordinate[BoardSize.horizontalSize][BoardSize.verticalSize];
-        for (int i = 0; i < BoardSize.horizontalSize; i++) {
-            for (int j = 0; j < BoardSize.verticalSize; j++) {
+        Coordinate[][] coordinateArray = new Coordinate[BoardSize.HORIZONTAL_SIZE][BoardSize.VERTICAL_SIZE];
+        for (int i = 0; i < BoardSize.HORIZONTAL_SIZE; i++) {
+            for (int j = 0; j < BoardSize.VERTICAL_SIZE; j++) {
                 coordinateArray[i][j] = new Coordinate(i, j);
             }
         }

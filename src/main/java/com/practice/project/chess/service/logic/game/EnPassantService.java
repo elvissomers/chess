@@ -33,7 +33,7 @@ public class EnPassantService {
         if (yPos == startPos + 3 * yDirection) {
             if (xPos > 0)
                 addPawnEnPassantMovesDirection(-1, board, piece, game);
-            if (xPos + 1 < BoardSize.horizontalSize)
+            if (xPos + 1 < BoardSize.HORIZONTAL_SIZE)
                 addPawnEnPassantMovesDirection(1, board, piece, game);
         }
     }

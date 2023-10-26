@@ -9,18 +9,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class MoveOptionService {
 
-    private final int[] directions = {-1, 1};
+    private final static int[] DIRECTIONS = {-1, 1};
 
-    public void addHorizontalMoves(Piece piece, BoardMap board){
+    public static void addHorizontalMoves(Piece piece, BoardMap board){
         int xPos = piece.getCoordinate().getXPos();
         int yPos = piece.getCoordinate().getYPos();
 
-        for (int direction : directions) {
+        for (int direction : DIRECTIONS) {
             addHorizontalMovesForDirection(xPos, yPos, direction, piece, board);
         }
     }
 
-    private void addHorizontalMovesForDirection(int xPos, int yPos, int direction, Piece piece, BoardMap board) {
+    private static void addHorizontalMovesForDirection(int xPos, int yPos, int direction, Piece piece, BoardMap board) {
         int x = xPos + direction;
         while (AllUtil.withinBoard(x, yPos)) {
             AllUtil.addMovableSquareIfEmptyOrEnemy(x, yPos, piece, board);
@@ -34,7 +34,7 @@ public class MoveOptionService {
         int xPos = piece.getCoordinate().getXPos();
         int yPos = piece.getCoordinate().getYPos();
 
-        for (int direction : directions) {
+        for (int direction : DIRECTIONS) {
             addVerticalMovesForDirection(xPos, yPos, direction, piece, board);
         }
     }
@@ -53,8 +53,8 @@ public class MoveOptionService {
         int xPos = piece.getCoordinate().getXPos();
         int yPos = piece.getCoordinate().getYPos();
 
-        for (int xDirection : directions) {
-            for (int yDirection : directions) {
+        for (int xDirection : DIRECTIONS) {
+            for (int yDirection : DIRECTIONS) {
                 addDiagonalMovesForDirection(xPos, yPos, xDirection, yDirection, piece, board);
             }
         }
