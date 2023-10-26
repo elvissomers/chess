@@ -8,6 +8,7 @@ C:\Users\eso13215\IdeaProjects\chess\src\main\java\com\practice\project\chess\se
 C:\Users\eso13215\IdeaProjects\chess\src\main\java\com\practice\project\chess\service\exception\ElementNotFoundException.java
 C:\Users\eso13215\IdeaProjects\chess\src\main\java\com\practice\project\chess\service\logic\BoardService.java
 C:\Users\eso13215\IdeaProjects\chess\src\main\java\com\practice\project\chess\controller\dto\mapper\GameDtoMapper.java
+C:\Users\eso13215\IdeaProjects\chess\src\main\java\com\practice\project\chess\controller\WebTestController.java
 C:\Users\eso13215\IdeaProjects\chess\src\main\java\com\practice\project\chess\controller\dto\MovePieceDto.java
 C:\Users\eso13215\IdeaProjects\chess\src\main\java\com\practice\project\chess\service\logic\player\PlayerService.java
 C:\Users\eso13215\IdeaProjects\chess\src\main\java\com\practice\project\chess\repository\MoveRepository.java

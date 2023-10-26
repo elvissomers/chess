@@ -4,17 +4,24 @@ import com.practice.project.chess.repository.dao.MoveDao;
 import com.practice.project.chess.repository.dao.pieces.PieceDao;
 import com.practice.project.chess.repository.enums.PieceType;
 import com.practice.project.chess.service.model.movehistory.Move;
+import com.practice.project.chess.service.model.pieces.Bishop;
+import com.practice.project.chess.service.model.pieces.Piece;
 import org.junit.jupiter.api.Test;
+import org.mockito.Incubating;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+
 class MoveMapperTest {
 
-    @Autowired
-    private MoveMapper moveMapper;
+    @Mock
+    private PieceMapper pieceMapper;
+
+    private final MoveMapper moveMapper = new MoveMapper(pieceMapper);
 
 
     @Test
@@ -27,6 +34,8 @@ class MoveMapperTest {
         piece.setPieceType(PieceType.BISHOP);
         PieceDao takenPiece = new PieceDao();
         takenPiece.setPieceType(PieceType.PAWN);
+
+        Mockito.when(pieceMapper.daoToPiece(Mockito.any(PieceDao.class))).thenReturn(new Bishop());
 
         MoveDao moveDao = MoveDao.builder()
                 .verticalFrom(verticalFrom)
