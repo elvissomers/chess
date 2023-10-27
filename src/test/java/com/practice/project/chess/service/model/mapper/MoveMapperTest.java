@@ -53,6 +53,9 @@ class MoveMapperTest {
         Move result = moveMapper.daoToMove(moveDao);
 
         assertSame(result.getVerticalTo(), verticalTo);
+        assertSame(result.getHorizontalTo(), horizontalTo);
+        assertSame(result.getVerticalFrom(), verticalFrom);
+        assertSame(result.getHorizontalFrom(), horizontalFrom);
     }
 
     @Test
