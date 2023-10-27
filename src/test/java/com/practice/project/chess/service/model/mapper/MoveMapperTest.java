@@ -7,21 +7,25 @@ import com.practice.project.chess.service.model.movehistory.Move;
 import com.practice.project.chess.service.model.pieces.Bishop;
 import com.practice.project.chess.service.model.pieces.Piece;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Incubating;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+@ExtendWith(MockitoExtension.class)
 class MoveMapperTest {
 
     @Mock
     private PieceMapper pieceMapper;
 
-    private final MoveMapper moveMapper = new MoveMapper(pieceMapper);
+    @InjectMocks
+    private MoveMapper moveMapper;
 
 
     @Test
