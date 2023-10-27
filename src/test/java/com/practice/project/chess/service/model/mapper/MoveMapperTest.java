@@ -56,6 +56,9 @@ class MoveMapperTest {
         assertSame(result.getHorizontalTo(), horizontalTo);
         assertSame(result.getVerticalFrom(), verticalFrom);
         assertSame(result.getHorizontalFrom(), horizontalFrom);
+
+        assertNull(result.getPromotedTo());
+        assertNull(result.getCastleType());
     }
 
     @Test
