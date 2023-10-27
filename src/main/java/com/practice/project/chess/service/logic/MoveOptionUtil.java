@@ -2,13 +2,12 @@ package com.practice.project.chess.service.logic;
 
 import com.practice.project.chess.service.model.pieces.Piece;
 import com.practice.project.chess.service.structures.BoardMap;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
-@RequiredArgsConstructor
-@Service
-public class MoveOptionService {
+public class MoveOptionUtil {
 
+    private MoveOptionUtil() {
+
+    }
     private final static int[] DIRECTIONS = {-1, 1};
 
     public static void addHorizontalMoves(Piece piece, BoardMap board){
@@ -30,7 +29,7 @@ public class MoveOptionService {
         }
     }
 
-    public void addVerticalMoves(Piece piece, BoardMap board){
+    public static void addVerticalMoves(Piece piece, BoardMap board){
         int xPos = piece.getCoordinate().getXPos();
         int yPos = piece.getCoordinate().getYPos();
 
@@ -39,7 +38,7 @@ public class MoveOptionService {
         }
     }
 
-    private void addVerticalMovesForDirection(int xPos, int yPos, int direction, Piece piece, BoardMap board) {
+    private static void addVerticalMovesForDirection(int xPos, int yPos, int direction, Piece piece, BoardMap board) {
         int y = yPos + direction;
         while (AllUtil.withinBoard(xPos, y)) {
             AllUtil.addMovableSquareIfEmptyOrEnemy(xPos, y, piece, board);
@@ -49,7 +48,7 @@ public class MoveOptionService {
         }
     }
 
-    public void addDiagonalMoves(Piece piece, BoardMap board){
+    public static void addDiagonalMoves(Piece piece, BoardMap board){
         int xPos = piece.getCoordinate().getXPos();
         int yPos = piece.getCoordinate().getYPos();
 
@@ -60,7 +59,7 @@ public class MoveOptionService {
         }
     }
     
-    private void addDiagonalMovesForDirection(int xPos, int yPos, int xDirection, int yDirection,
+    private static void addDiagonalMovesForDirection(int xPos, int yPos, int xDirection, int yDirection,
                                               Piece piece, BoardMap board) {
         int x = xPos + xDirection;
         int y = yPos + yDirection;
